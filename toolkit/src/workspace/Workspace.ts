@@ -1,62 +1,24 @@
-export interface WorkspaceProject {
-
-    name: string;
-
-    version: string;
-
-    root: string;
-
-}
-
-export interface WorkspaceState {
-
-    project: WorkspaceProject;
-
-    createdAt: string;
-
-    updatedAt: string;
-
-}
+﻿import { WorkspaceState } from "../types/WorkspaceState.js";
 
 export class Workspace {
 
-    private state: WorkspaceState;
+    private state: WorkspaceState | null = null;
 
-    constructor() {
+    public setState(
+        state: WorkspaceState
+    ): void {
 
-        const now = new Date().toISOString();
-
-        this.state = {
-
-            project: {
-
-                name: "",
-
-                version: "",
-
-                root: ""
-
-            },
-
-            createdAt: now,
-
-            updatedAt: now
-
-        };
+        this.state = state;
 
     }
 
     public getState(): WorkspaceState {
 
+        if (this.state === null) {
+            throw new Error("Workspace is not loaded.");
+        }
+
         return this.state;
-
-    }
-
-    public updateProject(project: WorkspaceProject): void {
-
-        this.state.project = project;
-
-        this.state.updatedAt = new Date().toISOString();
 
     }
 

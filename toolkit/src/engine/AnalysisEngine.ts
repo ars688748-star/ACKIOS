@@ -1,4 +1,5 @@
-﻿import { WorkspaceState } from "../types/WorkspaceState.js";
+﻿import { Workspace } from "../workspace/Workspace.js";
+import { WorkspaceState } from "../types/WorkspaceState.js";
 
 import { AnalysisReport } from "./AnalysisReport.js";
 
@@ -15,13 +16,18 @@ import { createRecommendationProviders } from "./RecommendationRegistry.js";
 export class AnalysisEngine {
 
     public analyze(
-        workspace: WorkspaceState
+        workspace: Workspace | WorkspaceState
     ): AnalysisReport {
+
+        const state =
+            workspace instanceof Workspace
+                ? workspace.getState()
+                : workspace;
 
         const issues =
             new RuleEngine(
                 createRules()
-            ).analyze(workspace);
+            ).analyze(state);
 
         const recommendations =
             new RecommendationEngine(
@@ -50,8 +56,7 @@ export class AnalysisEngine {
 
             score: score.total,
 
-            categoryScores:
-                score.categories,
+            categoryScores: score.categories,
 
             issues,
 

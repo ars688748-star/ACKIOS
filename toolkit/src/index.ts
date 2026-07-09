@@ -1,52 +1,8 @@
-﻿#!/usr/bin/env node
+﻿export * from "./Toolkit.js";
 
-import { Command } from "commander";
-import chalk from "chalk";
+export * from "./engine/AnalysisEngine.js";
+export * from "./engine/AnalysisReport.js";
 
-import { createContainer } from "./core/bootstrap.js";
-import { Logger } from "./core/Logger.js";
-import { Workspace } from "./workspace/Workspace.js";
-import { runAudit } from "./commands/audit.js";
-
-const container = createContainer();
-
-const logger = container.resolve<Logger>("logger");
-const workspace = container.resolve<Workspace>("workspace");
-
-const program = new Command();
-
-program
-    .name("acki")
-    .description("ACKI Development Toolkit")
-    .version("0.2.0");
-
-program
-    .command("doctor")
-    .description("Check toolkit")
-    .action(() => {
-
-        logger.info("Starting doctor");
-
-        console.log("");
-        console.log(chalk.green("ACKI Toolkit OK"));
-        console.log("");
-
-        console.log(workspace.getState());
-
-    });
-
-program
-    .command("audit")
-    .description("Analyze current project")
-    .action(async () => {
-
-        logger.info("Starting audit");
-
-        await runAudit();
-
-    });
-
-
-program.parse();
-
-
+export * from "./workspace/Workspace.js";
+export * from "./workspace/loader/DefaultWorkspaceLoader.js";
+export * from "./workspace/manager/DefaultWorkspaceManager.js";
