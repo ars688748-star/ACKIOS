@@ -12,7 +12,7 @@ describe("ScriptsRule", () => {
         workspace.package.scripts = {};
 
         const issues =
-            new ScriptsRule().analyze(workspace);
+            new ScriptsRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(5);
 
@@ -37,10 +37,11 @@ describe("ScriptsRule", () => {
         };
 
         const issues =
-            new ScriptsRule().analyze(workspace);
+            new ScriptsRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+

@@ -13,7 +13,7 @@ describe("DependenciesRule", () => {
         workspace.dependencies.development = [];
 
         const issues =
-            new DependenciesRule().analyze(workspace);
+            new DependenciesRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(2);
 
@@ -34,10 +34,11 @@ describe("DependenciesRule", () => {
         ];
 
         const issues =
-            new DependenciesRule().analyze(workspace);
+            new DependenciesRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+

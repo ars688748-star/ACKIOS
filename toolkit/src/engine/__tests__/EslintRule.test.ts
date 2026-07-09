@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 
 import { EslintRule } from "../rules/EslintRule.js";
 import { createWorkspace } from "./helpers/WorkspaceBuilder.js";
@@ -12,7 +12,7 @@ describe("EslintRule", () => {
         workspace.eslint.exists = false;
 
         const issues =
-            new EslintRule().analyze(workspace);
+            new EslintRule().analyze({ workspace: workspace  });
 
         expect(
             issues.some(
@@ -27,7 +27,7 @@ describe("EslintRule", () => {
         const workspace = createWorkspace();
 
         const issues =
-            new EslintRule().analyze(workspace);
+            new EslintRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
@@ -42,7 +42,7 @@ describe("EslintRule", () => {
         workspace.framework.typescript = true;
 
         const issues =
-            new EslintRule().analyze(workspace);
+            new EslintRule().analyze({ workspace: workspace  });
 
         expect(
             issues.some(

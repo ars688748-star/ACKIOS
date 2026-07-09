@@ -10,7 +10,7 @@ describe("PackageManagerRule", () => {
         const workspace = createWorkspace();
 
         const issues =
-            new PackageManagerRule().analyze(workspace);
+            new PackageManagerRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(1);
 
@@ -26,10 +26,11 @@ describe("PackageManagerRule", () => {
         workspace.package.packageManager = "npm@11";
 
         const issues =
-            new PackageManagerRule().analyze(workspace);
+            new PackageManagerRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+

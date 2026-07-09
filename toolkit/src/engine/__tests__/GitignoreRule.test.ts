@@ -12,7 +12,7 @@ describe("GitignoreRule", () => {
         workspace.structure.hasGitignore = false;
 
         const issues =
-            new GitignoreRule().analyze(workspace);
+            new GitignoreRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(1);
 
@@ -28,10 +28,11 @@ describe("GitignoreRule", () => {
         workspace.structure.hasGitignore = true;
 
         const issues =
-            new GitignoreRule().analyze(workspace);
+            new GitignoreRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+

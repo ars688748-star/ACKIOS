@@ -12,7 +12,7 @@ describe("LicenseRule", () => {
         workspace.structure.hasLicense = false;
 
         const issues =
-            new LicenseRule().analyze(workspace);
+            new LicenseRule().analyze({ workspace: workspace  });
 
         expect(
             issues.some(i => i.id === "project.license.file")
@@ -27,7 +27,7 @@ describe("LicenseRule", () => {
         workspace.package.license = "";
 
         const issues =
-            new LicenseRule().analyze(workspace);
+            new LicenseRule().analyze({ workspace: workspace  });
 
         expect(
             issues.some(i => i.id === "package.license")
@@ -43,10 +43,11 @@ describe("LicenseRule", () => {
         workspace.structure.hasLicense = true;
 
         const issues =
-            new LicenseRule().analyze(workspace);
+            new LicenseRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+

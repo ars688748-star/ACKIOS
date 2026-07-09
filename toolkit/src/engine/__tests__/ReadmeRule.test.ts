@@ -12,7 +12,7 @@ describe("ReadmeRule", () => {
         workspace.readme.exists = false;
 
         const issues =
-            new ReadmeRule().analyze(workspace);
+            new ReadmeRule().analyze({ workspace: workspace  });
 
         expect(
             issues.some(
@@ -29,7 +29,7 @@ describe("ReadmeRule", () => {
         workspace.readme.exists = true;
 
         const issues =
-            new ReadmeRule().analyze(workspace);
+            new ReadmeRule().analyze({ workspace: workspace  });
 
         expect(
             issues.some(
@@ -40,3 +40,4 @@ describe("ReadmeRule", () => {
     });
 
 });
+

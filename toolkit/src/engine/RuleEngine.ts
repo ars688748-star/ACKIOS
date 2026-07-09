@@ -1,4 +1,4 @@
-﻿import { WorkspaceState } from "../types/WorkspaceState.js";
+import { WorkspaceState } from "../types/WorkspaceState.js";
 
 import { AnalysisIssue } from "./AnalysisIssue.js";
 import { Rule } from "./contracts/Rule.js";
@@ -22,7 +22,7 @@ export class RuleEngine {
         for (const rule of this.rules) {
 
             issues.push(
-                ...rule.analyze(workspace)
+                ...rule.analyze({ workspace })
             );
 
         }
@@ -32,3 +32,4 @@ export class RuleEngine {
     }
 
 }
+

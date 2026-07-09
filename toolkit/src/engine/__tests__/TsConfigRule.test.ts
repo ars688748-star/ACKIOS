@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 
 import { TsConfigRule } from "../rules/TsConfigRule.js";
 import { createWorkspace } from "./helpers/WorkspaceBuilder.js";
@@ -48,7 +48,7 @@ describe("TsConfigRule", () => {
         };
 
         const issues =
-            new TsConfigRule().analyze(workspace);
+            new TsConfigRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(4);
 
@@ -97,10 +97,11 @@ describe("TsConfigRule", () => {
         };
 
         const issues =
-            new TsConfigRule().analyze(workspace);
+            new TsConfigRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+

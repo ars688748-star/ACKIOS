@@ -10,7 +10,7 @@ describe("EnginesRule", () => {
         const workspace = createWorkspace();
 
         const issues =
-            new EnginesRule().analyze(workspace);
+            new EnginesRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(1);
 
@@ -26,10 +26,11 @@ describe("EnginesRule", () => {
         workspace.package.engines.node = ">=22";
 
         const issues =
-            new EnginesRule().analyze(workspace);
+            new EnginesRule().analyze({ workspace: workspace  });
 
         expect(issues).toHaveLength(0);
 
     });
 
 });
+
