@@ -1,0 +1,36 @@
+.topbar{
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    background:#111827;
+    border-bottom:1px solid #1f2937;
+}
+
+.topbar-left h2{
+    margin:0;
+    color:white;
+    font-size:20px;
+}
+
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#10b981;
+}
+
+.icon-button{
+    cursor:pointer;
+}
+
+.version{
+    color:#94a3b8;
+}

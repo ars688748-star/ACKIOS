@@ -1,0 +1,54 @@
+{
+  "project": {
+    "name": "@acki/toolkit",
+    "version": "0.1.0",
+    "root": "D:\\ACKI-FAN-Studio\\acki-fan-studio\\tools"
+  },
+  "environment": {
+    "nodeVersion": "v24.18.0",
+    "platform": "win32",
+    "hasGit": true,
+    "hasTypeScript": true,
+    "repositoryRoot": "D:\\ACKI-FAN-Studio\\acki-fan-studio"
+  },
+  "git": {
+    "hasRepository": true,
+    "branch": "main",
+    "remoteUrl": "https://github.com/ars688748-star/ACKI-FAN-Studio.git",
+    "commit": "77e05b2"
+  },
+  "framework": {
+    "typescript": true,
+    "react": false,
+    "electron": false,
+    "vite": false,
+    "vue": false,
+    "next": false,
+    "nest": false,
+    "express": false
+  },
+  "dependencies": {
+    "production": [
+      "chalk",
+      "commander"
+    ],
+    "development": [
+      "@eslint/js",
+      "@types/node",
+      "eslint",
+      "globals",
+      "tsx",
+      "typescript",
+      "typescript-eslint",
+      "vitest"
+    ],
+    "peer": [],
+    "optional": []
+  },
+  "structure": {
+    "hasReadme": true,
+    "hasLicense": false,
+    "hasGitignore": true,
+    "hasEditorConfig": true
+  }
+}
