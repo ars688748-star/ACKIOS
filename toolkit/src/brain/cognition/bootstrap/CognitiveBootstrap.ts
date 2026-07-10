@@ -1,12 +1,7 @@
-﻿import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
-import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
+﻿import { CognitiveRuntimeFactory } from "../factory/CognitiveRuntimeFactory.js";
 
-export function createCognitiveRuntime(): CognitiveRuntime {
+export function createCognitiveRuntime(){
 
-    const pipeline = new CognitivePipeline();
-
-    return new CognitiveRuntime(
-        pipeline
-    );
+    return CognitiveRuntimeFactory.create();
 
 }

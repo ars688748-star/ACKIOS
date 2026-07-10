@@ -24,3 +24,4 @@ export * from "./stages/index.js";
 export * from "./registry/index.js";
 export * from "./runtime/index.js";
 export * from "./bootstrap/index.js";
+export * from "./factory/index.js";
