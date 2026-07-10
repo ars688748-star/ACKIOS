@@ -52,3 +52,4 @@ export * from "./container/index.js";
 export * from "./modules/index.js";
 export * from "./boot/index.js";
 export * from "./execution-context/index.js";
+export * from "./loader/index.js";
