@@ -39,3 +39,4 @@ export * from "./identity/index.js";
 export * from "./cache/index.js";
 export * from "./blackboard/index.js";
 export * from "./telemetry/index.js";
+export * from "./messaging/index.js";
