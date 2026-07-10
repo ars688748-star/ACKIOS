@@ -1,15 +1,19 @@
-﻿import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
+﻿import { ICognitiveStage } from "../integration/ICognitiveStage.js";
 
-export class CognitiveRegistry {
+export class CognitiveRegistry{
 
-    private readonly modules: ICognitiveModule[] = [];
+    private readonly stages:ICognitiveStage[]=[];
 
-    register(module: ICognitiveModule): void {
-        this.modules.push(module);
+    register(stage:ICognitiveStage){
+
+        this.stages.push(stage);
+
     }
 
-    getModules(): readonly ICognitiveModule[] {
-        return this.modules;
+    getStages():readonly ICognitiveStage[]{
+
+        return this.stages;
+
     }
 
 }

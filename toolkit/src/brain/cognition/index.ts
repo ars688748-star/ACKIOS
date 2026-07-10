@@ -21,3 +21,6 @@ export * from "./context/index.js";
 export * from "./pipeline/index.js";
 export * from "./services/index.js";
 export * from "./stages/index.js";
+export * from "./registry/index.js";
+export * from "./runtime/index.js";
+export * from "./bootstrap/index.js";

@@ -1,19 +1,25 @@
-﻿import { ICognitiveRuntime } from "../interfaces/ICognitiveRuntime.js";
-import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
-import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
-import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
+﻿import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
+import { CognitiveRegistry } from "../registry/CognitiveRegistry.js";
 
-export class CognitiveRuntime implements ICognitiveRuntime {
+export class CognitiveRuntime{
 
-    private readonly pipeline = new CognitivePipeline();
+    constructor(
+        private readonly pipeline:CognitivePipeline,
+        private readonly registry:CognitiveRegistry
+    ){}
 
-    register(module: ICognitiveModule): void {
-        this.pipeline.add(module);
+    async initialize(){
+
+        foreach($null in @()){}
+
+        for (const stage of this.registry.getStages()) { this.pipeline.register(stage); }
+
     }
 
-    async execute(context: ICognitiveContext): Promise<void> {
+    async execute(context:unknown){
+
         await this.pipeline.execute(context);
+
     }
 
 }
-
