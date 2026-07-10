@@ -1,4 +1,4 @@
-{
+﻿{
     "name":  "@acki/toolkit",
     "version":  "0.1.0",
     "description":  "ACKI Development Toolkit",
@@ -6,7 +6,7 @@
     "type":  "module",
     "main":  "dist/index.js",
     "bin":  {
-                "acki":  "dist/index.js"
+                "acki": "dist/bin/acki.js"
             },
     "scripts":  {
                     "build":  "tsc",
@@ -30,3 +30,4 @@
                             "vitest":  "^4.1.10"
                         }
 }
+

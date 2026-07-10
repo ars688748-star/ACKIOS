@@ -1,0 +1,497 @@
+{
+  "score": 30,
+  "categoryScores": {
+    "project": 100,
+    "documentation": 85,
+    "repository": 95,
+    "package": 84,
+    "dependencies": 100,
+    "typescript": 71,
+    "security": 100,
+    "quality": 95
+  },
+  "issues": [
+    {
+      "id": "package.engines.node.missing",
+      "category": "package",
+      "severity": "warning",
+      "title": "Node.js engine is missing",
+      "description": "The package.json file does not define engines.node."
+    },
+    {
+      "id": "project.eslint.typescript",
+      "category": "quality",
+      "severity": "warning",
+      "title": "TypeScript ESLint is not configured",
+      "description": "typescript-eslint was not detected in the ESLint configuration."
+    },
+    {
+      "id": "project.license.file",
+      "category": "documentation",
+      "severity": "warning",
+      "title": "LICENSE file is missing",
+      "description": "The project does not contain a LICENSE file."
+    },
+    {
+      "id": "package.license",
+      "category": "documentation",
+      "severity": "warning",
+      "title": "Package license is not specified",
+      "description": "The package.json file does not contain a valid SPDX license identifier."
+    },
+    {
+      "id": "package.license",
+      "category": "package",
+      "severity": "warning",
+      "title": "Package license missing",
+      "description": "package.json does not contain a license field."
+    },
+    {
+      "id": "package.packageManager.missing",
+      "category": "package",
+      "severity": "warning",
+      "title": "Package manager is missing",
+      "description": "The package.json file does not define the packageManager field."
+    },
+    {
+      "id": "project.readme.short",
+      "category": "documentation",
+      "severity": "info",
+      "title": "README is too short",
+      "description": "Consider expanding the README with more project documentation."
+    },
+    {
+      "id": "project.readme.installation",
+      "category": "documentation",
+      "severity": "info",
+      "title": "Installation section missing",
+      "description": "Add an Installation section to README."
+    },
+    {
+      "id": "project.readme.usage",
+      "category": "documentation",
+      "severity": "info",
+      "title": "Usage section missing",
+      "description": "Add a Usage section to README."
+    },
+    {
+      "id": "project.readme.license",
+      "category": "documentation",
+      "severity": "info",
+      "title": "License section missing",
+      "description": "Add a License section to README."
+    },
+    {
+      "id": "project.readme.contributing",
+      "category": "documentation",
+      "severity": "info",
+      "title": "Contributing section missing",
+      "description": "Add a Contributing section to README."
+    },
+    {
+      "id": "package.repository.missing",
+      "category": "repository",
+      "severity": "warning",
+      "title": "Repository is missing",
+      "description": "The package.json file does not define the repository field."
+    },
+    {
+      "id": "package.scripts.test",
+      "category": "package",
+      "severity": "info",
+      "title": "Missing \"test\" script",
+      "description": "package.json does not define the \"test\" script."
+    },
+    {
+      "id": "typescript.strict",
+      "category": "typescript",
+      "severity": "warning",
+      "title": "Strict mode is disabled",
+      "description": "Enable compilerOptions.strict."
+    },
+    {
+      "id": "typescript.noImplicitAny",
+      "category": "typescript",
+      "severity": "warning",
+      "title": "noImplicitAny is disabled",
+      "description": "Enable compilerOptions.noImplicitAny."
+    },
+    {
+      "id": "typescript.noUnusedLocals",
+      "category": "typescript",
+      "severity": "info",
+      "title": "noUnusedLocals is disabled",
+      "description": "Enable compilerOptions.noUnusedLocals."
+    },
+    {
+      "id": "typescript.noUnusedParameters",
+      "category": "typescript",
+      "severity": "info",
+      "title": "Enable compilerOptions.noUnusedParameters.",
+      "description": "Enable compilerOptions.noUnusedParameters."
+    },
+    {
+      "id": "typescript.noUncheckedIndexedAccess",
+      "category": "typescript",
+      "severity": "info",
+      "title": "noUncheckedIndexedAccess is disabled",
+      "description": "Enable compilerOptions.noUncheckedIndexedAccess."
+    },
+    {
+      "id": "typescript.exactOptionalPropertyTypes",
+      "category": "typescript",
+      "severity": "info",
+      "title": "exactOptionalPropertyTypes is disabled",
+      "description": "Enable compilerOptions.exactOptionalPropertyTypes."
+    },
+    {
+      "id": "typescript.isolatedModules",
+      "category": "typescript",
+      "severity": "info",
+      "title": "isolatedModules is disabled",
+      "description": "Enable compilerOptions.isolatedModules."
+    },
+    {
+      "id": "typescript.strict",
+      "category": "typescript",
+      "severity": "warning",
+      "title": "Strict mode disabled",
+      "description": "Enable compilerOptions.strict."
+    },
+    {
+      "id": "typescript.noImplicitAny",
+      "category": "typescript",
+      "severity": "warning",
+      "title": "noImplicitAny disabled",
+      "description": "Enable compilerOptions.noImplicitAny."
+    },
+    {
+      "id": "typescript.noUnusedLocals",
+      "category": "typescript",
+      "severity": "info",
+      "title": "Unused locals are not checked",
+      "description": "Enable compilerOptions.noUnusedLocals."
+    },
+    {
+      "id": "typescript.noUnusedParameters",
+      "category": "typescript",
+      "severity": "info",
+      "title": "Unused parameters are not checked",
+      "description": "Enable compilerOptions.noUnusedParameters."
+    },
+    {
+      "id": "typescript.casing",
+      "category": "typescript",
+      "severity": "info",
+      "title": "Filename casing check disabled",
+      "description": "Enable forceConsistentCasingInFileNames."
+    },
+    {
+      "id": "typescript.skipLibCheck",
+      "category": "typescript",
+      "severity": "info",
+      "title": "skipLibCheck disabled",
+      "description": "Consider enabling skipLibCheck for faster builds."
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "recommendation.engines.node",
+      "category": "package",
+      "priority": "medium",
+      "title": "Specify the supported Node.js version",
+      "description": "Add an engines.node field to package.json (for example: \">=22\") so contributors and CI use a supported Node.js version."
+    },
+    {
+      "id": "recommendation.license.file",
+      "category": "documentation",
+      "priority": "high",
+      "title": "Add a LICENSE file",
+      "description": "Create a LICENSE file in the project root that matches the license declared in package.json."
+    },
+    {
+      "id": "recommendation.package.license",
+      "category": "documentation",
+      "priority": "medium",
+      "title": "Specify an SPDX license",
+      "description": "Set the package.json license field to a valid SPDX identifier such as MIT, Apache-2.0 or GPL-3.0-or-later."
+    },
+    {
+      "id": "recommendation.package.license",
+      "category": "documentation",
+      "priority": "medium",
+      "title": "Specify an SPDX license",
+      "description": "Set the package.json license field to a valid SPDX identifier such as MIT, Apache-2.0 or GPL-3.0-or-later."
+    },
+    {
+      "id": "recommendation.packageManager",
+      "category": "package",
+      "priority": "medium",
+      "title": "Specify the package manager",
+      "description": "Add the packageManager field to package.json to ensure contributors and CI use the same package manager version (for example: npm@11, pnpm@10, yarn@4 or bun@1)."
+    },
+    {
+      "id": "recommendation.package.scripts.test",
+      "priority": "medium",
+      "category": "package",
+      "title": "Add \"test\" script",
+      "description": "Add a \"test\" entry to the scripts section of package.json."
+    },
+    {
+      "id": "recommendation.typescript.strict",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.strict."
+    },
+    {
+      "id": "recommendation.typescript.noImplicitAny",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noImplicitAny."
+    },
+    {
+      "id": "recommendation.typescript.noUnusedLocals",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noUnusedLocals."
+    },
+    {
+      "id": "recommendation.typescript.noUnusedParameters",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noUnusedParameters."
+    },
+    {
+      "id": "recommendation.typescript.noUncheckedIndexedAccess",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noUncheckedIndexedAccess."
+    },
+    {
+      "id": "recommendation.typescript.exactOptionalPropertyTypes",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.exactOptionalPropertyTypes."
+    },
+    {
+      "id": "recommendation.typescript.isolatedModules",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.isolatedModules."
+    },
+    {
+      "id": "recommendation.typescript.strict",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.strict."
+    },
+    {
+      "id": "recommendation.typescript.noImplicitAny",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noImplicitAny."
+    },
+    {
+      "id": "recommendation.typescript.noUnusedLocals",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noUnusedLocals."
+    },
+    {
+      "id": "recommendation.typescript.noUnusedParameters",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable compilerOptions.noUnusedParameters."
+    },
+    {
+      "id": "recommendation.typescript.casing",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Enable forceConsistentCasingInFileNames."
+    },
+    {
+      "id": "recommendation.typescript.skipLibCheck",
+      "priority": "high",
+      "category": "typescript",
+      "title": "Improve TypeScript configuration",
+      "description": "Consider enabling skipLibCheck for faster builds."
+    }
+  ],
+  "recommendationGroups": [
+    {
+      "id": "package",
+      "title": "Package",
+      "priority": "medium",
+      "recommendations": [
+        {
+          "id": "recommendation.engines.node",
+          "category": "package",
+          "priority": "medium",
+          "title": "Specify the supported Node.js version",
+          "description": "Add an engines.node field to package.json (for example: \">=22\") so contributors and CI use a supported Node.js version."
+        },
+        {
+          "id": "recommendation.packageManager",
+          "category": "package",
+          "priority": "medium",
+          "title": "Specify the package manager",
+          "description": "Add the packageManager field to package.json to ensure contributors and CI use the same package manager version (for example: npm@11, pnpm@10, yarn@4 or bun@1)."
+        },
+        {
+          "id": "recommendation.package.scripts.test",
+          "priority": "medium",
+          "category": "package",
+          "title": "Add \"test\" script",
+          "description": "Add a \"test\" entry to the scripts section of package.json."
+        }
+      ]
+    },
+    {
+      "id": "documentation",
+      "title": "Documentation",
+      "priority": "high",
+      "recommendations": [
+        {
+          "id": "recommendation.license.file",
+          "category": "documentation",
+          "priority": "high",
+          "title": "Add a LICENSE file",
+          "description": "Create a LICENSE file in the project root that matches the license declared in package.json."
+        },
+        {
+          "id": "recommendation.package.license",
+          "category": "documentation",
+          "priority": "medium",
+          "title": "Specify an SPDX license",
+          "description": "Set the package.json license field to a valid SPDX identifier such as MIT, Apache-2.0 or GPL-3.0-or-later."
+        },
+        {
+          "id": "recommendation.package.license",
+          "category": "documentation",
+          "priority": "medium",
+          "title": "Specify an SPDX license",
+          "description": "Set the package.json license field to a valid SPDX identifier such as MIT, Apache-2.0 or GPL-3.0-or-later."
+        }
+      ]
+    },
+    {
+      "id": "typescript",
+      "title": "Typescript",
+      "priority": "high",
+      "recommendations": [
+        {
+          "id": "recommendation.typescript.strict",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.strict."
+        },
+        {
+          "id": "recommendation.typescript.noImplicitAny",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noImplicitAny."
+        },
+        {
+          "id": "recommendation.typescript.noUnusedLocals",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noUnusedLocals."
+        },
+        {
+          "id": "recommendation.typescript.noUnusedParameters",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noUnusedParameters."
+        },
+        {
+          "id": "recommendation.typescript.noUncheckedIndexedAccess",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noUncheckedIndexedAccess."
+        },
+        {
+          "id": "recommendation.typescript.exactOptionalPropertyTypes",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.exactOptionalPropertyTypes."
+        },
+        {
+          "id": "recommendation.typescript.isolatedModules",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.isolatedModules."
+        },
+        {
+          "id": "recommendation.typescript.strict",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.strict."
+        },
+        {
+          "id": "recommendation.typescript.noImplicitAny",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noImplicitAny."
+        },
+        {
+          "id": "recommendation.typescript.noUnusedLocals",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noUnusedLocals."
+        },
+        {
+          "id": "recommendation.typescript.noUnusedParameters",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable compilerOptions.noUnusedParameters."
+        },
+        {
+          "id": "recommendation.typescript.casing",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Enable forceConsistentCasingInFileNames."
+        },
+        {
+          "id": "recommendation.typescript.skipLibCheck",
+          "priority": "high",
+          "category": "typescript",
+          "title": "Improve TypeScript configuration",
+          "description": "Consider enabling skipLibCheck for faster builds."
+        }
+      ]
+    }
+  ],
+  "statistics": {
+    "issues": 26,
+    "recommendations": 19,
+    "groups": 3,
+    "errors": 0,
+    "warnings": 11,
+    "infos": 15
+  },
+  "summary": "Found 26 issue(s)."
+}

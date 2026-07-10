@@ -3,13 +3,17 @@
 import { Scanner } from "./contracts/Scanner.js";
 
 export interface GitScanResult {
+
     hasRepository: boolean;
+
     branch: string;
     remoteUrl: string;
     commit: string;
+
 }
 
-export class GitScanner implements Scanner<GitScanResult> {
+export class GitScanner
+    implements Scanner<GitScanResult> {
 
     public scan(root: string): GitScanResult {
 
@@ -17,39 +21,63 @@ export class GitScanner implements Scanner<GitScanResult> {
 
             const branch = execSync(
                 "git branch --show-current",
-                { cwd: root, encoding: "utf8" }
+                {
+                    cwd: root,
+                    encoding: "utf8",
+                    stdio: ["ignore", "pipe", "ignore"]
+                }
             ).trim();
 
             let remoteUrl = "";
 
             try {
+
                 remoteUrl = execSync(
                     "git remote get-url origin",
-                    { cwd: root, encoding: "utf8" }
+                    {
+                        cwd: root,
+                        encoding: "utf8",
+                        stdio: ["ignore", "pipe", "ignore"]
+                    }
                 ).trim();
-            } catch {
+
+            }
+            catch {
+
                 remoteUrl = "";
+
             }
 
             const commit = execSync(
                 "git rev-parse --short HEAD",
-                { cwd: root, encoding: "utf8" }
+                {
+                    cwd: root,
+                    encoding: "utf8",
+                    stdio: ["ignore", "pipe", "ignore"]
+                }
             ).trim();
 
             return {
+
                 hasRepository: true,
+
                 branch,
                 remoteUrl,
                 commit
+
             };
 
-        } catch {
+        }
+        catch {
 
             return {
+
                 hasRepository: false,
+
                 branch: "",
                 remoteUrl: "",
                 commit: ""
+
             };
 
         }

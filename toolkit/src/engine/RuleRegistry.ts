@@ -16,26 +16,61 @@ import { SecurityRule } from "./rules/SecurityRule.js";
 import { TsConfigRule } from "./rules/TsConfigRule.js";
 import { TypeScriptRule } from "./rules/TypeScriptRule.js";
 
+export class RuleRegistry {
+
+    private rules: Rule[] = [];
+
+    constructor() {
+
+        this.rules = [
+
+            new DependenciesRule(),
+            new EnginesRule(),
+            new EslintRule(),
+            new GitignoreRule(),
+            new GitRepositoryRule(),
+            new HomepageRule(),
+            new LicenseRule(),
+            new PackageLicenseRule(),
+            new PackageManagerRule(),
+            new ReadmeRule(),
+            new RepositoryRule(),
+            new ScriptsRule(),
+            new SecurityRule(),
+            new TsConfigRule(),
+            new TypeScriptRule()
+
+        ];
+
+    }
+
+
+    register(rule: Rule): void {
+
+        this.rules.push(rule);
+
+    }
+
+
+    getRules(): Rule[] {
+
+        return this.rules;
+
+    }
+
+
+    clear(): void {
+
+        this.rules = [];
+
+    }
+
+}
+
 export function createRules(): Rule[] {
 
-    return [
+    const registry = new RuleRegistry();
 
-        new DependenciesRule(),
-        new EnginesRule(),
-        new EslintRule(),
-        new GitignoreRule(),
-        new GitRepositoryRule(),
-        new HomepageRule(),
-        new LicenseRule(),
-        new PackageLicenseRule(),
-        new PackageManagerRule(),
-        new ReadmeRule(),
-        new RepositoryRule(),
-        new ScriptsRule(),
-        new SecurityRule(),
-        new TsConfigRule(),
-        new TypeScriptRule()
-
-    ];
+    return registry.getRules();
 
 }

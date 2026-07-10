@@ -1,0 +1,13 @@
+{
+    "report": {
+        "format": "console",
+        "output": ""
+    },
+    "analysis": {
+        "ignore": [
+            "node_modules",
+            "dist",
+            "coverage"
+        ]
+    }
+}
