@@ -1,5 +1,6 @@
 ﻿import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
 import { CognitiveRegistry } from "../registry/CognitiveRegistry.js";
+import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
 
 export class CognitiveRuntime {
 
@@ -8,15 +9,23 @@ export class CognitiveRuntime {
         private readonly registry: CognitiveRegistry
     ) {}
 
+    register(module: any): void {
+
+        this.pipeline.add(module);
+
+    }
+
     async initialize(): Promise<void> {
 
-        for (const stage of this.registry.getStages()) {
-            this.pipeline.register(stage);
+        for (const module of this.registry.getModules()) {
+
+            this.register(module);
+
         }
 
     }
 
-    async execute(context: unknown): Promise<void> {
+    async execute(context: ICognitiveContext): Promise<void> {
 
         await this.pipeline.execute(context);
 

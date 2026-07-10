@@ -1,1 +1,1 @@
-﻿export * from "./CreateCognitiveRuntime.js";
+﻿export * from "./CognitiveBootstrap.js";

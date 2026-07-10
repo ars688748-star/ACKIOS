@@ -1,19 +1,18 @@
-﻿import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
+﻿import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
 import { CognitiveRegistry } from "../registry/CognitiveRegistry.js";
-import { BrainCognitiveBridge } from "../integration/BrainCognitiveBridge.js";
-import { registerDefaultCognitiveModules } from "./RegisterDefaultModules.js";
+import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
 
-export function createCognitiveRuntime(){
+export function createCognitiveRuntime() {
 
-    const runtime = new CognitiveRuntime();
+    const pipeline = new CognitivePipeline();
 
     const registry = new CognitiveRegistry();
 
-    registerDefaultCognitiveModules(registry);
-
-    return new BrainCognitiveBridge(
-        runtime,
+    const runtime = new CognitiveRuntime(
+        pipeline,
         registry
     );
+
+    return runtime;
 
 }
