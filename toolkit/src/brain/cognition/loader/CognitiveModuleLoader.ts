@@ -1,8 +1,8 @@
-﻿import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
+import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
 
-export class CognitiveModuleLoader{
+export class CognitiveModuleLoader {
 
-    load(modules:ICognitiveModule[]):ICognitiveModule[]{
+    load(modules: readonly ICognitiveModule[]): ICognitiveModule[] {
 
         return [...modules];
 

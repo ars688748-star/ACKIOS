@@ -1,22 +1,28 @@
-﻿import { CognitiveMessage } from "./CognitiveMessage.js";
+import { CognitiveMessage } from "./CognitiveMessage.js";
 
-export class CognitiveMessageBus{
+export class CognitiveMessageBus {
 
-    private readonly queue:CognitiveMessage[]=[];
+    private readonly queue: CognitiveMessage[] = [];
 
-    publish(message:CognitiveMessage):void{
+    publish(message: CognitiveMessage): void {
 
         this.queue.push(message);
 
     }
 
-    drain():readonly CognitiveMessage[]{
+    drain(): readonly CognitiveMessage[] {
 
-        const copy=[...this.queue];
+        const messages = [...this.queue];
 
-        this.queue.length=0;
+        this.queue.length = 0;
 
-        return copy;
+        return messages;
+
+    }
+
+    size(): number {
+
+        return this.queue.length;
 
     }
 
