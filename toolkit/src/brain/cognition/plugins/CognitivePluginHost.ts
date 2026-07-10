@@ -20,20 +20,6 @@ export class CognitivePluginHost {
 
     }
 
-    async shutdown(): Promise<void> {
-
-        for (const plugin of [...this.plugins].reverse()) {
-
-            if (typeof plugin.shutdown === "function") {
-
-                await plugin.shutdown();
-
-            }
-
-        }
-
-    }
-
     getPlugins(): readonly CognitivePlugin[] {
 
         return [...this.plugins];
