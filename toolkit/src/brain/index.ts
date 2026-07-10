@@ -8,3 +8,7 @@ export * from "./providers/index.js";
 export * from "./services/index.js";
 export * from "./storage/index.js";
 export * from "./graph/index.js";
+
+export * from "./factory/index.js";
+
+export * from "./relationships/index.js";

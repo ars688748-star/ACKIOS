@@ -1,6 +1,7 @@
 import { TechnologyProfile } from "../models/index.js";
 import { BrainBuilder } from "../builders/index.js";
 import { BrainNodeType } from "../models/index.js";
+import { BrainId } from "../factory/index.js";
 
 export class TechnologyKnowledgeProvider {
 
@@ -10,7 +11,7 @@ export class TechnologyKnowledgeProvider {
 
             builder.addNode({
 
-                id: crypto.randomUUID(),
+                id: BrainId.create(),
 
                 type: BrainNodeType.Technology,
 
@@ -29,3 +30,4 @@ export class TechnologyKnowledgeProvider {
     }
 
 }
+

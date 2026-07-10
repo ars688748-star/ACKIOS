@@ -1,5 +1,6 @@
 import { BrainBuilder } from "../builders/index.js";
 import { BrainNodeType } from "../models/index.js";
+import { BrainId } from "../factory/index.js";
 
 export class ModuleKnowledgeProvider {
 
@@ -9,7 +10,7 @@ export class ModuleKnowledgeProvider {
 
             builder.addNode({
 
-                id: crypto.randomUUID(),
+                id: BrainId.create(),
 
                 type: BrainNodeType.Module,
 
@@ -26,3 +27,4 @@ export class ModuleKnowledgeProvider {
     }
 
 }
+

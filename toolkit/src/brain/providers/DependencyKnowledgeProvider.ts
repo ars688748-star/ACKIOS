@@ -1,6 +1,7 @@
 import { DependencyReport } from "../../intelligence/dependency/index.js";
 import { BrainBuilder } from "../builders/index.js";
 import { BrainNodeType } from "../models/index.js";
+import { BrainId } from "../factory/index.js";
 
 export class DependencyKnowledgeProvider {
 
@@ -10,7 +11,7 @@ export class DependencyKnowledgeProvider {
 
             builder.addNode({
 
-                id: crypto.randomUUID(),
+                id: BrainId.create(),
 
                 type: BrainNodeType.Package,
 
@@ -29,3 +30,4 @@ export class DependencyKnowledgeProvider {
     }
 
 }
+

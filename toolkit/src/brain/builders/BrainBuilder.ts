@@ -5,6 +5,12 @@ export class BrainBuilder {
 
     private readonly brain = new ProjectBrain();
 
+    getBrain():ProjectBrain{
+
+        return this.brain;
+
+    }
+
     addNode(node: BrainNode): this {
 
         this.brain.registerNode(node);
