@@ -7,17 +7,15 @@ export class BrainCognitiveBridge {
     constructor(
         private readonly runtime: CognitiveRuntime,
         private readonly registry: CognitiveRegistry
-    ){}
+    ) {}
 
-    async initialize(){
+    async initialize(): Promise<void> {
 
-        for(const module of this.registry.getModules()){
-            this.runtime.register(module);
-        }
+        await this.runtime.initialize();
 
     }
 
-    async execute(context:ICognitiveContext){
+    async execute(context: ICognitiveContext): Promise<void> {
 
         await this.runtime.execute(context);
 
