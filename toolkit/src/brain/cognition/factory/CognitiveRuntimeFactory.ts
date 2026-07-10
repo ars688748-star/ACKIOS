@@ -1,15 +1,33 @@
-﻿import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
+import { AttentionEngine } from "../attention/AttentionEngine.js";
+import { DecisionEngine } from "../decision/DecisionEngine.js";
+import { ExecutionEngine } from "../execution/ExecutionEngine.js";
+import { GoalEngine } from "../goal-system/GoalEngine.js";
+import { PerceptionEngine } from "../perception/PerceptionEngine.js";
+import { PlanningEngine } from "../planning/PlanningEngine.js";
+import { PredictionEngine } from "../prediction/PredictionEngine.js";
+import { ReflectionEngine } from "../reflection/ReflectionEngine.js";
+import { WorkingMemory } from "../working-memory/WorkingMemory.js";
+import { WorldModel } from "../world-model/WorldModel.js";
 import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
 
 export class CognitiveRuntimeFactory {
 
     static create(): CognitiveRuntime {
 
-        const pipeline = new CognitivePipeline();
+        const runtime = new CognitiveRuntime();
 
-        return new CognitiveRuntime(
-            pipeline
-        );
+        runtime.register(new WorkingMemory());
+        runtime.register(new AttentionEngine());
+        runtime.register(new PerceptionEngine());
+        runtime.register(new WorldModel());
+        runtime.register(new PredictionEngine());
+        runtime.register(new PlanningEngine());
+        runtime.register(new DecisionEngine());
+        runtime.register(new ExecutionEngine());
+        runtime.register(new ReflectionEngine());
+        runtime.register(new GoalEngine());
+
+        return runtime;
 
     }
 
