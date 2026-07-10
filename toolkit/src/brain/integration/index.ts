@@ -4,3 +4,4 @@ export * from "./knowledge/index.js";
 export * from "./reasoning/index.js";
 export * from "./planning/index.js";
 export * from "./decision/index.js";
+export * from "./execution/index.js";
