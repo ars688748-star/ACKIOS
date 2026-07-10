@@ -1,4 +1,4 @@
-﻿export * from "./runtime/CognitiveRuntime.js";
+export * from "./runtime/CognitiveRuntime.js";
 
 export * from "./attention/AttentionEngine.js";
 export * from "./working-memory/WorkingMemory.js";
@@ -13,3 +13,4 @@ export * from "./world-model/WorldModel.js";
 export * from "./integration/index.js";
 export * from "./registry/index.js";
 export * from "./bootstrap/index.js";
+export * from "./interfaces/index.js";
