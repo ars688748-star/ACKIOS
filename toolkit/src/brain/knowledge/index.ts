@@ -5,4 +5,5 @@ export * from "./KnowledgeRelation.js";
 export * from "./KnowledgeGraph.js";
 export * from "./KnowledgeIndex.js";
 export * from "./KnowledgeSynchronizer.js";
+export * from "./IKnowledgeMapper.js";
 export * from "./MemoryKnowledgeMapper.js";

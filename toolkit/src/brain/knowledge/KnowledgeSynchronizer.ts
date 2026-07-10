@@ -1,7 +1,12 @@
 import { MemoryEntry } from "../memory/MemoryEntry.js";
+
+import { KnowledgeCategory } from "./KnowledgeCategory.js";
 import { KnowledgeManager } from "./KnowledgeManager.js";
+import { MemoryKnowledgeMapper } from "./MemoryKnowledgeMapper.js";
 
 export class KnowledgeSynchronizer {
+
+    private readonly mapper = new MemoryKnowledgeMapper();
 
     public constructor(
         private readonly knowledge: KnowledgeManager
@@ -9,12 +14,15 @@ export class KnowledgeSynchronizer {
     }
 
     public async synchronize(
-        _entry: MemoryEntry
+        entry: MemoryEntry
     ): Promise<void> {
 
-        // Sprint 12
-        // Здесь позже будет преобразование
-        // MemoryEntry -> KnowledgeNode.
+        const node = this.mapper.map(entry);
+
+        this.knowledge.addNode(
+            node,
+            KnowledgeCategory.Memory
+        );
 
     }
 
