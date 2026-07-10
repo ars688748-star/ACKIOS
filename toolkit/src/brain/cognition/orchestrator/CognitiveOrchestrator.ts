@@ -1,18 +1,18 @@
-import { ICognitiveEngine } from "../interfaces/index.js";
+import { ICognitiveEngine } from "../interfaces/ICognitiveEngine.js";
 
-export class CognitiveOrchestrator{
+export class CognitiveOrchestrator {
 
-    private readonly engines:ICognitiveEngine[]=[];
+    private readonly engines: ICognitiveEngine[] = [];
 
-    register(engine:ICognitiveEngine){
+    register(engine: ICognitiveEngine): void {
 
         this.engines.push(engine);
 
     }
 
-    async initialize(){
+    async initialize(): Promise<void> {
 
-        for(const engine of this.engines){
+        for (const engine of this.engines) {
 
             await engine.initialize();
 
@@ -20,9 +20,9 @@ export class CognitiveOrchestrator{
 
     }
 
-    async shutdown(){
+    async shutdown(): Promise<void> {
 
-        for(const engine of [...this.engines].reverse()){
+        for (const engine of [...this.engines].reverse()) {
 
             await engine.shutdown();
 
@@ -30,5 +30,10 @@ export class CognitiveOrchestrator{
 
     }
 
-}
+    getEngines(): readonly ICognitiveEngine[] {
 
+        return [...this.engines];
+
+    }
+
+}

@@ -1,20 +1,27 @@
-﻿import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
+import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
+import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
 
-export class CognitiveRuntimeManager{
+export class CognitiveRuntimeManager {
 
     constructor(
-        private readonly runtime:CognitiveRuntime
-    ){}
+        private readonly runtime: CognitiveRuntime
+    ) {}
 
-    async start():Promise<void>{
+    async start(): Promise<void> {
 
         await this.runtime.initialize();
 
     }
 
-    async execute(context:any):Promise<void>{
+    async execute(context: ICognitiveContext): Promise<void> {
 
         await this.runtime.execute(context);
+
+    }
+
+    async stop(): Promise<void> {
+
+        await this.runtime.shutdown();
 
     }
 
