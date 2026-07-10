@@ -44,3 +44,4 @@ export * from "./tasks/index.js";
 export * from "./snapshots/index.js";
 export * from "./scheduler/index.js";
 export * from "./resources/index.js";
+export * from "./plugins/index.js";
