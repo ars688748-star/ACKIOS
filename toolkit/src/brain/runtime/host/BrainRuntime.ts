@@ -15,6 +15,20 @@ export class BrainRuntime implements IBrainRuntime {
 
     private readonly executor = new BrainExecutor();
 
+    private running = false;
+
+    public async start(): Promise<void> {
+
+        this.running = true;
+
+    }
+
+    public async stop(): Promise<void> {
+
+        this.running = false;
+
+    }
+
     public getPipeline(): BrainPipeline {
 
         return this.pipeline;
@@ -25,13 +39,17 @@ export class BrainRuntime implements IBrainRuntime {
         context: RuntimeContext
     ): Promise<RuntimeContext> {
 
+        if (!this.running) {
+            await this.start();
+        }
+
         return await this.dispatcher.dispatch(async () => {
 
-            let result = context;
+            let current = context;
 
             this.scheduler.enqueue(async () => {
 
-                result = await this.pipeline.execute(result);
+                current = await this.pipeline.execute(current);
 
             });
 
@@ -39,7 +57,7 @@ export class BrainRuntime implements IBrainRuntime {
 
             await this.executor.execute(async () => {});
 
-            return result;
+            return current;
 
         });
 
