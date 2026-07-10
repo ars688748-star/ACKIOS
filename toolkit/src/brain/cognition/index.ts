@@ -47,3 +47,4 @@ export * from "./resources/index.js";
 export * from "./plugins/index.js";
 export * from "./extensions/index.js";
 export * from "./capabilities/index.js";
+export * from "./profile/index.js";
