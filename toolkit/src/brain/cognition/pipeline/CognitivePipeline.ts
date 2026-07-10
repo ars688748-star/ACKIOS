@@ -1,20 +1,33 @@
-﻿import { ICognitiveStage } from "../integration/ICognitiveStage.js";
+﻿export class CognitivePipeline {
 
-export class CognitivePipeline{
+    private readonly modules: any[] = [];
 
-    private readonly stages:ICognitiveStage[]=[];
+    register(module: any): void {
 
-    register(stage:ICognitiveStage){
-
-        this.stages.push(stage);
+        this.modules.push(module);
 
     }
 
-    async execute(context:unknown){
+    add(module: any): void {
 
-        for(const stage of this.stages){
+        this.register(module);
 
-            await stage.execute(context);
+    }
+
+    async execute(context: unknown): Promise<void> {
+
+        for (const module of this.modules) {
+
+            if (typeof module.process === "function") {
+
+                await module.process(context);
+
+            }
+            else if (typeof module.execute === "function") {
+
+                await module.execute(context);
+
+            }
 
         }
 
