@@ -42,3 +42,4 @@ export * from "./telemetry/index.js";
 export * from "./messaging/index.js";
 export * from "./tasks/index.js";
 export * from "./snapshots/index.js";
+export * from "./scheduler/index.js";
