@@ -10,3 +10,6 @@ export * from "./prediction/PredictionEngine.js";
 export * from "./execution/ExecutionEngine.js";
 export * from "./goal-system/GoalEngine.js";
 export * from "./world-model/WorldModel.js";
+export * from "./integration/index.js";
+export * from "./registry/index.js";
+export * from "./bootstrap/index.js";
