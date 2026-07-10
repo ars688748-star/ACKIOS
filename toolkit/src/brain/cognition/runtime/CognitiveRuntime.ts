@@ -1,22 +1,22 @@
 ﻿import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
 import { CognitiveRegistry } from "../registry/CognitiveRegistry.js";
 
-export class CognitiveRuntime{
+export class CognitiveRuntime {
 
     constructor(
-        private readonly pipeline:CognitivePipeline,
-        private readonly registry:CognitiveRegistry
-    ){}
+        private readonly pipeline: CognitivePipeline,
+        private readonly registry: CognitiveRegistry
+    ) {}
 
-    async initialize(){
+    async initialize(): Promise<void> {
 
-        foreach($null in @()){}
-
-        for (const stage of this.registry.getStages()) { this.pipeline.register(stage); }
+        for (const stage of this.registry.getStages()) {
+            this.pipeline.register(stage);
+        }
 
     }
 
-    async execute(context:unknown){
+    async execute(context: unknown): Promise<void> {
 
         await this.pipeline.execute(context);
 
