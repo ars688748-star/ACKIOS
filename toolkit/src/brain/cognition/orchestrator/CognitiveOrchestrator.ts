@@ -1,4 +1,4 @@
-﻿import { ICognitiveEngine } from "../contracts/index.js";
+import { ICognitiveEngine } from "../interfaces/index.js";
 
 export class CognitiveOrchestrator{
 
@@ -31,3 +31,4 @@ export class CognitiveOrchestrator{
     }
 
 }
+

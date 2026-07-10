@@ -1,7 +1,9 @@
 ﻿export interface ICognitiveEngine {
 
-    readonly name:string;
+    readonly name: string;
 
-    initialize():Promise<void>;
+    initialize(): Promise<void>;
+
+    shutdown(): Promise<void>;
 
 }

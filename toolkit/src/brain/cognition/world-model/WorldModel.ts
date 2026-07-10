@@ -7,7 +7,18 @@ export class WorldModel implements ICognitiveModule {
 
     async process(context: ICognitiveContext): Promise<void> {
 
-    }
+    void context;
 
 }
+
+async initialize(): Promise<void> {
+
+}
+
+async shutdown(): Promise<void> {
+
+}
+
+}
+
 
