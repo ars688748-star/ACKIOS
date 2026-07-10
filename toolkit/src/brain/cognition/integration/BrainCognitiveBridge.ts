@@ -1,4 +1,4 @@
-﻿import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
+import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
 import { CognitiveRegistry } from "../registry/CognitiveRegistry.js";
 import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
 
@@ -17,7 +17,17 @@ export class BrainCognitiveBridge {
 
     async execute(context: ICognitiveContext): Promise<void> {
 
-        await this.runtime.execute(context);
+        for (const module of this.registry.getModules()) {
+
+            await module.process(context);
+
+        }
+
+    }
+
+    async shutdown(): Promise<void> {
+
+        await this.runtime.shutdown();
 
     }
 

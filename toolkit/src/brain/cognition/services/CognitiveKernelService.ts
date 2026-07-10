@@ -1,10 +1,22 @@
-﻿export class CognitiveKernelService{
+export class CognitiveKernelService {
 
-    async initialize():Promise<void>{
+    private initialized = false;
+
+    async initialize(): Promise<void> {
+
+        this.initialized = true;
 
     }
 
-    async shutdown():Promise<void>{
+    async shutdown(): Promise<void> {
+
+        this.initialized = false;
+
+    }
+
+    isInitialized(): boolean {
+
+        return this.initialized;
 
     }
 
