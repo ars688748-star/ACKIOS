@@ -1,24 +1,28 @@
-﻿import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
+import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
 import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
 
 export class ReflectionEngine implements ICognitiveModule {
 
-    readonly name = "ReflectionEngine";
+    readonly name="ReflectionEngine";
 
-    async process(context: ICognitiveContext): Promise<void> {
+    async initialize():Promise<void>{}
 
-    void context;
+    async process(context:ICognitiveContext):Promise<void>{
+
+        const execution=context.state.get("execution");
+
+        context.state.set("reflection",{
+
+            success:true,
+
+            execution,
+
+            reflectedAt:Date.now()
+
+        });
+
+    }
+
+    async shutdown():Promise<void>{}
 
 }
-
-async initialize(): Promise<void> {
-
-}
-
-async shutdown(): Promise<void> {
-
-}
-
-}
-
-
