@@ -31,3 +31,4 @@ export * from "./events/index.js";
 export * from "./metrics/index.js";
 export * from "./session/index.js";
 export * from "./lifecycle/index.js";
+export * from "./config/index.js";
