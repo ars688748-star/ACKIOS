@@ -5,7 +5,6 @@ import { BrainGraph } from "./graph/index.js";
 export class ProjectBrain{
 
     readonly registry=new BrainRegistry();
-
     readonly graph=new BrainGraph();
 
     registerNode(node:BrainNode):void{
@@ -42,3 +41,10 @@ export class ProjectBrain{
     }
 
 }
+
+
+
+
+
+
+
