@@ -25,3 +25,4 @@ export * from "./registry/index.js";
 export * from "./runtime/index.js";
 export * from "./bootstrap/index.js";
 export * from "./factory/index.js";
+export * from "./health/index.js";
