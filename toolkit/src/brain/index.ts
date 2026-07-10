@@ -6,3 +6,4 @@ export * from "./container/index.js";
 export * from "./runtime/index.js";
 export * from "./runtime/index.js";
 export * from "./cognition/index.js";
+export * from "./integration/index.js";
