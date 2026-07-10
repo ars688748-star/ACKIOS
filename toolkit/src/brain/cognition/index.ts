@@ -36,3 +36,4 @@ export * from "./version/index.js";
 export * from "./logging/index.js";
 export * from "./clock/index.js";
 export * from "./identity/index.js";
+export * from "./cache/index.js";
