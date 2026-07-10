@@ -45,3 +45,4 @@ export * from "./snapshots/index.js";
 export * from "./scheduler/index.js";
 export * from "./resources/index.js";
 export * from "./plugins/index.js";
+export * from "./extensions/index.js";
