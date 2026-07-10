@@ -6,6 +6,7 @@ export * from "./FileKnowledgeProvider.js";
 export * from "./ModuleKnowledgeProvider.js";
 export * from "./PluginKnowledgeProvider.js";
 export * from "./ProjectKnowledgeProvider.js";
+export * from "./RecommendationKnowledgeProvider.js";
 export * from "./RiskKnowledgeProvider.js";
 export * from "./ServiceKnowledgeProvider.js";
 export * from "./TechnologyKnowledgeProvider.js";
