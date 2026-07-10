@@ -27,3 +27,4 @@ export * from "./bootstrap/index.js";
 export * from "./factory/index.js";
 export * from "./health/index.js";
 export * from "./diagnostics/index.js";
+export * from "./events/index.js";
