@@ -5,4 +5,5 @@ export * from "./DependencyKnowledgeProvider.js";
 export * from "./ModuleKnowledgeProvider.js";
 export * from "./ProjectKnowledgeProvider.js";
 export * from "./RiskKnowledgeProvider.js";
+export * from "./ServiceKnowledgeProvider.js";
 export * from "./TechnologyKnowledgeProvider.js";
