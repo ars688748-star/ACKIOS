@@ -1,31 +1,69 @@
-﻿export class CognitivePipeline {
+import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
+import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
 
-    private readonly modules: any[] = [];
+export class CognitivePipeline {
 
-    register(module: any): void {
+    private readonly modules: ICognitiveModule[] = [];
+
+    register(module: ICognitiveModule): void {
 
         this.modules.push(module);
 
     }
 
-    add(module: any): void {
+    unregister(name: string): boolean {
 
-        this.register(module);
+        const index = this.modules.findIndex(x => x.name === name);
+
+        if(index < 0){
+
+            return false;
+
+        }
+
+        this.modules.splice(index,1);
+
+        return true;
 
     }
 
-    async execute(context: unknown): Promise<void> {
+    modulesSnapshot(): readonly ICognitiveModule[]{
 
-        for (const module of this.modules) {
+        return [...this.modules];
 
-            if (typeof module.process === "function") {
+    }
 
-                await module.process(context);
+    async initialize(): Promise<void>{
+
+        for(const module of this.modules){
+
+            if(module.initialize){
+
+                await module.initialize();
 
             }
-            else if (typeof module.execute === "function") {
 
-                await module.execute(context);
+        }
+
+    }
+
+    async execute(context: ICognitiveContext): Promise<void>{
+
+        for(const module of this.modules){
+
+            await module.process(context);
+
+        }
+
+    }
+
+    async shutdown(): Promise<void>{
+
+        for(const module of [...this.modules].reverse()){
+
+            if(module.shutdown){
+
+                await module.shutdown();
 
             }
 
