@@ -1,0 +1,19 @@
+﻿
+export interface RuntimeContext {
+
+    readonly input: unknown;
+
+    readonly memory: unknown;
+
+    readonly knowledge: unknown;
+
+    readonly reasoning: unknown;
+
+    readonly plan: unknown;
+
+    readonly decision: unknown;
+
+    readonly output: unknown;
+
+}
+
