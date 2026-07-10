@@ -1,21 +1,46 @@
-import { BrainContext } from "../../context/runtime/BrainContext.js";
-import { BrainEvent } from "../../events/runtime/BrainEvent.js";
-import { EventManager } from "../../events/EventManager.js";
+﻿import { RuntimeContext } from "../context/RuntimeContext.js";
+import { IRuntimeStage } from "./IRuntimeStage.js";
 import { IBrainPipeline } from "./IBrainPipeline.js";
 
 export class BrainPipeline implements IBrainPipeline {
 
-    public constructor(
-        private readonly events?: EventManager
-    ) {}
+    private readonly stages: IRuntimeStage[] = [];
 
-    public async execute(context: BrainContext): Promise<void> {
+    public addStage(
+        stage: IRuntimeStage
+    ): this {
 
-        void context;
+        this.stages.push(stage);
 
-        this.events?.publish(
-            new BrainEvent("pipeline.started")
-        );
+        return this;
+
+    }
+
+    public clear(): void {
+
+        this.stages.length = 0;
+
+    }
+
+    public count(): number {
+
+        return this.stages.length;
+
+    }
+
+    public async execute(
+        context: RuntimeContext
+    ): Promise<RuntimeContext> {
+
+        let current = context;
+
+        for (const stage of this.stages) {
+
+            current = await stage.execute(current);
+
+        }
+
+        return current;
 
     }
 
