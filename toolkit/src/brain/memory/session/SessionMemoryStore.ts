@@ -1,47 +1,83 @@
 import type { MemoryEntry } from "../MemoryEntry.js";
 import type { MemoryQuery } from "../MemoryQuery.js";
-import type { MemoryStore } from "../MemoryStore.js";
 
-export class SessionMemoryStore implements MemoryStore {
-    private readonly entries = new Map<string, MemoryEntry>();
+import { AbstractMemoryStore } from "../stores/AbstractMemoryStore.js";
 
-    async save(entry: MemoryEntry): Promise<void> {
-        this.entries.set(entry.id, entry);
-    }
+export class SessionMemoryStore extends AbstractMemoryStore {
 
-    async get(id: string): Promise<MemoryEntry | null> {
-        return this.entries.get(id) ?? null;
-    }
+    public async query(query: MemoryQuery): Promise<MemoryEntry[]> {
 
-    async query(query: MemoryQuery): Promise<MemoryEntry[]> {
         let result = [...this.entries.values()];
 
         if (query.kind) {
-            result = result.filter(entry => entry.kind === query.kind);
+            const kind = query.kind;
+            result = result.filter(entry => entry.kind === kind);
         }
 
-        if (query.tags?.length) {
+        if (query.text) {
+            const search = query.text.toLowerCase();
+
             result = result.filter(entry =>
-                query.tags!.every(tag => entry.tags?.includes(tag))
+                JSON.stringify(entry.content)
+                    .toLowerCase()
+                    .includes(search)
             );
         }
 
-        if (query.limit) {
-            result = result.slice(0, query.limit);
+        if (query.tags) {
+
+            const tags = query.tags;
+
+            result = result.filter(entry =>
+                tags.every(tag => entry.tags?.includes(tag))
+            );
+
+        }
+
+        if (query.metadata) {
+
+            const metadata = query.metadata;
+
+            result = result.filter(entry => {
+
+                const entryMetadata = entry.metadata;
+
+                if (!entryMetadata) {
+                    return false;
+                }
+
+                return Object.entries(metadata).every(
+                    ([key, value]) => entryMetadata[key] === value
+                );
+
+            });
+
+        }
+
+        if (query.minScore !== undefined) {
+
+            const minScore = query.minScore;
+
+            result = result.filter(
+                entry => (entry.score ?? 0) >= minScore
+            );
+
+        }
+
+        result.sort(
+            (a, b) => (b.score ?? 0) - (a.score ?? 0)
+        );
+
+        if (query.limit !== undefined) {
+
+            const limit = query.limit;
+
+            result = result.slice(0, limit);
+
         }
 
         return result;
+
     }
 
-    async delete(id: string): Promise<boolean> {
-        return this.entries.delete(id);
-    }
-
-    async clear(): Promise<void> {
-        this.entries.clear();
-    }
-
-    async size(): Promise<number> {
-        return this.entries.size;
-    }
 }
