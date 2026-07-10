@@ -2,6 +2,7 @@ export * from "./AnalysisKnowledgeProvider.js";
 export * from "./ArchitectureKnowledgeProvider.js";
 export * from "./CapabilityKnowledgeProvider.js";
 export * from "./DependencyKnowledgeProvider.js";
+export * from "./FileKnowledgeProvider.js";
 export * from "./ModuleKnowledgeProvider.js";
 export * from "./PluginKnowledgeProvider.js";
 export * from "./ProjectKnowledgeProvider.js";
