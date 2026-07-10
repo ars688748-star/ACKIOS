@@ -1,1 +1,1 @@
-﻿export * from "./BrainCognitiveBridge.js";
+﻿export * from "./ICognitiveStage.js";

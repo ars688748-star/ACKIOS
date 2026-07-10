@@ -15,3 +15,4 @@ export * from "./registry/index.js";
 export * from "./bootstrap/index.js";
 export * from "./interfaces/index.js";
 export * from "./orchestrator/index.js";
+export * from "./integration/index.js";
