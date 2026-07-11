@@ -14,9 +14,13 @@ export interface EnvironmentScanResult {
 
 export class EnvironmentScanner implements Scanner<EnvironmentScanResult> {
 
+    constructor(
+        private readonly repositoryLocator: RepositoryLocator
+    ) {}
+
     public scan(root: string): EnvironmentScanResult {
 
-        const repositoryRoot = new RepositoryLocator().find(root);
+        const repositoryRoot = this.repositoryLocator.find(root);
 
         return {
             nodeVersion: process.version,
