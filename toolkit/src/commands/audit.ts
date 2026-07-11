@@ -1,29 +1,36 @@
-import path from "node:path";
+﻿import path from "node:path";
 
-import { ProjectScanner } from "../scanner/ProjectScanner.js";
-import { WorkspaceWriter } from "../scanner/WorkspaceWriter.js";
 import { AnalysisEngine } from "../engine/AnalysisEngine.js";
 import { MarkdownReportGenerator } from "../report/MarkdownReportGenerator.js";
 import { MarkdownWriter } from "../report/MarkdownWriter.js";
+import { ProjectScanner } from "../scanner/ProjectScanner.js";
+import { WorkspaceWriter } from "../scanner/WorkspaceWriter.js";
 
 export async function runAudit(): Promise<void> {
 
     const root = path.resolve(".");
 
-    const workspace = new ProjectScanner().scan(root);
+    const scanner = new ProjectScanner();
 
-    new WorkspaceWriter().save(root, workspace);
+    const workspaceWriter = new WorkspaceWriter();
 
+    const analysisEngine = new AnalysisEngine();
+
+    const reportGenerator = new MarkdownReportGenerator();
+
+    const markdownWriter = new MarkdownWriter();
+
+    const workspace = scanner.scan(root);
+
+    workspaceWriter.save(root, workspace);
 
     const analysis =
-        new AnalysisEngine()
-            .analyze(workspace);
+        analysisEngine.analyze(workspace);
 
     const markdown =
-        new MarkdownReportGenerator()
-            .generate(analysis);
+        reportGenerator.generate(analysis);
 
-    new MarkdownWriter().save(
+    markdownWriter.save(
         root,
         markdown
     );
