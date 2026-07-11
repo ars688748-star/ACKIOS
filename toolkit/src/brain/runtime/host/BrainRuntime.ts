@@ -15,17 +15,14 @@ import { IBrainRuntime } from "./IBrainRuntime.js";
 
 export class BrainRuntime implements IBrainRuntime {
 
-    private readonly pipeline = new BrainPipeline();
-
-    private readonly dispatcher = new BrainDispatcher();
-
-    private readonly scheduler = new BrainScheduler();
-
-    private readonly executor = new BrainExecutor();
-
     private running = false;
 
-    public constructor() {
+    public constructor(
+        private readonly pipeline: BrainPipeline,
+        private readonly dispatcher: BrainDispatcher,
+        private readonly scheduler: BrainScheduler,
+        private readonly executor: BrainExecutor
+    ) {
 
         this.pipeline
             .addStage(new MemoryStage())
