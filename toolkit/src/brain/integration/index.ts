@@ -6,3 +6,5 @@ export * from "./planning/index.js";
 export * from "./decision/index.js";
 export * from "./execution/index.js";
 export * from "./BrainRuntimeBridgeBuilder.js";
+export * from "./BrainSystem.js";
+export * from "./BrainSystemBuilder.js";
