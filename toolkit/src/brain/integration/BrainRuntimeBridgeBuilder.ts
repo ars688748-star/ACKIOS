@@ -1,7 +1,7 @@
 ﻿import { BrainRuntimeBridge } from "./BrainRuntimeBridge.js";
 
 import { BrainRuntimeBuilder } from "../runtime/host/BrainRuntimeBuilder.js";
-import { CognitiveRuntimeBuilder } from "../cognition/factory/CognitiveRuntimeBuilder.js";
+import { CognitiveRuntimeFactory } from "../cognition/factory/CognitiveRuntimeFactory.js";
 
 import { BrainServiceRegistry } from "../services/BrainServiceRegistry.js";
 
@@ -15,9 +15,10 @@ export class BrainRuntimeBridgeBuilder {
             new BrainRuntimeBuilder()
                 .build(services);
 
+
         const cognition =
-            new CognitiveRuntimeBuilder()
-                .build();
+            CognitiveRuntimeFactory.create();
+
 
         return new BrainRuntimeBridge(
             brain,
