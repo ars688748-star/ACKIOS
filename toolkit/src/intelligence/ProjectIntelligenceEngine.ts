@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+﻿import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 import { ArchitectureAnalyzer } from "./ArchitectureAnalyzer.js";
@@ -11,15 +11,14 @@ import { JsonService } from "../services/JsonService.js";
 
 export class ProjectIntelligenceEngine {
 
-    private readonly technologyDetector = new TechnologyDetector();
-
-    private readonly architectureAnalyzer = new ArchitectureAnalyzer();
-
-    private readonly dependencyAnalyzer = new DependencyAnalyzer();
-
-    private readonly riskAnalyzer = new RiskAnalyzer();
-
-    private readonly scanner = new StructureScanner();
+    constructor(
+        private readonly technologyDetector: TechnologyDetector,
+        private readonly architectureAnalyzer: ArchitectureAnalyzer,
+        private readonly dependencyAnalyzer: DependencyAnalyzer,
+        private readonly riskAnalyzer: RiskAnalyzer,
+        private readonly scanner: StructureScanner,
+        private readonly jsonService: JsonService
+    ) {}
 
     async analyze(workspace: string): Promise<ProjectIntelligenceReport> {
 
@@ -28,7 +27,7 @@ export class ProjectIntelligenceEngine {
         const packageJsonPath = join(workspace, "package.json");
 
         const packageJson = existsSync(packageJsonPath)
-            ? new JsonService().read(packageJsonPath)
+            ? this.jsonService.read(packageJsonPath)
             : {};
 
         const technologies =
@@ -82,5 +81,3 @@ export class ProjectIntelligenceEngine {
     }
 
 }
-
-

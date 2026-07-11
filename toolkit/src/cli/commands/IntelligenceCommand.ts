@@ -1,4 +1,4 @@
-import { ProjectIntelligenceEngine } from "../../intelligence/index.js";
+﻿import { ProjectIntelligenceBuilder } from "../../intelligence/ProjectIntelligenceBuilder.js";
 
 import { Command } from "../core/Command.js";
 import { CommandContext } from "../models/CommandContext.js";
@@ -16,7 +16,8 @@ export class IntelligenceCommand implements Command {
             ?? context.workingDirectory;
 
         const report =
-            await new ProjectIntelligenceEngine()
+            await new ProjectIntelligenceBuilder()
+                .build()
                 .analyze(root);
 
         console.log("");

@@ -1,11 +1,11 @@
-import { ProjectIntelligenceEngine } from "./intelligence/index.js";
+﻿import { ProjectIntelligenceBuilder } from "./intelligence/ProjectIntelligenceBuilder.js";
 import { RecommendationEngine } from "./recommendations/index.js";
 import { StudioReport } from "./StudioReport.js";
 
 export class StudioAnalyzer {
 
     private readonly intelligence =
-        new ProjectIntelligenceEngine();
+        new ProjectIntelligenceBuilder().build();
 
     private readonly recommendations =
         new RecommendationEngine();
