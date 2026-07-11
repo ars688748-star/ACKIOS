@@ -1,40 +1,52 @@
-import { WorkspaceState } from "../types/WorkspaceState.js";
+﻿import { WorkspaceState } from "../types/WorkspaceState.js";
 
-import { EnvironmentScanner } from "./EnvironmentScanner.js";
-import { GitScanner } from "./GitScanner.js";
-import { FrameworkScanner } from "./FrameworkScanner.js";
 import { DependencyScanner } from "./DependencyScanner.js";
+import { EnvironmentScanner } from "./EnvironmentScanner.js";
+import { EslintScanner } from "./EslintScanner.js";
+import { FrameworkScanner } from "./FrameworkScanner.js";
+import { GitScanner } from "./GitScanner.js";
+import { PackageScanner } from "./PackageScanner.js";
 import { ProjectStructureScanner } from "./ProjectStructureScanner.js";
 import { ReadmeScanner } from "./ReadmeScanner.js";
-import { EslintScanner } from "./EslintScanner.js";
 import { TypeScriptConfigScanner } from "./TypeScriptConfigScanner.js";
-import { PackageScanner } from "./PackageScanner.js";
 
 export class ScannerPipeline {
 
+    constructor(
+        private readonly environmentScanner: EnvironmentScanner,
+        private readonly gitScanner: GitScanner,
+        private readonly frameworkScanner: FrameworkScanner,
+        private readonly dependencyScanner: DependencyScanner,
+        private readonly structureScanner: ProjectStructureScanner,
+        private readonly readmeScanner: ReadmeScanner,
+        private readonly eslintScanner: EslintScanner,
+        private readonly typeScriptConfigScanner: TypeScriptConfigScanner,
+        private readonly packageScanner: PackageScanner
+    ) {}
+
     public execute(root: string): Omit<WorkspaceState, "project"> {
 
-        const environment = new EnvironmentScanner().scan(root);
+        const environment = this.environmentScanner.scan(root);
 
-        const git = new GitScanner().scan(environment.repositoryRoot);
+        const git = this.gitScanner.scan(environment.repositoryRoot);
 
-        const framework = new FrameworkScanner().scan(root);
+        const framework = this.frameworkScanner.scan(root);
 
-        const dependencies = new DependencyScanner().scan(root);
+        const dependencies = this.dependencyScanner.scan(root);
 
-        const structure = new ProjectStructureScanner().scan(
+        const structure = this.structureScanner.scan(
             environment.repositoryRoot
         );
 
-        const readme = new ReadmeScanner().scan(
+        const readme = this.readmeScanner.scan(
             environment.repositoryRoot
         );
 
-        const eslint = new EslintScanner().scan(root);
+        const eslint = this.eslintScanner.scan(root);
 
-        const typescript = new TypeScriptConfigScanner().scan(root);
+        const typescript = this.typeScriptConfigScanner.scan(root);
 
-        const packageInfo = new PackageScanner().scan(root);
+        const packageInfo = this.packageScanner.scan(root);
 
         return {
             environment,

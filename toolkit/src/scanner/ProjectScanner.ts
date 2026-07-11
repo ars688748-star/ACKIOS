@@ -2,7 +2,7 @@
 import path from "node:path";
 
 import { WorkspaceState } from "../types/WorkspaceState.js";
-import { ScannerPipeline } from "./ScannerPipeline.js";
+import { ScannerBuilder } from "./ScannerBuilder.js";
 
 export class ProjectScanner {
 
@@ -18,7 +18,8 @@ export class ProjectScanner {
             fs.readFileSync(packageJson, "utf8")
         );
 
-        const pipeline = new ScannerPipeline();
+        const pipeline =
+            new ScannerBuilder().build();
 
         return {
             project: {
