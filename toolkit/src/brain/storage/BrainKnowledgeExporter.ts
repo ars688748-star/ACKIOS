@@ -3,15 +3,24 @@ import { ProjectKnowledge } from "../models/index.js";
 
 export class BrainKnowledgeExporter {
 
-    export(brain: ProjectBrain): ProjectKnowledge {
+    public export(
+        brain: ProjectBrain
+    ): ProjectKnowledge {
 
         return {
-            nodes: [],
-            edges: [],
+
+            nodes: brain.registry.nodes.getAll(),
+
+            edges: brain.registry.edges.getAll(),
+
             technologies: [],
+
             risks: [],
+
             capabilities: [],
+
             analyses: []
+
         };
 
     }
