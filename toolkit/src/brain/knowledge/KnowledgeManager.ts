@@ -1,4 +1,4 @@
-import { IKnowledgeManager } from "../contracts/IKnowledgeManager.js";
+﻿import { IKnowledgeManager } from "../contracts/IKnowledgeManager.js";
 import { BrainService } from "../services/BrainService.js";
 import { KnowledgeCategory } from "./KnowledgeCategory.js";
 import { KnowledgeGraph } from "./KnowledgeGraph.js";
@@ -20,18 +20,49 @@ export class KnowledgeManager extends BrainService implements IKnowledgeManager 
         this.index = new KnowledgeIndex();
     }
 
+    public clear(): void {
+
+        this.graph.clear();
+        this.index.clear();
+
+    }
+
+    public restore(
+        nodes: readonly {
+            node: KnowledgeNode;
+            category: KnowledgeCategory;
+        }[],
+        relations: readonly KnowledgeRelation[]
+    ): void {
+
+        this.clear();
+
+        for (const item of nodes) {
+            this.addNode(item.node, item.category);
+        }
+
+        for (const relation of relations) {
+            this.addRelation(relation);
+        }
+
+    }
+
     public addNode(
         node: KnowledgeNode,
         category: KnowledgeCategory
     ): void {
+
         this.graph.addNode(node);
         this.index.add(node, category);
+
     }
 
     public addRelation(
         relation: KnowledgeRelation
     ): void {
+
         this.graph.addRelation(relation);
+
     }
 
     public getNode(id: string): KnowledgeNode | undefined {
@@ -63,4 +94,5 @@ export class KnowledgeManager extends BrainService implements IKnowledgeManager 
     public getIndex(): KnowledgeIndex {
         return this.index;
     }
+
 }
