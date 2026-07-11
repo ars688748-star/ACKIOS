@@ -1,17 +1,17 @@
-﻿import { ProjectBrain } from "../ProjectBrain.js";
+﻿import { KnowledgeManager } from "../knowledge/KnowledgeManager.js";
 import { ProjectKnowledge } from "../models/index.js";
 
 export class BrainKnowledgeExporter {
 
     public export(
-        brain: ProjectBrain
+        knowledge: KnowledgeManager
     ): ProjectKnowledge {
 
         return {
 
-            nodes: brain.registry.nodes.getAll(),
+            nodes: [...knowledge.getNodes()],
 
-            edges: brain.registry.edges.getAll(),
+            edges: [...knowledge.getRelations()],
 
             technologies: [],
 
