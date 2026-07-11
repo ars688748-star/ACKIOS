@@ -23,6 +23,18 @@ class TestStage implements IRuntimeStage {
 
 }
 
+class FailingStage implements IRuntimeStage {
+
+    public readonly name = "failing";
+
+    public async execute(): Promise<RuntimeContext> {
+
+        throw new Error("Pipeline failed");
+
+    }
+
+}
+
 const createContext = (): RuntimeContext => ({
 
     input: undefined,
@@ -68,6 +80,27 @@ describe("BrainPipeline", () => {
         const result = await pipeline.execute(context);
 
         expect(result).toBe(context);
+
+    });
+
+    it("propagates stage errors and stops pipeline execution", async () => {
+
+        const calls: string[] = [];
+
+        const pipeline = new BrainPipeline();
+
+        pipeline
+            .addStage(new TestStage("memory", calls))
+            .addStage(new FailingStage())
+            .addStage(new TestStage("execution", calls));
+
+        await expect(
+            pipeline.execute(createContext())
+        ).rejects.toThrow("Pipeline failed");
+
+        expect(calls).toEqual([
+            "memory"
+        ]);
 
     });
 
