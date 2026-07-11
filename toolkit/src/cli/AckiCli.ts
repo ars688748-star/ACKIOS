@@ -1,9 +1,10 @@
-﻿import { AnalyzeCommand } from "./commands/AnalyzeCommand.js";
+import { AnalyzeCommand } from "./commands/AnalyzeCommand.js";
 import { DoctorCommand } from "./commands/DoctorCommand.js";
 import { InitCommand } from "./commands/InitCommand.js";
 import { ReportCommand } from "./commands/ReportCommand.js";
 import { IntelligenceCommand } from "./commands/IntelligenceCommand.js";
 import { VersionCommand } from "./commands/VersionCommand.js";
+import { HelpCommand } from "./commands/HelpCommand.js";
 
 import { Command } from "./core/Command.js";
 
@@ -19,6 +20,7 @@ export class AckiCli {
         this.register(new ReportCommand());
         this.register(new IntelligenceCommand());
         this.register(new VersionCommand());
+        this.register(new HelpCommand());
 
     }
 
@@ -37,7 +39,7 @@ export class AckiCli {
         args: string[]
     ): Promise<number> {
 
-        const name = args[0] ?? "analyze";
+        const name = args[0] ?? "help";
 
         const command =
             this.commands.get(name);
