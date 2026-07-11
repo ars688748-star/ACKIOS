@@ -1,4 +1,4 @@
-﻿import { AttentionEngine } from "../attention/AttentionEngine.js";
+import { AttentionEngine } from "../attention/AttentionEngine.js";
 import { DecisionEngine } from "../decision/DecisionEngine.js";
 import { ExecutionEngine } from "../execution/ExecutionEngine.js";
 import { GoalEngine } from "../goal-system/GoalEngine.js";
@@ -6,6 +6,7 @@ import { PerceptionEngine } from "../perception/PerceptionEngine.js";
 import { PlanningEngine } from "../planning/PlanningEngine.js";
 import { PredictionEngine } from "../prediction/PredictionEngine.js";
 import { CauseEffectEngine } from "../cause-effect/CauseEffectEngine.js";
+import { ImpactAnalyzer } from "../impact/ImpactAnalyzer.js";
 import { ReflectionEngine } from "../reflection/ReflectionEngine.js";
 import { SelfEvaluationEngine } from "../self-evaluation/SelfEvaluationEngine.js";
 import { WorkingMemory } from "../working-memory/WorkingMemory.js";
@@ -24,6 +25,7 @@ export class CognitiveRuntimeFactory {
         runtime.register(new WorldModel());
         runtime.register(new PredictionEngine());
         runtime.register(new CauseEffectEngine());
+        runtime.register(new ImpactAnalyzer());
         runtime.register(new PlanningEngine());
         runtime.register(new DecisionEngine());
         runtime.register(new ExecutionEngine());

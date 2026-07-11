@@ -1,4 +1,4 @@
-﻿import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 
 import { CognitiveRuntimeFactory } from "../factory/CognitiveRuntimeFactory.js";
 
@@ -24,7 +24,8 @@ describe("Cognitive Pipeline", () => {
 
         expect(context.state.has("workingMemory")).toBe(true);
         expect(context.state.has("prediction")).toBe(true);
-        expect(context.state.has("causeEffect")).toBe(true);
+                expect(context.state.has("causeEffect")).toBe(true);
+        expect(context.state.has("impact")).toBe(true);
         expect(context.state.has("plan")).toBe(true);
         expect(context.state.has("decision")).toBe(true);
         expect(context.state.has("execution")).toBe(true);
