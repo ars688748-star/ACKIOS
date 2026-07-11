@@ -1,4 +1,4 @@
-import {
+﻿import {
     ArchitectureLayer,
     ArchitectureRecommendation,
     ArchitectureReport,
@@ -9,11 +9,13 @@ import { StructureScanner } from "./StructureScanner.js";
 
 export class ArchitectureAnalyzer {
 
+    constructor(
+        private readonly scanner: StructureScanner
+    ) {}
+
     async analyze(workspace: string): Promise<ArchitectureReport> {
 
-        const scanner = new StructureScanner();
-
-        const structure = scanner.scan(workspace);
+        const structure = this.scanner.scan(workspace);
 
         const layers: ArchitectureLayer[] = [];
 

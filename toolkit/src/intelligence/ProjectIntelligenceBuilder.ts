@@ -10,13 +10,16 @@ export class ProjectIntelligenceBuilder {
 
     build(): ProjectIntelligenceEngine {
 
+        const scanner = new StructureScanner();
+        const json = new JsonService();
+
         return new ProjectIntelligenceEngine(
             new TechnologyDetector(),
-            new ArchitectureAnalyzer(),
-            new DependencyAnalyzer(),
+            new ArchitectureAnalyzer(scanner),
+            new DependencyAnalyzer(json),
             new RiskAnalyzer(),
-            new StructureScanner(),
-            new JsonService()
+            scanner,
+            json
         );
 
     }

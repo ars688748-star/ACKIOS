@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+﻿import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 import { JsonService } from "../services/JsonService.js";
@@ -10,8 +10,9 @@ import {
 
 export class DependencyAnalyzer {
 
-    private readonly json =
-        new JsonService();
+    constructor(
+        private readonly json: JsonService
+    ) {}
 
     public analyze(
         workspace: string
