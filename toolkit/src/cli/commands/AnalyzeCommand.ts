@@ -1,5 +1,6 @@
 ﻿import { Toolkit } from "../../Toolkit.js";
 
+import { ConfigLoader } from "../../config/ConfigLoader.js";
 import { ConfigManager } from "../../config/ConfigManager.js";
 
 import { ReportFormat } from "../../report/ReportFormat.js";
@@ -22,7 +23,9 @@ export class AnalyzeCommand implements Command {
             ?? context.workingDirectory;
 
         const config =
-            new ConfigManager().load(root);
+            new ConfigManager(
+                new ConfigLoader()
+            ).load(root);
 
         const formatArg =
             context.args.find(a => a.startsWith("--format="));

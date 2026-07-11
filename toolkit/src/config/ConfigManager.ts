@@ -2,8 +2,9 @@
 
 export class ConfigManager {
 
-    private readonly loader =
-        new ConfigLoader();
+    public constructor(
+        private readonly loader: ConfigLoader
+    ) {}
 
     public load(
         root: string
