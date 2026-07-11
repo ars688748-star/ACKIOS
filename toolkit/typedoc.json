@@ -1,0 +1,9 @@
+{
+  "entryPoints": [
+    "src"
+  ],
+  "out": "generated-docs",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeExternals": true
+}

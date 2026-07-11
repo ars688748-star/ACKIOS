@@ -3,3 +3,6 @@ dist
 out
 release
 *.log
+
+# TypeDoc
+generated-docs/
