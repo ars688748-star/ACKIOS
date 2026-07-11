@@ -6,6 +6,10 @@ import { ProjectScanner } from "../../scanner/ProjectScanner.js";
 
 export class DefaultWorkspaceLoader implements WorkspaceLoader {
 
+    public constructor(
+        private readonly scanner: ProjectScanner
+    ) {}
+
     public async load(
         options: WorkspaceOptions
     ): Promise<Workspace> {
@@ -13,7 +17,7 @@ export class DefaultWorkspaceLoader implements WorkspaceLoader {
         const workspace = new Workspace();
 
         workspace.setState(
-            new ProjectScanner().scan(options.root)
+            this.scanner.scan(options.root)
         );
 
         return workspace;

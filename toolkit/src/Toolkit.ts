@@ -1,4 +1,5 @@
 ﻿import { AnalysisEngine } from "./engine/AnalysisEngine.js";
+import { ProjectScanner } from "./scanner/ProjectScanner.js";
 import { RepositoryLocator } from "./scanner/RepositoryLocator.js";
 
 import { DefaultWorkspaceLoader } from "./workspace/loader/DefaultWorkspaceLoader.js";
@@ -8,7 +9,9 @@ export class Toolkit {
 
     private readonly workspace =
         new DefaultWorkspaceManager(
-            new DefaultWorkspaceLoader(),
+            new DefaultWorkspaceLoader(
+                new ProjectScanner()
+            ),
             new RepositoryLocator()
         );
 
