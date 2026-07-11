@@ -1,4 +1,4 @@
-import { AttentionEngine } from "../attention/AttentionEngine.js";
+﻿import { AttentionEngine } from "../attention/AttentionEngine.js";
 import { DecisionEngine } from "../decision/DecisionEngine.js";
 import { ExecutionEngine } from "../execution/ExecutionEngine.js";
 import { GoalEngine } from "../goal-system/GoalEngine.js";
@@ -11,13 +11,15 @@ import { ReflectionEngine } from "../reflection/ReflectionEngine.js";
 import { SelfEvaluationEngine } from "../self-evaluation/SelfEvaluationEngine.js";
 import { WorkingMemory } from "../working-memory/WorkingMemory.js";
 import { WorldModel } from "../world-model/WorldModel.js";
+
 import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
+import { CognitiveRuntimeBuilder } from "./CognitiveRuntimeBuilder.js";
 
 export class CognitiveRuntimeFactory {
 
     static create(): CognitiveRuntime {
 
-        const runtime = new CognitiveRuntime();
+        const runtime = new CognitiveRuntimeBuilder().build();
 
         runtime.register(new WorkingMemory());
         runtime.register(new AttentionEngine());
@@ -38,5 +40,3 @@ export class CognitiveRuntimeFactory {
     }
 
 }
-
-

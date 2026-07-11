@@ -1,4 +1,4 @@
-import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
+﻿import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
 import { ICognitiveRuntime } from "../interfaces/ICognitiveRuntime.js";
 import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
 import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
@@ -6,7 +6,7 @@ import { CognitivePipeline } from "../pipeline/CognitivePipeline.js";
 export class CognitiveRuntime implements ICognitiveRuntime {
 
     constructor(
-        private readonly pipeline: CognitivePipeline = new CognitivePipeline()
+        private readonly pipeline: CognitivePipeline
     ) {}
 
     register(module: ICognitiveModule): void {

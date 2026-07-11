@@ -1,12 +1,14 @@
-import { CognitiveKernelService } from "../services/CognitiveKernelService.js";
+﻿import { CognitiveKernelService } from "../services/CognitiveKernelService.js";
 import { CognitiveRuntimeFactory } from "../factory/CognitiveRuntimeFactory.js";
 import { CognitiveRuntime } from "../runtime/CognitiveRuntime.js";
 
 export class CognitiveBootManager {
 
-    private readonly kernel = new CognitiveKernelService();
-
     private runtime?: CognitiveRuntime;
+
+    public constructor(
+        private readonly kernel: CognitiveKernelService
+    ) {}
 
     async boot(): Promise<CognitiveRuntime> {
 
