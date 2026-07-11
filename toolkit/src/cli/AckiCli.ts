@@ -6,6 +6,7 @@ import { IntelligenceCommand } from "./commands/IntelligenceCommand.js";
 import { VersionCommand } from "./commands/VersionCommand.js";
 import { HelpCommand } from "./commands/HelpCommand.js";
 import { BuildCommand } from "./commands/BuildCommand.js";
+import { TestCommand } from "./commands/TestCommand.js";
 
 import { Command } from "./core/Command.js";
 
@@ -23,6 +24,7 @@ export class AckiCli {
         this.register(new VersionCommand());
         this.register(new HelpCommand());
         this.register(new BuildCommand());
+        this.register(new TestCommand());
 
     }
 
