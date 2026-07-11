@@ -1,0 +1,20 @@
+﻿BrainKernelBuilder
+        │
+        ▼
+ BrainKernel
+
+BrainRuntimeBuilder
+        │
+        ▼
+ BrainRuntime
+        │
+        ▼
+ BrainPipeline
+        │
+        ▼
+ Memory
+ Knowledge
+ Reasoning
+ Planning
+ Decision
+ Execution
