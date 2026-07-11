@@ -1,6 +1,6 @@
 ﻿import path from "node:path";
 
-import { AnalysisEngine } from "../engine/AnalysisEngine.js";
+import { AnalysisEngineBuilder } from "../engine/AnalysisEngineBuilder.js";
 import { MarkdownReportGenerator } from "../report/MarkdownReportGenerator.js";
 import { MarkdownWriter } from "../report/MarkdownWriter.js";
 import { ProjectScanner } from "../scanner/ProjectScanner.js";
@@ -14,7 +14,8 @@ export async function runAudit(): Promise<void> {
 
     const workspaceWriter = new WorkspaceWriter();
 
-    const analysisEngine = new AnalysisEngine();
+    const analysisEngine =
+        new AnalysisEngineBuilder().build();
 
     const reportGenerator = new MarkdownReportGenerator();
 

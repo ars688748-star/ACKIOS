@@ -1,4 +1,4 @@
-﻿import { AnalysisEngine } from "./engine/AnalysisEngine.js";
+﻿import { AnalysisEngineBuilder } from "./engine/AnalysisEngineBuilder.js";
 import { ProjectScanner } from "./scanner/ProjectScanner.js";
 import { RepositoryLocator } from "./scanner/RepositoryLocator.js";
 
@@ -16,7 +16,7 @@ export class Toolkit {
         );
 
     private readonly analysis =
-        new AnalysisEngine();
+        new AnalysisEngineBuilder().build();
 
     public async analyze(
         root: string

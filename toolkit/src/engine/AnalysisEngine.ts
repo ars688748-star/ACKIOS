@@ -2,18 +2,23 @@
 import { WorkspaceState } from "../types/WorkspaceState.js";
 
 import { AnalysisReport } from "./AnalysisReport.js";
-
-import { RuleEngine } from "./RuleEngine.js";
-import { RecommendationEngine } from "./RecommendationEngine.js";
 import { RecommendationAggregator } from "./RecommendationAggregator.js";
+import { RecommendationEngine } from "./RecommendationEngine.js";
+import { RuleEngine } from "./RuleEngine.js";
 import { ScoreCalculator } from "./ScoreCalculator.js";
 import { StatisticsCalculator } from "./StatisticsCalculator.js";
 import { SummaryGenerator } from "./SummaryGenerator.js";
 
-import { createRules } from "./RuleRegistry.js";
-import { createRecommendationProviders } from "./RecommendationRegistry.js";
-
 export class AnalysisEngine {
+
+    constructor(
+        private readonly ruleEngine: RuleEngine,
+        private readonly recommendationEngine: RecommendationEngine,
+        private readonly recommendationAggregator: RecommendationAggregator,
+        private readonly scoreCalculator: ScoreCalculator,
+        private readonly statisticsCalculator: StatisticsCalculator,
+        private readonly summaryGenerator: SummaryGenerator
+    ) {}
 
     public analyze(
         workspace: Workspace | WorkspaceState
@@ -25,26 +30,19 @@ export class AnalysisEngine {
                 : workspace;
 
         const issues =
-            new RuleEngine(
-                createRules()
-            ).analyze(state);
+            this.ruleEngine.analyze(state);
 
         const recommendations =
-            new RecommendationEngine(
-                createRecommendationProviders()
-            ).create(issues);
+            this.recommendationEngine.create(issues);
 
         const recommendationGroups =
-            new RecommendationAggregator()
-                .aggregate(recommendations);
+            this.recommendationAggregator.aggregate(recommendations);
 
         const score =
-            new ScoreCalculator()
-                .calculate(issues);
+            this.scoreCalculator.calculate(issues);
 
         const statistics =
-            new StatisticsCalculator()
-                .calculate(issues);
+            this.statisticsCalculator.calculate(issues);
 
         statistics.recommendations =
             recommendations.length;
@@ -67,8 +65,7 @@ export class AnalysisEngine {
             statistics,
 
             summary:
-                new SummaryGenerator()
-                    .create(issues)
+                this.summaryGenerator.create(issues)
 
         };
 
