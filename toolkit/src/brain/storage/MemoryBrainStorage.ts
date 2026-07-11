@@ -1,24 +1,25 @@
-import { ProjectKnowledge } from "../models/index.js";
+﻿import { ProjectKnowledge } from "../models/index.js";
+import { BrainStorage } from "./BrainStorage.js";
 
-export class MemoryBrainStorage{
+export class MemoryBrainStorage implements BrainStorage {
 
-    private knowledge:ProjectKnowledge|null=null;
+    private knowledge: ProjectKnowledge | null = null;
 
-    load():ProjectKnowledge|null{
+    load(): ProjectKnowledge | null {
 
         return this.knowledge;
 
     }
 
-    save(knowledge:ProjectKnowledge):void{
+    save(knowledge: ProjectKnowledge): void {
 
-        this.knowledge=knowledge;
+        this.knowledge = knowledge;
 
     }
 
-    clear():void{
+    clear(): void {
 
-        this.knowledge=null;
+        this.knowledge = null;
 
     }
 
