@@ -6,3 +6,12 @@ release
 
 # TypeDoc
 generated-docs/
+# ==========================================
+# ACKI Development Artifacts
+# ==========================================
+*_audit.txt
+ACKI_FULL_AUDIT.txt
+ACKI_PROJECT_EXPORT.txt
+ACKI_NEXT_CHAT_CONTEXT.md
+factory_runtime_audit.txt
+runtime_architecture_audit.txt
