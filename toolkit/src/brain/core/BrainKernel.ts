@@ -18,6 +18,7 @@ import { AgentManager } from "../agents/AgentManager.js";
 import { ToolManager } from "../tools/ToolManager.js";
 import { EventManager } from "../events/EventManager.js";
 import { TelemetryManager } from "../telemetry/TelemetryManager.js";
+import { KnowledgePersistenceService } from "../storage/KnowledgePersistenceService.js";
 
 export interface BrainKernelServices {
 
@@ -48,6 +49,8 @@ export interface BrainKernelServices {
     events: EventManager;
 
     telemetry: TelemetryManager;
+
+    persistence?: KnowledgePersistenceService;
 
 }
 
