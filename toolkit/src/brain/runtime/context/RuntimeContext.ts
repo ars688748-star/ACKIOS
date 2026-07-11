@@ -1,4 +1,5 @@
-﻿
+﻿import { BrainServiceRegistry } from "../../services/BrainServiceRegistry.js";
+
 export interface RuntimeContext {
 
     readonly input: unknown;
@@ -15,5 +16,6 @@ export interface RuntimeContext {
 
     readonly output: unknown;
 
-}
+    readonly services?: BrainServiceRegistry;
 
+}
