@@ -7,10 +7,9 @@ import { WorkspaceOptions } from "../models/WorkspaceOptions.js";
 export class DefaultWorkspaceManager implements WorkspaceManager {
 
     public constructor(
-        private readonly loader: WorkspaceLoader
+        private readonly loader: WorkspaceLoader,
+        private readonly locator: RepositoryLocator
     ) {}
-
-    private readonly locator = new RepositoryLocator();
 
     private workspace: Workspace | null = null;
 
