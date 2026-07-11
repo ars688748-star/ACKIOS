@@ -5,3 +5,4 @@ export * from "./reasoning/index.js";
 export * from "./planning/index.js";
 export * from "./decision/index.js";
 export * from "./execution/index.js";
+export * from "./BrainRuntimeBridgeBuilder.js";
