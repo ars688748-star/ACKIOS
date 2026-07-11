@@ -1,1 +1,2 @@
-﻿export * from "./CognitivePipeline.js";
+﻿export * from "./PipelineRegistry.js";
+export * from "./PipelineStage.js";
