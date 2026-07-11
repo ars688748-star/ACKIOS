@@ -1,6 +1,9 @@
-import { describe, expect, test } from "vitest";
+﻿import { describe, expect, test } from "vitest";
 
 import { PluginLoader } from "../PluginLoader.js";
+import { PluginValidator } from "../PluginValidator.js";
+import { PluginCompatibility } from "../PluginCompatibility.js";
+import { PluginSecurityManager } from "../security/PluginSecurityManager.js";
 
 
 describe(
@@ -14,7 +17,11 @@ describe(
 
 
                 const loader =
-                    new PluginLoader();
+                    new PluginLoader(
+                        new PluginValidator(),
+                        new PluginCompatibility(),
+                        new PluginSecurityManager()
+                    );
 
 
                 const plugin =

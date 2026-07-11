@@ -1,4 +1,4 @@
-import { promises as fs } from "fs";
+﻿import { promises as fs } from "fs";
 import path from "path";
 
 import { PluginLoader } from "./PluginLoader.js";
@@ -9,8 +9,8 @@ export class PluginLoaderManager {
 
 
     constructor(
-        private loader: PluginLoader = new PluginLoader(),
-        private manager: PluginManager = new PluginManager()
+        private loader: PluginLoader,
+        private manager: PluginManager
     ) {}
 
 

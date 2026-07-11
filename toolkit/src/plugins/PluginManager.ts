@@ -1,4 +1,4 @@
-import { Plugin } from "./Plugin.js";
+﻿import { Plugin } from "./Plugin.js";
 import { PluginContext } from "./PluginContext.js";
 import { RuleRegistry } from "../engine/RuleRegistry.js";
 import { RecommendationRegistry } from "../engine/RecommendationRegistry.js";
@@ -7,9 +7,9 @@ import { PluginRegistry } from "./PluginRegistry.js";
 export class PluginManager {
 
     constructor(
-        private ruleRegistry: RuleRegistry = new RuleRegistry(),
-        private recommendationRegistry: RecommendationRegistry = new RecommendationRegistry(),
-        private pluginRegistry: PluginRegistry = new PluginRegistry()
+        private ruleRegistry: RuleRegistry,
+        private recommendationRegistry: RecommendationRegistry,
+        private pluginRegistry: PluginRegistry
     ) {}
 
 
