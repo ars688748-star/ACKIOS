@@ -1,12 +1,15 @@
 ﻿import { describe, expect, it } from "vitest";
 
 import { CognitiveResultService } from "../CognitiveResultService.js";
+import { CognitiveResultBuilder } from "../../result/CognitiveResultBuilder.js";
 
 describe("CognitiveResultService", () => {
 
     it("builds cognitive result through service", () => {
 
-        const service = new CognitiveResultService();
+        const service = new CognitiveResultService(
+            new CognitiveResultBuilder()
+        );
 
         const context = {
 

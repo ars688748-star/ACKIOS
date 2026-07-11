@@ -5,7 +5,7 @@ import { CognitiveResultBuilder } from "../result/CognitiveResultBuilder.js";
 export class CognitiveResultService {
 
     constructor(
-        private readonly builder = new CognitiveResultBuilder()
+        private readonly builder: CognitiveResultBuilder
     ) {}
 
     build(
