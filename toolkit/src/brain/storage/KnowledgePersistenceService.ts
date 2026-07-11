@@ -1,14 +1,14 @@
 ﻿import { BrainService } from "../services/BrainService.js";
+import { KnowledgeManager } from "../knowledge/KnowledgeManager.js";
 import { BrainKnowledgeExporter } from "./BrainKnowledgeExporter.js";
 import { BrainStorage } from "./BrainStorage.js";
-import { ProjectBrain } from "../ProjectBrain.js";
 
 export class KnowledgePersistenceService extends BrainService {
 
     public readonly name = "KnowledgePersistenceService";
 
     constructor(
-        private readonly brain: ProjectBrain,
+        private readonly knowledge: KnowledgeManager,
         private readonly exporter: BrainKnowledgeExporter,
         private readonly storage: BrainStorage
     ){
@@ -18,9 +18,9 @@ export class KnowledgePersistenceService extends BrainService {
 
     public save(): void {
 
-        const knowledge = this.exporter.export(this.brain);
+        const projectKnowledge = this.exporter.export(this.knowledge);
 
-        this.storage.save(knowledge);
+        this.storage.save(projectKnowledge);
 
     }
 
