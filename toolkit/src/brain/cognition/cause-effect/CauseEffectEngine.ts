@@ -1,4 +1,4 @@
-﻿import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
+import { ICognitiveContext } from "../interfaces/ICognitiveContext.js";
 import { ICognitiveModule } from "../interfaces/ICognitiveModule.js";
 
 export interface CauseEffectRelation {
@@ -19,19 +19,29 @@ export class CauseEffectEngine implements ICognitiveModule {
 
     async process(context: ICognitiveContext): Promise<void> {
 
-        const prediction = context.state.get("prediction");
+        const relations: CauseEffectRelation[] = [];
 
-        const relation: CauseEffectRelation = {
+        const prediction =
+            context.state.get("prediction");
 
-            cause: prediction ? "prediction" : "unknown",
+        if (prediction) {
 
-            effect: "planning",
+            relations.push({
 
-            confidence: prediction ? 1.0 : 0.0
+                cause: "prediction",
 
-        };
+                effect: "planning",
 
-        context.state.set("causeEffect", relation);
+                confidence: 1.0
+
+            });
+
+        }
+
+        context.state.set(
+            "causeEffect",
+            relations
+        );
 
     }
 
