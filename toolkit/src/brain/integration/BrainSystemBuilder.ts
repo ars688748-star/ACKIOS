@@ -10,12 +10,17 @@ export class BrainSystemBuilder {
         config: BrainKernelConfig = {}
     ): BrainSystem {
 
+        const kernel =
+            new BrainKernelBuilder()
+                .build(config);
+
+        const bridge =
+            new BrainRuntimeBridgeBuilder()
+                .build(kernel.services);
+
         return new BrainSystem(
-
-            new BrainKernelBuilder().build(config),
-
-            new BrainRuntimeBridgeBuilder().build()
-
+            kernel,
+            bridge
         );
 
     }

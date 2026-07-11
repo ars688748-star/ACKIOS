@@ -6,9 +6,13 @@ import { BrainDispatcher } from "../dispatcher/BrainDispatcher.js";
 import { BrainScheduler } from "../scheduler/BrainScheduler.js";
 import { BrainExecutor } from "../executor/BrainExecutor.js";
 
+import { BrainServiceRegistry } from "../../services/BrainServiceRegistry.js";
+
 export class BrainRuntimeBuilder {
 
-    public build(): BrainRuntime {
+    public build(
+        services?: BrainServiceRegistry
+    ): BrainRuntime {
 
         return new BrainRuntime(
 
@@ -18,7 +22,9 @@ export class BrainRuntimeBuilder {
 
             new BrainScheduler(),
 
-            new BrainExecutor()
+            new BrainExecutor(),
+
+            services
 
         );
 
