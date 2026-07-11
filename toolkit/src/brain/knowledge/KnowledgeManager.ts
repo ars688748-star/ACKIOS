@@ -73,10 +73,20 @@ export class KnowledgeManager extends BrainService implements IKnowledgeManager 
         return this.graph.getNodes();
     }
 
+    public getCategory(
+        id: string
+    ): KnowledgeCategory | undefined {
+
+        return this.index.getCategory(id);
+
+    }
+
     public getNodesByCategory(
         category: KnowledgeCategory
     ): readonly KnowledgeNode[] {
+
         return this.index.getByCategory(category);
+
     }
 
     public getRelation(id: string): KnowledgeRelation | undefined {

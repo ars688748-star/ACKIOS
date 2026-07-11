@@ -20,7 +20,7 @@ export class BrainKnowledgeImporter {
                 node.metadata ?? {}
             ),
 
-            category: KnowledgeCategory.Custom
+            category: node.category ?? KnowledgeCategory.Custom
 
         }));
 
