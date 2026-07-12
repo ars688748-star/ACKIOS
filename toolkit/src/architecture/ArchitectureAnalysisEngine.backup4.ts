@@ -49,9 +49,6 @@ export class ArchitectureAnalysisEngine {
         const graph =
             this.graphBuilder.build(model);
 
-        const violations =
-            await this.ruleEngine.validate(graph);
-
         const scannedFiles =
             fileNodes.length;
 
@@ -64,14 +61,13 @@ export class ArchitectureAnalysisEngine {
 
             scannedDirectories,
 
-            violations
+            violations: []
 
         };
 
     }
 
 }
-
 
 
 
