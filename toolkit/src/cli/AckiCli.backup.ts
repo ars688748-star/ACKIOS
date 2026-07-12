@@ -1,4 +1,4 @@
-﻿import { AnalyzeCommand } from "./commands/AnalyzeCommand.js";
+import { AnalyzeCommand } from "./commands/AnalyzeCommand.js";
 import { DoctorCommand } from "./commands/DoctorCommand.js";
 import { InitCommand } from "./commands/InitCommand.js";
 import { ReportCommand } from "./commands/ReportCommand.js";
@@ -8,7 +8,6 @@ import { HelpCommand } from "./commands/HelpCommand.js";
 import { BuildCommand } from "./commands/BuildCommand.js";
 import { TestCommand } from "./commands/TestCommand.js";
 import { DocsCommand } from "./commands/DocsCommand.js";
-import { ArchitectureValidateCommand } from "./commands/ArchitectureValidateCommand.js";
 
 import { Command } from "./core/Command.js";
 
@@ -28,7 +27,6 @@ export class AckiCli {
         this.register(new BuildCommand());
         this.register(new TestCommand());
         this.register(new DocsCommand());
-        this.register(new ArchitectureValidateCommand());
 
     }
 
@@ -74,7 +72,5 @@ export class AckiCli {
     }
 
 }
-
-
 
 
