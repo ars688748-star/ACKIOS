@@ -1,5 +1,6 @@
 ﻿import type { ArchitectureGraph } from "../graph/ArchitectureGraph.js";
 import type { ArchitectureViolation } from "../model/ArchitectureViolation.js";
+import { CoreBoundaryPolicy } from "../policy/CoreBoundaryPolicy.js";
 import { IArchitectureRule } from "../validator/IArchitectureRule.js";
 
 export class CoreBoundaryRule implements IArchitectureRule {
@@ -11,10 +12,14 @@ export class CoreBoundaryRule implements IArchitectureRule {
     ): Promise<readonly ArchitectureViolation[]> {
 
         return graph.edges
-            .filter(edge => edge.to.includes("brain/runtime"))
+            .filter(edge =>
+                CoreBoundaryPolicy.forbidden.some(path =>
+                    edge.to.includes(path)
+                )
+            )
             .map(edge => ({
                 rule: this.name,
-                message: "Direct dependency on private runtime detected.",
+                message: "Direct dependency on private core detected.",
                 source: edge.from,
                 target: edge.to
             }));
