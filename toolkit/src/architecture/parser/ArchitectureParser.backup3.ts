@@ -2,12 +2,8 @@
 import type { ArchitectureModel } from "../model/ArchitectureModel.js";
 import type { ArchitectureNode } from "../model/ArchitectureNode.js";
 import type { SourceFile } from "../source/SourceFile.js";
-import { ImportResolver } from "./ImportResolver.js";
 
 export class ArchitectureParser {
-
-    private readonly resolver =
-        new ImportResolver();
 
     public parse(
         files: SourceFile[]
@@ -31,10 +27,7 @@ export class ArchitectureParser {
 
                 edges.push({
                     from: file.path,
-                    to: this.resolver.resolve(
-                        file.path,
-                        match[1]
-                    ),
+                    to: match[1],
                     type: "import"
                 });
 
@@ -50,6 +43,3 @@ export class ArchitectureParser {
     }
 
 }
-
-
-

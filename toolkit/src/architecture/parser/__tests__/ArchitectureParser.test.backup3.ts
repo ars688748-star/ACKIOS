@@ -35,11 +35,10 @@ describe("ArchitectureParser", () => {
 
         expect(model.edges[0]).toEqual({
             from: "/src/index.ts",
-            to: "/src/brain.js",
+            to: "./brain.js",
             type: "import"
         });
 
     });
 
 });
-
