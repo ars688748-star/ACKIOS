@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 
 import { GraphBuilder } from "../GraphBuilder.js";
 
@@ -16,14 +16,14 @@ describe("GraphBuilder", () => {
                     path: "/src",
                     type: "directory"
                 }
-            ]
+            ],
+
+            edges: []
 
         });
 
         expect(graph.nodes).toHaveLength(1);
-
         expect(graph.edges).toHaveLength(0);
-
         expect(graph.nodes[0].name).toBe("src");
 
     });
