@@ -26,13 +26,20 @@ export class ArchitectureAnalysisEngine {
         root: string
     ): Promise<ArchitectureReport> {
 
-        await this.scanner.scan(root);
+        const nodes =
+            await this.scanner.scan(root);
+
+        const scannedFiles =
+            nodes.filter(node => node.type === "file").length;
+
+        const scannedDirectories =
+            nodes.filter(node => node.type === "directory").length;
 
         return {
 
-            scannedFiles: 0,
+            scannedFiles,
 
-            scannedDirectories: 0,
+            scannedDirectories,
 
             violations: []
 
