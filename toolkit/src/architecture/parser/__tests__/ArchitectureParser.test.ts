@@ -20,4 +20,25 @@ describe("ArchitectureParser", () => {
 
     });
 
+    it("creates dependency edges from imports", () => {
+
+        const parser = new ArchitectureParser();
+
+        const model = parser.parse([
+            {
+                path: "/src/index.ts",
+                content: 'import { Brain } from "./brain.js";'
+            }
+        ]);
+
+        expect(model.edges).toHaveLength(1);
+
+        expect(model.edges[0]).toEqual({
+            from: "/src/index.ts",
+            to: "./brain.js",
+            type: "import"
+        });
+
+    });
+
 });
