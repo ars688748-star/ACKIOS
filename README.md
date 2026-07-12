@@ -1,4 +1,4 @@
-﻿# ACKI-FAN Studio
+﻿# ACKIOS
 
 Electron + React + TypeScript
 
