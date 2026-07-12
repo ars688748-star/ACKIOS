@@ -24,18 +24,12 @@ describe("ArchitectureParser", () => {
 
         const parser = new ArchitectureParser();
 
-        const model = parser.parse(
-            [
-                {
-                    path: "/src/index.ts",
-                    content: 'import { Brain } from "./brain.js";'
-                }
-            ],
-            [
-                "/src/index.ts",
-                "/src/brain.js"
-            ]
-        );
+        const model = parser.parse([
+            {
+                path: "/src/index.ts",
+                content: 'import { Brain } from "./brain.js";'
+            }
+        ]);
 
         expect(model.edges).toHaveLength(1);
 
@@ -48,5 +42,4 @@ describe("ArchitectureParser", () => {
     });
 
 });
-
 

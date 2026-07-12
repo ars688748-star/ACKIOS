@@ -3,19 +3,14 @@ import type { ArchitectureModel } from "../model/ArchitectureModel.js";
 import type { ArchitectureNode } from "../model/ArchitectureNode.js";
 import type { SourceFile } from "../source/SourceFile.js";
 import { ImportResolver } from "./ImportResolver.js";
-import { DependencyResolver } from "./DependencyResolver.js";
 
 export class ArchitectureParser {
 
     private readonly resolver =
         new ImportResolver();
 
-    private readonly dependencyResolver =
-        new DependencyResolver();
-
     public parse(
-        files: SourceFile[],
-        availableFiles: string[] = []
+        files: SourceFile[]
     ): ArchitectureModel {
 
         const nodes: ArchitectureNode[] = [];
@@ -36,12 +31,9 @@ export class ArchitectureParser {
 
                 edges.push({
                     from: file.path,
-                    to: this.dependencyResolver.resolve(
-                        this.resolver.resolve(
-                            file.path,
-                            match[1]
-                        ),
-                        availableFiles
+                    to: this.resolver.resolve(
+                        file.path,
+                        match[1]
                     ),
                     type: "import"
                 });
@@ -58,10 +50,6 @@ export class ArchitectureParser {
     }
 
 }
-
-
-
-
 
 
 

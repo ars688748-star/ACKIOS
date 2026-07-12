@@ -44,7 +44,10 @@ export class ArchitectureAnalysisEngine {
             );
 
         const model =
-            this.parser.parse(sourceFiles);
+            this.parser.parse(
+                sourceFiles,
+                fileNodes.map(node => node.path)
+            );
 
         const graph =
             this.graphBuilder.build(model);
@@ -81,6 +84,7 @@ export class ArchitectureAnalysisEngine {
     }
 
 }
+
 
 
 
