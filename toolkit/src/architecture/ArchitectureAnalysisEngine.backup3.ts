@@ -46,9 +46,6 @@ export class ArchitectureAnalysisEngine {
         const model =
             this.parser.parse(sourceFiles);
 
-        const graph =
-            this.graphBuilder.build(model);
-
         const scannedFiles =
             fileNodes.length;
 
@@ -68,7 +65,6 @@ export class ArchitectureAnalysisEngine {
     }
 
 }
-
 
 
 
