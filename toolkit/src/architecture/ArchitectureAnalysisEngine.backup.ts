@@ -3,7 +3,6 @@ import { GraphBuilder } from "./graph/GraphBuilder.js";
 import type { ArchitectureReport } from "./model/ArchitectureReport.js";
 import { ArchitectureParser } from "./parser/ArchitectureParser.js";
 import { ArchitectureScanner } from "./scanner/ArchitectureScanner.js";
-import { SourceLoader } from "./source/SourceLoader.js";
 
 export class ArchitectureAnalysisEngine {
 
@@ -14,9 +13,6 @@ export class ArchitectureAnalysisEngine {
 
         private readonly parser =
             new ArchitectureParser(),
-
-        private readonly sourceLoader =
-            new SourceLoader(),
 
         private readonly graphBuilder =
             new GraphBuilder(),
@@ -33,17 +29,8 @@ export class ArchitectureAnalysisEngine {
         const nodes =
             await this.scanner.scan(root);
 
-        const fileNodes =
-            nodes.filter(node => node.type === "file");
-
-        await Promise.all(
-            fileNodes.map(node =>
-                this.sourceLoader.load(node.path)
-            )
-        );
-
         const scannedFiles =
-            fileNodes.length;
+            nodes.filter(node => node.type === "file").length;
 
         const scannedDirectories =
             nodes.filter(node => node.type === "directory").length;
@@ -61,6 +48,3 @@ export class ArchitectureAnalysisEngine {
     }
 
 }
-
-
-
