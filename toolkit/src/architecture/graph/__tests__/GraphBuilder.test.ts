@@ -28,4 +28,32 @@ describe("GraphBuilder", () => {
 
     });
 
+    it("preserves dependency edges", () => {
+
+        const builder = new GraphBuilder();
+
+        const graph = builder.build({
+
+            nodes: [],
+
+            edges: [
+                {
+                    from: "/src/index.ts",
+                    to: "./brain.js",
+                    type: "import"
+                }
+            ]
+
+        });
+
+        expect(graph.edges).toHaveLength(1);
+
+        expect(graph.edges[0]).toEqual({
+            from: "/src/index.ts",
+            to: "./brain.js",
+            type: "import"
+        });
+
+    });
+
 });
