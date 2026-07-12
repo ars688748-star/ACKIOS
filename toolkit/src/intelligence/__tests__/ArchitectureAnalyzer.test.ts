@@ -9,6 +9,8 @@ import {
     ArchitectureType
 } from "../index.js";
 
+import { StructureScanner } from "../StructureScanner.js";
+
 describe("ArchitectureAnalyzer", () => {
 
     it("should detect layered architecture", async () => {
@@ -24,13 +26,19 @@ describe("ArchitectureAnalyzer", () => {
         writeFileSync(join(workspace, "eslint.config.js"), "");
         writeFileSync(join(workspace, ".prettierrc"), "");
 
-        const analyzer = new ArchitectureAnalyzer();
+        const analyzer =
+            new ArchitectureAnalyzer(
+                new StructureScanner()
+            );
 
-        const report = await analyzer.analyze(workspace);
+        const report =
+            await analyzer.analyze(workspace);
 
-        expect(report.architecture).not.toBe(ArchitectureType.Unknown);
+        expect(report.architecture)
+            .not.toBe(ArchitectureType.Unknown);
 
-        expect(report.score).toBeGreaterThan(0);
+        expect(report.score)
+            .toBeGreaterThan(0);
 
     });
 

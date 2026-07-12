@@ -9,7 +9,7 @@ import {
 import { join } from "node:path";
 import { tmpdir } from "node:os";
 
-import { ProjectIntelligenceEngine } from "../index.js";
+import { ProjectIntelligenceBuilder } from "../ProjectIntelligenceBuilder.js";
 
 describe("ProjectIntelligenceEngine", () => {
 
@@ -27,21 +27,21 @@ describe("ProjectIntelligenceEngine", () => {
         writeFileSync(
             join(workspace, "package.json"),
             JSON.stringify({
-
                 dependencies: {
                     react: "^19.0.0"
                 },
-
                 devDependencies: {
                     typescript: "^5.9.0"
                 }
-
             })
         );
 
-        const engine = new ProjectIntelligenceEngine();
+        const engine =
+            new ProjectIntelligenceBuilder()
+                .build();
 
-        const report = await engine.analyze(workspace);
+        const report =
+            await engine.analyze(workspace);
 
         expect(report.summary.overallScore).toBeGreaterThan(0);
         expect(report.dependencies.total).toBe(2);

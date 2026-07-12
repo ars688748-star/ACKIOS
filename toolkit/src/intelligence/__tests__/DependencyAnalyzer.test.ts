@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 
 import { DependencyAnalyzer } from "../index.js";
+import { JsonService } from "../../services/JsonService.js";
 
 describe("DependencyAnalyzer", () => {
 
@@ -24,9 +25,13 @@ describe("DependencyAnalyzer", () => {
             })
         );
 
-        const analyzer = new DependencyAnalyzer();
+        const analyzer =
+            new DependencyAnalyzer(
+                new JsonService()
+            );
 
-        const report = analyzer.analyze(workspace);
+        const report =
+            analyzer.analyze(workspace);
 
         expect(report.total).toBe(2);
 
