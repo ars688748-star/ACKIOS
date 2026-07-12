@@ -1,4 +1,4 @@
-import type { ArchitectureNode } from "../model/ArchitectureNode.js";
+﻿import type { ArchitectureGraph } from "../graph/ArchitectureGraph.js";
 import type { ArchitectureViolation } from "../model/ArchitectureViolation.js";
 
 export interface IArchitectureRule {
@@ -6,7 +6,7 @@ export interface IArchitectureRule {
     readonly name: string;
 
     validate(
-        nodes: readonly ArchitectureNode[]
+        graph: ArchitectureGraph
     ): Promise<readonly ArchitectureViolation[]>;
 
 }
