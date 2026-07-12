@@ -15,3 +15,18 @@ ACKI_PROJECT_EXPORT.txt
 ACKI_NEXT_CHAT_CONTEXT.md
 factory_runtime_audit.txt
 runtime_architecture_audit.txt
+
+# ==========================================
+# ACKIOS Local Workspace
+# ==========================================
+
+.work/
+
+# Chat working context
+ACKI_NEXT_CHAT_CONTEXT_v3.md
+ACKI_NEXT_CHAT_CONTEXT_v3.backup.md
+ACKI_RUNTIME_FULL_AUDIT.md
+
+# Backup files
+*.bak
+
