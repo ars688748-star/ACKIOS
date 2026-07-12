@@ -36,15 +36,11 @@ export class ArchitectureAnalysisEngine {
         const fileNodes =
             nodes.filter(node => node.type === "file");
 
-        const sourceFiles =
-            await Promise.all(
-                fileNodes.map(node =>
-                    this.sourceLoader.load(node.path)
-                )
-            );
-
-        const model =
-            this.parser.parse(sourceFiles);
+        await Promise.all(
+            fileNodes.map(node =>
+                this.sourceLoader.load(node.path)
+            )
+        );
 
         const scannedFiles =
             fileNodes.length;
@@ -65,7 +61,6 @@ export class ArchitectureAnalysisEngine {
     }
 
 }
-
 
 
 
