@@ -52,12 +52,6 @@ export class ArchitectureAnalysisEngine {
         const violations =
             await this.ruleEngine.validate(graph);
 
-        const nodeCount =
-            graph.nodes.length;
-
-        const dependencyCount =
-            graph.edges.length;
-
         const scannedFiles =
             fileNodes.length;
 
@@ -70,10 +64,6 @@ export class ArchitectureAnalysisEngine {
 
             scannedDirectories,
 
-            nodeCount,
-
-            dependencyCount,
-
             violations
 
         };
@@ -81,7 +71,6 @@ export class ArchitectureAnalysisEngine {
     }
 
 }
-
 
 
 
