@@ -16,7 +16,7 @@ describe("ArchitectureAnalysisEngine", () => {
             .toBe(100);
 
         expect(result.workflow.name)
-            .toBe("Architecture Analysis");
+            .toBe("Split Core");
 
     });
 

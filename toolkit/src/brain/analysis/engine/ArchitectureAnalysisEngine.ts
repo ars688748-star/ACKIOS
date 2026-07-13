@@ -1,61 +1,55 @@
 ﻿import { ArchitectureAnalysisResult } from "../ArchitectureAnalysisResult.js";
 
+import { ArchitectureDecisionEngine } from "../../decision/ArchitectureDecisionEngine.js";
+import { ArchitecturePlanningEngine } from "../../planning/ArchitecturePlanningEngine.js";
+import { ArchitectureExecutionPlanner } from "../../execution/ArchitectureExecutionPlanner.js";
+import { ArchitectureWorkflowEngine } from "../../workflow/ArchitectureWorkflowEngine.js";
+
 export class ArchitectureAnalysisEngine {
+
+    private readonly decisionEngine =
+        new ArchitectureDecisionEngine();
+
+    private readonly planningEngine =
+        new ArchitecturePlanningEngine();
+
+    private readonly executionPlanner =
+        new ArchitectureExecutionPlanner();
+
+    private readonly workflowEngine =
+        new ArchitectureWorkflowEngine();
 
     public analyze(
         input: string
     ): ArchitectureAnalysisResult {
 
+        const decision =
+            this.decisionEngine.decide(input);
+
+        const plan =
+            this.planningEngine.createPlan(decision);
+
+        const execution =
+            this.executionPlanner.createExecutionPlan(plan);
+
+        const workflow =
+            this.workflowEngine.createWorkflow(execution);
+
         return {
 
-            decision: {
+            decision,
 
-                recommendation: input,
+            plan,
 
-                confidence: 100,
+            execution,
 
-                reasoning: [
-                    "Architecture analysis completed."
-                ]
-
-            },
-
-            plan: {
-
-                goal: input,
-
-                steps: [
-                    "Analyze architecture"
-                ]
-
-            },
-
-            execution: {
-
-                goal: input,
-
-                actions: [
-                    "Execute architecture plan"
-                ]
-
-            },
-
-            workflow: {
-
-                name: "Architecture Analysis",
-
-                steps: [
-                    "Analyze",
-                    "Plan",
-                    "Execute"
-                ]
-
-            },
+            workflow,
 
             summary:
                 "Architecture analysis completed.",
 
-            score: 100
+            score:
+                decision.confidence
 
         };
 
