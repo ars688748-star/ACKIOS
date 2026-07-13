@@ -3,13 +3,30 @@ import { ACKIOSRuntimeBuilder } from "./ACKIOSRuntimeBuilder.js";
 
 export class ACKIOSApplication {
 
-    public readonly runtime: ACKIOSRuntime;
+    public readonly runtime: ACKIOSRuntime =
+        new ACKIOSRuntimeBuilder().build();
 
-    public constructor() {
+    public initialize() {
 
-        this.runtime =
-            new ACKIOSRuntimeBuilder()
-                .build();
+        return this.runtime.initialize();
+
+    }
+
+    public start() {
+
+        return this.runtime.start();
+
+    }
+
+    public stop() {
+
+        return this.runtime.stop();
+
+    }
+
+    public dispose() {
+
+        return this.runtime.dispose();
 
     }
 

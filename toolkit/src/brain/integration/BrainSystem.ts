@@ -1,8 +1,5 @@
-﻿import { BrainKernel } from "../core/BrainKernel.js";
-import { BrainKernelBuilder } from "../core/BrainKernelBuilder.js";
-
+import { BrainKernel } from "../core/BrainKernel.js";
 import { BrainRuntimeBridge } from "./BrainRuntimeBridge.js";
-import { BrainRuntimeBridgeBuilder } from "./BrainRuntimeBridgeBuilder.js";
 
 export class BrainSystem {
 
@@ -10,5 +7,29 @@ export class BrainSystem {
         public readonly kernel: BrainKernel,
         public readonly bridge: BrainRuntimeBridge
     ) {}
+
+    public async initialize(): Promise<void> {
+
+        await this.kernel.initialize();
+
+    }
+
+    public async start(): Promise<void> {
+
+        await this.kernel.start();
+
+    }
+
+    public async stop(): Promise<void> {
+
+        await this.kernel.stop();
+
+    }
+
+    public async dispose(): Promise<void> {
+
+        await this.kernel.dispose();
+
+    }
 
 }

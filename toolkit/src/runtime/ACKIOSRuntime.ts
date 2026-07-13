@@ -8,4 +8,32 @@ export class ACKIOSRuntime {
         public readonly modules: IRuntimeModule[]
     ) {}
 
+    public async initialize(): Promise<void> {
+
+        for (const module of this.modules)
+            await module.initialize();
+
+    }
+
+    public async start(): Promise<void> {
+
+        for (const module of this.modules)
+            await module.start();
+
+    }
+
+    public async stop(): Promise<void> {
+
+        for (const module of [...this.modules].reverse())
+            await module.stop();
+
+    }
+
+    public async dispose(): Promise<void> {
+
+        for (const module of [...this.modules].reverse())
+            await module.dispose();
+
+    }
+
 }
