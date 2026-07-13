@@ -13,3 +13,4 @@ export * from "./KnowledgeRelationType.js";
 export * from "./KnowledgeRelationIndex.js";
 export * from "./KnowledgeRelationEngine.js";
 export * from "./KnowledgeImpactAnalyzer.js";
+export * from "./KnowledgePathFinder.js";
