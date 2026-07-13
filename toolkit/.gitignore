@@ -31,3 +31,34 @@ ACKI_RUNTIME_FULL_AUDIT.md
 *.bak
 
 .private/
+
+# ACKIOS archives
+.archive/
+
+# Backup files
+*.backup.ts
+*.backup.js
+*.backup.md
+*.backup.json
+*.backup.yml
+*.backup.yaml
+
+# Temporary files
+*.tmp
+*.temp
+
+
+# Build output
+dist/
+
+# Archive
+.archive/
+
+# Backup files
+*.backup.*
+*.bak
+
+# Temporary files
+*.tmp
+*.temp
+
