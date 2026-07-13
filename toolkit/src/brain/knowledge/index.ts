@@ -11,3 +11,5 @@ export * from "./MemoryKnowledgeMapper.js";
 export * from "./ArchitectureKnowledgeSynchronizer.js";
 export * from "./KnowledgeRelationType.js";
 export * from "./KnowledgeRelationIndex.js";
+export * from "./KnowledgeRelationEngine.js";
+export * from "./KnowledgeImpactAnalyzer.js";
