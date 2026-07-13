@@ -2,15 +2,18 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { Command } from "../core/Command.js";
+import { CommandContext } from "../models/CommandContext.js";
 
 export class VersionCommand implements Command {
 
     public readonly name = "version";
 
-    public async execute(): Promise<number> {
+    public async execute(
+        context: CommandContext
+    ): Promise<number> {
 
         const packageJsonPath = join(
-            process.cwd(),
+            context.workingDirectory,
             "package.json"
         );
 
