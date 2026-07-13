@@ -1,10 +1,6 @@
 import { ACKIOSApplication } from "../../runtime/ACKIOSApplication.js";
 
-export interface CommandContext {
-
-    args: string[];
-
-    workingDirectory: string;
+export interface ApplicationContext {
 
     application: ACKIOSApplication;
 

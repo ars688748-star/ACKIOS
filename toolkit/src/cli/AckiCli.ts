@@ -1,4 +1,4 @@
-﻿import { AnalyzeCommand } from "./commands/AnalyzeCommand.js";
+import { AnalyzeCommand } from "./commands/AnalyzeCommand.js";
 import { DoctorCommand } from "./commands/DoctorCommand.js";
 import { InitCommand } from "./commands/InitCommand.js";
 import { ReportCommand } from "./commands/ReportCommand.js";
@@ -11,12 +11,15 @@ import { DocsCommand } from "./commands/DocsCommand.js";
 import { ArchitectureValidateCommand } from "./commands/ArchitectureValidateCommand.js";
 
 import { Command } from "./core/Command.js";
+import { ACKIOSApplication } from "../runtime/ACKIOSApplication.js";
 
 export class AckiCli {
 
     private readonly commands = new Map<string, Command>();
 
-    public constructor() {
+    public constructor(
+        private readonly application: ACKIOSApplication
+    ) {
 
         this.register(new AnalyzeCommand());
         this.register(new DoctorCommand());
@@ -54,9 +57,7 @@ export class AckiCli {
 
         if (!command) {
 
-            console.error(
-                `Unknown command: ${name}`
-            );
+            console.error(`Unknown command: ${name}`);
 
             return 1;
 
@@ -66,15 +67,12 @@ export class AckiCli {
 
             args: args.slice(1),
 
-            workingDirectory:
-                process.cwd()
+            workingDirectory: process.cwd(),
+
+            application: this.application
 
         });
 
     }
 
 }
-
-
-
-
