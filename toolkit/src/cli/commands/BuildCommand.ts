@@ -11,9 +11,14 @@ export class BuildCommand implements Command {
         context: CommandContext
     ): Promise<number> {
 
-        return await new ProcessRunner().run(
+        const runner =
+            context.application.runtime.context.services.resolve<ProcessRunner>(
+                "processRunner"
+            );
+
+        return await runner.run(
             "npm",
-            ["run","build"],
+            ["run", "build"],
             context.workingDirectory
         );
 

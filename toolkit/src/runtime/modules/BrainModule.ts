@@ -1,14 +1,14 @@
 import { BrainSystem } from "../../brain/integration/BrainSystem.js";
-import { BrainSystemBuilder } from "../../brain/integration/BrainSystemBuilder.js";
 import { IRuntimeModule } from "../IRuntimeModule.js";
+import { ACKIOSContext } from "../ACKIOSContext.js";
 
 export class BrainModule implements IRuntimeModule {
 
-    private readonly brain: BrainSystem =
-        new BrainSystemBuilder().build();
+    private brain!: BrainSystem;
 
-    public async initialize(): Promise<void> {
+    public async initialize(context: ACKIOSContext): Promise<void> {
 
+        this.brain = context.services.resolve<BrainSystem>("brainSystem");
         await this.brain.initialize();
 
     }

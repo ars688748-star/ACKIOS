@@ -1,25 +1,25 @@
-import { IRuntimeModule } from "../IRuntimeModule.js";
 import { ArchitectureAnalysisEngine } from "../../architecture/ArchitectureAnalysisEngine.js";
+
+import { ACKIOSContext } from "../ACKIOSContext.js";
+import { IRuntimeModule } from "../IRuntimeModule.js";
 
 export class ArchitectureModule implements IRuntimeModule {
 
-    private readonly engine =
-        new ArchitectureAnalysisEngine();
+    private engine!: ArchitectureAnalysisEngine;
 
-    public async initialize(): Promise<void> {
+    public async initialize(context: ACKIOSContext): Promise<void> {
 
-    }
-
-    public async start(): Promise<void> {
-
-    }
-
-    public async stop(): Promise<void> {
+        this.engine =
+            context.services.resolve<ArchitectureAnalysisEngine>(
+                "architectureEngine"
+            );
 
     }
 
-    public async dispose(): Promise<void> {
+    public async start(): Promise<void> {}
 
-    }
+    public async stop(): Promise<void> {}
+
+    public async dispose(): Promise<void> {}
 
 }

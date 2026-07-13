@@ -11,7 +11,7 @@ export class ACKIOSRuntime {
     public async initialize(): Promise<void> {
 
         for (const module of this.modules)
-            await module.initialize();
+            await module.initialize(this.context);
 
     }
 

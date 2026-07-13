@@ -1,6 +1,8 @@
+import { ACKIOSContext } from "./ACKIOSContext.js";
+
 export interface IRuntimeModule {
 
-    initialize(): Promise<void>;
+    initialize(context: ACKIOSContext): Promise<void>;
 
     start(): Promise<void>;
 
