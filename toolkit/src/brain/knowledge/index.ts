@@ -7,3 +7,5 @@ export * from "./KnowledgeIndex.js";
 export * from "./KnowledgeSynchronizer.js";
 export * from "./IKnowledgeMapper.js";
 export * from "./MemoryKnowledgeMapper.js";
+
+export * from "./ArchitectureKnowledgeSynchronizer.js";
