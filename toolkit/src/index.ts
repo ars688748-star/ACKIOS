@@ -3,9 +3,8 @@ export * from "./Toolkit.js";
 export * from "./engine/index.js";
 
 export * from "./workspace/index.js";
-
-
 export * from "./cli/AckiCli.js";
+export * from "./scanner/index.js";
 export * from "./plugins/index.js";
 export * from "./intelligence/index.js";
 export * from "./recommendations/index.js";
