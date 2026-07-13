@@ -5,6 +5,7 @@ import { IRuntimeModule } from "./IRuntimeModule.js";
 import { Logger } from "../core/Logger.js";
 import { Workspace } from "../workspace/Workspace.js";
 import { ProcessRunner } from "../infrastructure/ProcessRunner.js";
+import { Toolkit } from "../Toolkit.js";
 
 import { BrainSystemBuilder } from "../brain/integration/BrainSystemBuilder.js";
 import { ArchitectureAnalysisEngine } from "../architecture/ArchitectureAnalysisEngine.js";
@@ -36,6 +37,7 @@ export class ACKIOSRuntimeBuilder {
         context.services.register("logger", new Logger());
         context.services.register("workspace", new Workspace());
         context.services.register("processRunner", new ProcessRunner());
+        context.services.register("toolkit", new Toolkit());
 
         context.services.register(
             "brainSystem",

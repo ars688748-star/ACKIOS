@@ -1,4 +1,4 @@
-﻿import { Toolkit } from "../../Toolkit.js";
+import { Toolkit } from "../../Toolkit.js";
 
 import { ConfigLoader } from "../../config/ConfigLoader.js";
 import { ConfigManager } from "../../config/ConfigManager.js";
@@ -41,7 +41,8 @@ export class AnalyzeCommand implements Command {
             outputArg?.substring("--output=".length)
             ?? config.report.output;
 
-        const toolkit = new Toolkit();
+        const toolkit =
+            context.application.runtime.context.services.resolve<Toolkit>("toolkit");
 
         const report =
             await toolkit.analyze(root);
