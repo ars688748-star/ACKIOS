@@ -30,3 +30,4 @@ ACKI_RUNTIME_FULL_AUDIT.md
 # Backup files
 *.bak
 
+.private/
