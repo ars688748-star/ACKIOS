@@ -2,9 +2,9 @@ export * from "./Toolkit.js";
 
 export * from "./engine/index.js";
 
-export * from "./workspace/Workspace.js";
-export * from "./workspace/loader/DefaultWorkspaceLoader.js";
-export * from "./workspace/manager/DefaultWorkspaceManager.js";
+export * from "./workspace/index.js";
+
+
 export * from "./cli/AckiCli.js";
 export * from "./plugins/index.js";
 export * from "./intelligence/index.js";
