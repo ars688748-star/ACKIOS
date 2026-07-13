@@ -1,4 +1,4 @@
-export * from "./KnowledgeManager.js";
+﻿export * from "./KnowledgeManager.js";
 export * from "./KnowledgeCategory.js";
 export * from "./KnowledgeNode.js";
 export * from "./KnowledgeRelation.js";
@@ -9,3 +9,5 @@ export * from "./IKnowledgeMapper.js";
 export * from "./MemoryKnowledgeMapper.js";
 
 export * from "./ArchitectureKnowledgeSynchronizer.js";
+export * from "./KnowledgeRelationType.js";
+export * from "./KnowledgeRelationIndex.js";

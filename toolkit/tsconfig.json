@@ -1,4 +1,4 @@
-{
+﻿{
   "compilerOptions": {
     "target": "ES2022",
     "module": "NodeNext",
@@ -24,6 +24,8 @@
     "dist",
     "node_modules",
     "**/__tests__/**",
-    "**/*.test.ts"
+    "**/*.test.ts",
+    "**/*.backup.ts",
+    "**/*.backup*.ts"
   ]
 }

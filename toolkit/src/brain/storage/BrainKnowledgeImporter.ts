@@ -2,6 +2,7 @@
 import { KnowledgeManager } from "../knowledge/KnowledgeManager.js";
 import { KnowledgeNode } from "../knowledge/KnowledgeNode.js";
 import { KnowledgeRelation } from "../knowledge/KnowledgeRelation.js";
+import { KnowledgeRelationType } from "../knowledge/KnowledgeRelationType.js";
 import { ProjectKnowledge } from "../models/index.js";
 
 export class BrainKnowledgeImporter {
@@ -29,7 +30,7 @@ export class BrainKnowledgeImporter {
             edge.id,
             edge.from,
             edge.to,
-            String(edge.relation)
+            edge.relation as unknown as KnowledgeRelationType
 
         ));
 
