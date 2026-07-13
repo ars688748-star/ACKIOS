@@ -1,4 +1,4 @@
-﻿import { ArchitectureAnalysisEngine } from "../../architecture/ArchitectureAnalysisEngine.js";
+import { BrainFacade } from "../../brain/index.js";
 
 import { Command } from "../core/Command.js";
 import { CommandContext } from "../models/CommandContext.js";
@@ -16,7 +16,7 @@ export class ArchitectureValidateCommand implements Command {
             ?? context.workingDirectory;
 
         const report =
-            await new ArchitectureAnalysisEngine().analyze(root);
+            await new BrainFacade().analyze(root);
 
         console.log(report);
 
