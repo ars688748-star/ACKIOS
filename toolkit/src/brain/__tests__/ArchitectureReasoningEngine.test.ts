@@ -1,13 +1,13 @@
-﻿import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vitest";
 
-import { ArchitectureAnalysisEngine } from "../analysis/engine/ArchitectureAnalysisEngine.js";
+import { ArchitectureReasoningEngine } from "../analysis/engine/ArchitectureReasoningEngine.js";
 
-describe("ArchitectureAnalysisEngine", () => {
+describe("ArchitectureReasoningEngine", () => {
 
     it("creates unified architecture analysis", () => {
 
         const engine =
-            new ArchitectureAnalysisEngine();
+            new ArchitectureReasoningEngine();
 
         const result =
             engine.analyze("Split Core");

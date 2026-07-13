@@ -1,11 +1,11 @@
-﻿import { ArchitectureAnalysisResult } from "../ArchitectureAnalysisResult.js";
+import { ArchitectureAnalysisResult } from "../ArchitectureAnalysisResult.js";
 
 import { ArchitectureDecisionEngine } from "../../decision/ArchitectureDecisionEngine.js";
 import { ArchitecturePlanningEngine } from "../../planning/ArchitecturePlanningEngine.js";
 import { ArchitectureExecutionPlanner } from "../../execution/ArchitectureExecutionPlanner.js";
 import { ArchitectureWorkflowEngine } from "../../workflow/ArchitectureWorkflowEngine.js";
 
-export class ArchitectureAnalysisEngine {
+export class ArchitectureReasoningEngine {
 
     private readonly decisionEngine =
         new ArchitectureDecisionEngine();

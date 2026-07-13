@@ -9,4 +9,4 @@ export * from "./integration/index.js";
 
 export * from "./BrainFacade.js";
 export * from "./analysis/ArchitectureAnalysisResult.js";
-export * from "./analysis/engine/ArchitectureAnalysisEngine.js";
+export * from "./analysis/engine/ArchitectureReasoningEngine.js";
