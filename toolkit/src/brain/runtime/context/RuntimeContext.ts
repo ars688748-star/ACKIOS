@@ -14,6 +14,8 @@ export interface RuntimeContext {
 
     readonly decision: unknown;
 
+    readonly workflow: unknown;
+
     readonly output: unknown;
 
     readonly services: BrainServiceRegistry | undefined;

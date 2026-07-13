@@ -6,6 +6,7 @@ import { ReasoningStage } from "../stages/ReasoningStage.js";
 import { PlanningStage } from "../stages/PlanningStage.js";
 import { DecisionStage } from "../stages/DecisionStage.js";
 import { ExecutionStage } from "../stages/ExecutionStage.js";
+import { ArchitectureOrchestratorStage } from "../stages/ArchitectureOrchestratorStage.js";
 
 export class BrainPipelineBuilder {
 
@@ -18,7 +19,8 @@ export class BrainPipelineBuilder {
             .addStage(new ReasoningStage())
             .addStage(new PlanningStage())
             .addStage(new DecisionStage())
-            .addStage(new ExecutionStage());
+            .addStage(new ExecutionStage())
+            .addStage(new ArchitectureOrchestratorStage());
 
     }
 

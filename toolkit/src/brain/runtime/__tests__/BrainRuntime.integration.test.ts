@@ -23,6 +23,7 @@ describe("BrainRuntime integration", () => {
             reasoning: undefined,
             plan: undefined,
             decision: undefined,
+            workflow: undefined,
             output: undefined,
 
             services: undefined
@@ -44,7 +45,7 @@ describe("BrainRuntime integration", () => {
     });
 
 
-    it("creates pipeline with six stages", () => {
+    it("creates pipeline with seven stages", () => {
 
         const runtime =
             new BrainRuntimeBuilder()
@@ -54,7 +55,7 @@ describe("BrainRuntime integration", () => {
         expect(
             runtime.getPipeline().count()
         )
-        .toBe(6);
+        .toBe(7);
 
     });
 
