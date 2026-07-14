@@ -101,7 +101,7 @@ function Invoke-QualityGate {
 
 function Show-WorkflowSummary {
 
-    $git = Get-GitSummary
+    $state = Get-AckiWorkflowState
 
     Write-Host ""
     Write-Host "========================================" -ForegroundColor Cyan
@@ -109,9 +109,9 @@ function Show-WorkflowSummary {
     Write-Host "========================================" -ForegroundColor Cyan
     Write-Host ""
 
-    Write-Host ("Branch            : {0}" -f $git.Branch)
-    Write-Host ("Commit            : {0}" -f $git.Commit)
-    Write-Host ("Repository Clean  : {0}" -f $git.Clean)
+    Write-Host ("Branch            : {0}" -f $state.Branch)
+    Write-Host ("Commit            : {0}" -f $state.Commit)
+    Write-Host ("Repository Clean  : {0}" -f $state.RepositoryClean)
     Write-Host ("Chat Context      : Updated")
     Write-Host ("Checkpoint        : Updated")
 
@@ -213,6 +213,7 @@ Ready for next development session.
     Write-Success "LATEST_CHECKPOINT.md updated."
 
 }
+
 
 
 
