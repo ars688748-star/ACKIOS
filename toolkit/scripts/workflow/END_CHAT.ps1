@@ -32,6 +32,36 @@ Invoke-Step "Generate Start Chat Prompt" {
     Generate-StartChatPrompt
 }
 
+Invoke-Step "Repository Boundary" {
+
+    $boundary = Test-RepositoryBoundary
+
+    if (-not $boundary.SafeToPublish) {
+        throw "Repository Boundary validation failed."
+    }
+
+}
+
+Invoke-Step "Git Add" {
+
+    Invoke-GitAdd
+
+}
+
+Invoke-Step "Git Commit" {
+
+    $state = Get-AckiWorkflowState
+
+    Invoke-GitCommit -Message ("workflow: epic {0} story {1}" -f $state.CurrentEpic,$state.CurrentStory)
+
+} -ContinueOnError
+
+Invoke-Step "Git Push" {
+
+    Invoke-GitPush
+
+} -ContinueOnError
+
 Show-WorkflowSummary
 
 Write-Host ""
@@ -42,6 +72,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
