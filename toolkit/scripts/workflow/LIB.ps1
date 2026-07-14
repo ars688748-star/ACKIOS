@@ -171,7 +171,7 @@ Development in progress.
 
 function Update-Checkpoint {
 
-    $git = Get-GitSummary
+    $state = Get-AckiWorkflowState
 
     $checkpointFile = Join-Path (Resolve-AckiRoot) ".work\checkpoints\LATEST_CHECKPOINT.md"
 
@@ -182,10 +182,10 @@ Generated:
 $(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
 
 Branch:
-$($git.Branch)
+$($state.Branch)
 
 Commit:
-$($git.Commit)
+$($state.Commit)
 
 Current Epic:
 114
@@ -200,7 +200,7 @@ Tests:
 PASS
 
 Repository Clean:
-$($git.Clean)
+$($state.RepositoryClean)
 
 Next Story:
 114.5.4
@@ -213,6 +213,7 @@ Ready for next development session.
     Write-Success "LATEST_CHECKPOINT.md updated."
 
 }
+
 
 
 
