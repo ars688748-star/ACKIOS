@@ -60,6 +60,25 @@ function Get-GitSummary {
 
 }
 
+function Get-AckiWorkflowState {
+
+    $git = Get-GitSummary
+
+    return [PSCustomObject]@{
+
+        Branch = $git.Branch
+
+        Commit = $git.Commit
+
+        RepositoryClean = $git.Clean
+
+        Timestamp = Get-Date
+
+    }
+
+}
+
+
 function Invoke-Build {
 
     & (Join-Path (Resolve-ScriptsPath) "Build.ps1")
@@ -105,7 +124,7 @@ function Update-ChatContext {
 
     $git = Get-GitSummary
 
-    $contextFile = Join-Path (Resolve-AckiRoot) "docs\context\CHAT_CONTEXT.md"
+    $contextFile = Join-Path (Resolve-AckiRoot) ".work\context\CHAT_CONTEXT.md"
 
     @"
 # ACKIOS CHAT CONTEXT
@@ -154,7 +173,7 @@ function Update-Checkpoint {
 
     $git = Get-GitSummary
 
-    $checkpointFile = Join-Path (Resolve-AckiRoot) "docs\checkpoints\LATEST_CHECKPOINT.md"
+    $checkpointFile = Join-Path (Resolve-AckiRoot) ".work\checkpoints\LATEST_CHECKPOINT.md"
 
     @"
 # ACKIOS CHECKPOINT
@@ -194,5 +213,7 @@ Ready for next development session.
     Write-Success "LATEST_CHECKPOINT.md updated."
 
 }
+
+
 
 
