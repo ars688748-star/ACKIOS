@@ -1,4 +1,4 @@
-﻿. "$PSScriptRoot\Common.ps1"
+. "$PSScriptRoot\Common.ps1"
 
 Write-Header "ACKI Build"
 
@@ -8,7 +8,7 @@ Write-Host ""
 npm run build
 if ($LASTEXITCODE -ne 0) {
     Write-ErrorMessage "TypeScript build failed."
-    exit $LASTEXITCODE
+    throw "TypeScript build failed."
 }
 
 Write-Host ""
@@ -18,7 +18,7 @@ Write-Host ""
 npm run lint
 if ($LASTEXITCODE -ne 0) {
     Write-ErrorMessage "ESLint failed."
-    exit $LASTEXITCODE
+    throw "ESLint failed."
 }
 
 Write-Host ""
@@ -28,7 +28,7 @@ Write-Host ""
 npm test
 if ($LASTEXITCODE -ne 0) {
     Write-ErrorMessage "Tests failed."
-    exit $LASTEXITCODE
+    throw "Tests failed."
 }
 
 Write-Host ""

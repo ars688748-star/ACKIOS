@@ -1,4 +1,4 @@
-﻿import js from "@eslint/js";
+import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
@@ -9,6 +9,11 @@ export default [
     ...tseslint.configs.recommended,
 
     {
+        ignores: [
+            "**/*.backup.ts",
+            "**/*.backup*.ts"
+        ],
+
         files: ["src/**/*.ts"],
 
         languageOptions: {
@@ -34,3 +39,4 @@ export default [
     }
 
 ];
+

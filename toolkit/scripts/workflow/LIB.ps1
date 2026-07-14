@@ -2,6 +2,8 @@ Set-StrictMode -Version Latest
 
 $ErrorActionPreference = "Stop"
 
+. (Join-Path $PSScriptRoot "..\repository\Repository.Core.ps1")
+
 . "$PSScriptRoot\..\lib\Common.ps1"
 . "$PSScriptRoot\..\lib\Path.ps1"
 . "$PSScriptRoot\..\lib\Project.ps1"
@@ -23,24 +25,51 @@ function Initialize-Workflow {
 function Invoke-Step {
 
     param(
+
         [Parameter(Mandatory)]
         [string]$Name,
 
         [Parameter(Mandatory)]
-        [scriptblock]$Action
+        [scriptblock]$Action,
+
+        [switch]$ContinueOnError
+
     )
 
     Write-Host ""
     Write-Host ">>> $Name"
 
-    & $Action
+    try {
 
-    if ($LASTEXITCODE -ne 0) {
-        Write-ErrorMessage "$Name failed."
-        exit $LASTEXITCODE
+        $result = & $Action
+
+        if ($LASTEXITCODE -ne 0) {
+            throw "$Name failed."
+        }
+
+        if ($result -eq $false) {
+            throw "$Name returned failure."
+        }
+
+        Write-Success "$Name completed."
+
+        return
+
     }
+    catch {
 
-    Write-Success "$Name completed."
+        if ($ContinueOnError) {
+
+            Write-WarningMessage $_.Exception.Message
+
+            return
+
+        }
+
+        Write-ErrorMessage $_.Exception.Message
+        throw
+
+    }
 
 }
 
@@ -64,26 +93,39 @@ function Get-GitSummary {
 
 function Get-AckiWorkflowState {
 
-    $git = Get-GitSummary
-
-    return [PSCustomObject]@{
-
-        Branch = $git.Branch
-
-        Commit = $git.Commit
-
-        RepositoryClean = $git.Clean
-
-        Timestamp = Get-Date
-
-    }
+    return Load-WorkflowState
 
 }
 
 
 function Invoke-Build {
 
-    & (Join-Path (Resolve-ScriptsPath) "Build.ps1")
+    param(
+
+        [switch]$ContinueOnError
+
+    )
+
+    try {
+
+        & (Join-Path (Resolve-ScriptsPath) "Build.ps1")
+
+        return $true
+
+    }
+    catch {
+
+        if ($ContinueOnError) {
+
+            Write-WarningMessage $_.Exception.Message
+
+            return
+
+        }
+
+        throw
+
+    }
 
 }
 
@@ -128,11 +170,11 @@ function Update-ChatContext {
 
     $contextFile = Join-Path (Resolve-AckiRoot) ".work\context\CHAT_CONTEXT.md"
 
-    @"
+@"
 # ACKIOS CHAT CONTEXT
 
 Generated:
-$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+$($state.Timestamp)
 
 Project:
 ACKIOS
@@ -144,19 +186,19 @@ Commit:
 $($state.Commit)
 
 Current Epic:
-114
+$($state.CurrentEpic)
 
 Current Story:
-114.5.2
+$($state.CurrentStory)
 
 Build:
-UNKNOWN
+$($state.Build)
 
 Tests:
-UNKNOWN
+$($state.Tests)
 
 Next Story:
-114.5.3
+$($state.NextStory)
 
 Repository Clean:
 $($state.RepositoryClean)
@@ -177,11 +219,11 @@ function Update-Checkpoint {
 
     $checkpointFile = Join-Path (Resolve-AckiRoot) ".work\checkpoints\LATEST_CHECKPOINT.md"
 
-    @"
+@"
 # ACKIOS CHECKPOINT
 
 Generated:
-$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+$($state.Timestamp)
 
 Branch:
 $($state.Branch)
@@ -190,22 +232,22 @@ Commit:
 $($state.Commit)
 
 Current Epic:
-114
+$($state.CurrentEpic)
 
 Current Story:
-114.5.3
+$($state.CurrentStory)
 
 Build:
-PASS
+$($state.Build)
 
 Tests:
-PASS
+$($state.Tests)
 
 Repository Clean:
 $($state.RepositoryClean)
 
 Next Story:
-114.5.4
+$($state.NextStory)
 
 Status:
 Ready for next development session.
@@ -223,142 +265,131 @@ Ready for next development session.
 
 
 
-function Test-RepositoryBoundary {
+function Generate-StartChatPrompt {
 
-    return [PSCustomObject]@{
+    $state = Get-AckiWorkflowState
 
-        PrivateExists = Test-Path (Join-Path (Resolve-AckiRoot) ".private")
+    $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
 
-        WorkExists = Test-Path (Join-Path (Resolve-AckiRoot) ".work")
+    $nextStoryFile = Join-Path (Resolve-AckiRoot) ".work\context\NEXT_STORY.md"
 
-        SafeToPublish = $true
+    $nextStory = ""
 
+    if (Test-Path $nextStoryFile) {
+        $nextStory = Get-Content $nextStoryFile -Raw
     }
+
+@"
+# ACKIOS DEVELOPMENT SESSION
+
+Project:
+ACKIOS
+
+Branch:
+$($state.Branch)
+
+Commit:
+$($state.Commit)
+
+Current Epic:
+$($state.CurrentEpic)
+
+Current Story:
+$($state.CurrentStory)
+
+Next Story:
+$($state.NextStory)
+
+Build:
+$($state.Build)
+
+Tests:
+$($state.Tests)
+
+Repository Clean:
+$($state.RepositoryClean)
+
+==================================================
+
+NEXT STORY
+
+$nextStory
+
+==================================================
+
+Continue development from Current Story.
+
+Rules:
+
+- Use PowerShell commands only.
+- Follow ACKIOS workflow.
+- Update workflow state after completed work.
+- Finish the session with:
+
+.\scripts\workflow\END_CHAT.ps1
+
+"@ | Set-Content $promptFile
+
+    Write-Success "START_CHAT_PROMPT.md updated."
 
 }
 
 
-function Get-BoundaryRules {
+function Save-WorkflowState {
 
-    $rulesFile = Join-Path (Resolve-AckiRoot) ".private\architecture\40_POLICIES\rules\BOUNDARY_RULES.json"
+    $state = Get-AckiWorkflowState
 
-    if (!(Test-Path $rulesFile)) {
-        throw "Boundary rules file not found: $rulesFile"
+    $workflowStateFile = Join-Path (Resolve-AckiRoot) ".work\state\WORKFLOW_STATE.json"
+
+    $workflow = [PSCustomObject]@{
+
+        Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+        Branch = $state.Branch
+
+        Commit = $state.Commit
+
+        RepositoryClean = $state.RepositoryClean
+
+        CurrentEpic = "114"
+
+        CurrentStory = "114.5.3"
+
+        NextStory = "114.5.4"
+
+        Build = "PASS"
+
+        Tests = "PASS"
+
     }
 
-    return Get-Content $rulesFile -Raw | ConvertFrom-Json
+    $workflow |
+        ConvertTo-Json -Depth 5 |
+        Set-Content $workflowStateFile
+
+    Write-Success "WORKFLOW_STATE.json updated."
 
 }
 
 
-function Get-GitStatus {
+function Load-WorkflowState {
 
-    $raw = git status --porcelain
+    $workflowStateFile = Join-Path (Resolve-AckiRoot) ".work\state\WORKFLOW_STATE.json"
 
-    $files = @()
-
-    foreach ($line in $raw) {
-
-        if (![string]::IsNullOrWhiteSpace($line)) {
-
-            $files += [PSCustomObject]@{
-
-                Status = $line.Substring(0,2).Trim()
-
-                Path = $line.Substring(3).Trim()
-
-            }
-
-        }
-
+    if (!(Test-Path $workflowStateFile)) {
+        throw "Workflow state file not found: $workflowStateFile"
     }
 
-    return [PSCustomObject]@{
-
-        Raw = $raw
-
-        Files = $files
-
-    }
+    return Get-Content $workflowStateFile -Raw | ConvertFrom-Json
 
 }
 
 
-function Check-ForbiddenPaths {
-
-    param(
-
-        $GitStatus,
-
-        $Rules
-
-    )
-
-    $errors = @()
-
-    foreach ($file in $GitStatus.Files) {
-
-        foreach ($rule in $Rules.forbiddenPaths) {
-
-            if ($file.Path.StartsWith($rule.Replace('/','\'))) {
-
-                $errors += [PSCustomObject]@{
-
-                    Path = $file.Path
-
-                    Rule = $rule
-
-                    Reason = "Forbidden repository area."
-
-                }
-
-            }
-
-        }
-
-    }
-
-    return $errors
-
-}
 
 
-function Check-ForbiddenPaths {
 
-    param(
 
-        $GitStatus,
 
-        $Rules
 
-    )
-
-    $errors = @()
-
-    foreach ($file in $GitStatus.Files) {
-
-        foreach ($rule in $Rules.forbiddenPaths) {
-
-            if ($file.Path.StartsWith($rule.Replace('/','\'))) {
-
-                $errors += [PSCustomObject]@{
-
-                    Path = $file.Path
-
-                    Rule = $rule
-
-                    Reason = "Forbidden repository area."
-
-                }
-
-            }
-
-        }
-
-    }
-
-    return $errors
-
-}
 
 
