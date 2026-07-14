@@ -81,7 +81,24 @@ function Invoke-QualityGate {
 }
 
 function Show-WorkflowSummary {
-    throw "Not implemented."
+
+    $git = Get-GitSummary
+
+    Write-Host ""
+    Write-Host "========================================" -ForegroundColor Cyan
+    Write-Host " Workflow Summary" -ForegroundColor Cyan
+    Write-Host "========================================" -ForegroundColor Cyan
+    Write-Host ""
+
+    Write-Host ("Branch            : {0}" -f $git.Branch)
+    Write-Host ("Commit            : {0}" -f $git.Commit)
+    Write-Host ("Repository Clean  : {0}" -f $git.Clean)
+    Write-Host ("Chat Context      : Updated")
+    Write-Host ("Checkpoint        : Updated")
+
+    Write-Host ""
+    Write-Success "Workflow completed successfully."
+
 }
 
 function Update-ChatContext {
@@ -177,4 +194,5 @@ Ready for next development session.
     Write-Success "LATEST_CHECKPOINT.md updated."
 
 }
+
 
