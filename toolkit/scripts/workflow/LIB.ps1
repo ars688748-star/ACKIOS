@@ -122,7 +122,7 @@ function Show-WorkflowSummary {
 
 function Update-ChatContext {
 
-    $git = Get-GitSummary
+    $state = Get-AckiWorkflowState
 
     $contextFile = Join-Path (Resolve-AckiRoot) ".work\context\CHAT_CONTEXT.md"
 
@@ -136,10 +136,10 @@ Project:
 ACKIOS
 
 Branch:
-$($git.Branch)
+$($state.Branch)
 
 Commit:
-$($git.Commit)
+$($state.Commit)
 
 Current Epic:
 114
@@ -157,7 +157,7 @@ Next Story:
 114.5.3
 
 Repository Clean:
-$($git.Clean)
+$($state.RepositoryClean)
 
 Status:
 Development in progress.
@@ -213,6 +213,7 @@ Ready for next development session.
     Write-Success "LATEST_CHECKPOINT.md updated."
 
 }
+
 
 
 
