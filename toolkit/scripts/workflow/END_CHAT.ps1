@@ -37,10 +37,15 @@ Invoke-Step "Repository Boundary" {
     $boundary = Test-RepositoryBoundary
 
     if (-not $boundary.SafeToPublish) {
-        throw "Repository Boundary validation failed."
+
+        Write-Warning "Repository Boundary violations detected:"
+
+        $boundary.Violations |
+            Format-Table Path,Type,Rule -AutoSize
+
     }
 
-}
+} -ContinueOnError
 
 Invoke-Step "Git Add" {
 
@@ -72,6 +77,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 

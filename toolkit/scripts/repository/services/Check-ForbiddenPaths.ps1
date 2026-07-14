@@ -1,4 +1,3 @@
-
 function Check-ForbiddenPaths {
 
     param(
@@ -15,15 +14,31 @@ function Check-ForbiddenPaths {
 
         foreach ($rule in $Rules.forbiddenPaths) {
 
-            if ($file.Path.StartsWith($rule.Replace('/','\'))) {
+            if ($file.Path.Replace('\','/').StartsWith($rule)) {
 
                 $errors += [PSCustomObject]@{
 
-                    Path = $file.Path
-
-                    Rule = $rule
-
+                    Path   = $file.Path
+                    Rule   = $rule
+                    Type   = "Path"
                     Reason = "Forbidden repository area."
+
+                }
+
+            }
+
+        }
+
+        foreach ($pattern in $Rules.forbiddenPatterns) {
+
+            if ($file.Path -like $pattern) {
+
+                $errors += [PSCustomObject]@{
+
+                    Path   = $file.Path
+                    Rule   = $pattern
+                    Type   = "Pattern"
+                    Reason = "Forbidden filename pattern."
 
                 }
 
@@ -36,4 +51,3 @@ function Check-ForbiddenPaths {
     return $errors
 
 }
-

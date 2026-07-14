@@ -1,15 +1,23 @@
-
 function Test-RepositoryBoundary {
 
-    return [PSCustomObject]@{
+    $rules = Get-BoundaryRules
+
+    $gitStatus = Get-GitStatus
+
+    $violations = @(Check-ForbiddenPaths `
+        -GitStatus $gitStatus `
+        -Rules $rules)
+
+    [PSCustomObject]@{
 
         PrivateExists = Test-Path (Join-Path (Resolve-AckiRoot) ".private")
 
         WorkExists = Test-Path (Join-Path (Resolve-AckiRoot) ".work")
 
-        SafeToPublish = $true
+        Violations = $violations
+
+        SafeToPublish = ($violations.Count -eq 0)
 
     }
 
 }
-
