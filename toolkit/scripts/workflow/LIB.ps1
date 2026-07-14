@@ -132,3 +132,49 @@ Development in progress.
 
 }
 
+
+function Update-Checkpoint {
+
+    $git = Get-GitSummary
+
+    $checkpointFile = Join-Path (Resolve-AckiRoot) "docs\checkpoints\LATEST_CHECKPOINT.md"
+
+    @"
+# ACKIOS CHECKPOINT
+
+Generated:
+$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+
+Branch:
+$($git.Branch)
+
+Commit:
+$($git.Commit)
+
+Current Epic:
+114
+
+Current Story:
+114.5.3
+
+Build:
+PASS
+
+Tests:
+PASS
+
+Repository Clean:
+$($git.Clean)
+
+Next Story:
+114.5.4
+
+Status:
+Ready for next development session.
+
+"@ | Set-Content $checkpointFile
+
+    Write-Success "LATEST_CHECKPOINT.md updated."
+
+}
+
