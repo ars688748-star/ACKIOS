@@ -6,6 +6,8 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\..\lib\Path.ps1"
 . "$PSScriptRoot\..\lib\Project.ps1"
 
+. "$PSScriptRoot\..\repository\Repository.Core.ps1"
+
 function Initialize-Workflow {
 
     Write-Header "ACKIOS Workflow"
@@ -218,5 +220,145 @@ Ready for next development session.
 
 
 
+
+
+
+function Test-RepositoryBoundary {
+
+    return [PSCustomObject]@{
+
+        PrivateExists = Test-Path (Join-Path (Resolve-AckiRoot) ".private")
+
+        WorkExists = Test-Path (Join-Path (Resolve-AckiRoot) ".work")
+
+        SafeToPublish = $true
+
+    }
+
+}
+
+
+function Get-BoundaryRules {
+
+    $rulesFile = Join-Path (Resolve-AckiRoot) ".private\architecture\40_POLICIES\rules\BOUNDARY_RULES.json"
+
+    if (!(Test-Path $rulesFile)) {
+        throw "Boundary rules file not found: $rulesFile"
+    }
+
+    return Get-Content $rulesFile -Raw | ConvertFrom-Json
+
+}
+
+
+function Get-GitStatus {
+
+    $raw = git status --porcelain
+
+    $files = @()
+
+    foreach ($line in $raw) {
+
+        if (![string]::IsNullOrWhiteSpace($line)) {
+
+            $files += [PSCustomObject]@{
+
+                Status = $line.Substring(0,2).Trim()
+
+                Path = $line.Substring(3).Trim()
+
+            }
+
+        }
+
+    }
+
+    return [PSCustomObject]@{
+
+        Raw = $raw
+
+        Files = $files
+
+    }
+
+}
+
+
+function Check-ForbiddenPaths {
+
+    param(
+
+        $GitStatus,
+
+        $Rules
+
+    )
+
+    $errors = @()
+
+    foreach ($file in $GitStatus.Files) {
+
+        foreach ($rule in $Rules.forbiddenPaths) {
+
+            if ($file.Path.StartsWith($rule.Replace('/','\'))) {
+
+                $errors += [PSCustomObject]@{
+
+                    Path = $file.Path
+
+                    Rule = $rule
+
+                    Reason = "Forbidden repository area."
+
+                }
+
+            }
+
+        }
+
+    }
+
+    return $errors
+
+}
+
+
+function Check-ForbiddenPaths {
+
+    param(
+
+        $GitStatus,
+
+        $Rules
+
+    )
+
+    $errors = @()
+
+    foreach ($file in $GitStatus.Files) {
+
+        foreach ($rule in $Rules.forbiddenPaths) {
+
+            if ($file.Path.StartsWith($rule.Replace('/','\'))) {
+
+                $errors += [PSCustomObject]@{
+
+                    Path = $file.Path
+
+                    Rule = $rule
+
+                    Reason = "Forbidden repository area."
+
+                }
+
+            }
+
+        }
+
+    }
+
+    return $errors
+
+}
 
 
