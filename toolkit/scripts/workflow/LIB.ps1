@@ -83,3 +83,52 @@ function Invoke-QualityGate {
 function Show-WorkflowSummary {
     throw "Not implemented."
 }
+
+function Update-ChatContext {
+
+    $git = Get-GitSummary
+
+    $contextFile = Join-Path (Resolve-AckiRoot) "docs\context\CHAT_CONTEXT.md"
+
+    @"
+# ACKIOS CHAT CONTEXT
+
+Generated:
+$(Get-Date -Format "yyyy-MM-dd HH:mm:ss")
+
+Project:
+ACKIOS
+
+Branch:
+$($git.Branch)
+
+Commit:
+$($git.Commit)
+
+Current Epic:
+114
+
+Current Story:
+114.5.2
+
+Build:
+UNKNOWN
+
+Tests:
+UNKNOWN
+
+Next Story:
+114.5.3
+
+Repository Clean:
+$($git.Clean)
+
+Status:
+Development in progress.
+
+"@ | Set-Content $contextFile
+
+    Write-Success "CHAT_CONTEXT.md updated."
+
+}
+
