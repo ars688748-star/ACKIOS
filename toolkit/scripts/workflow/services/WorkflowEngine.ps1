@@ -1,27 +1,3 @@
-Set-StrictMode -Version Latest
-
-$ErrorActionPreference = "Stop"
-
-. (Join-Path $PSScriptRoot "..\repository\Repository.Core.ps1")
-
-. "$PSScriptRoot\..\lib\Common.ps1"
-. "$PSScriptRoot\..\lib\Path.ps1"
-. "$PSScriptRoot\..\lib\Project.ps1"
-
-. "$PSScriptRoot\..\repository\Repository.Core.ps1"
-
-function Initialize-Workflow {
-
-    Write-Header "ACKIOS Workflow"
-
-    if (-not (Test-AckiProject)) {
-        throw "ACKIOS project verification failed."
-    }
-
-    Write-Success "Workflow initialized."
-
-}
-
 function Invoke-Step {
 
     param(
@@ -72,5 +48,6 @@ function Invoke-Step {
     }
 
 }
+
 
 

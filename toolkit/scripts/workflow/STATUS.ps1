@@ -2,7 +2,7 @@ Set-StrictMode -Version Latest
 
 $ErrorActionPreference = "Stop"
 
-. "$PSScriptRoot\LIB.ps1"
+. "$PSScriptRoot\Workflow.Core.ps1"
 
 Initialize-Workflow
 
@@ -19,3 +19,4 @@ Write-Host ("Commit : {0}" -f $git.Commit)
 Write-Host ("Clean  : {0}" -f $git.Clean)
 
 Write-Host ""
+

@@ -2,7 +2,7 @@ Set-StrictMode -Version Latest
 
 $ErrorActionPreference = "Stop"
 
-. "$PSScriptRoot\LIB.ps1"
+. "$PSScriptRoot\Workflow.Core.ps1"
 
 Initialize-Workflow
 
@@ -79,6 +79,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
