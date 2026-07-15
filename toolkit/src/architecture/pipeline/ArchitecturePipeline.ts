@@ -8,6 +8,8 @@ import { ParserStage } from "./stages/ParserStage.js";
 import { GraphStage } from "./stages/GraphStage.js";
 import { DependencyStage } from "./stages/DependencyStage.js";
 import { MetricsStage } from "./stages/MetricsStage.js";
+import { RuleStage } from "./stages/RuleStage.js";
+import { ReportStage } from "./stages/ReportStage.js";
 
 export class ArchitecturePipeline {
 
@@ -18,7 +20,9 @@ export class ArchitecturePipeline {
         new ParserStage(),
         new GraphStage(),
         new DependencyStage(),
-        new MetricsStage()
+        new MetricsStage(),
+        new RuleStage(),
+        new ReportStage()
     ];
 
     public async run(
