@@ -19,10 +19,19 @@ export class ArchitecturePipeline {
         context: ArchitectureContext
     ): Promise<ArchitectureContext> {
 
+        context.completedStages = [];
+
         let current = context;
 
         for (const stage of this.stages) {
+
             current = await stage.execute(current);
+
+            current.completedStages = [
+                ...(current.completedStages ?? []),
+                stage.name
+            ];
+
         }
 
         return current;
