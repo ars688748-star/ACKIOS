@@ -22,11 +22,11 @@ function Save-WorkflowState {
 
         RepositoryClean = $git.Clean
 
-        CurrentEpic = "114"
+        CurrentEpic = "115"
 
-        CurrentStory = "114.5.3"
+        CurrentStory = "115.1"
 
-        NextStory = "114.5.4"
+        NextStory = "115.2"
 
         Build = "PASS"
 
