@@ -17,3 +17,6 @@ export interface IMemoryManager {
     query(query: MemoryQuery): Promise<MemoryEntry[]>;
 
 }
+
+
+

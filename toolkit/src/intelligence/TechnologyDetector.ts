@@ -13,7 +13,7 @@ export class TechnologyDetector {
 
 
     detect(
-        packageJson: any,
+        packageJson: Record<string, unknown>,
         files: string[]
     ): TechnologyInfo[] {
 
@@ -22,11 +22,8 @@ export class TechnologyDetector {
 
 
         const dependencies = {
-
-            ...packageJson?.dependencies,
-
-            ...packageJson?.devDependencies
-
+            ...((packageJson.dependencies as Record<string, unknown>) ?? {}),
+            ...((packageJson.devDependencies as Record<string, unknown>) ?? {})
         };
 
 
@@ -114,3 +111,5 @@ export class TechnologyDetector {
     }
 
 }
+
+

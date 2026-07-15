@@ -5,7 +5,7 @@ export class PluginCompatibility {
 
 
     check(
-        manifest: any
+        manifest: Record<string, unknown>
     ): boolean {
 
 
@@ -30,3 +30,4 @@ export class PluginCompatibility {
     }
 
 }
+

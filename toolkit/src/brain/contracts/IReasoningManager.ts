@@ -5,3 +5,6 @@ export interface IReasoningManager {
     analyze(input: string): ArchitectureAnalysisResult;
 
 }
+
+
+

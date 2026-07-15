@@ -1,4 +1,4 @@
-﻿import { WorkspaceState } from "../../types/WorkspaceState.js";
+import {} from "../../types/WorkspaceState.js";
 import { RuleContext } from "../contracts/RuleContext.js";
 import { RuleMetadata } from "../contracts/RuleMetadata.js";
 import { RuleCategory } from "../contracts/RuleCategory.js";
@@ -118,4 +118,5 @@ severity: "info",
     }
 
 }
+
 

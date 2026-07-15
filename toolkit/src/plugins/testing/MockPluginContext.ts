@@ -12,7 +12,7 @@ export class MockPluginContext implements PluginContext {
 
 
     registerRule(
-        rule: any
+        rule: unknown
     ): void {
 
         this.rules.push(rule);
@@ -21,7 +21,7 @@ export class MockPluginContext implements PluginContext {
 
 
     registerRecommendation(
-        recommendation: any
+        recommendation: unknown
     ): void {
 
         this.recommendations.push(
@@ -42,3 +42,4 @@ export class MockPluginContext implements PluginContext {
     }
 
 }
+

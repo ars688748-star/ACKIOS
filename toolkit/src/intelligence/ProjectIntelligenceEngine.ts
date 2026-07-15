@@ -1,4 +1,4 @@
-﻿import { existsSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 import { ArchitectureAnalyzer } from "./ArchitectureAnalyzer.js";
@@ -27,7 +27,7 @@ export class ProjectIntelligenceEngine {
         const packageJsonPath = join(workspace, "package.json");
 
         const packageJson = existsSync(packageJsonPath)
-            ? this.jsonService.read(packageJsonPath)
+            ? this.jsonService.read<Record<string, unknown>>(packageJsonPath)
             : {};
 
         const technologies =
@@ -81,3 +81,4 @@ export class ProjectIntelligenceEngine {
     }
 
 }
+

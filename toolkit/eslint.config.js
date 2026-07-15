@@ -4,16 +4,22 @@ import tseslint from "typescript-eslint";
 
 export default [
 
+    {
+        ignores: [
+            "dist/**",
+            "node_modules/**",
+            "src/**/*.backup.ts",
+            "src/**/*.backup*.ts",
+            "src/**/__tests__/**",
+            "src/**/*.test.ts"
+        ]
+    },
+
     js.configs.recommended,
 
     ...tseslint.configs.recommended,
 
     {
-        ignores: [
-            "**/*.backup.ts",
-            "**/*.backup*.ts"
-        ],
-
         files: ["src/**/*.ts"],
 
         languageOptions: {
@@ -28,11 +34,13 @@ export default [
             "@typescript-eslint/no-unused-vars": [
                 "error",
                 {
-                    "argsIgnorePattern": "^_",
-                    "varsIgnorePattern": "^_",
-                    "caughtErrorsIgnorePattern": "^_"
+                    argsIgnorePattern: "^_",
+                    varsIgnorePattern: "^_",
+                    caughtErrorsIgnorePattern: "^_"
                 }
-            ]
+            ],
+
+            "@typescript-eslint/no-empty-object-type": "off"
 
         }
 

@@ -2,7 +2,7 @@ export class PluginValidator {
 
 
     validate(
-        manifest: any
+        manifest: Record<string, unknown>
     ): boolean {
 
 
@@ -37,3 +37,4 @@ export class PluginValidator {
 
 
 }
+

@@ -1,4 +1,4 @@
-export class AdjacencyGraph<TNode,TEdge>{
+export class AdjacencyGraph<_TNode,TEdge>{
 
     private readonly edges=new Map<string,TEdge[]>();
 
@@ -19,3 +19,4 @@ export class AdjacencyGraph<TNode,TEdge>{
     }
 
 }
+

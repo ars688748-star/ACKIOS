@@ -1,7 +1,34 @@
-﻿import { KnowledgeManager } from "../knowledge/KnowledgeManager.js";
-import { ProjectKnowledge } from "../models/index.js";
+import { KnowledgeManager } from "../knowledge/KnowledgeManager.js";
+import { KnowledgeRelationType } from "../knowledge/KnowledgeRelationType.js";
+import { ProjectKnowledge, BrainNodeType, BrainRelationType } from "../models/index.js";
 
 export class BrainKnowledgeExporter {
+
+    private mapRelationType(
+        relation: KnowledgeRelationType
+    ): BrainRelationType {
+
+        switch (relation) {
+
+            case KnowledgeRelationType.DependsOn:
+                return BrainRelationType.DependsOn
+
+            case KnowledgeRelationType.Contains:
+                return BrainRelationType.Contains
+
+            case KnowledgeRelationType.Uses:
+                return BrainRelationType.Uses
+
+            case KnowledgeRelationType.Implements:
+                return BrainRelationType.Implements
+
+            default:
+                return BrainRelationType.RelatedTo
+
+        }
+
+    }
+
 
     public export(
         knowledge: KnowledgeManager
@@ -12,7 +39,7 @@ export class BrainKnowledgeExporter {
             nodes: knowledge.getNodes().map(node => ({
 
                 id: node.id,
-                type: node.type as any,
+                type: node.type as BrainNodeType,
                 name: node.name,
 
                 category: knowledge.getCategory(node.id),
@@ -33,7 +60,7 @@ export class BrainKnowledgeExporter {
 
                 to: relation.targetId,
 
-                relation: relation.type as any
+                relation: this.mapRelationType(relation.type)
 
             })),
 
@@ -50,3 +77,10 @@ export class BrainKnowledgeExporter {
     }
 
 }
+
+
+
+
+
+
+

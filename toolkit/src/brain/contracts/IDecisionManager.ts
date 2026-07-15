@@ -5,3 +5,6 @@ export interface IDecisionManager {
     decide(input: string): ArchitectureDecision;
 
 }
+
+
+

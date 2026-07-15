@@ -3,7 +3,7 @@ import { ACKIOSContext } from "../ACKIOSContext.js";
 
 export class WorkspaceModule implements IRuntimeModule {
 
-    public async initialize(context: ACKIOSContext): Promise<void> {}
+    public async initialize(_context: ACKIOSContext): Promise<void> {}
 
     public async start(): Promise<void> {}
 
@@ -12,3 +12,4 @@ export class WorkspaceModule implements IRuntimeModule {
     public async dispose(): Promise<void> {}
 
 }
+

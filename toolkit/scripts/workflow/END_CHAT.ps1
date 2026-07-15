@@ -43,6 +43,8 @@ Invoke-Step "Repository Boundary" {
         $boundary.Violations |
             Format-Table Path,Type,Rule -AutoSize
 
+        Write-Warning "Repository is not ready for release. END_RELEASE will refuse publication until these violations are resolved."
+
     }
 
 } -ContinueOnError
@@ -77,6 +79,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
