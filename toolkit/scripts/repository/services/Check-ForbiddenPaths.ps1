@@ -12,6 +12,10 @@ function Check-ForbiddenPaths {
 
     foreach ($file in $GitStatus.Files) {
 
+        if ($file.Status -eq "??") {
+            continue
+        }
+
         foreach ($rule in $Rules.forbiddenPaths) {
 
             if ($file.Path.Replace('\','/').StartsWith($rule)) {
@@ -51,3 +55,4 @@ function Check-ForbiddenPaths {
     return $errors
 
 }
+
