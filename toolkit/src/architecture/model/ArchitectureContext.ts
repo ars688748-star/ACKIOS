@@ -5,6 +5,7 @@ import type { ArchitectureGraph } from "../graph/ArchitectureGraph.js";
 import type { ArchitectureNode } from "./ArchitectureNode.js";
 import type { SourceFile } from "../source/SourceFile.js";
 import type { ArchitectureViolation } from "./ArchitectureViolation.js";
+import type { ArchitectureReport } from "./ArchitectureReport.js";
 
 export interface ArchitectureContext {
 
@@ -27,6 +28,8 @@ export interface ArchitectureContext {
     metrics?: MetricsResult;
 
     violations?: readonly ArchitectureViolation[];
+
+    report?: ArchitectureReport;
 
     completedStages?: readonly string[];
 

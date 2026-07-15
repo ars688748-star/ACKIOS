@@ -1,28 +1,13 @@
-﻿import { ArchitectureRuleEngine } from "./ArchitectureRuleEngine.js";
-import { GraphBuilder } from "./graph/GraphBuilder.js";
-import type { ArchitectureReport } from "./model/ArchitectureReport.js";
-import { ArchitectureParser } from "./parser/ArchitectureParser.js";
-import { ArchitectureScanner } from "./scanner/ArchitectureScanner.js";
-import { SourceLoader } from "./source/SourceLoader.js";
+﻿import type { ArchitectureReport } from "./model/ArchitectureReport.js";
+
+import { ArchitecturePipeline } from "./pipeline/ArchitecturePipeline.js";
 
 export class ArchitectureAnalysisEngine {
 
     public constructor(
 
-        private readonly scanner =
-            new ArchitectureScanner(),
-
-        private readonly parser =
-            new ArchitectureParser(),
-
-        private readonly sourceLoader =
-            new SourceLoader(),
-
-        private readonly graphBuilder =
-            new GraphBuilder(),
-
-        private readonly ruleEngine =
-            new ArchitectureRuleEngine([])
+        private readonly pipeline =
+            new ArchitecturePipeline()
 
     ) {}
 
@@ -30,65 +15,21 @@ export class ArchitectureAnalysisEngine {
         root: string
     ): Promise<ArchitectureReport> {
 
-        const nodes =
-            await this.scanner.scan(root);
+        const context =
+            await this.pipeline.run({
+                root
+            });
 
-        const fileNodes =
-            nodes.filter(node => node.type === "file");
+        if (!context.report) {
 
-        const sourceFiles =
-            await Promise.all(
-                fileNodes.map(node =>
-                    this.sourceLoader.load(node.path)
-                )
+            throw new Error(
+                "Architecture pipeline did not produce a report."
             );
 
-        const model =
-            this.parser.parse(
-                sourceFiles,
-                fileNodes.map(node => node.path)
-            );
+        }
 
-        const graph =
-            this.graphBuilder.build(model);
-
-        const violations =
-            await this.ruleEngine.validate(graph);
-
-        const nodeCount =
-            graph.nodes.length;
-
-        const dependencyCount =
-            graph.edges.length;
-
-        const scannedFiles =
-            fileNodes.length;
-
-        const scannedDirectories =
-            nodes.filter(node => node.type === "directory").length;
-
-        return {
-
-            scannedFiles,
-
-            scannedDirectories,
-
-            nodeCount,
-
-            dependencyCount,
-
-            violations
-
-        };
+        return context.report;
 
     }
 
 }
-
-
-
-
-
-
-
-
