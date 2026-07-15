@@ -2,6 +2,9 @@
 import type { PipelineStage } from "./PipelineStage.js";
 
 import { ContextStage } from "./stages/ContextStage.js";
+import { ScannerStage } from "./stages/ScannerStage.js";
+import { SourceLoaderStage } from "./stages/SourceLoaderStage.js";
+import { ParserStage } from "./stages/ParserStage.js";
 import { GraphStage } from "./stages/GraphStage.js";
 import { DependencyStage } from "./stages/DependencyStage.js";
 import { MetricsStage } from "./stages/MetricsStage.js";
@@ -10,6 +13,9 @@ export class ArchitecturePipeline {
 
     private readonly stages: PipelineStage[] = [
         new ContextStage(),
+        new ScannerStage(),
+        new SourceLoaderStage(),
+        new ParserStage(),
         new GraphStage(),
         new DependencyStage(),
         new MetricsStage()
