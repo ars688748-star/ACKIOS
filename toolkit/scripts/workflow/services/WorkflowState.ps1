@@ -6,6 +6,8 @@ function Get-AckiWorkflowState {
 
 function Save-WorkflowState {
 
+    $git = Get-GitSummary
+
     $state = Get-AckiWorkflowState
 
     $workflowStateFile = Join-Path (Resolve-AckiRoot) ".work\state\WORKFLOW_STATE.json"
@@ -14,11 +16,11 @@ function Save-WorkflowState {
 
         Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
-        Branch = $state.Branch
+        Branch = $git.Branch
 
-        Commit = $state.Commit
+        Commit = $git.Commit
 
-        RepositoryClean = $state.RepositoryClean
+        RepositoryClean = $git.Clean
 
         CurrentEpic = "114"
 
@@ -57,3 +59,5 @@ function Invoke-QualityGate {
     throw "Not implemented."
 
 }
+
+

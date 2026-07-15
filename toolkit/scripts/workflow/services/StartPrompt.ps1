@@ -1,6 +1,7 @@
 function Generate-StartChatPrompt {
 
     $state = Get-AckiWorkflowState
+$git = Get-GitSummary
 
     $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
 
@@ -19,10 +20,10 @@ Project:
 ACKIOS
 
 Branch:
-$($state.Branch)
+$($git.Branch)
 
 Commit:
-$($state.Commit)
+$($git.Commit)
 
 Current Epic:
 $($state.CurrentEpic)
@@ -40,7 +41,7 @@ Tests:
 $($state.Tests)
 
 Repository Clean:
-$($state.RepositoryClean)
+$($git.Clean)
 
 ==================================================
 
@@ -66,3 +67,5 @@ Rules:
     Write-Success "START_CHAT_PROMPT.md updated."
 
 }
+
+

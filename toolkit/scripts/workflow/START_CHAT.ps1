@@ -7,6 +7,7 @@ $ErrorActionPreference = "Stop"
 Initialize-Workflow
 
 $state = Get-AckiWorkflowState
+$git = Get-GitSummary
 
 $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
 
@@ -16,13 +17,16 @@ Write-Host " ACKIOS START CHAT" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-Write-Host ("Branch : {0}" -f $state.Branch)
-Write-Host ("Commit : {0}" -f $state.Commit)
+Write-Host ("Branch            : {0}" -f $git.Branch)
+Write-Host ("Commit            : {0}" -f $git.Commit)
 Write-Host ("Epic   : {0}" -f $state.CurrentEpic)
 Write-Host ("Story  : {0}" -f $state.CurrentStory)
 Write-Host ("Build  : {0}" -f $state.Build)
 Write-Host ("Tests  : {0}" -f $state.Tests)
-Write-Host ("Clean  : {0}" -f $state.RepositoryClean)
+Write-Host ("Tracked Changes   : {0}" -f $git.TrackedChanges)
+Write-Host ("Untracked Files   : {0}" -f $git.UntrackedFiles)
+Write-Host ("Repository Clean  : {0}" -f $git.Clean)
+Write-Host ("Ready To Release  : {0}" -f $git.ReadyToRelease)
 
 Write-Host ""
 
@@ -50,5 +54,7 @@ Write-Host "========================================" -ForegroundColor Green
 Write-Host " READY FOR DEVELOPMENT" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
+
+
 
 

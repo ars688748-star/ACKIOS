@@ -1,6 +1,7 @@
 function Update-ChatContext {
 
     $state = Get-AckiWorkflowState
+$git = Get-GitSummary
 
     $contextFile = Join-Path (Resolve-AckiRoot) ".work\context\CHAT_CONTEXT.md"
 
@@ -14,10 +15,10 @@ Project:
 ACKIOS
 
 Branch:
-$($state.Branch)
+$($git.Branch)
 
 Commit:
-$($state.Commit)
+$($git.Commit)
 
 Current Epic:
 $($state.CurrentEpic)
@@ -35,7 +36,7 @@ Next Story:
 $($state.NextStory)
 
 Repository Clean:
-$($state.RepositoryClean)
+$($git.Clean)
 
 Status:
 Development in progress.
@@ -45,3 +46,4 @@ Development in progress.
     Write-Success "CHAT_CONTEXT.md updated."
 
 }
+

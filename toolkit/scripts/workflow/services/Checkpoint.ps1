@@ -1,6 +1,7 @@
 function Update-Checkpoint {
 
     $state = Get-AckiWorkflowState
+$git = Get-GitSummary
 
     $checkpointFile = Join-Path (Resolve-AckiRoot) ".work\checkpoints\LATEST_CHECKPOINT.md"
 
@@ -11,10 +12,10 @@ Generated:
 $($state.Timestamp)
 
 Branch:
-$($state.Branch)
+$($git.Branch)
 
 Commit:
-$($state.Commit)
+$($git.Commit)
 
 Current Epic:
 $($state.CurrentEpic)
@@ -29,7 +30,7 @@ Tests:
 $($state.Tests)
 
 Repository Clean:
-$($state.RepositoryClean)
+$($git.Clean)
 
 Next Story:
 $($state.NextStory)
@@ -42,3 +43,4 @@ Ready for next development session.
     Write-Success "LATEST_CHECKPOINT.md updated."
 
 }
+
