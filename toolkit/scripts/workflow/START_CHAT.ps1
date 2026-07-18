@@ -7,6 +7,8 @@ $ErrorActionPreference = "Stop"
 Initialize-Workflow
 
 $state = Get-AckiWorkflowState
+Test-Story $state.CurrentStory | Out-Null
+
 $git = Get-GitSummary
 
 
