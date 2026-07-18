@@ -14,6 +14,13 @@ Invoke-Step "Tests" {
     Invoke-Tests
 }
 
+Invoke-Step "Complete Story" {
+
+    $state = Get-AckiWorkflowState
+
+    Set-StoryStatus $state.CurrentStory "Completed" | Out-Null
+}
+
 Invoke-Step "Advance Story" {
     Advance-AckiStory | Out-Null
 }

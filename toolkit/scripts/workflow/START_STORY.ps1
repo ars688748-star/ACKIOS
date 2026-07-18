@@ -8,6 +8,8 @@ Initialize-Workflow
 
 $state = Get-AckiWorkflowState
 
+
+Set-StoryStatus $state.CurrentStory "In Progress" | Out-Null
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host " ACKIOS START STORY" -ForegroundColor Cyan
@@ -37,4 +39,5 @@ if ($null -ne $story) {
 else {
     Write-Host "Story not found."
 }
+
 
