@@ -6,11 +6,14 @@ function Get-AckiWorkflowState {
 
 function Save-WorkflowState {
 
+    param(
+        [Parameter(Mandatory)]
+        $State
+    )
+
     $git = Get-GitSummary
 
-    $state = Get-AckiWorkflowState
-
-    $workflowStateFile = Join-Path (Resolve-AckiRoot) ".work\state\WORKFLOW_STATE.json"
+        $workflowStateFile = Join-Path (Resolve-AckiRoot) ".work\state\WORKFLOW_STATE.json"
 
     $workflow = [PSCustomObject]@{
 
@@ -59,6 +62,7 @@ function Invoke-QualityGate {
     throw "Not implemented."
 
 }
+
 
 
 

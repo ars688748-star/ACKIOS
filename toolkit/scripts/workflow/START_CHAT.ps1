@@ -9,6 +9,8 @@ Initialize-Workflow
 $state = Get-AckiWorkflowState
 $git = Get-GitSummary
 
+
+Generate-StartChatPrompt
 $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
 
 Write-Host ""
@@ -54,6 +56,7 @@ Write-Host "========================================" -ForegroundColor Green
 Write-Host " READY FOR DEVELOPMENT" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
+
 
 
 

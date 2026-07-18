@@ -14,8 +14,8 @@ Invoke-Step "Tests" {
     Invoke-Tests
 }
 
-Invoke-Step "Save Workflow State" {
-    Save-WorkflowState
+Invoke-Step "Advance Story" {
+    Advance-AckiStory | Out-Null
 }
 
 Write-Host ""
@@ -26,4 +26,3 @@ Write-Host ""
 
 Write-Host "Story completed."
 Write-Host "Run START_CHAT to continue development."
-

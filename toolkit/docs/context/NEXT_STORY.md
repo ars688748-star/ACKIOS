@@ -1,15 +1,14 @@
-# Story 115.2
+# Story 115.4
 
 ## Title
 
-Repository Cleanup
+TBD
 
 ## Description
 
-Clean obsolete backup files and prepare repository for v1.0.
+Describe the work to be completed.
 
 ## Definition of Done
 
 - Build PASS
 - Tests PASS
-- Repository Clean
