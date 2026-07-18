@@ -62,3 +62,7 @@ dist/
 *.tmp
 *.temp
 
+# Workflow backups
+*.bak
+*.story*.bak
+*.before-*.bak
