@@ -2,24 +2,17 @@ function Generate-NextStory {
 
     $state = Get-AckiWorkflowState
 
-    $path = Join-Path (Resolve-AckiRoot) "docs\context\NEXT_STORY.md"
+    $root = Resolve-AckiRoot
 
-@"
-# Story $($state.NextStory)
+    $target = Join-Path $root "docs\context\NEXT_STORY.md"
+    $source = Join-Path $root "docs\stories\$($state.NextStory).md"
 
-## Title
-
-TBD
-
-## Description
-
-Describe the work to be completed.
-
-## Definition of Done
-
-- Build PASS
-- Tests PASS
-"@ | Set-Content $path
+    if (Test-Path $source) {
+        Copy-Item $source $target -Force
+    }
+    else {
+        New-StoryTemplate $state.NextStory | Set-Content $target
+    }
 
     Write-Success "NEXT_STORY.md updated."
 

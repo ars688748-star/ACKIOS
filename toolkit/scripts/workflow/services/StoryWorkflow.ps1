@@ -4,7 +4,10 @@ function Advance-AckiStory {
 
     $state.CurrentStory = $state.NextStory
     $state.NextStory    = Get-NextStoryId $state.CurrentStory
-    $state.Timestamp    = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+    Ensure-StoryExists $state.NextStory
+
+    $state.Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
     Save-WorkflowState -State $state
 
@@ -12,5 +15,3 @@ function Advance-AckiStory {
 
     return $state
 }
-
-
