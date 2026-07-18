@@ -5,7 +5,7 @@ $git = Get-GitSummary
 
     $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
 
-    $nextStoryFile = Join-Path (Resolve-AckiRoot) ".work\context\NEXT_STORY.md"
+    $nextStoryFile = Join-Path (Resolve-AckiRoot) "docs\context\NEXT_STORY.md"
 
     $nextStory = ""
 
