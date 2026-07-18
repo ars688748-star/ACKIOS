@@ -1,0 +1,29 @@
+Set-StrictMode -Version Latest
+
+$ErrorActionPreference = "Stop"
+
+. "$PSScriptRoot\Workflow.Core.ps1"
+
+Initialize-Workflow
+
+Invoke-Step "Build" {
+    Invoke-Build -ContinueOnError
+} -ContinueOnError
+
+Invoke-Step "Tests" {
+    Invoke-Tests
+}
+
+Invoke-Step "Save Workflow State" {
+    Save-WorkflowState
+}
+
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Green
+Write-Host " ACKIOS END STORY" -ForegroundColor Green
+Write-Host "========================================" -ForegroundColor Green
+Write-Host ""
+
+Write-Host "Story completed."
+Write-Host "Run START_CHAT to continue development."
+

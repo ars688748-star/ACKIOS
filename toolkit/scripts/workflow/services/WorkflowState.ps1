@@ -22,15 +22,15 @@ function Save-WorkflowState {
 
         RepositoryClean = $git.Clean
 
-        CurrentEpic = "115"
+        CurrentEpic = $state.CurrentEpic
 
-        CurrentStory = "115.1"
+        CurrentStory = $state.CurrentStory
 
-        NextStory = "115.2"
+        NextStory = $state.NextStory
 
-        Build = "PASS"
+        Build = $state.Build
 
-        Tests = "PASS"
+        Tests = $state.Tests
 
     }
 
@@ -59,5 +59,6 @@ function Invoke-QualityGate {
     throw "Not implemented."
 
 }
+
 
 
