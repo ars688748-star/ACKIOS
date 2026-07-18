@@ -1,16 +1,22 @@
 function Generate-StartChatPrompt {
 
     $state = Get-AckiWorkflowState
-$git = Get-GitSummary
+    $git   = Get-GitSummary
 
     $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
 
-    $nextStoryFile = Join-Path (Resolve-AckiRoot) "docs\context\NEXT_STORY.md"
+    $story = Get-Story $state.NextStory
 
-    $nextStory = ""
-
-    if (Test-Path $nextStoryFile) {
-        $nextStory = Get-Content $nextStoryFile -Raw
+    if ($null -ne $story) {
+        $nextStory = @"
+Story       : $($story.Id)
+Title       : $($story.Title)
+Description : $($story.Description)
+Status      : $($story.Status)
+"@
+    }
+    else {
+        $nextStory = "No next story available."
     }
 
 @"
@@ -67,5 +73,3 @@ Rules:
     Write-Success "START_CHAT_PROMPT.md updated."
 
 }
-
-

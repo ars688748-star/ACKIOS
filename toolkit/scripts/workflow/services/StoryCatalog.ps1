@@ -15,5 +15,4 @@ function Ensure-StoryExists {
     New-StoryTemplate $StoryId | Set-Content $path
 
     Write-Success "Story $StoryId created."
-
 }

@@ -20,4 +20,21 @@ Write-Host ("Next Story: {0}" -f $state.NextStory)
 
 Write-Host ""
 
-Get-Content (Join-Path (Resolve-AckiRoot) "docs\context\NEXT_STORY.md")
+$story = Get-Story $state.CurrentStory
+
+Write-Host ""
+Write-Host "========================================"
+Write-Host " CURRENT STORY"
+Write-Host "========================================"
+Write-Host ""
+
+if ($null -ne $story) {
+    Write-Host ("Story       : {0}" -f $story.Id)
+    Write-Host ("Title       : {0}" -f $story.Title)
+    Write-Host ("Description : {0}" -f $story.Description)
+    Write-Host ("Status      : {0}" -f $story.Status)
+}
+else {
+    Write-Host "Story not found."
+}
+
