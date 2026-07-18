@@ -17,7 +17,10 @@ Invoke-Step "Tests" {
 }
 
 Invoke-Step "Save Workflow State" {
-    Save-WorkflowState
+
+    $state = Get-AckiWorkflowState
+    Save-WorkflowState -State $state
+
 }
 
 Invoke-Step "Update Chat Context" {
@@ -79,6 +82,8 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
 
 
 
