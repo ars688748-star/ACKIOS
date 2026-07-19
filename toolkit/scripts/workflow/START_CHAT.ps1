@@ -1,12 +1,30 @@
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Version Latest
 
 $ErrorActionPreference = "Stop"
 
 . "$PSScriptRoot\Workflow.Core.ps1"
+. "$PSScriptRoot\Roadmap.Core.ps1"
 
 Initialize-Workflow
 
+if (Test-Roadmap) {
+
+    Write-Host ""
+    Write-Host "========================================" -ForegroundColor Cyan
+    Write-Host " ACKIOS ROADMAP" -ForegroundColor Cyan
+    Write-Host "========================================" -ForegroundColor Cyan
+
+    Get-Roadmap
+
+    Write-Host ""
+
+}
+
+
 $state = Get-AckiWorkflowState
+
+Ensure-StoryExists $state.CurrentStory
+Ensure-StoryExists $state.NextStory
 Test-Story $state.CurrentStory | Out-Null
 
 $git = Get-GitSummary
@@ -58,6 +76,7 @@ Write-Host "========================================" -ForegroundColor Green
 Write-Host " READY FOR DEVELOPMENT" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
+
 
 
 
