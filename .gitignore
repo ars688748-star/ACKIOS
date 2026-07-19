@@ -4,3 +4,10 @@ out
 release
 *.log
 .private/
+
+# ACKIOS private workspace
+.private/
+backup/
+*.audit.txt
+*_AUDIT*.txt
+*.current.txt
