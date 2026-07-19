@@ -3,11 +3,14 @@ dist
 out
 release
 *.log
-.private/
-
 # ACKIOS private workspace
 .private/
 backup/
+# Generated artifacts
+artifacts/
+docs/audits/
+# Generated reports
 *.audit.txt
 *_AUDIT*.txt
 *.current.txt
+*.current.md
