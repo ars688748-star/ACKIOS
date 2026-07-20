@@ -40,11 +40,13 @@ function Invoke-GitCommit {
 }
 
 function Invoke-GitPush {
-
-    git push
-
-    if ($LASTEXITCODE -ne 0) {
-        throw "git push failed."
+    $branch = (git branch --show-current).Trim()
+    if ($branch -ne "main") {
+        throw "ACKIOS policy violation: push allowed only from main branch."
     }
-
+    git push origin main
+    if ($LASTEXITCODE -ne 0) {
+        throw "git push origin main failed."
+    }
 }
+
