@@ -1,4 +1,4 @@
-﻿Set-StrictMode -Version Latest
+Set-StrictMode -Version Latest
 
 $ErrorActionPreference = "Stop"
 
@@ -6,6 +6,11 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\Roadmap.Core.ps1"
 
 Initialize-Workflow
+
+if (Test-Roadmap) {
+    Update-RoadmapFromWorkflowState
+}
+
 
 if (Test-Roadmap) {
 

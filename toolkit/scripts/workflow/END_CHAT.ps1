@@ -1,5 +1,11 @@
 Set-StrictMode -Version Latest
 
+
+    if (Test-Roadmap) {
+        Update-RoadmapFromWorkflowState
+    }
+Set-StrictMode -Version Latest
+
 $ErrorActionPreference = "Stop"
 
 . "$PSScriptRoot\Workflow.Core.ps1"
@@ -20,6 +26,10 @@ Invoke-Step "Save Workflow State" {
 
     $state = Get-AckiWorkflowState
     Save-WorkflowState -State $state
+    
+    if (Test-Roadmap) {
+        Update-RoadmapFromWorkflowState
+    }
 
 }
 
@@ -82,6 +92,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
