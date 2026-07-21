@@ -7,6 +7,7 @@ $ErrorActionPreference = "Stop"
 Initialize-Workflow
 
 $state = Get-AckiWorkflowState
+Ensure-StoryExists $state.CurrentStory
 Test-Story $state.CurrentStory | Out-Null
 
 
@@ -41,5 +42,3 @@ if ($null -ne $story) {
 else {
     Write-Host "Story not found."
 }
-
-
