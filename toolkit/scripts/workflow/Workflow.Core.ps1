@@ -7,6 +7,7 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\..\lib\Project.ps1"
 
 . "$PSScriptRoot\..\repository\Repository.Core.ps1"
+. "$PSScriptRoot\Roadmap.Core.ps1"
 # Workflow Engine Core
 
 $servicePath = Join-Path $PSScriptRoot "services"
