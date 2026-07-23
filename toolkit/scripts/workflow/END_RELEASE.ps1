@@ -6,9 +6,12 @@ $ErrorActionPreference = "Stop"
 
 Initialize-Workflow
 
+$steps = @()
+
+
 $sourceBranch = (Get-GitSummary).Branch
 
-Invoke-Step "Repository Boundary" {
+$steps += Invoke-Step "Repository Boundary" {
 
     $boundary = Test-RepositoryBoundary
 
@@ -18,19 +21,19 @@ Invoke-Step "Repository Boundary" {
 
 }
 
-Invoke-Step "Build" {
+$steps += Invoke-Step "Build" {
 
     Invoke-Build
 
 }
 
-Invoke-Step "Tests" {
+$steps += Invoke-Step "Tests" {
 
     Invoke-Tests
 
 }
 
-Invoke-Step "Verify Repository Clean" {
+$steps += Invoke-Step "Verify Repository Clean" {
 
     $git = Get-GitSummary
 
@@ -40,7 +43,7 @@ Invoke-Step "Verify Repository Clean" {
 
 }
 
-Invoke-Step "Checkout main" {
+$steps += Invoke-Step "Checkout main" {
 
     git checkout main
 
@@ -50,7 +53,7 @@ Invoke-Step "Checkout main" {
 
 }
 
-Invoke-Step "Merge current branch" {
+$steps += Invoke-Step "Merge current branch" {
 
     git merge --ff-only $sourceBranch
 
@@ -60,7 +63,7 @@ Invoke-Step "Merge current branch" {
 
 }
 
-Invoke-Step "Push main" {
+$steps += Invoke-Step "Push main" {
 
     git push origin main
 
@@ -70,7 +73,7 @@ Invoke-Step "Push main" {
 
 }
 
-Invoke-Step "Return to source branch" {
+$steps += Invoke-Step "Return to source branch" {
 
     git checkout $sourceBranch
 
@@ -80,13 +83,21 @@ Invoke-Step "Return to source branch" {
 
 }
 
-Show-WorkflowSummary
+$report = New-WorkflowExecutionReport -Steps $steps
+
+$health = New-WorkflowHealth
+
+Show-WorkflowSummary `
+    -ExecutionReport $report `
+    -Health $health
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
 Write-Host " ACKIOS RELEASE COMPLETED" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Green
 Write-Host ""
+
+
 
 
 
