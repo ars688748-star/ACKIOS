@@ -61,45 +61,6 @@ function Show-WorkflowExecutionReport {
     Write-Host ("Duration  : {0}" -f $Report.Duration)
     Write-Host ("Status    : {0}" -f $Report.Status)
 
-    if($Dashboard.Analytics){
-
-        Write-Host ""
-        Write-Host "Analytics"
-
-        if($Dashboard.Analytics.Performance){
-
-            Write-Host ""
-            Write-Host "Performance"
-
-            Write-Host ("  Score       : {0}" -f $Dashboard.Analytics.Performance.Score)
-            Write-Host ("  Average     : {0}" -f $Dashboard.Analytics.Performance.AverageDuration)
-
-        }
-
-
-        if($Dashboard.Analytics.Reliability){
-
-            Write-Host ""
-            Write-Host "Reliability"
-
-            Write-Host ("  Success     : {0}%" -f $Dashboard.Analytics.Reliability.SuccessRate)
-            Write-Host ("  Failure     : {0}%" -f $Dashboard.Analytics.Reliability.FailureRate)
-
-        }
-
-
-        if($Dashboard.Analytics.Insights){
-
-            Write-Host ""
-            Write-Host "Insights"
-
-            Write-Host ("  Status      : {0}" -f $Dashboard.Analytics.Insights.Status)
-            Write-Host ("  Recommendation : {0}" -f $Dashboard.Analytics.Insights.Recommendation)
-
-        }
-
-    }
-
 
     Write-Host ""
 
@@ -189,6 +150,7 @@ function Show-WorkflowExecutionDashboard {
         Write-Host ""
         Write-Host "Analytics"
 
+
         if($Dashboard.Analytics.Performance){
 
             Write-Host ""
@@ -227,5 +189,7 @@ function Show-WorkflowExecutionDashboard {
     Write-Host ""
 
 }
+
+
 
 
