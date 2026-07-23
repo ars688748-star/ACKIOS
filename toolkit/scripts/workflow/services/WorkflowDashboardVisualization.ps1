@@ -17,6 +17,17 @@ function Get-WorkflowDashboardVisualization {
     }
 
 
+    $historyTimeline = $null
+
+    $history = Get-WorkflowExecutionHistory
+
+    if($history){
+
+        $historyTimeline = Get-WorkflowDashboardHistoryTimeline $history
+
+    }
+
+
     return [PSCustomObject]@{
 
         Title = "ACKIOS Workflow Dashboard"
@@ -80,6 +91,10 @@ function Get-WorkflowDashboardVisualization {
 
         }
 
+
+        HistoryTimeline = $historyTimeline
+
     }
 
 }
+

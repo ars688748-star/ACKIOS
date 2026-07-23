@@ -121,6 +121,30 @@ function Show-WorkflowExecutionDashboard {
     }
 
 
+    if($Dashboard.HistoryTimeline){
+
+        Write-Host ""
+        Write-Host "History Timeline"
+
+        Write-Host ("  Executions : {0}" -f $Dashboard.HistoryTimeline.TotalExecutions)
+
+
+        foreach($item in $Dashboard.HistoryTimeline.Items){
+
+            Write-Host ""
+
+            Write-Host ("  {0}" -f $item.Timestamp)
+            Write-Host ("    Story    : {0}" -f $item.Story)
+            Write-Host ("    Status   : {0}" -f $item.Status)
+            Write-Host ("    Commit   : {0}" -f $item.Commit)
+            Write-Host ("    Duration : {0}" -f $item.Duration)
+
+        }
+
+    }
+
+
     Write-Host ""
 
 }
+
