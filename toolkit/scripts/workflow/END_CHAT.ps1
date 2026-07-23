@@ -125,6 +125,17 @@ $steps += Invoke-Step "Generate Workflow Dashboard Report" {
 
 }
 
+$steps += Invoke-Step "Generate Workflow Dashboard Export" {
+
+    $dashboard = Get-WorkflowExecutionDashboard
+
+    $visualization = Get-WorkflowDashboardVisualization $dashboard
+
+    Export-WorkflowDashboardJson $visualization | Out-Null
+
+}
+
+
 $health = New-WorkflowHealth
 
 Show-WorkflowSummary `
@@ -139,6 +150,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
