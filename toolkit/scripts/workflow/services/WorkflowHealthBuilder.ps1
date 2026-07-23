@@ -1,43 +1,42 @@
 Set-StrictMode -Version Latest
 
+. "$PSScriptRoot\WorkflowState.ps1"
+. "$PSScriptRoot\StoryCatalogValidator.ps1"
+
 function New-WorkflowHealth {
 
-    param(
+    $state = Get-AckiWorkflowState
 
-        [WorkflowStatus]$Repository = [WorkflowStatus]::Pass,
-
-        [WorkflowStatus]$Build = [WorkflowStatus]::Pass,
-
-        [WorkflowStatus]$Tests = [WorkflowStatus]::Pass,
-
-        [StoryCatalogValidationResult]$StoryCatalog,
-
-        [WorkflowStatus]$Roadmap = [WorkflowStatus]::Pass,
-
-        [WorkflowStatus]$Release = [WorkflowStatus]::Pass
-
-    )
+    $story = Test-StoryCatalog -Quiet
 
     $health = [WorkflowHealth]::new()
 
-    $health.Repository = $Repository
-    $health.Build = $Build
-    $health.Tests = $Tests
-    $health.StoryCatalog = $StoryCatalog
-    $health.Roadmap = $Roadmap
-    $health.Release = $Release
+    $health.Repository =
+        if($state.RepositoryClean){
+            [WorkflowStatus]::Pass
+        }
+        else{
+            [WorkflowStatus]::Warn
+        }
+
+    $health.Build = $state.Build
+    $health.Tests = $state.Tests
+    $health.StoryCatalog = $story
+
+    $health.Roadmap = [WorkflowStatus]::Pass
+    $health.Release = [WorkflowStatus]::Pass
 
     if(
-        $Repository -eq [WorkflowStatus]::Pass -and
-        $Build -eq [WorkflowStatus]::Pass -and
-        $Tests -eq [WorkflowStatus]::Pass -and
-        $Roadmap -eq [WorkflowStatus]::Pass -and
-        $Release -eq [WorkflowStatus]::Pass
+        $health.Repository -eq [WorkflowStatus]::Pass -and
+        $health.Build -eq [WorkflowStatus]::Pass -and
+        $health.Tests -eq [WorkflowStatus]::Pass -and
+        $health.Roadmap -eq [WorkflowStatus]::Pass -and
+        $health.Release -eq [WorkflowStatus]::Pass
     ){
         $health.Overall = [WorkflowStatus]::Pass
     }
     else{
-        $health.Overall = [WorkflowStatus]::Fail
+        $health.Overall = [WorkflowStatus]::Warn
     }
 
     return $health
