@@ -93,6 +93,16 @@ $steps += Invoke-Step "Git Push" {
 
 } -ContinueOnError
 
+
+$lastExecution = Get-LastWorkflowExecution
+
+if ($lastExecution) {
+
+    Update-WorkflowExecutionRecord `
+        -Id $lastExecution.Id `
+        -Status "COMPLETED"
+
+}
 $report = New-WorkflowExecutionReport -Steps $steps
 
 $health = New-WorkflowHealth
@@ -109,5 +119,6 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
