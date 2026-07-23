@@ -6,19 +6,21 @@ $ErrorActionPreference = "Stop"
 
 Initialize-Workflow
 
-Invoke-Step "Build" {
+$steps = @()
+
+$steps += Invoke-Step "Build" {
 
     Invoke-Build -ContinueOnError
 
 } -ContinueOnError
 
-Invoke-Step "Tests" {
+$steps += Invoke-Step "Tests" {
 
     Invoke-Tests
 
 }
 
-Invoke-Step "Save Workflow State" {
+$steps += Invoke-Step "Save Workflow State" {
 
     Update-AckiWorkflowState {
 
@@ -36,25 +38,25 @@ Invoke-Step "Save Workflow State" {
 
 }
 
-Invoke-Step "Update Chat Context" {
+$steps += Invoke-Step "Update Chat Context" {
 
     Update-ChatContext
 
 }
 
-Invoke-Step "Update Checkpoint" {
+$steps += Invoke-Step "Update Checkpoint" {
 
     Update-Checkpoint
 
 }
 
-Invoke-Step "Generate Start Chat Prompt" {
+$steps += Invoke-Step "Generate Start Chat Prompt" {
 
     Generate-StartChatPrompt
 
 }
 
-Invoke-Step "Repository Boundary" {
+$steps += Invoke-Step "Repository Boundary" {
 
     $boundary = Test-RepositoryBoundary
 
@@ -71,13 +73,13 @@ Invoke-Step "Repository Boundary" {
 
 } -ContinueOnError
 
-Invoke-Step "Git Add" {
+$steps += Invoke-Step "Git Add" {
 
     Invoke-GitAdd
 
 }
 
-Invoke-Step "Git Commit" {
+$steps += Invoke-Step "Git Commit" {
 
     $state = Get-AckiWorkflowState
 
@@ -85,13 +87,19 @@ Invoke-Step "Git Commit" {
 
 } -ContinueOnError
 
-Invoke-Step "Git Push" {
+$steps += Invoke-Step "Git Push" {
 
     Invoke-GitPush
 
 } -ContinueOnError
 
-Show-WorkflowSummary
+$report = New-WorkflowExecutionReport -Steps $steps
+
+$health = New-WorkflowHealth
+
+Show-WorkflowSummary `
+    -ExecutionReport $report `
+    -Health $health
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
@@ -101,3 +109,5 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
