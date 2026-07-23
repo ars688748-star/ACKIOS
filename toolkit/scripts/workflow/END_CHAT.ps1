@@ -51,15 +51,7 @@ $steps += Invoke-Step "Update Checkpoint" {
 }
 
 
-$steps += Invoke-Step "Generate Workflow Dashboard Report" {
 
-    $dashboard = Get-WorkflowExecutionDashboard
-
-    $report = New-WorkflowDashboardReport $dashboard
-
-    Save-WorkflowDashboardReport $report | Out-Null
-
-}
 $steps += Invoke-Step "Generate Start Chat Prompt" {
 
     Generate-StartChatPrompt
@@ -117,6 +109,16 @@ if ($lastExecution) {
 
 }
 
+$steps += Invoke-Step "Generate Workflow Dashboard Report" {
+
+    $dashboard = Get-WorkflowExecutionDashboard
+
+    $dashboardReport = New-WorkflowDashboardReport $dashboard
+
+    Save-WorkflowDashboardReport $dashboardReport | Out-Null
+
+}
+
 $health = New-WorkflowHealth
 
 Show-WorkflowSummary `
@@ -131,6 +133,9 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
+
 
 
 
