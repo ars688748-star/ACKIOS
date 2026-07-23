@@ -64,3 +64,52 @@ function Show-WorkflowExecutionReport {
     Write-Host ""
 
 }
+
+function Show-WorkflowExecutionDashboard {
+
+    param(
+        $Dashboard
+    )
+
+
+    Write-Host ""
+    Write-Host "Workflow Dashboard"
+    Write-Host "------------------"
+
+
+    Write-Host ("Current Story : {0}" -f $Dashboard.CurrentStory)
+    Write-Host ("Next Story    : {0}" -f $Dashboard.NextStory)
+
+
+    if($Dashboard.LastExecution){
+
+        Write-Host ""
+        Write-Host "Last Execution"
+
+        Write-Host ("  Story       : {0}" -f $Dashboard.LastExecution.Story)
+        Write-Host ("  Status      : {0}" -f $Dashboard.LastExecution.Status)
+        Write-Host ("  Commit      : {0}" -f $Dashboard.LastExecution.Commit)
+
+    }
+
+
+    if($Dashboard.Statistics){
+
+        Write-Host ""
+        Write-Host "Statistics"
+
+        Write-Host ("  Total       : {0}" -f $Dashboard.Statistics.TotalExecutions)
+        Write-Host ("  Passed      : {0}" -f $Dashboard.Statistics.PassedExecutions)
+        Write-Host ("  Failed      : {0}" -f $Dashboard.Statistics.FailedExecutions)
+
+    }
+
+
+    Write-Host ""
+    Write-Host ("Build         : {0}" -f $Dashboard.Build)
+    Write-Host ("Tests         : {0}" -f $Dashboard.Tests)
+
+    Write-Host ""
+
+}
+

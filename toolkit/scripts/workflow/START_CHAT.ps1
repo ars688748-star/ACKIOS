@@ -76,6 +76,10 @@ else {
 Write-Host ""
 Show-WorkflowSummary
 
+$dashboard = Get-WorkflowExecutionDashboard
+
+Show-WorkflowExecutionDashboard $dashboard
+
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
 Write-Host " READY FOR DEVELOPMENT" -ForegroundColor Green
@@ -89,4 +93,5 @@ Write-Host ""
 
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
+
 
