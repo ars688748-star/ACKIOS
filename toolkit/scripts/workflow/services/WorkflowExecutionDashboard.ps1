@@ -45,6 +45,8 @@ function Get-WorkflowExecutionDashboard {
 
     $stats = Get-WorkflowExecutionStatistics
 
+    $metrics = Get-WorkflowDashboardMetrics
+
     $state = Get-AckiWorkflowState
 
 
@@ -61,6 +63,9 @@ function Get-WorkflowExecutionDashboard {
         Statistics = $stats
 
 
+        Metrics = $metrics
+
+
         Build = $state.Build
 
         Tests = $state.Tests
@@ -68,3 +73,4 @@ function Get-WorkflowExecutionDashboard {
     }
 
 }
+

@@ -27,6 +27,9 @@ function New-WorkflowDashboardReport {
         FailedExecutions = $Dashboard.Statistics.FailedExecutions
 
 
+        Metrics = $Dashboard.Metrics
+
+
         Build = $Dashboard.Build
 
         Tests = $Dashboard.Tests
@@ -86,6 +89,31 @@ function ConvertTo-WorkflowDashboardMarkdown {
 
     $lines += ""
 
+    $lines += "## Metrics"
+
+    $lines += ""
+
+    $lines += "Total Executions:"
+    $lines += $Report.Metrics.TotalExecutions
+
+    $lines += ""
+
+    $lines += "Success Rate:"
+    $lines += $Report.Metrics.SuccessRate
+
+    $lines += ""
+
+    $lines += "Average Duration:"
+    $lines += $Report.Metrics.AverageDuration
+
+    $lines += ""
+
+    $lines += "Last Execution Duration:"
+    $lines += $Report.Metrics.LastExecutionDuration
+
+
+    $lines += ""
+
     $lines += "## Quality"
 
     $lines += ""
@@ -124,3 +152,4 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
