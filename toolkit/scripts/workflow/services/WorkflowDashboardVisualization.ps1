@@ -94,7 +94,13 @@ function Get-WorkflowDashboardVisualization {
 
         HistoryTimeline = $historyTimeline
 
+
+        Analytics =
+            Get-WorkflowDashboardAnalytics $Dashboard
+
+
     }
 
 }
+
 
