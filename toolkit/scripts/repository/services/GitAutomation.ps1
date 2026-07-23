@@ -25,7 +25,7 @@ function Invoke-GitCommit {
 
         Write-WarningMessage "Nothing to commit."
 
-        return $false
+        return $true
 
     }
 
@@ -49,4 +49,5 @@ function Invoke-GitPush {
         throw "git push origin main failed."
     }
 }
+
 
