@@ -52,6 +52,7 @@ $steps += Invoke-Step "Update Checkpoint" {
 
 
 
+
 $executionReport = New-WorkflowExecutionReport -Steps $steps
 
 $steps += Invoke-Step "Finalize Workflow Execution History" {
@@ -68,6 +69,34 @@ $steps += Invoke-Step "Finalize Workflow Execution History" {
     }
 
 }
+
+
+$steps += Invoke-Step "Advance Story" {
+
+    Advance-AckiStory | Out-Null
+
+}
+
+
+$steps += Invoke-Step "Save Advanced Workflow State" {
+
+    Update-AckiWorkflowState {
+
+        param($state)
+
+        $state.Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+    } | Out-Null
+
+
+    if (Test-Roadmap) {
+
+        Update-RoadmapFromWorkflowState
+
+    }
+
+}
+
 
 $steps += Invoke-Step "Generate Start Chat Prompt" {
 
@@ -150,6 +179,9 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
+
 
 
 
