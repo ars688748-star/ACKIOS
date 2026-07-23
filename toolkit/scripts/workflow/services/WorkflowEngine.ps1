@@ -12,6 +12,10 @@ function Invoke-Step {
 
     )
 
+    $step = [WorkflowStepResult]::new()
+    $step.Name = $Name
+    $step.Started = Get-Date
+
     Write-Host ""
     Write-Host ">>> $Name"
 
@@ -27,27 +31,30 @@ function Invoke-Step {
             throw "$Name returned failure."
         }
 
+        $step.Status   = [WorkflowStatus]::PASS
+        $step.Finished = Get-Date
+        $step.Duration = $step.Finished - $step.Started
+
         Write-Success "$Name completed."
 
-        return
-
+        return $step
     }
     catch {
+
+        $step.Status   = [WorkflowStatus]::FAIL
+        $step.Error    = $_.Exception.Message
+        $step.Finished = Get-Date
+        $step.Duration = $step.Finished - $step.Started
 
         if ($ContinueOnError) {
 
             Write-WarningMessage $_.Exception.Message
 
-            return
-
+            return $step
         }
 
         Write-ErrorMessage $_.Exception.Message
+
         throw
-
     }
-
 }
-
-
-
