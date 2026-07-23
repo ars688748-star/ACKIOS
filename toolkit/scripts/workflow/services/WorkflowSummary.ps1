@@ -4,15 +4,23 @@ function Show-WorkflowSummary {
 
     param(
 
-        [Parameter(Mandatory)]
         [WorkflowExecutionReport]$ExecutionReport,
 
-        [Parameter(Mandatory)]
         $Health
 
     )
 
-    Show-WorkflowExecutionReport $ExecutionReport
+    if($null -ne $ExecutionReport){
+
+        Show-WorkflowExecutionReport $ExecutionReport
+
+    }
+
+    if($null -eq $Health){
+
+        $Health = New-WorkflowHealth
+
+    }
 
     Show-WorkflowHealth $Health
 
