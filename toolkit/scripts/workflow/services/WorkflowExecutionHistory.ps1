@@ -97,7 +97,8 @@ function Update-WorkflowExecutionRecord {
 
     param(
         [string]$Id,
-        [string]$Status
+        [string]$Status,
+        [string]$Duration
     )
 
     if (!(Test-Path $ExecutionHistoryPath)) {
@@ -116,6 +117,7 @@ function Update-WorkflowExecutionRecord {
         if ($item.Id -eq $Id) {
 
             $item.Status = $Status
+            $item.Duration = $Duration
             $item | Add-Member -MemberType NoteProperty -Name CompletedAt -Value (Get-Date).ToString("yyyy-MM-dd HH:mm:ss") -Force
 
         }
@@ -126,4 +128,6 @@ function Update-WorkflowExecutionRecord {
         ConvertTo-Json -Depth 5 |
         Set-Content $ExecutionHistoryPath
 }
+
+
 
