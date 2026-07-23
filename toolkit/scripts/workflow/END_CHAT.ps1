@@ -52,9 +52,9 @@ $steps += Invoke-Step "Update Checkpoint" {
 
 
 
-$steps += Invoke-Step "Finalize Workflow Execution History" {
+$executionReport = New-WorkflowExecutionReport -Steps $steps
 
-    $executionReport = New-WorkflowExecutionReport -Steps $steps
+$steps += Invoke-Step "Finalize Workflow Execution History" {
 
     $lastExecution = Get-LastWorkflowExecution
 
@@ -139,6 +139,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
