@@ -1,0 +1,21 @@
+Set-StrictMode -Version Latest
+
+function Get-GitSummary {
+
+    $branch = git branch --show-current
+
+    $commit = git rev-parse --short HEAD
+
+    $status = git status --porcelain
+
+    [PSCustomObject]@{
+
+        Branch = $branch
+
+        Commit = $commit
+
+        Clean = [string]::IsNullOrWhiteSpace($status)
+
+    }
+
+}
