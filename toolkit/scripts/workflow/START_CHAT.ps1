@@ -78,7 +78,9 @@ Show-WorkflowSummary
 
 $dashboard = Get-WorkflowExecutionDashboard
 
-Show-WorkflowExecutionDashboard $dashboard
+$visualization = Get-WorkflowDashboardVisualization $dashboard
+
+Show-WorkflowExecutionDashboard $visualization
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Green
@@ -93,5 +95,6 @@ Write-Host ""
 
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
+
 
 

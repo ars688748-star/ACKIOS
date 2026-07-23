@@ -77,39 +77,50 @@ function Show-WorkflowExecutionDashboard {
     Write-Host "------------------"
 
 
+    Write-Host ("Title         : {0}" -f $Dashboard.Title)
+
+    Write-Host ""
+
     Write-Host ("Current Story : {0}" -f $Dashboard.CurrentStory)
     Write-Host ("Next Story    : {0}" -f $Dashboard.NextStory)
 
 
-    if($Dashboard.LastExecution){
+    if($Dashboard.Execution){
 
         Write-Host ""
         Write-Host "Last Execution"
 
-        Write-Host ("  Story       : {0}" -f $Dashboard.LastExecution.Story)
-        Write-Host ("  Status      : {0}" -f $Dashboard.LastExecution.Status)
-        Write-Host ("  Commit      : {0}" -f $Dashboard.LastExecution.Commit)
+        Write-Host ("  Story       : {0}" -f $Dashboard.Execution.LastStory)
+        Write-Host ("  Status      : {0}" -f $Dashboard.Execution.Status)
+        Write-Host ("  Commit      : {0}" -f $Dashboard.Execution.Commit)
 
     }
 
 
-    if($Dashboard.Statistics){
+    if($Dashboard.Metrics){
 
         Write-Host ""
-        Write-Host "Statistics"
+        Write-Host "Metrics"
 
-        Write-Host ("  Total       : {0}" -f $Dashboard.Statistics.TotalExecutions)
-        Write-Host ("  Passed      : {0}" -f $Dashboard.Statistics.PassedExecutions)
-        Write-Host ("  Failed      : {0}" -f $Dashboard.Statistics.FailedExecutions)
+        Write-Host ("  Total       : {0}" -f $Dashboard.Metrics.TotalExecutions)
+        Write-Host ("  Success     : {0}%" -f $Dashboard.Metrics.SuccessRate)
+        Write-Host ("  Average     : {0}" -f $Dashboard.Metrics.AverageDuration)
+        Write-Host ("  Last Run    : {0}" -f $Dashboard.Metrics.LastExecutionDuration)
 
     }
 
 
-    Write-Host ""
-    Write-Host ("Build         : {0}" -f $Dashboard.Build)
-    Write-Host ("Tests         : {0}" -f $Dashboard.Tests)
+    if($Dashboard.Quality){
+
+        Write-Host ""
+        Write-Host "Quality"
+
+        Write-Host ("Build         : {0}" -f $Dashboard.Quality.Build)
+        Write-Host ("Tests         : {0}" -f $Dashboard.Quality.Tests)
+
+    }
+
 
     Write-Host ""
 
 }
-
