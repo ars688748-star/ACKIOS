@@ -31,12 +31,31 @@ function Get-RoadmapNextStory {
 function Update-RoadmapFromWorkflowState {
 
     $workflow = Get-AckiWorkflowState
+    $content  = Get-Roadmap
 
-    Render-Roadmap -Workflow $workflow
+    function Set-Value {
+        param(
+            [string]$Name,
+            [string]$Value
+        )
+
+        $index = [Array]::IndexOf($content, $Name)
+
+        if ($index -lt 0) {
+            throw "$Name not found."
+        }
+
+        $content[$index + 2] = $Value
+    }
+
+    Set-Value "Current Epic:"  $workflow.CurrentEpic
+    Set-Value "Current Story:" $workflow.CurrentStory
+    Set-Value "Next Story:"    $workflow.NextStory
+
+    Save-Roadmap $content
 
     Write-Success "MASTER ROADMAP synchronized."
 
 }
-
 
 
