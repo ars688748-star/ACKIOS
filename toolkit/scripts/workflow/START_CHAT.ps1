@@ -87,3 +87,6 @@ Write-Host ""
 
 
 
+. "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
+. "$PSScriptRoot\services\WorkflowRenderer.ps1"
+

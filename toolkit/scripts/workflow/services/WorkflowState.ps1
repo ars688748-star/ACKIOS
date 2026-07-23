@@ -66,3 +66,20 @@ function Invoke-QualityGate {
 
 
 
+
+function Update-AckiWorkflowState {
+
+    param(
+        [Parameter(Mandatory)]
+        [scriptblock]$Update
+    )
+
+    $state = Get-AckiWorkflowState
+
+    & $Update $state
+
+    Save-WorkflowState $state
+
+    return $state
+
+}
