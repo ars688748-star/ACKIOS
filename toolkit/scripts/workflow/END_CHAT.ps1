@@ -52,6 +52,23 @@ $steps += Invoke-Step "Update Checkpoint" {
 
 
 
+$steps += Invoke-Step "Finalize Workflow Execution History" {
+
+    $report = New-WorkflowExecutionReport -Steps $steps
+
+    $lastExecution = Get-LastWorkflowExecution
+
+    if ($lastExecution) {
+
+        Update-WorkflowExecutionRecord `
+            -Id $lastExecution.Id `
+            -Status "COMPLETED" `
+            -Duration $report.Duration
+
+    }
+
+}
+
 $steps += Invoke-Step "Generate Start Chat Prompt" {
 
     Generate-StartChatPrompt
@@ -96,18 +113,7 @@ $steps += Invoke-Step "Git Push" {
 } -ContinueOnError
 
 
-$report = New-WorkflowExecutionReport -Steps $steps
 
-$lastExecution = Get-LastWorkflowExecution
-
-if ($lastExecution) {
-
-    Update-WorkflowExecutionRecord `
-        -Id $lastExecution.Id `
-        -Status "COMPLETED" `
-        -Duration $report.Duration
-
-}
 
 $steps += Invoke-Step "Generate Workflow Dashboard Report" {
 
@@ -133,6 +139,8 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
 
 
 
