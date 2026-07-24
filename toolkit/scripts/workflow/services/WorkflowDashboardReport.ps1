@@ -29,6 +29,8 @@ function New-WorkflowDashboardReport {
 
         Metrics = $Dashboard.Metrics
 
+        Intelligence = $Dashboard.Intelligence
+
 
         Build = $Dashboard.Build
 
@@ -116,6 +118,35 @@ function ConvertTo-WorkflowDashboardMarkdown {
 
     $lines += ""
 
+    $lines += ""
+
+    $lines += "## Intelligence"
+
+    $lines += ""
+
+    $lines += "Status:"
+    $lines += $Report.Intelligence.Status
+
+    $lines += ""
+
+    $lines += "Performance Score:"
+    $lines += $Report.Intelligence.PerformanceScore
+
+    $lines += ""
+
+    $lines += "Success Rate:"
+    $lines += $Report.Intelligence.SuccessRate
+
+    $lines += ""
+
+    $lines += "Trend:"
+    $lines += $Report.Intelligence.Trend
+
+    $lines += ""
+
+    $lines += "Recommendation:"
+    $lines += $Report.Intelligence.Recommendation
+
     $lines += "## Quality"
 
     $lines += ""
@@ -189,6 +220,11 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
+
+
+
+
 
 
 
