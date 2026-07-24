@@ -19,19 +19,9 @@ function ConvertTo-RoadmapMarkdown {
     $lines += "Release: $($Model.Release)"
     $lines += "Progress: $($Model.Progress)"
 
-    $lines += "Current Epic:"
-    $lines += ""
-    $lines += $Model.CurrentEpic
-    $lines += ""
-
-    $lines += "Current Story:"
-    $lines += ""
-    $lines += $Model.CurrentStory
-    $lines += ""
-
-    $lines += "Next Story:"
-    $lines += ""
-    $lines += $Model.NextStory
+    $lines += "Current Epic: $($Model.CurrentEpic)"
+    $lines += "Current Story: $($Model.CurrentStory)"
+    $lines += "Next Story: $($Model.NextStory)"
 
     $lines += "---"
     $lines += "## ROADMAP"
@@ -55,3 +45,5 @@ function ConvertTo-RoadmapMarkdown {
 
     return $lines
 }
+
+
