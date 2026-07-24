@@ -135,6 +135,19 @@ $steps += Invoke-Step "Git Commit" {
 
 } -ContinueOnError
 
+$steps += Invoke-Step "Refresh Workflow Commit State" {
+
+    Update-AckiWorkflowState {
+
+        param($state)
+
+        $state.Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+    } | Out-Null
+
+}
+
+
 $steps += Invoke-Step "Git Push" {
 
     Invoke-GitPush
@@ -179,6 +192,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
