@@ -12,9 +12,12 @@ class WorkflowExecutionRecord {
     [string]$Build
     [string]$Tests
 
+    [object]$QualityGate
+
     [string]$Status
 
     WorkflowExecutionRecord() {
         $this.Timestamp = (Get-Date).ToString("yyyy-MM-dd HH:mm:ss")
     }
 }
+

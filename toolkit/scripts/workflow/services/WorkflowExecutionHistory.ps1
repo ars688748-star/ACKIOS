@@ -11,6 +11,7 @@ function New-WorkflowExecutionRecord {
         [string]$Story,
         [string]$Build,
         [string]$Tests,
+        [object]$QualityGate,
         [string]$Status
     )
 
@@ -26,6 +27,8 @@ function New-WorkflowExecutionRecord {
 
         Build     = $Build
         Tests     = $Tests
+
+        QualityGate = $QualityGate
 
         Status    = $Status
     }
@@ -133,6 +136,8 @@ function Update-WorkflowExecutionRecord {
         ConvertTo-Json -Depth 5 |
         Set-Content $ExecutionHistoryPath
 }
+
+
 
 
 

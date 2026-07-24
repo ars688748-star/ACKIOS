@@ -169,6 +169,8 @@ $steps += Invoke-Step "Create Workflow Execution History" {
 
     $state = Get-AckiWorkflowState
 
+    $health = New-WorkflowHealth
+
 
     $record = New-WorkflowExecutionRecord `
         -Branch $state.Branch `
@@ -177,6 +179,7 @@ $steps += Invoke-Step "Create Workflow Execution History" {
         -Story $completedStory `
         -Build $state.Build `
         -Tests $state.Tests `
+        -QualityGate $health.QualityGate `
         -Status "COMPLETED"
 
 
@@ -236,4 +239,6 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
 
