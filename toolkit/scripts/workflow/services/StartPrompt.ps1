@@ -31,14 +31,9 @@ $($git.Branch)
 Commit:
 $($git.Commit)
 
-Current Epic:
-$($state.CurrentEpic)
-
-Current Story:
-$($state.CurrentStory)
-
-Next Story:
-$($state.NextStory)
+Current Epic: $($state.CurrentEpic)
+Current Story: $($state.CurrentStory)
+Next Story: $($state.NextStory)
 
 Build:
 $($state.Build)
@@ -73,3 +68,4 @@ Rules:
     Write-Success "START_CHAT_PROMPT.md updated."
 
 }
+
