@@ -14,7 +14,10 @@ class WorkflowQualityGateResult {
 
     [string]$BackupFiles
 
+    [string]$Diagnostics
+
     [string[]]$Failures
 
 }
+
 

@@ -113,6 +113,21 @@ function Invoke-QualityGate {
         $result.Failures += "Backup files detected"
     }
 
+
+    $diagnostics = Invoke-WorkflowDiagnostics
+
+    if($diagnostics.Passed){
+
+        $result.Diagnostics = "PASS"
+
+    }
+    else{
+
+        $result.Diagnostics = "FAIL"
+
+        $result.Failures += $diagnostics.Failures
+
+    }
     $result.Passed = ($result.Failures.Count -eq 0)
 
     return $result
@@ -138,6 +153,7 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
 
 
 
