@@ -36,6 +36,21 @@ function Show-WorkflowHealth {
         }
     }
 
+    if($Health.QualityGate){
+
+        Write-Host ""
+        Write-Host "Quality Gate"
+        Write-Host "-------------"
+
+        Write-Host ("  Passed       : {0}" -f $Health.QualityGate.Passed)
+        Write-Host ("  Repository   : {0}" -f $Health.QualityGate.Repository)
+        Write-Host ("  Build        : {0}" -f $Health.QualityGate.Build)
+        Write-Host ("  Tests        : {0}" -f $Health.QualityGate.Tests)
+        Write-Host ("  Catalog      : {0}" -f $Health.QualityGate.StoryCatalog)
+        Write-Host ("  Roadmap      : {0}" -f $Health.QualityGate.Roadmap)
+
+    }
+
     Write-Host ""
 }
 
@@ -201,6 +216,7 @@ function Show-WorkflowExecutionDashboard {
     Write-Host ""
 
 }
+
 
 
 

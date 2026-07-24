@@ -1,5 +1,6 @@
 . "$PSScriptRoot\WorkflowStatus.ps1"
 . "$PSScriptRoot\StoryCatalogValidationResult.ps1"
+. "$PSScriptRoot\WorkflowQualityGateResult.ps1"
 
 class WorkflowHealth {
 
@@ -15,7 +16,10 @@ class WorkflowHealth {
 
     [WorkflowStatus]$Release
 
+    [WorkflowQualityGateResult]$QualityGate
+
     [WorkflowStatus]$Overall
 
 }
+
 

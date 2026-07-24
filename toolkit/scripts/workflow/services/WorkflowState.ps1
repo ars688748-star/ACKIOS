@@ -59,8 +59,57 @@ function Load-WorkflowState {
 
 function Invoke-QualityGate {
 
-    throw "Not implemented."
+    $state = Get-AckiWorkflowState
 
+    $result = [WorkflowQualityGateResult]::new()
+
+    $result.Failures = @()
+
+    if($state.RepositoryClean){
+        $result.Repository = "PASS"
+    }
+    else{
+        $result.Repository = "FAIL"
+        $result.Failures += "Repository has uncommitted changes"
+    }
+
+    if($state.Build -eq "PASS"){
+        $result.Build = "PASS"
+    }
+    else{
+        $result.Build = "FAIL"
+        $result.Failures += "Build failed"
+    }
+
+    if($state.Tests -eq "PASS"){
+        $result.Tests = "PASS"
+    }
+    else{
+        $result.Tests = "FAIL"
+        $result.Failures += "Tests failed"
+    }
+
+    $catalog = Test-StoryCatalog -Quiet
+
+    if($catalog.Warnings -eq 0){
+        $result.StoryCatalog = "PASS"
+    }
+    else{
+        $result.StoryCatalog = "FAIL"
+        $result.Failures += "Story Catalog contains warnings"
+    }
+
+    if(Test-Roadmap){
+        $result.Roadmap = "PASS"
+    }
+    else{
+        $result.Roadmap = "FAIL"
+        $result.Failures += "Roadmap validation failed"
+    }
+
+    $result.Passed = ($result.Failures.Count -eq 0)
+
+    return $result
 }
 
 
@@ -83,3 +132,4 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+

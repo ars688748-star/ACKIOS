@@ -22,6 +22,7 @@ function New-WorkflowHealth {
     $health.Build = $state.Build
     $health.Tests = $state.Tests
     $health.StoryCatalog = $story
+    $health.QualityGate = Invoke-QualityGate
 
     $health.Roadmap = [WorkflowStatus]::Pass
     $health.Release = [WorkflowStatus]::Pass
@@ -42,3 +43,4 @@ function New-WorkflowHealth {
     return $health
 
 }
+
