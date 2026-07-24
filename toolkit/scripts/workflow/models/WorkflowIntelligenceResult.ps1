@@ -8,6 +8,10 @@ class WorkflowIntelligenceResult {
 
     [string]$Trend
 
+    [string]$DurationTrend
+
+    [string]$ReliabilityTrend
+
     [string]$Recommendation
 
 }

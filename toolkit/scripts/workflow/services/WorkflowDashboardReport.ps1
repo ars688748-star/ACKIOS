@@ -144,6 +144,12 @@ function ConvertTo-WorkflowDashboardMarkdown {
 
     $lines += ""
 
+    $lines += "Duration Trend:"
+    $lines += $Report.Intelligence.DurationTrend
+
+    $lines += "Reliability Trend:"
+    $lines += $Report.Intelligence.ReliabilityTrend
+
     $lines += "Recommendation:"
     $lines += $Report.Intelligence.Recommendation
 
@@ -220,6 +226,9 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
+
+
 
 
 

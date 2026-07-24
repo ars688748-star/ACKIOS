@@ -4,6 +4,8 @@ function Get-WorkflowIntelligence {
 
     $metrics = Get-WorkflowDashboardMetrics
 
+    $trend = Get-WorkflowTrendAnalysis
+
     $result = [WorkflowIntelligenceResult]::new()
 
 
@@ -40,35 +42,18 @@ function Get-WorkflowIntelligence {
     $result.SuccessRate = $metrics.SuccessRate
 
 
-    if($metrics.FailedExecutions -eq 0){
+    $result.Trend = $trend.OverallTrend
 
-        $result.Trend = "STABLE"
+    $result.DurationTrend = $trend.DurationTrend
 
-    }
-    else{
-
-        $result.Trend = "DEGRADING"
-
-    }
+    $result.ReliabilityTrend = $trend.ReliabilityTrend
 
 
-    switch($result.Status){
-
-        "HEALTHY" {
-            $result.Recommendation = "No action required"
-        }
-
-        "WARNING" {
-            $result.Recommendation = "Review workflow performance"
-        }
-
-        default {
-            $result.Recommendation = "Investigate workflow failures"
-        }
-
-    }
+    $result.Recommendation = $trend.Recommendation
 
 
     return $result
 
 }
+
+
