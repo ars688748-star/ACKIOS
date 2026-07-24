@@ -70,10 +70,7 @@ function Get-WorkflowExecutionDashboard {
 
         Tests = $state.Tests
 
-        QualityGate = Invoke-QualityGate
-
     }
 
 }
-
 

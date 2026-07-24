@@ -129,41 +129,6 @@ function ConvertTo-WorkflowDashboardMarkdown {
     $lines += $Report.Tests
 
 
-    $lines += ""
-
-    $lines += "## Quality Gate"
-
-    $lines += ""
-
-    $lines += "Passed:"
-    $lines += $Report.QualityGate.Passed
-
-    $lines += ""
-
-    $lines += "Repository:"
-    $lines += $Report.QualityGate.Repository
-
-    $lines += ""
-
-    $lines += "Build:"
-    $lines += $Report.QualityGate.Build
-
-    $lines += ""
-
-    $lines += "Tests:"
-    $lines += $Report.QualityGate.Tests
-
-    $lines += ""
-
-    $lines += "StoryCatalog:"
-    $lines += $Report.QualityGate.StoryCatalog
-
-    $lines += ""
-
-    $lines += "Roadmap:"
-    $lines += $Report.QualityGate.Roadmap
-
-
     return $lines
 
 }
@@ -189,6 +154,5 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
-
 
 
