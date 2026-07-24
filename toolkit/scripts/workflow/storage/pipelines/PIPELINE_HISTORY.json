@@ -1,0 +1,32 @@
+[
+  {
+    "Name": "PIPELINE_HISTORY_TEST",
+    "Status": "COMPLETED",
+    "TotalSteps": 1,
+    "PassedSteps": 1,
+    "FailedSteps": 0,
+    "SuccessRate": 100,
+    "Duration": {
+      "Ticks": 320764,
+      "Days": 0,
+      "Hours": 0,
+      "Milliseconds": 32,
+      "Minutes": 0,
+      "Seconds": 0,
+      "TotalDays": 3.712546296296296E-07,
+      "TotalHours": 8.91011111111111E-06,
+      "TotalMilliseconds": 32.0764,
+      "TotalMinutes": 0.0005346066666666667,
+      "TotalSeconds": 0.0320764
+    }
+  },
+  {
+    "Name": "PS7_PIPELINE_TEST_2",
+    "Status": "COMPLETED",
+    "TotalSteps": 1,
+    "PassedSteps": 1,
+    "FailedSteps": 0,
+    "SuccessRate": 100.0,
+    "Duration": "00:00:00.1565135"
+  }
+]

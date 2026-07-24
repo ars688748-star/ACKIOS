@@ -31,6 +31,8 @@ function New-WorkflowDashboardReport {
 
         Intelligence = $Dashboard.Intelligence
 
+        Pipeline = Get-LastWorkflowPipeline
+
 
         Build = $Dashboard.Build
 
@@ -153,6 +155,45 @@ function ConvertTo-WorkflowDashboardMarkdown {
     $lines += "Recommendation:"
     $lines += $Report.Intelligence.Recommendation
 
+
+    $lines += ""
+
+    $lines += "## Pipeline"
+
+    $lines += ""
+
+    $lines += "Name:"
+    $lines += $Report.Pipeline.Name
+
+    $lines += ""
+
+    $lines += "Status:"
+    $lines += $Report.Pipeline.Status
+
+    $lines += ""
+
+    $lines += "Total Steps:"
+    $lines += $Report.Pipeline.TotalSteps
+
+    $lines += ""
+
+    $lines += "Passed Steps:"
+    $lines += $Report.Pipeline.PassedSteps
+
+    $lines += ""
+
+    $lines += "Failed Steps:"
+    $lines += $Report.Pipeline.FailedSteps
+
+    $lines += ""
+
+    $lines += "Success Rate:"
+    $lines += $Report.Pipeline.SuccessRate
+
+    $lines += ""
+
+    $lines += "Duration:"
+    $lines += $Report.Pipeline.Duration
     $lines += "## Quality"
 
     $lines += ""
@@ -226,6 +267,11 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
+
+
+
+
 
 
 

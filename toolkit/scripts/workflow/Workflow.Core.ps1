@@ -20,6 +20,8 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowStateValidationResult.ps1")
 . (Join-Path $modelPath "WorkflowHealth.ps1")
 . (Join-Path $modelPath "WorkflowStepResult.ps1")
+. (Join-Path $modelPath "WorkflowPipelineResult.ps1")
+. (Join-Path $modelPath "WorkflowPipelineRecord.ps1")
 . (Join-Path $modelPath "WorkflowIntelligenceResult.ps1")
 . (Join-Path $modelPath "WorkflowTrendResult.ps1")
 . (Join-Path $modelPath "WorkflowDiagnosticsResult.ps1")

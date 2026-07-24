@@ -23,7 +23,10 @@ function Invoke-Step {
 
         $result = & $Action
 
-        if ($LASTEXITCODE -ne 0) {
+        if(
+            (Test-Path variable:LASTEXITCODE) -and
+            $LASTEXITCODE -ne 0
+        ){
             throw "$Name failed."
         }
 
@@ -58,3 +61,4 @@ function Invoke-Step {
         throw
     }
 }
+
