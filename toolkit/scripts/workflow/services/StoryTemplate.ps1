@@ -10,11 +10,15 @@ function New-StoryTemplate {
 
 ## Title
 
-TBD
+Workflow improvement $StoryId
 
 ## Description
 
-Describe the work to be completed.
+Continue improving ACKIOS workflow automation.
+
+## Status
+
+Planned
 
 ## Definition of Done
 
