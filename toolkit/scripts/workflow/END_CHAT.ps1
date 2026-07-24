@@ -58,6 +58,34 @@ $steps += Invoke-Step "Update Checkpoint" {
 $executionReport = New-WorkflowExecutionReport -Steps $steps
 
 
+$steps += Invoke-Step "Quality Gate" {
+
+    $health = New-WorkflowHealth
+
+    if(
+        $health.QualityGate.Build -ne "PASS" -or
+        $health.QualityGate.Tests -ne "PASS" -or
+        $health.QualityGate.StoryCatalog -ne "PASS" -or
+        $health.QualityGate.Roadmap -ne "PASS"
+    ){
+
+        Write-Host ""
+        Write-Host "Quality Gate FAILED"
+        Write-Host "-------------------"
+
+        $health.QualityGate.Failures |
+            ForEach-Object {
+                Write-Host $_
+            }
+
+        throw "Workflow blocked by Quality Gate."
+
+    }
+
+    Write-Host ""
+    Write-Host "Quality Gate PASSED"
+
+}
 
 
 $steps += Invoke-Step "Advance Story" {
@@ -208,26 +236,4 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
