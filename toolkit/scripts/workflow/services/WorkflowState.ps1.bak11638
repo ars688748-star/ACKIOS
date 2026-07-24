@@ -35,8 +35,6 @@ function Save-WorkflowState {
 
         Tests = $state.Tests
 
-        QualityGate = Invoke-QualityGate
-
     }
 
     $workflow |
@@ -67,7 +65,13 @@ function Invoke-QualityGate {
 
     $result.Failures = @()
 
-    $result.Repository = "PASS"
+    if($state.RepositoryClean){
+        $result.Repository = "PASS"
+    }
+    else{
+        $result.Repository = "FAIL"
+        $result.Failures += "Repository has uncommitted changes"
+    }
 
     if($state.Build -eq "PASS"){
         $result.Build = "PASS"
@@ -128,7 +132,4 @@ function Update-AckiWorkflowState {
     return $state
 
 }
-
-
-
 
