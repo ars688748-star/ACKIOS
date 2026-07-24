@@ -16,8 +16,8 @@ class WorkflowQualityGateResult {
 
     [string]$Diagnostics
 
+    [string]$StateConsistency
+
     [string[]]$Failures
 
 }
-
-

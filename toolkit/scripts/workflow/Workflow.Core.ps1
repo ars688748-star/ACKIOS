@@ -17,6 +17,7 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "StoryCatalogValidationResult.ps1")
 . (Join-Path $modelPath "StoryInfo.ps1")
 . (Join-Path $modelPath "WorkflowQualityGateResult.ps1")
+. (Join-Path $modelPath "WorkflowStateValidationResult.ps1")
 . (Join-Path $modelPath "WorkflowHealth.ps1")
 . (Join-Path $modelPath "WorkflowStepResult.ps1")
 . (Join-Path $modelPath "WorkflowDiagnosticsResult.ps1")
@@ -27,5 +28,6 @@ Get-ChildItem $servicePath -Filter *.ps1 |
     ForEach-Object {
         . $_.FullName
     }
+
 
 

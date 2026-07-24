@@ -128,6 +128,22 @@ function Invoke-QualityGate {
         $result.Failures += $diagnostics.Failures
 
     }
+
+    $stateValidation = Test-WorkflowStateConsistency
+
+    if($stateValidation.Passed){
+
+        $result.StateConsistency = "PASS"
+
+    }
+    else{
+
+        $result.StateConsistency = "FAIL"
+
+        $result.Failures += $stateValidation.Failures
+
+    }
+
     $result.Passed = ($result.Failures.Count -eq 0)
 
     return $result
@@ -153,6 +169,7 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
 
 
 
