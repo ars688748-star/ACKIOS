@@ -1,408 +1,412 @@
 [
-    {
-        "Id":  "37c84a54-b369-4dd4-b626-f6015deea9a2",
-        "Timestamp":  "2026-07-23 18:31:15",
-        "Branch":  "main",
-        "Commit":  "8eb91f1",
-        "Epic":  "116",
-        "Story":  "116.17",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:22.5004246",
-        "CompletedAt":  "2026-07-24 10:21:52"
+  {
+    "Id": "37c84a54-b369-4dd4-b626-f6015deea9a2",
+    "Timestamp": "2026-07-23 18:31:15",
+    "Branch": "main",
+    "Commit": "8eb91f1",
+    "Epic": "116",
+    "Story": "116.17",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:22.5004246",
+    "CompletedAt": "2026-07-24 10:21:52"
+  },
+  {
+    "Id": "29a9dd1a-0200-4776-b0ef-5ea87437cc15",
+    "Timestamp": "2026-07-24 11:59:30",
+    "Branch": "main",
+    "Commit": "b34bb6e",
+    "Epic": "116",
+    "Story": "116.28",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.8913349"
+  },
+  {
+    "Id": "b69f64a4-854e-425a-ab26-b37b2f3417b4",
+    "Timestamp": "2026-07-24 12:17:15",
+    "Branch": "main",
+    "Commit": "0893717",
+    "Epic": "116",
+    "Story": "116.29",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.6957817"
+  },
+  {
+    "Id": "4424d819-542f-4f6a-a07a-0105e3676c71",
+    "Timestamp": "2026-07-24 12:29:48",
+    "Branch": "main",
+    "Commit": "958e1ea",
+    "Epic": "116",
+    "Story": "116.30",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.5874619"
+  },
+  {
+    "Id": "97391654-1ef9-42d6-94f0-e865d49a4752",
+    "Timestamp": "2026-07-24 13:11:59",
+    "Branch": "main",
+    "Commit": "af57fd7",
+    "Epic": "116",
+    "Story": "116.31",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:20.7439301"
+  },
+  {
+    "Id": "24224577-734a-4f18-b827-a78b24a89897",
+    "Timestamp": "2026-07-24 13:29:57",
+    "Branch": "main",
+    "Commit": "2b480d6",
+    "Epic": "116",
+    "Story": "116.32",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.8267584"
+  },
+  {
+    "Id": "0b537f16-341e-4825-8de1-e28379400a1f",
+    "Timestamp": "2026-07-24 13:36:46",
+    "Branch": "main",
+    "Commit": "08e65ae",
+    "Epic": "116",
+    "Story": "116.33",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.5369334"
+  },
+  {
+    "Id": "d3024c48-0c0d-44b2-86e6-34b96b6b9ed2",
+    "Timestamp": "2026-07-24 14:26:17",
+    "Branch": "main",
+    "Commit": "c1076cb",
+    "Epic": "116",
+    "Story": "116.34",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.5442844"
+  },
+  {
+    "Id": "4e399d58-be1c-42b4-8a03-915ed89f57b1",
+    "Timestamp": "2026-07-24 14:31:05",
+    "Branch": "main",
+    "Commit": "3efe5c4",
+    "Epic": "116",
+    "Story": "116.35",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.5646445"
+  },
+  {
+    "Id": "98a98b29-940a-4e1a-ab34-45c9b9568137",
+    "Timestamp": "2026-07-24 14:33:39",
+    "Branch": "main",
+    "Commit": "4931534",
+    "Epic": "116",
+    "Story": "116.36",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.4982736"
+  },
+  {
+    "Id": "6c233ee6-39e3-42bb-9366-d3700ea26cc1",
+    "Timestamp": "2026-07-24 14:42:19",
+    "Branch": "main",
+    "Commit": "99698bd",
+    "Epic": "116",
+    "Story": "116.37",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.8246078"
+  },
+  {
+    "Id": "ca964a57-912a-46f0-8825-66976fab7571",
+    "Timestamp": "2026-07-24 14:56:01",
+    "Branch": "main",
+    "Commit": "4341d8e",
+    "Epic": "116",
+    "Story": "116.38",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.6821206"
+  },
+  {
+    "Id": "47568048-f044-43d4-923e-5bd33f83885e",
+    "Timestamp": "2026-07-24 15:02:01",
+    "Branch": "main",
+    "Commit": "4123490",
+    "Epic": "116",
+    "Story": "116.39",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.7686669"
+  },
+  {
+    "Id": "b98e3ddd-e926-4a98-ac8a-80788768ac62",
+    "Timestamp": "2026-07-24 15:14:51",
+    "Branch": "main",
+    "Commit": "71f8795",
+    "Epic": "116",
+    "Story": "116.40",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "29a9dd1a-0200-4776-b0ef-5ea87437cc15",
-        "Timestamp":  "2026-07-24 11:59:30",
-        "Branch":  "main",
-        "Commit":  "b34bb6e",
-        "Epic":  "116",
-        "Story":  "116.28",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.8913349"
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.8789427"
+  },
+  {
+    "Id": "47e1b785-9438-4fb4-99aa-3d9af1a269bf",
+    "Timestamp": "2026-07-24 15:16:24",
+    "Branch": "main",
+    "Commit": "e0cc89b",
+    "Epic": "116",
+    "Story": "116.41",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "b69f64a4-854e-425a-ab26-b37b2f3417b4",
-        "Timestamp":  "2026-07-24 12:17:15",
-        "Branch":  "main",
-        "Commit":  "0893717",
-        "Epic":  "116",
-        "Story":  "116.29",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.6957817"
+    "Status": "COMPLETED",
+    "Duration": "00:00:19.5834989"
+  },
+  {
+    "Id": "e2eb8089-363e-43af-bdbb-9092c4ae8832",
+    "Timestamp": "2026-07-24 16:51:11",
+    "Branch": "main",
+    "Commit": "22937c2",
+    "Epic": "116",
+    "Story": "116.42",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "4424d819-542f-4f6a-a07a-0105e3676c71",
-        "Timestamp":  "2026-07-24 12:29:48",
-        "Branch":  "main",
-        "Commit":  "958e1ea",
-        "Epic":  "116",
-        "Story":  "116.30",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.5874619"
+    "Status": "COMPLETED",
+    "Duration": "00:00:23.9357858"
+  },
+  {
+    "Id": "a0e97b11-ccb9-49bf-8d54-18f8179e1ed7",
+    "Timestamp": "2026-07-24 16:53:26",
+    "Branch": "main",
+    "Commit": "ddb9643",
+    "Epic": "116",
+    "Story": "116.43",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "97391654-1ef9-42d6-94f0-e865d49a4752",
-        "Timestamp":  "2026-07-24 13:11:59",
-        "Branch":  "main",
-        "Commit":  "af57fd7",
-        "Epic":  "116",
-        "Story":  "116.31",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:20.7439301"
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.3621883"
+  },
+  {
+    "Id": "b0e87c2b-403c-4350-bb2a-527100357129",
+    "Timestamp": "2026-07-24 17:02:09",
+    "Branch": "main",
+    "Commit": "b6f7650",
+    "Epic": "116",
+    "Story": "116.44",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "24224577-734a-4f18-b827-a78b24a89897",
-        "Timestamp":  "2026-07-24 13:29:57",
-        "Branch":  "main",
-        "Commit":  "2b480d6",
-        "Epic":  "116",
-        "Story":  "116.32",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.8267584"
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.4386669"
+  },
+  {
+    "Id": "b72ae5ce-193a-4dc6-8039-d1e774d1948f",
+    "Timestamp": "2026-07-24 17:14:04",
+    "Branch": "main",
+    "Commit": "352fb23",
+    "Epic": "116",
+    "Story": "116.45",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "0b537f16-341e-4825-8de1-e28379400a1f",
-        "Timestamp":  "2026-07-24 13:36:46",
-        "Branch":  "main",
-        "Commit":  "08e65ae",
-        "Epic":  "116",
-        "Story":  "116.33",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.5369334"
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.6008994"
+  },
+  {
+    "Id": "57b6d3c3-c041-4b25-af18-43f206a6a944",
+    "Timestamp": "2026-07-24 17:57:04",
+    "Branch": "main",
+    "Commit": "89ff721",
+    "Epic": "116",
+    "Story": "116.46",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "d3024c48-0c0d-44b2-86e6-34b96b6b9ed2",
-        "Timestamp":  "2026-07-24 14:26:17",
-        "Branch":  "main",
-        "Commit":  "c1076cb",
-        "Epic":  "116",
-        "Story":  "116.34",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.5442844"
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.4939638"
+  },
+  {
+    "Id": "fd339773-39ce-4859-93c0-33ba4a1665f1",
+    "Timestamp": "2026-07-24 17:58:07",
+    "Branch": "main",
+    "Commit": "6244dd9",
+    "Epic": "116",
+    "Story": "116.47",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "4e399d58-be1c-42b4-8a03-915ed89f57b1",
-        "Timestamp":  "2026-07-24 14:31:05",
-        "Branch":  "main",
-        "Commit":  "3efe5c4",
-        "Epic":  "116",
-        "Story":  "116.35",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.5646445"
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.2850122"
+  },
+  {
+    "Id": "a46f3157-ecbb-48e5-b29b-8ad24c493ff4",
+    "Timestamp": "2026-07-24 18:25:26",
+    "Branch": "main",
+    "Commit": "24fc7a5",
+    "Epic": "116",
+    "Story": "116.48",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "98a98b29-940a-4e1a-ab34-45c9b9568137",
-        "Timestamp":  "2026-07-24 14:33:39",
-        "Branch":  "main",
-        "Commit":  "4931534",
-        "Epic":  "116",
-        "Story":  "116.36",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.4982736"
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.0136544"
+  },
+  {
+    "Id": "2af60d07-6600-423a-8bb6-337f428928d7",
+    "Timestamp": "2026-07-24 18:32:13",
+    "Branch": "main",
+    "Commit": "402bf22",
+    "Epic": "116",
+    "Story": "116.49",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "6c233ee6-39e3-42bb-9366-d3700ea26cc1",
-        "Timestamp":  "2026-07-24 14:42:19",
-        "Branch":  "main",
-        "Commit":  "99698bd",
-        "Epic":  "116",
-        "Story":  "116.37",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.8246078"
+    "Status": "COMPLETED",
+    "Duration": "00:00:20.4831348"
+  },
+  {
+    "Id": "625127d1-fc61-425d-8a1f-1d9ebac8c806",
+    "Timestamp": "2026-07-24 19:29:06",
+    "Branch": "main",
+    "Commit": "984275b",
+    "Epic": "116",
+    "Story": "116.50",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
     },
-    {
-        "Id":  "ca964a57-912a-46f0-8825-66976fab7571",
-        "Timestamp":  "2026-07-24 14:56:01",
-        "Branch":  "main",
-        "Commit":  "4341d8e",
-        "Epic":  "116",
-        "Story":  "116.38",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.6821206"
-    },
-    {
-        "Id":  "47568048-f044-43d4-923e-5bd33f83885e",
-        "Timestamp":  "2026-07-24 15:02:01",
-        "Branch":  "main",
-        "Commit":  "4123490",
-        "Epic":  "116",
-        "Story":  "116.39",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.7686669"
-    },
-    {
-        "Id":  "b98e3ddd-e926-4a98-ac8a-80788768ac62",
-        "Timestamp":  "2026-07-24 15:14:51",
-        "Branch":  "main",
-        "Commit":  "71f8795",
-        "Epic":  "116",
-        "Story":  "116.40",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.8789427"
-    },
-    {
-        "Id":  "47e1b785-9438-4fb4-99aa-3d9af1a269bf",
-        "Timestamp":  "2026-07-24 15:16:24",
-        "Branch":  "main",
-        "Commit":  "e0cc89b",
-        "Epic":  "116",
-        "Story":  "116.41",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:19.5834989"
-    },
-    {
-        "Id":  "e2eb8089-363e-43af-bdbb-9092c4ae8832",
-        "Timestamp":  "2026-07-24 16:51:11",
-        "Branch":  "main",
-        "Commit":  "22937c2",
-        "Epic":  "116",
-        "Story":  "116.42",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:23.9357858"
-    },
-    {
-        "Id":  "a0e97b11-ccb9-49bf-8d54-18f8179e1ed7",
-        "Timestamp":  "2026-07-24 16:53:26",
-        "Branch":  "main",
-        "Commit":  "ddb9643",
-        "Epic":  "116",
-        "Story":  "116.43",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:21.3621883"
-    },
-    {
-        "Id":  "b0e87c2b-403c-4350-bb2a-527100357129",
-        "Timestamp":  "2026-07-24 17:02:09",
-        "Branch":  "main",
-        "Commit":  "b6f7650",
-        "Epic":  "116",
-        "Story":  "116.44",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Diagnostics":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:21.4386669"
-    },
-    {
-        "Id":  "b72ae5ce-193a-4dc6-8039-d1e774d1948f",
-        "Timestamp":  "2026-07-24 17:14:04",
-        "Branch":  "main",
-        "Commit":  "352fb23",
-        "Epic":  "116",
-        "Story":  "116.45",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Diagnostics":  "PASS",
-                            "StateConsistency":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:21.6008994"
-    },
-    {
-        "Id":  "57b6d3c3-c041-4b25-af18-43f206a6a944",
-        "Timestamp":  "2026-07-24 17:57:04",
-        "Branch":  "main",
-        "Commit":  "89ff721",
-        "Epic":  "116",
-        "Story":  "116.46",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Diagnostics":  "PASS",
-                            "StateConsistency":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:21.4939638"
-    },
-    {
-        "Id":  "fd339773-39ce-4859-93c0-33ba4a1665f1",
-        "Timestamp":  "2026-07-24 17:58:07",
-        "Branch":  "main",
-        "Commit":  "6244dd9",
-        "Epic":  "116",
-        "Story":  "116.47",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Diagnostics":  "PASS",
-                            "StateConsistency":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:21.2850122"
-    },
-    {
-        "Id":  "a46f3157-ecbb-48e5-b29b-8ad24c493ff4",
-        "Timestamp":  "2026-07-24 18:25:26",
-        "Branch":  "main",
-        "Commit":  "24fc7a5",
-        "Epic":  "116",
-        "Story":  "116.48",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Diagnostics":  "PASS",
-                            "StateConsistency":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:21.0136544"
-    },
-    {
-        "Id":  "2af60d07-6600-423a-8bb6-337f428928d7",
-        "Timestamp":  "2026-07-24 18:32:13",
-        "Branch":  "main",
-        "Commit":  "402bf22",
-        "Epic":  "116",
-        "Story":  "116.49",
-        "Build":  "PASS",
-        "Tests":  "PASS",
-        "QualityGate":  {
-                            "Passed":  true,
-                            "Repository":  "PASS",
-                            "Build":  "PASS",
-                            "Tests":  "PASS",
-                            "StoryCatalog":  "PASS",
-                            "Roadmap":  "PASS",
-                            "BackupFiles":  "PASS",
-                            "Diagnostics":  "PASS",
-                            "StateConsistency":  "PASS",
-                            "Failures":  [
-
-                                         ]
-                        },
-        "Status":  "COMPLETED",
-        "Duration":  "00:00:20.4831348"
-    }
+    "Status": "COMPLETED",
+    "Duration": "00:00:21.8077568"
+  }
 ]
