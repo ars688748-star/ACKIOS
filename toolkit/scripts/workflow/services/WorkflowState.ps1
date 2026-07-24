@@ -103,6 +103,16 @@ function Invoke-QualityGate {
         $result.Failures += "Roadmap validation failed"
     }
 
+    $backups = @(Test-WorkflowBackupFiles)
+
+    if($backups.Count -eq 0){
+        $result.BackupFiles = "PASS"
+    }
+    else{
+        $result.BackupFiles = "FAIL"
+        $result.Failures += "Backup files detected"
+    }
+
     $result.Passed = ($result.Failures.Count -eq 0)
 
     return $result
@@ -128,6 +138,8 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
+
 
 
 
