@@ -1,11 +1,5 @@
 function Advance-AckiStory {
 
-    $state = Get-AckiWorkflowState
-
-    Set-StoryStatus `
-        -StoryId $state.CurrentStory `
-        -Status "Completed"
-
     $state = Update-AckiWorkflowState {
 
         param($state)
@@ -21,4 +15,3 @@ function Advance-AckiStory {
 
     return $state
 }
-
