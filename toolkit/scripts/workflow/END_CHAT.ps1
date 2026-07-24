@@ -155,7 +155,7 @@ $steps += Invoke-Step "Create Workflow Execution History" {
     $record | Add-Member `
         -MemberType NoteProperty `
         -Name Duration `
-        -Value $executionReport.Duration `
+        -Value ([string]$executionReport.Duration) `
         -Force
 
 
@@ -208,6 +208,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 

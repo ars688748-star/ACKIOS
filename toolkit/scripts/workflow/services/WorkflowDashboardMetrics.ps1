@@ -43,7 +43,27 @@ function Get-WorkflowDashboardMetrics {
             $_.Duration
         } |
         ForEach-Object {
-            [TimeSpan]::Parse($_.Duration)
+
+            if($_.Duration -is [TimeSpan]) {
+
+                $_.Duration
+
+            }
+            elseif($_.Duration.PSObject.Properties.Name -contains "Ticks") {
+
+                [TimeSpan]::FromTicks(
+                    [long]$_.Duration.Ticks
+                )
+
+            }
+            else {
+
+                [TimeSpan]::Parse(
+                    [string]$_.Duration
+                )
+
+            }
+
         }
     )
 
@@ -70,8 +90,27 @@ function Get-WorkflowDashboardMetrics {
 
     if($last -and $last.Duration){
 
-        $lastExecutionDuration =
-            [TimeSpan]::Parse($last.Duration)
+        if($last.Duration -is [TimeSpan]){
+
+            $lastExecutionDuration = $last.Duration
+
+        }
+        elseif($last.Duration.PSObject.Properties.Name -contains "Ticks"){
+
+            $lastExecutionDuration =
+                [TimeSpan]::FromTicks(
+                    [long]$last.Duration.Ticks
+                )
+
+        }
+        else{
+
+            $lastExecutionDuration =
+                [TimeSpan]::Parse(
+                    [string]$last.Duration
+                )
+
+        }
 
     }
 
@@ -93,3 +132,7 @@ function Get-WorkflowDashboardMetrics {
     }
 
 }
+
+
+
+
