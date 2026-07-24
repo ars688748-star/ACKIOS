@@ -22,6 +22,18 @@ function Show-WorkflowHealth {
         Write-Host ("  Total      : {0}" -f $Health.StoryCatalog.Total)
         Write-Host ("  Valid      : {0}" -f $Health.StoryCatalog.Valid)
         Write-Host ("  Warnings   : {0}" -f $Health.StoryCatalog.Warnings)
+
+        if($Health.StoryCatalog.Issues.Count -gt 0){
+
+            Write-Host ""
+            Write-Host "  Issues"
+
+            foreach($issue in $Health.StoryCatalog.Issues){
+
+                Write-Host ("    {0}" -f $issue)
+
+            }
+        }
     }
 
     Write-Host ""
@@ -189,6 +201,7 @@ function Show-WorkflowExecutionDashboard {
     Write-Host ""
 
 }
+
 
 
 

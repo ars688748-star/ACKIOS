@@ -6,4 +6,7 @@ class StoryCatalogValidationResult {
 
     [int]$Warnings
 
+    [array]$Issues
+
 }
+

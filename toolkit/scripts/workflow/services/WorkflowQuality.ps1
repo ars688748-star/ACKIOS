@@ -13,9 +13,11 @@ function Get-WorkflowQuality {
             Total = $story.Total
             Valid = $story.Valid
             Warnings = $story.Warnings
+            Issues = $story.Issues
 
         }
 
     }
 
 }
+
