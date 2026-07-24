@@ -47,9 +47,7 @@ function Save-WorkflowExecutionRecord {
 
     if (Test-Path $ExecutionHistoryPath) {
 
-        $history = Get-Content `
-            $ExecutionHistoryPath `
-            -Raw | ConvertFrom-Json
+        $history = Get-WorkflowExecutionHistory
 
     }
     else {
@@ -75,12 +73,15 @@ function Get-WorkflowExecutionHistory {
     }
 
 
-    return Get-Content `
+    $history = Get-Content `
         $ExecutionHistoryPath `
         -Raw |
         ConvertFrom-Json
-}
 
+
+    return @($history)
+
+}
 
 function Get-LastWorkflowExecution {
 
@@ -132,6 +133,9 @@ function Update-WorkflowExecutionRecord {
         ConvertTo-Json -Depth 5 |
         Set-Content $ExecutionHistoryPath
 }
+
+
+
 
 
 

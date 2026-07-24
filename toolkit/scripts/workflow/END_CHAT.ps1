@@ -6,6 +6,8 @@ $ErrorActionPreference = "Stop"
 
 Initialize-Workflow
 
+$completedStory = (Get-AckiWorkflowState).CurrentStory
+
 $steps = @()
 
 $steps += Invoke-Step "Build" {
@@ -55,20 +57,7 @@ $steps += Invoke-Step "Update Checkpoint" {
 
 $executionReport = New-WorkflowExecutionReport -Steps $steps
 
-$steps += Invoke-Step "Finalize Workflow Execution History" {
 
-    $lastExecution = Get-LastWorkflowExecution
-
-    if ($lastExecution) {
-
-        Update-WorkflowExecutionRecord `
-            -Id $lastExecution.Id `
-            -Status "COMPLETED" `
-            -Duration $executionReport.Duration
-
-    }
-
-}
 
 
 $steps += Invoke-Step "Advance Story" {
@@ -148,6 +137,33 @@ $steps += Invoke-Step "Refresh Workflow Commit State" {
 }
 
 
+$steps += Invoke-Step "Create Workflow Execution History" {
+
+    $state = Get-AckiWorkflowState
+
+
+    $record = New-WorkflowExecutionRecord `
+        -Branch $state.Branch `
+        -Commit $state.Commit `
+        -Epic $state.CurrentEpic `
+        -Story $completedStory `
+        -Build $state.Build `
+        -Tests $state.Tests `
+        -Status "COMPLETED"
+
+
+    $record | Add-Member `
+        -MemberType NoteProperty `
+        -Name Duration `
+        -Value $executionReport.Duration `
+        -Force
+
+
+    Save-WorkflowExecutionRecord $record
+
+}
+
+
 $steps += Invoke-Step "Git Push" {
 
     Invoke-GitPush
@@ -192,6 +208,11 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
+
+
+
 
 
 
