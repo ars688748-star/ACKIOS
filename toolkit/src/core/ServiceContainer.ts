@@ -1,6 +1,10 @@
+import { ServiceLifetime } from "./services/enums/ServiceLifetime.js";
+import { ServiceDescriptor } from "./services/models/ServiceDescriptor.js";
+
 export class ServiceContainer {
 
-    private readonly services = new Map<string, unknown>();
+    private readonly services =
+        new Map<string, ServiceDescriptor>();
 
     public register<T>(name: string, instance: T): void {
 
@@ -8,19 +12,23 @@ export class ServiceContainer {
             throw new Error(`Service '${name}' is already registered.`);
         }
 
-        this.services.set(name, instance);
+        this.services.set(name, {
+            name,
+            lifetime: ServiceLifetime.Instance,
+            instance
+        });
 
     }
 
     public resolve<T>(name: string): T {
 
-        const service = this.services.get(name);
+        const descriptor = this.services.get(name);
 
-        if (!service) {
+        if (!descriptor) {
             throw new Error(`Service '${name}' not found.`);
         }
 
-        return service as T;
+        return descriptor.instance as T;
 
     }
 

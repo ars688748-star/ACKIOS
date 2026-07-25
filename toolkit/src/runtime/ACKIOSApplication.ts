@@ -1,32 +1,39 @@
+import { ACKIOSKernel } from "../kernel/ACKIOSKernel.js";
+import { ACKIOSKernelBuilder } from "../kernel/ACKIOSKernelBuilder.js";
 import { ACKIOSRuntime } from "./ACKIOSRuntime.js";
-import { ACKIOSRuntimeBuilder } from "./ACKIOSRuntimeBuilder.js";
 
 export class ACKIOSApplication {
 
-    public readonly runtime: ACKIOSRuntime =
-        new ACKIOSRuntimeBuilder().build();
+    public readonly kernel: ACKIOSKernel =
+        new ACKIOSKernelBuilder().build();
+
+    public get runtime(): ACKIOSRuntime {
+
+        return (this.kernel as any).runtime;
+
+    }
 
     public initialize() {
 
-        return this.runtime.initialize();
+        return this.kernel.initialize();
 
     }
 
     public start() {
 
-        return this.runtime.start();
+        return this.kernel.start();
 
     }
 
     public stop() {
 
-        return this.runtime.stop();
+        return this.kernel.stop();
 
     }
 
     public dispose() {
 
-        return this.runtime.dispose();
+        return this.kernel.dispose();
 
     }
 

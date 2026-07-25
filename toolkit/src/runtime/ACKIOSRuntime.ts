@@ -8,6 +8,18 @@ export class ACKIOSRuntime {
         public readonly modules: IRuntimeModule[]
     ) {}
 
+    public getService<T>(name: string): T {
+
+        return this.context.services.resolve<T>(name);
+
+    }
+
+    public hasService(name: string): boolean {
+
+        return this.context.services.has(name);
+
+    }
+
     public async initialize(): Promise<void> {
 
         for (const module of this.modules)
