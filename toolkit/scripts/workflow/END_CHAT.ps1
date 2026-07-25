@@ -10,11 +10,13 @@ $completedStory = (Get-AckiWorkflowState).CurrentStory
 
 $steps = @()
 
-$steps += Invoke-Step "Build" {
+$buildStep = Invoke-Step "Build" {
 
     Invoke-Build -ContinueOnError
 
 } -ContinueOnError
+
+$steps += $buildStep
 
 $steps += Invoke-Step "Tests" {
 
@@ -27,6 +29,14 @@ $steps += Invoke-Step "Save Workflow State" {
     Update-AckiWorkflowState {
 
         param($state)
+
+        $state.Build =
+            if($buildStep.Status -eq [WorkflowStatus]::PASS){
+                "PASS"
+            }
+            else{
+                "FAIL"
+            }
 
         $state.Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
@@ -101,6 +111,14 @@ $steps += Invoke-Step "Save Advanced Workflow State" {
 
         param($state)
 
+        $state.Build =
+            if($buildStep.Status -eq [WorkflowStatus]::PASS){
+                "PASS"
+            }
+            else{
+                "FAIL"
+            }
+
         $state.Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
     } | Out-Null
@@ -157,6 +175,14 @@ $steps += Invoke-Step "Refresh Workflow Commit State" {
     Update-AckiWorkflowState {
 
         param($state)
+
+        $state.Build =
+            if($buildStep.Status -eq [WorkflowStatus]::PASS){
+                "PASS"
+            }
+            else{
+                "FAIL"
+            }
 
         $state.Timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 
@@ -239,6 +265,10 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
+
+
 
 
 

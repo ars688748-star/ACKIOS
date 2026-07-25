@@ -9,7 +9,7 @@ export class ACKIOSApplication {
 
     public get runtime(): ACKIOSRuntime {
 
-        return (this.kernel as any).runtime;
+        return this.kernel.getRuntime();
 
     }
 
@@ -38,3 +38,4 @@ export class ACKIOSApplication {
     }
 
 }
+

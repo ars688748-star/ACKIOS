@@ -7,6 +7,12 @@ export class ACKIOSKernel implements IKernel {
         private readonly runtime: ACKIOSRuntime
     ) {}
 
+    public getRuntime(): ACKIOSRuntime {
+
+        return this.runtime;
+
+    }
+
     public getService<T>(name: string): T {
 
         return this.runtime.getService<T>(name);
@@ -44,3 +50,4 @@ export class ACKIOSKernel implements IKernel {
     }
 
 }
+
