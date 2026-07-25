@@ -4,10 +4,14 @@ export interface PlatformInfo {
 
     operatingSystem: OperatingSystem;
 
-    architecture: string;
-
     platform: string;
 
-    nodeVersion: string;
+    version: string;
+
+    architecture: string;
+
+    hostname: string;
+
+    runtimeVersion: string;
 
 }

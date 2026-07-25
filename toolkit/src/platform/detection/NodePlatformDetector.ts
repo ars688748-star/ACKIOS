@@ -1,12 +1,12 @@
 import os from "node:os";
 
-import { IPlatform } from "./contracts/IPlatform.js";
-import { OperatingSystem } from "./enums/OperatingSystem.js";
-import { PlatformInfo } from "./models/PlatformInfo.js";
+import { IPlatformDetector } from "../contracts/IPlatformDetector.js";
+import { PlatformInfo } from "../models/PlatformInfo.js";
+import { OperatingSystem } from "../enums/OperatingSystem.js";
 
-export class NodePlatform implements IPlatform {
+export class NodePlatformDetector implements IPlatformDetector {
 
-    public getInfo(): PlatformInfo {
+    public async detect(): Promise<PlatformInfo> {
 
         return {
 
@@ -16,7 +16,7 @@ export class NodePlatform implements IPlatform {
 
             version: os.release(),
 
-            architecture: os.arch(),
+            architecture: process.arch,
 
             hostname: os.hostname(),
 
@@ -25,6 +25,7 @@ export class NodePlatform implements IPlatform {
         };
 
     }
+
 
     private getOperatingSystem(): OperatingSystem {
 
