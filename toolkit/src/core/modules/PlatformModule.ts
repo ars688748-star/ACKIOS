@@ -27,6 +27,7 @@ import { AdaptationRuntime } from "../../platform/adaptation/runtime/AdaptationR
 import { StrategyBuilder } from "../../platform/adaptation/StrategyBuilder.js";
 import { FileStrategyStorage } from "../../platform/adaptation/storage/FileStrategyStorage.js";
 import { StrategyLifecycleService } from "../../platform/adaptation/lifecycle/StrategyLifecycleService.js";
+import { AdaptationConfigurationManager } from "../../platform/adaptation/configuration/AdaptationConfigurationManager.js";
 
 
 export class PlatformModule implements IServiceModule {
@@ -186,9 +187,14 @@ export class PlatformModule implements IServiceModule {
                 strategyStorage,
                 lifecycleService
             );
-
-
         container.register(
+            "adaptationConfigurationManager",
+            new AdaptationConfigurationManager()
+        );
+
+
+
+container.register(
             "adaptationRuntime",
             adaptationRuntime
         );
@@ -197,6 +203,11 @@ export class PlatformModule implements IServiceModule {
     }
 
 }
+
+
+
+
+
 
 
 

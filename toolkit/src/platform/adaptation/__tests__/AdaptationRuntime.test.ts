@@ -11,6 +11,7 @@ import { PlatformAdaptationRule } from "../rules/PlatformAdaptationRule.js";
 import { HardwareAdaptationRule } from "../rules/HardwareAdaptationRule.js";
 import { EnvironmentService } from "../../environment/EnvironmentService.js";
 import { EnvironmentProfile } from "../../models/EnvironmentProfile.js";
+import { AdaptationConfigurationManager } from "../configuration/AdaptationConfigurationManager.js";
 describe(
     "AdaptationRuntime",
     () => {
@@ -58,7 +59,8 @@ describe(
                           service,
                           new StrategyBuilder(),
                           new MemoryStrategyStorage(),
-                          new StrategyLifecycleService()
+                          new StrategyLifecycleService(),
+                          new AdaptationConfigurationManager()
                       );
                 const result =
                     await runtime.getStrategy();
@@ -71,6 +73,11 @@ describe(
         );
     }
 );
+
+
+
+
+
 
 
 

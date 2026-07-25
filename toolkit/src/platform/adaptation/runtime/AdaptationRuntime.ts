@@ -3,6 +3,7 @@ import { StrategyBuilder } from "../StrategyBuilder.js";
 import { StrategyProfile } from "../models/StrategyProfile.js";
 import { IStrategyStorage } from "../storage/IStrategyStorage.js";
 import { StrategyLifecycleService } from "../lifecycle/StrategyLifecycleService.js";
+import { AdaptationConfigurationManager } from "../configuration/AdaptationConfigurationManager.js";
 
 
 export class AdaptationRuntime {
@@ -12,7 +13,8 @@ export class AdaptationRuntime {
         private readonly adaptationService: AdaptationService,
         private readonly strategyBuilder: StrategyBuilder,
         private readonly strategyStorage: IStrategyStorage,
-        private readonly lifecycle: StrategyLifecycleService
+        private readonly lifecycle: StrategyLifecycleService,
+        private readonly configurationManager: AdaptationConfigurationManager
     ) {}
 
 
@@ -33,6 +35,12 @@ export class AdaptationRuntime {
         const strategy =
             this.strategyBuilder.build(
                 decision
+            );
+
+
+        const configuration =
+            this.configurationManager.apply(
+                strategy
             );
 
 
@@ -63,3 +71,7 @@ export class AdaptationRuntime {
 
 
 }
+
+
+
+
