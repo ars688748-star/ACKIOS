@@ -1,6 +1,7 @@
 import { FirstRunState } from "./FirstRunState.js";
 import { FirstRunWizard } from "../wizard/FirstRunWizard.js";
 import { UserOnboarding } from "../onboarding/UserOnboarding.js";
+import { AdaptationRuntime } from "../adaptation/runtime/AdaptationRuntime.js";
 
 
 export class FirstRunCoordinator {
@@ -9,7 +10,8 @@ export class FirstRunCoordinator {
     public constructor(
         private readonly state: FirstRunState,
         private readonly wizard: FirstRunWizard,
-        private readonly onboarding: UserOnboarding
+        private readonly onboarding: UserOnboarding,
+        private readonly adaptationRuntime?: AdaptationRuntime
     ) {}
 
 
@@ -60,6 +62,12 @@ export class FirstRunCoordinator {
         }
 
 
+        if (this.adaptationRuntime) {
+
+            await this.adaptationRuntime.getStrategy();
+
+        }
+
         this.state.complete();
 
 
@@ -69,4 +77,6 @@ export class FirstRunCoordinator {
 
 
 }
+
+
 

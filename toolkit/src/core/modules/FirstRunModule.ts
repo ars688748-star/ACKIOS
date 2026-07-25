@@ -32,7 +32,8 @@ export class FirstRunModule implements IServiceModule {
             new FirstRunCoordinator(
                 state,
                 wizard,
-                onboarding
+                onboarding,
+                container.resolve("adaptationRuntime")
             );
 
 
@@ -52,3 +53,5 @@ export class FirstRunModule implements IServiceModule {
 
 
 }
+
+
