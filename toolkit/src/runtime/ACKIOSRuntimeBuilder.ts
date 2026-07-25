@@ -14,6 +14,7 @@ import { WorkspaceModule } from "./modules/WorkspaceModule.js";
 import { ArchitectureModule } from "./modules/ArchitectureModule.js";
 import { BrainModule } from "./modules/BrainModule.js";
 import { AdaptationModule } from "./modules/AdaptationModule.js";
+import { FirstRunRuntimeModule } from "./modules/FirstRunRuntimeModule.js";
 
 import { IServiceModule } from "../core/modules/IServiceModule.js";
 import { EventModule } from "../core/modules/EventModule.js";
@@ -26,7 +27,8 @@ export class ACKIOSRuntimeBuilder {
         new WorkspaceModule(),
         new ArchitectureModule(),
         new BrainModule(),
-        new AdaptationModule()
+        new AdaptationModule(),
+        new FirstRunRuntimeModule()
     ];
 
     private readonly serviceModules: IServiceModule[] = [
@@ -93,6 +95,8 @@ export class ACKIOSRuntimeBuilder {
     }
 
 }
+
+
 
 
 
