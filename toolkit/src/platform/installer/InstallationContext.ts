@@ -6,6 +6,12 @@ export interface InstallationContext {
 
     platform: string;
 
+    strategy?: string;
+
+    components?: string[];
+
+    warnings?: string[];
+
     workspaceCreated: boolean;
 
     status:
