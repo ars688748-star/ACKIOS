@@ -1,4 +1,5 @@
 import { AdaptationConfiguration } from "./AdaptationConfiguration.js";
+import { AdaptationConfigurationStorage } from "./AdaptationConfigurationStorage.js";
 
 
 export class AdaptationConfigurationState {
@@ -8,28 +9,67 @@ export class AdaptationConfigurationState {
         AdaptationConfiguration;
 
 
-    public set(
+    public constructor(
+        private readonly storage:
+            AdaptationConfigurationStorage
+    ) {}
+
+
+    public async set(
         configuration: AdaptationConfiguration
-    ): void {
+    ): Promise<void> {
+
 
         this.configuration =
             configuration;
 
-    }
 
-
-    public get():
-        AdaptationConfiguration | undefined {
-
-        return this.configuration;
+        await this.storage.save(
+            configuration
+        );
 
     }
 
 
-    public clear(): void {
+    public async get():
+        Promise<AdaptationConfiguration | undefined> {
+
+
+        if (this.configuration) {
+
+            return this.configuration;
+
+        }
+
+
+        const stored =
+            await this.storage.load();
+
+
+        if (!stored) {
+
+            return undefined;
+
+        }
+
+
+        this.configuration =
+            stored;
+
+
+        return stored;
+
+    }
+
+
+    public async clear(): Promise<void> {
+
 
         this.configuration =
             undefined;
+
+
+        await this.storage.clear();
 
     }
 

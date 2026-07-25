@@ -12,6 +12,8 @@ import { HardwareAdaptationRule } from "../rules/HardwareAdaptationRule.js";
 import { EnvironmentService } from "../../environment/EnvironmentService.js";
 import { EnvironmentProfile } from "../../models/EnvironmentProfile.js";
 import { AdaptationConfigurationManager } from "../configuration/AdaptationConfigurationManager.js";
+import { AdaptationConfigurationState } from "../configuration/AdaptationConfigurationState.js";
+import { AdaptationConfigurationStorage } from "../configuration/AdaptationConfigurationStorage.js";
 describe(
     "AdaptationRuntime",
     () => {
@@ -60,7 +62,12 @@ describe(
                           new StrategyBuilder(),
                           new MemoryStrategyStorage(),
                           new StrategyLifecycleService(),
-                          new AdaptationConfigurationManager()
+                          new AdaptationConfigurationManager(),
+                          new AdaptationConfigurationState(
+                              new AdaptationConfigurationStorage(
+                                  ".work/test-adaptation-config.json"
+                              )
+                          )
                       );
                 const result =
                     await runtime.getStrategy();
@@ -73,6 +80,7 @@ describe(
         );
     }
 );
+
 
 
 

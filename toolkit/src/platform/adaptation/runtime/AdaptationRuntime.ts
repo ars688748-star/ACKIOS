@@ -16,7 +16,7 @@ export class AdaptationRuntime {
         private readonly strategyStorage: IStrategyStorage,
         private readonly lifecycle: StrategyLifecycleService,
         private readonly configurationManager: AdaptationConfigurationManager = new AdaptationConfigurationManager(),
-        private readonly configurationState: AdaptationConfigurationState = new AdaptationConfigurationState()
+        private readonly configurationState: AdaptationConfigurationState
     ) {}
 
 
@@ -46,7 +46,7 @@ export class AdaptationRuntime {
             );
 
 
-        this.configurationState.set(
+        await this.configurationState.set(
             configuration
         );
 
@@ -78,6 +78,7 @@ export class AdaptationRuntime {
 
 
 }
+
 
 
 

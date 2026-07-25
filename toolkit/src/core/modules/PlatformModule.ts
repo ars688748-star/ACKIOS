@@ -28,6 +28,7 @@ import { StrategyBuilder } from "../../platform/adaptation/StrategyBuilder.js";
 import { FileStrategyStorage } from "../../platform/adaptation/storage/FileStrategyStorage.js";
 import { StrategyLifecycleService } from "../../platform/adaptation/lifecycle/StrategyLifecycleService.js";
 import { AdaptationConfigurationManager } from "../../platform/adaptation/configuration/AdaptationConfigurationManager.js";
+import { AdaptationConfigurationStorage } from "../../platform/adaptation/configuration/AdaptationConfigurationStorage.js";
 import { AdaptationConfigurationState } from "../../platform/adaptation/configuration/AdaptationConfigurationState.js";
 
 
@@ -189,7 +190,11 @@ export class PlatformModule implements IServiceModule {
 
         container.register(
             "adaptationConfigurationState",
-            new AdaptationConfigurationState()
+            new AdaptationConfigurationState(
+                new AdaptationConfigurationStorage(
+                    ".work/adaptation/configuration.json"
+                )
+            )
         );
 
 
@@ -215,6 +220,7 @@ container.register(
     }
 
 }
+
 
 
 
