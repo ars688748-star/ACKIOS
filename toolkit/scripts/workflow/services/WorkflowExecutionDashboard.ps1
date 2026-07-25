@@ -74,11 +74,12 @@ function Get-WorkflowExecutionDashboard {
 
         Tests = $state.Tests
 
-        QualityGate = Invoke-QualityGate
+        QualityGate = Invoke-QualityGate -State $state
 
     }
 
 }
+
 
 
 

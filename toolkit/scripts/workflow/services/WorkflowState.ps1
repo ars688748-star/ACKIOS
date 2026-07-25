@@ -25,17 +25,17 @@ function Save-WorkflowState {
 
         RepositoryClean = $git.Clean
 
-        CurrentEpic = $state.CurrentEpic
+        CurrentEpic = $State.CurrentEpic
 
-        CurrentStory = $state.CurrentStory
+        CurrentStory = $State.CurrentStory
 
-        NextStory = $state.NextStory
+        NextStory = $State.NextStory
 
-        Build = $state.Build
+        Build = $State.Build
 
-        Tests = $state.Tests
+        Tests = $State.Tests
 
-        QualityGate = Invoke-QualityGate
+        QualityGate = Invoke-QualityGate -State $State
 
     }
 
@@ -61,7 +61,10 @@ function Load-WorkflowState {
 
 function Invoke-QualityGate {
 
-    $state = Get-AckiWorkflowState
+    param(
+        [Parameter(Mandatory)]
+        $State
+    )
 
     $result = [WorkflowQualityGateResult]::new()
 
@@ -69,7 +72,7 @@ function Invoke-QualityGate {
 
     $result.Repository = "PASS"
 
-    if($state.Build -eq "PASS"){
+    if($State.Build -eq "PASS"){
         $result.Build = "PASS"
     }
     else{
@@ -77,7 +80,7 @@ function Invoke-QualityGate {
         $result.Failures += "Build failed"
     }
 
-    if($state.Tests -eq "PASS"){
+    if($State.Tests -eq "PASS"){
         $result.Tests = "PASS"
     }
     else{
@@ -162,6 +165,8 @@ function Update-AckiWorkflowState {
 
     $state = Get-AckiWorkflowState
 
+
+
     & $Update $state
 
     Save-WorkflowState $state
@@ -169,6 +174,10 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
+
+
+
 
 
 
