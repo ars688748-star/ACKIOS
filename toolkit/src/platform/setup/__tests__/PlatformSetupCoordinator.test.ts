@@ -1,64 +1,48 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 
-import { PlatformSetupCoordinator } from "../PlatformSetupCoordinator.js";
-import { OperatingSystem } from "../../enums/OperatingSystem.js";
+import { PlatformSetupCoordinator } from "../services/PlatformSetupCoordinator.js";
+import { EnvironmentRecommendation } from "../../environment/intelligence/EnvironmentRecommendation.js";
 
 
 describe("PlatformSetupCoordinator", () => {
 
 
-    test("creates adaptive setup plan", async () => {
+    test("creates setup plan from environment profile", async () => {
+
+
+        const analyzer = {
+
+            analyze: vi.fn()
+                .mockReturnValue({
+
+                    score: {
+                        value: 100
+                    },
+
+                    recommendation:
+                        EnvironmentRecommendation.FULL_INSTALL
+
+                })
+
+        };
 
 
         const coordinator =
-            new PlatformSetupCoordinator();
+            new PlatformSetupCoordinator(
+                analyzer as any
+            );
 
 
         const plan =
             await coordinator.createPlan({
 
-
                 platform: {
 
-                    operatingSystem: OperatingSystem.Windows,
+                    operatingSystem: "windows"
 
-                    platform: "win32",
+                } as any,
 
-                    version: "11",
-
-                    architecture: "x64",
-
-                    hostname: "test",
-
-                    runtimeVersion: "node"
-
-                },
-
-
-                hardware: {
-
-                    cpu: {
-
-                        model: "CPU",
-
-                        cores: 8,
-
-                        threads: 8
-
-                    },
-
-                    memory: {
-
-                        totalBytes: 16000000000
-
-                    },
-
-                    architecture: "x64",
-
-                    gpu: []
-
-                },
-
+                hardware: {} as any,
 
                 tools: [],
 
@@ -68,11 +52,11 @@ describe("PlatformSetupCoordinator", () => {
 
 
         expect(plan.strategy)
-            .toBe("adaptive");
+            .toBe(EnvironmentRecommendation.FULL_INSTALL);
 
 
         expect(plan.components)
-            .toContain("runtime");
+            .toContain("brain");
 
 
     });
