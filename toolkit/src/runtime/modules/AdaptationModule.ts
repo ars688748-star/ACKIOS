@@ -22,7 +22,17 @@ export class AdaptationModule implements IRuntimeModule {
 
     public async start(): Promise<void> {
 
-        await this.adaptationRuntime.getStrategy();
+
+        const restored =
+            await this.adaptationRuntime.restoreConfiguration();
+
+
+        if (!restored) {
+
+            await this.adaptationRuntime.getStrategy();
+
+        }
+
 
     }
 
@@ -34,3 +44,4 @@ export class AdaptationModule implements IRuntimeModule {
 
 
 }
+

@@ -67,6 +67,20 @@ export class AdaptationRuntime {
     }
 
 
+
+    public async restoreConfiguration():
+        Promise<boolean> {
+
+
+        const configuration =
+            await this.configurationState.get();
+
+
+        return configuration !== undefined;
+
+
+    }
+
     public async getStoredStrategy():
         Promise<StrategyProfile | null> {
 
@@ -78,6 +92,7 @@ export class AdaptationRuntime {
 
 
 }
+
 
 
 
