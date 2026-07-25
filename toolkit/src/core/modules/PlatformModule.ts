@@ -23,12 +23,10 @@ import { DecisionAggregator } from "../../platform/adaptation/DecisionAggregator
 import { AdaptationService } from "../../platform/adaptation/AdaptationService.js";
 import { PlatformAdaptationRule } from "../../platform/adaptation/rules/PlatformAdaptationRule.js";
 import { HardwareAdaptationRule } from "../../platform/adaptation/rules/HardwareAdaptationRule.js";
-import { CapabilityAdaptationRule } from "../../platform/adaptation/rules/CapabilityAdaptationRule.js";
 import { AdaptationRuntime } from "../../platform/adaptation/runtime/AdaptationRuntime.js";
 import { StrategyBuilder } from "../../platform/adaptation/StrategyBuilder.js";
 import { FileStrategyStorage } from "../../platform/adaptation/storage/FileStrategyStorage.js";
 import { StrategyLifecycleService } from "../../platform/adaptation/lifecycle/StrategyLifecycleService.js";
-import { StrategyRecoveryService } from "../../platform/adaptation/recovery/StrategyRecoveryService.js";
 
 
 export class PlatformModule implements IServiceModule {

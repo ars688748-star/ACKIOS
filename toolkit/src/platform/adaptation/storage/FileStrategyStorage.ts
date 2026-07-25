@@ -49,7 +49,7 @@ export class FileStrategyStorage implements IStrategyStorage {
             ) as StrategyProfile;
 
 
-        } catch {
+        } catch (_error) {
 
 
             return null;
@@ -70,11 +70,9 @@ export class FileStrategyStorage implements IStrategyStorage {
 
             await fs.unlink(
                 this.filePath
-            );
+            );        } catch (_error) {
 
-
-        } catch {
-
+            void _error;
 
         }
 
@@ -83,3 +81,4 @@ export class FileStrategyStorage implements IStrategyStorage {
 
 
 }
+
