@@ -1,56 +1,92 @@
 import { ServiceContainer } from "../ServiceContainer.js";
-import { IServiceModule } from "../modules/IServiceModule.js";
 import { KernelContext } from "./KernelContext.js";
+import { KernelState } from "./KernelState.js";
+import { IServiceModule } from "../modules/IServiceModule.js";
 
 
 export class KernelRuntime {
 
-    private readonly container: ServiceContainer;
 
-    private readonly context: KernelContext;
+    public readonly context: KernelContext;
+
+    public readonly state: KernelState;
+
+
+    private readonly modules:
+        IServiceModule[];
+
 
 
     constructor() {
 
-        this.container =
+
+        const container =
             new ServiceContainer();
 
 
         this.context =
             new KernelContext(
-                this.container
+                container
             );
 
+
+        this.state =
+            new KernelState();
+
+
+        this.modules = [];
+
     }
+
 
 
     public registerModule(
         module: IServiceModule
     ): void {
 
-        module.register(
-            this.container
-        );
-
-
-        this.context.addModule(
-            module.constructor.name
+        this.modules.push(
+            module
         );
 
     }
 
 
+
     public start(): KernelContext {
+
+
+        this.state.status =
+            "starting";
+
+
+        for (const module of this.modules) {
+
+            module.register(
+                this.context.services
+            );
+
+
+            this.context.addModule(
+                module.constructor.name
+            );
+
+        }
+
+
+        this.state.start();
+
 
         return this.context;
 
     }
 
 
-    public getContainer(): ServiceContainer {
 
-        return this.container;
+    public stop(): void {
+
+        this.state.stop();
 
     }
+
 
 }
