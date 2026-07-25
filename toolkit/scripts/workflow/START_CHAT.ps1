@@ -78,6 +78,9 @@ Show-WorkflowSummary
 
 $dashboard = Get-WorkflowExecutionDashboard
 
+$dashboardReport = New-WorkflowDashboardReport $dashboard
+Save-WorkflowDashboardReport $dashboardReport | Out-Null
+
 $visualization = Get-WorkflowDashboardVisualization $dashboard
 
 Show-WorkflowExecutionDashboard $visualization
@@ -95,6 +98,9 @@ Write-Host ""
 
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
+. "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
+
 
 
 
