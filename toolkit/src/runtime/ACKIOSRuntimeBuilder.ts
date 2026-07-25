@@ -18,6 +18,7 @@ import { AdaptationModule } from "./modules/AdaptationModule.js";
 import { IServiceModule } from "../core/modules/IServiceModule.js";
 import { EventModule } from "../core/modules/EventModule.js";
 import { PlatformModule } from "../core/modules/PlatformModule.js";
+import { FirstRunModule } from "../core/modules/FirstRunModule.js";
 
 export class ACKIOSRuntimeBuilder {
 
@@ -30,7 +31,8 @@ export class ACKIOSRuntimeBuilder {
 
     private readonly serviceModules: IServiceModule[] = [
         new EventModule(),
-        new PlatformModule()
+        new PlatformModule(),
+        new FirstRunModule()
     ];
 
     public addModule(module: IRuntimeModule): this {
@@ -91,5 +93,7 @@ export class ACKIOSRuntimeBuilder {
     }
 
 }
+
+
 
 
