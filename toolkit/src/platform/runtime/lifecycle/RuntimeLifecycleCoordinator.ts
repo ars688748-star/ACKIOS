@@ -2,6 +2,7 @@ import { IRuntimeLifecycleCoordinator } from "./IRuntimeLifecycleCoordinator.js"
 import { RuntimeLifecycleResult } from "./RuntimeLifecycleResult.js";
 import { PlatformRuntime } from "../PlatformRuntime.js";
 import { PlatformRuntimeContext } from "../PlatformRuntimeContext.js";
+import { RuntimeStateManager } from "../state/RuntimeStateManager.js";
 
 
 export class RuntimeLifecycleCoordinator
@@ -9,7 +10,8 @@ export class RuntimeLifecycleCoordinator
 
 
     public constructor(
-        private readonly platformRuntime: PlatformRuntime
+        private readonly platformRuntime: PlatformRuntime,
+        private readonly stateManager: RuntimeStateManager
     ) {}
 
 
@@ -37,6 +39,22 @@ export class RuntimeLifecycleCoordinator
             };
 
         }
+
+
+        await this.stateManager.save({
+
+            initialized: true,
+
+            installed: context.installed,
+
+            workspaceReady: context.ready,
+
+            ready: context.ready,
+
+            lastStartTime:
+                new Date().toISOString()
+
+        });
 
 
         return {
