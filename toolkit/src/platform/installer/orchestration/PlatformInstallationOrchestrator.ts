@@ -1,6 +1,7 @@
 import { RuntimeEnvironment } from "../../environment/detection/models/RuntimeEnvironment.js";
 import { InstallerEngine } from "../InstallerEngine.js";
 import { InstallationResult } from "../InstallationResult.js";
+import { RuntimeStateManager } from "../../runtime/state/RuntimeStateManager.js";
 
 
 export class PlatformInstallationOrchestrator {
@@ -8,7 +9,10 @@ export class PlatformInstallationOrchestrator {
 
     public constructor(
         private readonly installer:
-            InstallerEngine
+            InstallerEngine,
+
+        private readonly stateManager:
+            RuntimeStateManager
     ) {}
 
 
@@ -24,6 +28,7 @@ export class PlatformInstallationOrchestrator {
             string
     ):
         Promise<InstallationResult> {
+
 
 
         const context =
@@ -49,9 +54,40 @@ export class PlatformInstallationOrchestrator {
 
 
 
-        return await this.installer.install(
-            context
-        );
+        const result =
+            await this.installer.install(
+                context
+            );
+
+
+
+        if (result.success) {
+
+
+            await this.stateManager.save({
+
+                initialized:
+                    false,
+
+                installed:
+                    true,
+
+                workspaceReady:
+                    true,
+
+                ready:
+                    true,
+
+                lastStartTime:
+                    new Date().toISOString()
+
+            });
+
+        }
+
+
+
+        return result;
 
     }
 

@@ -36,9 +36,20 @@ describe(
 
 
 
+                const stateManager =
+                {
+
+                    save:
+                        async () => {}
+
+                };
+
+
+
                 const orchestrator =
                     new PlatformInstallationOrchestrator(
-                        installer as any
+                        installer as any,
+                        stateManager as any
                     );
 
 
