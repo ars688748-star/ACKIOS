@@ -3,6 +3,7 @@ import { RuntimeLifecycleResult } from "./RuntimeLifecycleResult.js";
 import { PlatformRuntime } from "../PlatformRuntime.js";
 import { PlatformRuntimeContext } from "../PlatformRuntimeContext.js";
 import { RuntimeStateManager } from "../state/RuntimeStateManager.js";
+import { RuntimeEventBus } from "../events/RuntimeEventBus.js";
 
 
 export class RuntimeLifecycleCoordinator
@@ -11,7 +12,8 @@ export class RuntimeLifecycleCoordinator
 
     public constructor(
         private readonly platformRuntime: PlatformRuntime,
-        private readonly stateManager: RuntimeStateManager
+        private readonly stateManager: RuntimeStateManager,
+        private readonly eventBus: RuntimeEventBus
     ) {}
 
 
@@ -27,6 +29,16 @@ export class RuntimeLifecycleCoordinator
 
 
         if (!started) {
+
+            await this.eventBus.publish({
+
+                type: "runtime.failed",
+
+                timestamp:
+                    new Date().toISOString()
+
+            });
+
 
             return {
 
@@ -52,6 +64,26 @@ export class RuntimeLifecycleCoordinator
             ready: context.ready,
 
             lastStartTime:
+                new Date().toISOString()
+
+        });
+
+
+        await this.eventBus.publish({
+
+            type: "runtime.started",
+
+            timestamp:
+                new Date().toISOString()
+
+        });
+
+
+        await this.eventBus.publish({
+
+            type: "runtime.initialized",
+
+            timestamp:
                 new Date().toISOString()
 
         });

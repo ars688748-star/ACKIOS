@@ -26,10 +26,25 @@ describe(
                 };
 
 
+                const events:any[] = [];
+
+
+                const eventBus =
+                {
+                    publish:
+                        async (event:any) => {
+
+                            events.push(event);
+
+                        }
+                };
+
+
                 const coordinator =
                     new RuntimeLifecycleCoordinator(
                         runtime as any,
-                        stateManager as any
+                        stateManager as any,
+                        eventBus as any
                     );
 
 
@@ -59,6 +74,18 @@ describe(
                 .toBe(true);
 
 
+                expect(
+                    events.length
+                )
+                .toBeGreaterThan(0);
+
+
+                expect(
+                    events[0].type
+                )
+                .toBe("runtime.started");
+
+
             }
         );
 
@@ -82,10 +109,18 @@ describe(
                 };
 
 
+                const eventBus =
+                {
+                    publish:
+                        async () => {}
+                };
+
+
                 const coordinator =
                     new RuntimeLifecycleCoordinator(
                         runtime as any,
-                        stateManager as any
+                        stateManager as any,
+                        eventBus as any
                     );
 
 
