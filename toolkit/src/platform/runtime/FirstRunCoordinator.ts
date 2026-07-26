@@ -95,19 +95,25 @@ export class FirstRunCoordinator {
 
             await this.runtimeStateManager.save({
 
-                initialized: true,
+                initialized:
+                    true,
 
-                installed: true,
+                installed:
+                    true,
 
-                workspaceReady: true,
+                workspaceReady:
+                    true,
 
-                ready: true,
+                ready:
+                    true,
+
+                stage:
+                    "ready",
 
                 lastStartTime:
                     new Date().toISOString()
 
             });
-
         }
 
 
@@ -121,3 +127,5 @@ export class FirstRunCoordinator {
 
 
 }
+
+

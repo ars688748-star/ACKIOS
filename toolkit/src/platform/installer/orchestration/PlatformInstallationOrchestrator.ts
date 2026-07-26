@@ -76,7 +76,10 @@ export class PlatformInstallationOrchestrator {
                     true,
 
                 ready:
-                    true,
+                    false,
+
+                stage:
+                    "installed",
 
                 lastStartTime:
                     new Date().toISOString()

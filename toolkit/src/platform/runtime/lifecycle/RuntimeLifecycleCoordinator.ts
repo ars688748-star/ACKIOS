@@ -55,13 +55,22 @@ export class RuntimeLifecycleCoordinator
 
         await this.stateManager.save({
 
-            initialized: true,
+            initialized:
+                true,
 
-            installed: context.installed,
+            installed:
+                context.installed,
 
-            workspaceReady: context.ready,
+            workspaceReady:
+                context.ready,
 
-            ready: context.ready,
+            ready:
+                context.ready,
+
+            stage:
+                context.ready
+                    ? "ready"
+                    : "installed",
 
             lastStartTime:
                 new Date().toISOString()
@@ -103,3 +112,6 @@ export class RuntimeLifecycleCoordinator
 
 
 }
+
+
+

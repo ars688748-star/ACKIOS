@@ -1,3 +1,6 @@
+import { RuntimeLifecycleStage } from "./RuntimeLifecycleStage.js";
+
+
 export interface RuntimeState {
 
     initialized: boolean;
@@ -7,6 +10,9 @@ export interface RuntimeState {
     workspaceReady: boolean;
 
     ready: boolean;
+
+    stage:
+        RuntimeLifecycleStage;
 
     lastStartTime?: string;
 
