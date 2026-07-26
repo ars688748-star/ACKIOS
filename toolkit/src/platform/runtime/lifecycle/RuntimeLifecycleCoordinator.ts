@@ -4,6 +4,7 @@ import { PlatformRuntime } from "../PlatformRuntime.js";
 import { PlatformRuntimeContext } from "../PlatformRuntimeContext.js";
 import { RuntimeStateManager } from "../state/RuntimeStateManager.js";
 import { RuntimeEventBus } from "../events/RuntimeEventBus.js";
+import { RuntimeLifecycleTransitionEngine } from "./RuntimeLifecycleTransitionEngine.js";
 
 
 export class RuntimeLifecycleCoordinator
@@ -13,7 +14,8 @@ export class RuntimeLifecycleCoordinator
     public constructor(
         private readonly platformRuntime: PlatformRuntime,
         private readonly stateManager: RuntimeStateManager,
-        private readonly eventBus: RuntimeEventBus
+        private readonly eventBus: RuntimeEventBus,
+        private readonly transitionEngine: RuntimeLifecycleTransitionEngine
     ) {}
 
 
@@ -53,6 +55,13 @@ export class RuntimeLifecycleCoordinator
         }
 
 
+        const nextStage =
+            this.transitionEngine.transition(
+                "created",
+                "installed"
+            );
+
+
         await this.stateManager.save({
 
             initialized:
@@ -68,9 +77,7 @@ export class RuntimeLifecycleCoordinator
                 context.ready,
 
             stage:
-                context.ready
-                    ? "ready"
-                    : "installed",
+                nextStage,
 
             lastStartTime:
                 new Date().toISOString()
@@ -112,6 +119,4 @@ export class RuntimeLifecycleCoordinator
 
 
 }
-
-
 

@@ -69,6 +69,13 @@ export class RuntimeLifecycleTransitionEngine {
         boolean {
 
 
+        if (from === to) {
+
+            return true;
+
+        }
+
+
         return this.transitions.some(
 
             transition =>
@@ -108,3 +115,4 @@ export class RuntimeLifecycleTransitionEngine {
 
 
 }
+
