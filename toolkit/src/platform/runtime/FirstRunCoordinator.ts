@@ -3,6 +3,7 @@ import { FirstRunWizard } from "../wizard/FirstRunWizard.js";
 import { UserOnboarding } from "../onboarding/UserOnboarding.js";
 import { AdaptationRuntime } from "../adaptation/runtime/AdaptationRuntime.js";
 import { RuntimeStateManager } from "./state/RuntimeStateManager.js";
+import { RuntimeRecoveryCoordinator } from "./recovery/RuntimeRecoveryCoordinator.js";
 
 
 export class FirstRunCoordinator {
@@ -13,7 +14,8 @@ export class FirstRunCoordinator {
         private readonly wizard: FirstRunWizard,
         private readonly onboarding: UserOnboarding,
         private readonly adaptationRuntime?: AdaptationRuntime,
-        private readonly runtimeStateManager?: RuntimeStateManager
+        private readonly runtimeStateManager?: RuntimeStateManager,
+        private readonly recoveryCoordinator?: RuntimeRecoveryCoordinator
     ) {}
 
 
@@ -22,6 +24,13 @@ export class FirstRunCoordinator {
         workspacePath: string,
         username?: string
     ): Promise<boolean> {
+
+
+        if (this.recoveryCoordinator) {
+
+            await this.recoveryCoordinator.recover();
+
+        }
 
 
         if (this.runtimeStateManager) {
@@ -91,6 +100,13 @@ export class FirstRunCoordinator {
 
 
 
+        if (this.recoveryCoordinator) {
+
+            await this.recoveryCoordinator.recover();
+
+        }
+
+
         if (this.runtimeStateManager) {
 
             await this.runtimeStateManager.save({
@@ -127,5 +143,9 @@ export class FirstRunCoordinator {
 
 
 }
+
+
+
+
 
 
