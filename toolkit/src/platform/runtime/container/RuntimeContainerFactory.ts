@@ -4,6 +4,10 @@ import { RuntimeEventBus } from "../events/RuntimeEventBus.js";
 import { RuntimeStateManager } from "../state/RuntimeStateManager.js";
 import { MemoryRuntimeStateStorage } from "../state/MemoryRuntimeStateStorage.js";
 import { IPlatformRuntime } from "../IPlatformRuntime.js";
+import { RuntimeRecoveryManager } from "../recovery/RuntimeRecoveryManager.js";
+import { RuntimeRecoveryExecutor } from "../recovery/RuntimeRecoveryExecutor.js";
+import { RuntimeRecoveryService } from "../recovery/RuntimeRecoveryService.js";
+import { RuntimeRecoveryCoordinator } from "../recovery/RuntimeRecoveryCoordinator.js";
 
 
 export class RuntimeContainerFactory {
@@ -37,6 +41,28 @@ export class RuntimeContainerFactory {
             new RuntimeEventBus();
 
 
+        const recoveryManager =
+            new RuntimeRecoveryManager();
+
+
+        const recoveryExecutor =
+            new RuntimeRecoveryExecutor();
+
+
+        const recoveryService =
+            new RuntimeRecoveryService(
+                stateManager,
+                recoveryManager,
+                recoveryExecutor
+            );
+
+
+        const recoveryCoordinator =
+            new RuntimeRecoveryCoordinator(
+                recoveryService
+            );
+
+
         const platformRuntime =
         {
             start:
@@ -50,7 +76,9 @@ export class RuntimeContainerFactory {
 
             stateManager,
 
-            eventBus
+            eventBus,
+
+            recoveryCoordinator
 
         });
 
@@ -58,3 +86,6 @@ export class RuntimeContainerFactory {
 
 
 }
+
+
+
