@@ -5,6 +5,7 @@ import { PlatformRuntimeContext } from "../PlatformRuntimeContext.js";
 import { RuntimeStateManager } from "../state/RuntimeStateManager.js";
 import { RuntimeEventBus } from "../events/RuntimeEventBus.js";
 import { RuntimeLifecycleTransitionEngine } from "./RuntimeLifecycleTransitionEngine.js";
+import { RuntimeRecoveryCoordinator } from "../recovery/RuntimeRecoveryCoordinator.js";
 
 
 export class RuntimeLifecycleCoordinator
@@ -15,7 +16,8 @@ export class RuntimeLifecycleCoordinator
         private readonly platformRuntime: PlatformRuntime,
         private readonly stateManager: RuntimeStateManager,
         private readonly eventBus: RuntimeEventBus,
-        private readonly transitionEngine: RuntimeLifecycleTransitionEngine
+        private readonly transitionEngine: RuntimeLifecycleTransitionEngine,
+        private readonly recoveryCoordinator?: RuntimeRecoveryCoordinator
     ) {}
 
 
@@ -119,4 +121,8 @@ export class RuntimeLifecycleCoordinator
 
 
 }
+
+
+
+
 
