@@ -25,6 +25,9 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowIntelligenceResult.ps1")
 . (Join-Path $modelPath "WorkflowTrendResult.ps1")
 . (Join-Path $modelPath "WorkflowDiagnosticsResult.ps1")
+. (Join-Path $modelPath "WorkflowDecisionResult.ps1")
+. (Join-Path $modelPath "WorkflowRuleResult.ps1")
+. (Join-Path $modelPath "WorkflowRuleRegistration.ps1")
 $servicePath = Join-Path $PSScriptRoot "services"
 
 Get-ChildItem $servicePath -Filter *.ps1 |
