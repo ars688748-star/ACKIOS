@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { RuntimeLifecycleCoordinator } from "../RuntimeLifecycleCoordinator.js";
+import { RuntimeLifecycleTransitionEngine } from "../RuntimeLifecycleTransitionEngine.js";
 
 
 describe(
@@ -40,11 +41,16 @@ describe(
                 };
 
 
+                const transitionEngine =
+                    new RuntimeLifecycleTransitionEngine();
+
+
                 const coordinator =
                     new RuntimeLifecycleCoordinator(
                         runtime as any,
                         stateManager as any,
-                        eventBus as any
+                        eventBus as any,
+                        transitionEngine
                     );
 
 
@@ -116,11 +122,16 @@ describe(
                 };
 
 
+                const transitionEngine =
+                    new RuntimeLifecycleTransitionEngine();
+
+
                 const coordinator =
                     new RuntimeLifecycleCoordinator(
                         runtime as any,
                         stateManager as any,
-                        eventBus as any
+                        eventBus as any,
+                        transitionEngine
                     );
 
 
@@ -154,3 +165,5 @@ describe(
 
     }
 );
+
+
