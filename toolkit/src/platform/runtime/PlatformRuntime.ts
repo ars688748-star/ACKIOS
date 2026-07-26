@@ -1,13 +1,15 @@
 import { IPlatformRuntime } from "./IPlatformRuntime.js";
 import { PlatformRuntimeContext } from "./PlatformRuntimeContext.js";
 import { BootstrapRuntime } from "../bootstrap/services/BootstrapRuntime.js";
+import { RuntimeRecoveryCoordinator } from "./recovery/RuntimeRecoveryCoordinator.js";
 
 
 export class PlatformRuntime implements IPlatformRuntime {
 
 
     public constructor(
-        private readonly bootstrapRuntime: BootstrapRuntime
+        private readonly bootstrapRuntime: BootstrapRuntime,
+        private readonly recoveryCoordinator?: RuntimeRecoveryCoordinator
     ) {}
 
 
@@ -19,6 +21,13 @@ export class PlatformRuntime implements IPlatformRuntime {
         if (!context.installed) {
 
             return false;
+
+        }
+
+
+        if (this.recoveryCoordinator) {
+
+            await this.recoveryCoordinator.recover();
 
         }
 
@@ -52,3 +61,5 @@ export class PlatformRuntime implements IPlatformRuntime {
     }
 
 }
+
+
