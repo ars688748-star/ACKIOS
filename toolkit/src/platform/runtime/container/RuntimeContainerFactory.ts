@@ -3,6 +3,7 @@ import { RuntimeServices } from "./RuntimeServices.js";
 import { RuntimeEventBus } from "../events/RuntimeEventBus.js";
 import { RuntimeStateManager } from "../state/RuntimeStateManager.js";
 import { MemoryRuntimeStateStorage } from "../state/MemoryRuntimeStateStorage.js";
+import { IPlatformRuntime } from "../IPlatformRuntime.js";
 
 
 export class RuntimeContainerFactory {
@@ -36,26 +37,22 @@ export class RuntimeContainerFactory {
             new RuntimeEventBus();
 
 
-
-        const defaultServices =
+        const platformRuntime =
         {
+            start:
+                async () => true
+        } as IPlatformRuntime;
 
-            platformRuntime:
-                {} as any,
 
+        return new RuntimeContainer({
+
+            platformRuntime,
 
             stateManager,
 
-
             eventBus
 
-        };
-
-
-
-        return new RuntimeContainer(
-            defaultServices
-        );
+        });
 
     }
 
