@@ -5,7 +5,7 @@ function Test-WorkflowBrain {
     if (-not (Get-Command Test-Brain -ErrorAction SilentlyContinue)) {
 
         if (Test-Path $brainCore) {
-            . $brainCore
+            . $brainCore | Out-Null
         }
         else {
             throw "Brain.Core.ps1 not found."
@@ -16,4 +16,5 @@ function Test-WorkflowBrain {
     return Test-Brain
 
 }
+
 

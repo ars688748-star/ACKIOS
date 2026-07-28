@@ -5,6 +5,7 @@ function Test-WorkflowStateConsistency {
     $result = [WorkflowStateValidationResult]::new()
 
     $result.Failures = @()
+$result.Issues = @()
 
     $root = Resolve-AckiRoot
 
@@ -55,6 +56,15 @@ function Test-WorkflowStateConsistency {
             $result.RoadmapSync = "FAIL"
             $result.Failures += "Roadmap state mismatch"
 
+$result.Issues += [WorkflowStateIssue]@{
+    Type = "RoadmapMismatch"
+    Component = "ACKIOS_MASTER_ROADMAP"
+    Expected = "CurrentStory: $($state.CurrentStory), NextStory: $($state.NextStory)"
+    Actual = "Roadmap state mismatch"
+    File = ".private\strategy\ACKIOS_MASTER_ROADMAP.md"
+    Message = "MASTER ROADMAP is not synchronized with workflow state."
+}
+
         }
 
     }
@@ -88,6 +98,15 @@ function Test-WorkflowStateConsistency {
             $result.NextStorySync = "FAIL"
             $result.Failures += "NEXT_STORY mismatch"
 
+$result.Issues += [WorkflowStateIssue]@{
+    Type = "NextStoryMismatch"
+    Component = "NEXT_STORY"
+    Expected = $state.NextStory
+    Actual = "Mismatch"
+    File = "docs\context\NEXT_STORY.md"
+    Message = "NEXT_STORY.md is not synchronized with workflow state."
+}
+
         }
 
     }
@@ -105,3 +124,6 @@ function Test-WorkflowStateConsistency {
     return $result
 
 }
+
+
+

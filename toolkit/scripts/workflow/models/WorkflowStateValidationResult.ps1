@@ -10,4 +10,6 @@ class WorkflowStateValidationResult {
 
     [string[]]$Failures
 
+    [WorkflowStateIssue[]]$Issues
+
 }

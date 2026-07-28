@@ -3,6 +3,8 @@
 Test-AckiosRuntime
 $BrainRoot = Split-Path -Parent $PSCommandPath
 
+. (Join-Path $BrainRoot "..\workflow\Workflow.Core.ps1")
+
 
 
 . (Join-Path $BrainRoot "models\BrainRuntimeContextResult.ps1")
@@ -56,6 +58,7 @@ if(Test-Path (Join-Path $runtime "BrainRuntimeStorage.ps1"))
 Initialize-BrainServices
 Initialize-BrainPipeline
 Initialize-BrainActions
+
 
 
 
