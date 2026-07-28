@@ -1202,5 +1202,29 @@
     },
     "Status": "COMPLETED",
     "Duration": "00:00:26.6697987"
+  },
+  {
+    "Id": "2273477a-348a-4826-b803-128294d85255",
+    "Timestamp": "2026-07-28 20:04:22",
+    "Branch": "story/200.36-unified-runtime-lifecycle",
+    "Commit": "d21aab6",
+    "Epic": "200",
+    "Story": "200.36",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": true,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": []
+    },
+    "Status": "COMPLETED",
+    "Duration": "00:00:26.5278962"
   }
 ]
