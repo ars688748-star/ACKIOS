@@ -40,6 +40,8 @@ function New-WorkflowDashboardReport {
 
         QualityGate = $Dashboard.QualityGate
 
+        Issues = $Dashboard.QualityGate.Issues
+
     }
 
 }
@@ -267,6 +269,8 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
+
 
 
 
