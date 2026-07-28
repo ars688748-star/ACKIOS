@@ -48,6 +48,11 @@ export class ACKIOSServiceRegistryBuilder {
             new ArchitectureAnalysisEngine()
         );
 
+        context.services.register(
+            "platformManager",
+            new PlatformManager()
+        );
+
         for (const module of modules) {
 
             module.register(
@@ -59,5 +64,6 @@ export class ACKIOSServiceRegistryBuilder {
     }
 
 }
+
 
 
