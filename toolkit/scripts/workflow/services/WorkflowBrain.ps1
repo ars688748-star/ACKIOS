@@ -1,6 +1,6 @@
 function Test-WorkflowBrain {
 
-    $brainCore = Join-Path $PSScriptRoot "..\brain\Brain.Core.ps1"
+    $brainCore = Join-Path $PSScriptRoot "..\..\brain\Brain.Core.ps1"
 
     if (-not (Get-Command Test-Brain -ErrorAction SilentlyContinue)) {
 
@@ -16,3 +16,4 @@ function Test-WorkflowBrain {
     return Test-Brain
 
 }
+
