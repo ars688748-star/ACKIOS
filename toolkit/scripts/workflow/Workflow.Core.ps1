@@ -19,6 +19,7 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowStatus.ps1")
 . (Join-Path $modelPath "StoryCatalogValidationResult.ps1")
 . (Join-Path $modelPath "StoryInfo.ps1")
+. (Join-Path $modelPath "WorkflowIssue.ps1")
 . (Join-Path $modelPath "WorkflowQualityGateResult.ps1")
 . (Join-Path $modelPath "WorkflowStateIssue.ps1")
 . (Join-Path $modelPath "WorkflowStateValidationResult.ps1")
@@ -62,6 +63,7 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 . "$PSScriptRoot\analytics\WorkflowHealth.ps1"
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
+
 
 
 
