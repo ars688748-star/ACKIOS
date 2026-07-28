@@ -6,7 +6,7 @@ import { OperatingSystem } from "../enums/OperatingSystem.js";
 
 export class NodePlatformDetector implements IPlatformDetector {
 
-    public async detect(): Promise<PlatformInfo> {
+    public detect(): PlatformInfo {
 
         return {
 
@@ -25,7 +25,6 @@ export class NodePlatformDetector implements IPlatformDetector {
         };
 
     }
-
 
     private getOperatingSystem(): OperatingSystem {
 

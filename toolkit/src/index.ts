@@ -12,3 +12,4 @@ export * from "./StudioAnalyzer.js";
 export * from "./StudioReport.js";
 export * from "./brain/index.js";
 export * from "./runtime/index.js";
+export * from "./platform/index.js";

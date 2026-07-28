@@ -1,6 +1,3 @@
-$script:BrainExecutionHistory =
-    [System.Collections.ArrayList]::new()
-
 function Add-BrainExecutionResult
 {
     param(
@@ -8,15 +5,15 @@ function Add-BrainExecutionResult
         $Result
     )
 
-    [void]$script:BrainExecutionHistory.Add($Result)
+    [void](Get-BrainState).ExecutionHistory.Add($Result)
 }
 
 function Get-BrainExecutionHistory
 {
-    return $script:BrainExecutionHistory
+    return (Get-BrainState).ExecutionHistory
 }
 
 function Clear-BrainExecutionHistory
 {
-    $script:BrainExecutionHistory.Clear()
+    (Get-BrainState).ExecutionHistory.Clear()
 }

@@ -27,7 +27,22 @@ function Get-WorkflowDecision {
         Sort-Object Name |
         ForEach-Object {
 
+            $started = Get-Date
+
             $rule = & $_.Name
+
+            $finished = Get-Date
+
+            if($null -ne $rule){
+
+                $rule.StartedAt = $started
+                $rule.FinishedAt = $finished
+                $rule.DurationMs = ($finished - $started).TotalMilliseconds
+
+                $decision.TotalDurationMs += $rule.DurationMs
+                $decision.ExecutedRules += $rule
+
+            }
 
             if($null -eq $rule){
                 return
@@ -37,6 +52,7 @@ function Get-WorkflowDecision {
                 $decision.Status = $rule.Status
                 $decision.Decision = $rule.Decision
                 $decision.Priority = $rule.Priority
+                $decision.WinningRule = $rule.Rule
             }
 
             if($rule.Recommendations){
@@ -56,3 +72,6 @@ function Get-WorkflowDecision {
     return $decision
 
 }
+
+
+

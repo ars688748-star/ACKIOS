@@ -1,5 +1,3 @@
-$script:BrainActions = @{}
-
 function Register-BrainAction
 {
     param(
@@ -7,7 +5,7 @@ function Register-BrainAction
         [BrainAction]$Action
     )
 
-    $script:BrainActions[$Action.Name] = $Action
+    (Get-BrainState).Actions[$Action.Name] = $Action
 }
 
 function Get-BrainAction
@@ -17,10 +15,10 @@ function Get-BrainAction
         [string]$Name
     )
 
-    return $script:BrainActions[$Name]
+    return (Get-BrainState).Actions[$Name]
 }
 
 function Get-BrainActions
 {
-    return $script:BrainActions.Values
+    return (Get-BrainState).Actions.Values
 }

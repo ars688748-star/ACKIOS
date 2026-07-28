@@ -7,6 +7,15 @@ $ErrorActionPreference = "Stop"
 
 Initialize-Workflow
 
+$brain = Test-WorkflowBrain
+
+if ($brain.Ready) {
+    Write-Host "[ OK ] Brain Runtime" -ForegroundColor Green
+}
+else {
+    Write-Host "[FAIL] Brain Runtime" -ForegroundColor Red
+}
+
 if (Test-Roadmap) {
     Update-RoadmapFromWorkflowState
 }
@@ -99,6 +108,7 @@ Write-Host ""
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
 . "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
 
 
 

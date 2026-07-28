@@ -1,14 +1,13 @@
-import { IPlatform } from "./contracts/IPlatform.js";
-import { NodePlatform } from "./NodePlatform.js";
+import { NodePlatformDetector } from "./detection/NodePlatformDetector.js";
+import { PlatformInfo } from "./models/PlatformInfo.js";
 
 export class PlatformService {
 
-    private readonly platform: IPlatform =
-        new NodePlatform();
+    private readonly detector = new NodePlatformDetector();
 
-    public getInfo() {
+    public getInfo(): PlatformInfo {
 
-        return this.platform.getInfo();
+        return this.detector.detect();
 
     }
 

@@ -1,5 +1,3 @@
-$script:BrainServices = @{}
-
 function Register-BrainService
 {
     param(
@@ -10,7 +8,7 @@ function Register-BrainService
         [object]$Service
     )
 
-    $script:BrainServices[$Name] = $Service
+    (Get-BrainState).Services[$Name] = $Service
 }
 
 function Get-BrainService
@@ -20,10 +18,10 @@ function Get-BrainService
         [string]$Name
     )
 
-    return $script:BrainServices[$Name]
+    return (Get-BrainState).Services[$Name]
 }
 
 function Get-BrainServices
 {
-    return $script:BrainServices
+    return (Get-BrainState).Services
 }

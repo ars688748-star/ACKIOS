@@ -1,0 +1,52 @@
+import { ACKIOSContext } from "./ACKIOSContext.js";
+import { IRuntimeModule } from "./IRuntimeModule.js";
+import { IRuntimeLifecycle } from "./lifecycle/IRuntimeLifecycle.js";
+
+export class ACKIOSRuntime implements IRuntimeLifecycle {
+
+    public constructor(
+        public readonly context: ACKIOSContext,
+        public readonly modules: IRuntimeModule[]
+    ) {}
+
+    public getService<T>(name: string): T {
+
+        return this.context.services.resolve<T>(name);
+
+    }
+
+    public hasService(name: string): boolean {
+
+        return this.context.services.has(name);
+
+    }
+
+    public async initialize(): Promise<void> {
+
+        for (const module of this.modules)
+            await module.initialize(this.context);
+
+    }
+
+    public async start(): Promise<void> {
+
+        for (const module of this.modules)
+            await module.start();
+
+    }
+
+    public async stop(): Promise<void> {
+
+        for (const module of [...this.modules].reverse())
+            await module.stop();
+
+    }
+
+    public async dispose(): Promise<void> {
+
+        for (const module of [...this.modules].reverse())
+            await module.dispose();
+
+    }
+
+}

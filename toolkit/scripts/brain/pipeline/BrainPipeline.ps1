@@ -8,7 +8,9 @@ function Invoke-BrainPipeline
 
     foreach($stage in Get-BrainPipelineStages)
     {
-        $value = $stage.Action.Invoke()
+        $value = Invoke-BrainStage `
+    -Name $stage.Name `
+    -Action $stage.Action
 
         switch($stage.Name)
         {
@@ -34,3 +36,5 @@ function Invoke-BrainPipeline
 
     return $result
 }
+
+

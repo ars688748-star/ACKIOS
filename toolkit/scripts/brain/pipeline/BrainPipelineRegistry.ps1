@@ -1,4 +1,4 @@
-$script:BrainPipelineStages = [System.Collections.ArrayList]::new()
+(Get-BrainState).PipelineStages = [System.Collections.ArrayList]::new()
 
 function Register-BrainPipelineStage
 {
@@ -10,9 +10,9 @@ function Register-BrainPipelineStage
         [scriptblock]$Action
     )
 
-    if (-not ($script:BrainPipelineStages | Where-Object Name -eq $Name))
+    if (-not ((Get-BrainState).PipelineStages | Where-Object Name -eq $Name))
     {
-        [void]$script:BrainPipelineStages.Add(
+        [void](Get-BrainState).PipelineStages.Add(
             [PSCustomObject]@{
                 Name   = $Name
                 Action = $Action
@@ -23,5 +23,6 @@ function Register-BrainPipelineStage
 
 function Get-BrainPipelineStages
 {
-    return $script:BrainPipelineStages
+    return (Get-BrainState).PipelineStages
 }
+

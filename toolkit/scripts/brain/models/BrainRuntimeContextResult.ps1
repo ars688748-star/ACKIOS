@@ -5,6 +5,7 @@ class BrainRuntimeContextResult
     [object]$Workflow
 
     [object]$Memory
+[object]$WorkingMemory
 
     [object]$Knowledge
 
@@ -20,3 +21,4 @@ class BrainRuntimeContextResult
 
     [object]$Execution
 }
+

@@ -1,3 +1,6 @@
+. "$PSScriptRoot\..\core\PowerShellRuntime.ps1"
+
+Test-AckiosRuntime
 Set-StrictMode -Version Latest
 
 $ErrorActionPreference = "Stop"
@@ -28,6 +31,7 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowDecisionResult.ps1")
 . (Join-Path $modelPath "WorkflowRuleResult.ps1")
 . (Join-Path $modelPath "WorkflowRuleRegistration.ps1")
+. (Join-Path $modelPath "WorkflowContextResult.ps1")
 $servicePath = Join-Path $PSScriptRoot "services"
 
 Get-ChildItem $servicePath -Filter *.ps1 |
@@ -35,6 +39,34 @@ Get-ChildItem $servicePath -Filter *.ps1 |
     ForEach-Object {
         . $_.FullName
     }
+
+
+
+
+
+
+. "$PSScriptRoot\services\WorkflowExecutionTrace.ps1"
+
+
+. "$PSScriptRoot\history\WorkflowHistory.ps1"
+. "$PSScriptRoot\analytics\WorkflowAnalytics.ps1"
+. "$PSScriptRoot\analytics\WorkflowTrend.ps1"
+. "$PSScriptRoot\analytics\WorkflowInsights.ps1"
+. "$PSScriptRoot\analytics\WorkflowMetrics.ps1"
+. "$PSScriptRoot\analytics\WorkflowHealth.ps1"
+. "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
+. "$PSScriptRoot\analytics\WorkflowContext.ps1"
+. "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
+
+
+
+
+
+
+
+
+
+
 
 
 

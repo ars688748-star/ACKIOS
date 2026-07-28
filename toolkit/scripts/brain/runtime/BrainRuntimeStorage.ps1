@@ -1,5 +1,3 @@
-$script:BrainRuntime = $null
-
 function Set-BrainRuntimeContext
 {
     param(
@@ -7,15 +5,15 @@ function Set-BrainRuntimeContext
         $Context
     )
 
-    $script:BrainRuntime = $Context
+    (Get-BrainState).Runtime = $Context
 }
 
 function Get-BrainRuntimeContext
 {
-    return $script:BrainRuntime
+    return (Get-BrainState).Runtime
 }
 
 function Clear-BrainRuntimeContext
 {
-    $script:BrainRuntime = $null
+    (Get-BrainState).Runtime = $null
 }
