@@ -35,6 +35,9 @@ $modelPath = Join-Path $PSScriptRoot "models"
 $servicePath = Join-Path $PSScriptRoot "services"
 
 Get-ChildItem $servicePath -Filter *.ps1 |
+    Where-Object {
+        $_.Name -notmatch "\.bak$|\.before|\.story"
+    } |
     Sort-Object Name |
     ForEach-Object {
         . $_.FullName
@@ -57,6 +60,7 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
+
 
 
 

@@ -1152,5 +1152,31 @@
     },
     "Status": "COMPLETED",
     "Duration": "00:00:24.9971529"
+  },
+  {
+    "Id": "8a7a65dc-b389-44cc-9a90-52aae635eb65",
+    "Timestamp": "2026-07-28 16:19:32",
+    "Branch": "feature/unified-platform-lifecycle",
+    "Commit": "f0e1ad6",
+    "Epic": "200",
+    "Story": "200.32",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": false,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "FAIL",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": [
+        "Backup files detected"
+      ]
+    },
+    "Status": "COMPLETED",
+    "Duration": "00:00:24.8022717"
   }
 ]
