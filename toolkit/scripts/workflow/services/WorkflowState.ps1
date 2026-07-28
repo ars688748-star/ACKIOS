@@ -69,6 +69,7 @@ function Invoke-QualityGate {
     $result = [WorkflowQualityGateResult]::new()
 
     $result.Failures = @()
+    $result.Issues = @()
 
     $result.Repository = "PASS"
 
@@ -144,6 +145,7 @@ function Invoke-QualityGate {
         $result.StateConsistency = "FAIL"
 
         $result.Failures += $stateValidation.Failures
+        $result.Issues += $stateValidation.Issues
 
     }
 
@@ -174,6 +176,7 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
 
 
 
