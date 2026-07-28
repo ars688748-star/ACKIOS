@@ -43,6 +43,24 @@ Test-Story $state.CurrentStory | Out-Null
 
 $git = Get-GitSummary
 
+$resolvedStory = Resolve-StoryFromGitBranch
+
+if ($null -ne $resolvedStory) {
+
+    Update-AckiWorkflowState {
+
+        param($state)
+
+        $state.CurrentEpic = $resolvedStory.CurrentEpic
+        $state.CurrentStory = $resolvedStory.CurrentStory
+        $state.NextStory = $resolvedStory.NextStory
+
+    } | Out-Null
+
+    Update-RoadmapFromWorkflowState
+
+}
+
 
 Generate-StartChatPrompt
 $promptFile = Join-Path (Resolve-AckiRoot) ".work\context\START_CHAT_PROMPT.md"
@@ -108,6 +126,9 @@ Write-Host ""
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
 . "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
+
+
 
 
 
