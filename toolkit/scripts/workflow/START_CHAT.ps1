@@ -47,17 +47,8 @@ $resolvedStory = Resolve-StoryFromGitBranch
 
 if ($null -ne $resolvedStory) {
 
-    Update-AckiWorkflowState {
-
-        param($state)
-
-        $state.CurrentEpic = $resolvedStory.CurrentEpic
-        $state.CurrentStory = $resolvedStory.CurrentStory
-        $state.NextStory = $resolvedStory.NextStory
-
-    } | Out-Null
-
-    Update-RoadmapFromWorkflowState
+    Write-Host ""
+    Write-Host ("Git Story detected: {0}" -f $resolvedStory.CurrentStory)
 
 }
 
@@ -126,4 +117,6 @@ Write-Host ""
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
 . "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
+
 

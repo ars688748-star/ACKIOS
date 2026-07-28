@@ -42,12 +42,6 @@ $steps += Invoke-Step "Save Workflow State" {
 
     } | Out-Null
 
-    if (Test-Roadmap) {
-
-        Update-RoadmapFromWorkflowState
-
-    }
-
 }
 
 $steps += Invoke-Step "Update Chat Context" {
@@ -123,12 +117,6 @@ $steps += Invoke-Step "Save Advanced Workflow State" {
 
     } | Out-Null
 
-
-    if (Test-Roadmap) {
-
-        Update-RoadmapFromWorkflowState
-
-    }
 
 }
 
@@ -265,6 +253,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
