@@ -1,6 +1,5 @@
 import { PlatformDetector } from "./PlatformDetector.js";
 import { PlatformInfo } from "./PlatformInfo.js";
-import { PlatformKind } from "./PlatformKind.js";
 
 export class PlatformRuntime {
 

@@ -11,7 +11,9 @@ export default [
             "src/**/*.backup.ts",
             "src/**/*.backup*.ts",
             "src/**/__tests__/**",
-            "src/**/*.test.ts"
+            "src/**/*.test.ts",
+            "src/**/*.before.ts",
+            "src/**/*.before-*.ts"
         ]
     },
 
@@ -47,4 +49,5 @@ export default [
     }
 
 ];
+
 

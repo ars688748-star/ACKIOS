@@ -4,7 +4,6 @@ import { Logger } from "../../core/Logger.js";
 import { Workspace } from "../../workspace/Workspace.js";
 import { ProcessRunner } from "../../infrastructure/ProcessRunner.js";
 import { Toolkit } from "../../Toolkit.js";
-import { PlatformRuntime } from "../../platform/PlatformRuntime.js";
 
 import { BrainSystemBuilder } from "../../brain/integration/BrainSystemBuilder.js";
 import { ArchitectureAnalysisEngine } from "../../architecture/ArchitectureAnalysisEngine.js";
