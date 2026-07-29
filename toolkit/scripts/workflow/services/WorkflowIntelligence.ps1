@@ -8,6 +8,8 @@ function Get-WorkflowIntelligence {
 
     $recovery = Get-WorkflowRecoveryAnalytics
 
+    $decision = Get-WorkflowDecision
+
     $result = [WorkflowIntelligenceResult]::new()
 
 
@@ -52,6 +54,15 @@ function Get-WorkflowIntelligence {
 
     $result.RecoveryAnalytics = $recovery
 
+    $result.Decision = $decision
+
+    if($decision.Priority -eq "CRITICAL"){
+        $result.Status = "CRITICAL"
+    }
+    elseif($decision.Priority -eq "HIGH" -and $result.Status -eq "HEALTHY"){
+        $result.Status = "WARNING"
+    }
+
 
     $result.Recommendation = $trend.Recommendation
 
@@ -63,6 +74,8 @@ function Get-WorkflowIntelligence {
     return $result
 
 }
+
+
 
 
 

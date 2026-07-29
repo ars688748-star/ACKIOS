@@ -159,6 +159,30 @@ function ConvertTo-WorkflowDashboardMarkdown {
 
 $lines += ""
 
+$lines += "Decision"
+
+$lines += ""
+
+$lines += "Decision:"
+$lines += $Report.Intelligence.Decision.Decision
+
+$lines += ""
+
+$lines += "Priority:"
+$lines += $Report.Intelligence.Decision.Priority
+
+$lines += ""
+
+$lines += "Winning Rule:"
+$lines += $Report.Intelligence.Decision.WinningRule
+
+$lines += ""
+
+$lines += "Warnings:"
+$lines += ($Report.Intelligence.Decision.Warnings -join ", ")
+
+$lines += ""
+
 $lines += "Recovery Analytics"
 
 $lines += "Total Recoveries:"
@@ -291,6 +315,7 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
 
 
 
