@@ -96,6 +96,8 @@ $steps += Invoke-Step "Advance Story" {
 
     Advance-AckiStory | Out-Null
 
+    Update-RoadmapFromWorkflowState
+
 }
 
 
@@ -253,6 +255,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
