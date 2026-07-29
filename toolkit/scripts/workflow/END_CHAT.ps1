@@ -66,7 +66,10 @@ $steps += Invoke-Step "Quality Gate" {
     $health = New-WorkflowHealth
 
 
-    if(
+    
+
+$executionReport = New-WorkflowExecutionReport -Steps $steps
+if(
         $health.QualityGate.Build -ne "PASS" -or
         $health.QualityGate.Tests -ne "PASS" -or
         $health.QualityGate.StoryCatalog -ne "PASS" -or
@@ -187,7 +190,10 @@ $steps += Invoke-Step "Create Workflow Execution History" {
 
     $health = New-WorkflowHealth
 
-    $recovery = Invoke-WorkflowRecovery
+    
+
+$executionReport = New-WorkflowExecutionReport -Steps $steps
+$recovery = Invoke-WorkflowRecovery
 
     $recoveryUsed = $recovery.Used
     $recoveryAction = $recovery.Action
@@ -258,6 +264,9 @@ $health = New-WorkflowHealth
 
 
 
+
+
+$executionReport = New-WorkflowExecutionReport -Steps $steps
 Write-Host ""
 Write-Host "===== TYPE DEBUG ====="
 Write-Host ($executionReport.GetType().AssemblyQualifiedName)
@@ -265,7 +274,6 @@ Write-Host ([WorkflowExecutionReport].AssemblyQualifiedName)
 Write-Host "======================"
 Write-Host ""
 
-$executionReport = New-WorkflowExecutionReport -Steps $steps
 Show-WorkflowSummary `
     -ExecutionReport $executionReport `
     -Health $health
@@ -278,6 +286,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
