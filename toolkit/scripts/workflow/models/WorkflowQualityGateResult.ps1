@@ -20,7 +20,6 @@ class WorkflowQualityGateResult {
 
     [string[]]$Failures
 
-    [WorkflowIssue[]]$Issues
+    [object[]]$Issues
 
 }
-
