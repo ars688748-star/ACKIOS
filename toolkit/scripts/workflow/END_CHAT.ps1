@@ -252,6 +252,13 @@ $steps += Invoke-Step "Generate Workflow Dashboard Export" {
 $health = New-WorkflowHealth
 
 
+
+Write-Host ""
+Write-Host "===== TYPE DEBUG ====="
+Write-Host ($executionReport.GetType().AssemblyQualifiedName)
+Write-Host ([WorkflowExecutionReport].AssemblyQualifiedName)
+Write-Host "======================"
+Write-Host ""
 Show-WorkflowSummary `
     -ExecutionReport $executionReport `
     -Health $health
@@ -264,6 +271,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
