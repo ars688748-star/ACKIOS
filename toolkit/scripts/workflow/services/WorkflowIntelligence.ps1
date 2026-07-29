@@ -51,9 +51,15 @@ function Get-WorkflowIntelligence {
 
     $result.Recommendation = $trend.Recommendation
 
+    $health = New-WorkflowHealth
+
+    $result.Recommendations = Get-WorkflowRecommendations -QualityGate $health.QualityGate
+
 
     return $result
 
 }
+
+
 
 

@@ -36,6 +36,8 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowContextResult.ps1")
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
 
+. "$PSScriptRoot\services\WorkflowRecommendationEngine.ps1"
+
 $servicePath = Join-Path $PSScriptRoot "services"
 
 Get-ChildItem $servicePath -Filter *.ps1 |
@@ -63,6 +65,7 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 . "$PSScriptRoot\analytics\WorkflowHealth.ps1"
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
+
 
 
 

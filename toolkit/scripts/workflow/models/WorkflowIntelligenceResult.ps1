@@ -14,4 +14,7 @@ class WorkflowIntelligenceResult {
 
     [string]$Recommendation
 
+    [string[]]$Recommendations
+
 }
+
