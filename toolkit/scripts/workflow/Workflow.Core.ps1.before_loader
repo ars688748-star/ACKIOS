@@ -21,7 +21,28 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\generated\Workflow.Models.ps1"
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
 
-. "$PSScriptRoot\Workflow.Services.Loader.ps1"
+. "$PSScriptRoot\services\WorkflowRecommendationEngine.ps1"
+
+$servicePath = Join-Path $PSScriptRoot "services"
+
+Get-ChildItem $servicePath -Filter *.ps1 |
+    Where-Object {
+        $_.Name -notmatch "\.bak$|\.before|\.story"
+    } |
+    Sort-Object Name |
+    ForEach-Object {
+        . $_.FullName
+    }
+
+
+
+
+
+
+. "$PSScriptRoot\services\WorkflowExecutionTrace.ps1"
+. "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
+
 . "$PSScriptRoot\history\WorkflowHistory.ps1"
 . "$PSScriptRoot\analytics\WorkflowAnalytics.ps1"
 . "$PSScriptRoot\analytics\WorkflowTrend.ps1"
@@ -31,7 +52,6 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\analytics\WorkflowHealth.ps1"
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
-
 
 
 
