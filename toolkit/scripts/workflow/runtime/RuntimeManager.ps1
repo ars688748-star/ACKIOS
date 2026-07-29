@@ -9,11 +9,13 @@ class RuntimeManager {
     [RuntimeContext]$Context
     [RuntimeState]$State
     [System.Collections.ArrayList]$Events
+    [object]$Strategy
 
     RuntimeManager(){
         $this.Context = [RuntimeContext]::new()
         $this.State = [RuntimeState]::new()
         $this.Events = [System.Collections.ArrayList]::new()
+        $this.Strategy = Get-RuntimeStrategy
     }
 
     [void] AddEvent([string]$Name){
@@ -43,12 +45,12 @@ class RuntimeManager {
         return $this.Context
     }
 
-    [RuntimeContext] GetStatus(){
-        return $this.Context
-    }
-
     [RuntimeState] GetState(){
         return $this.State
+    }
+
+    [object] GetStrategy(){
+        return $this.Strategy
     }
 
     [object[]] GetEvents(){

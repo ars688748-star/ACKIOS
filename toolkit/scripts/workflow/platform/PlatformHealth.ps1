@@ -9,6 +9,7 @@ function Get-PlatformHealth {
     $result.Runtime = Test-WorkflowRuntime
     $result.Platform = Get-PlatformInfo
     $result.Capabilities = Get-PlatformCapabilities
+    $result.Adapter = Get-PlatformAdapter
 
     $result.Workflow = @{
         Status = "PASS"

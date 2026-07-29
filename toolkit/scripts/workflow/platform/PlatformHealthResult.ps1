@@ -5,6 +5,7 @@ class PlatformHealthResult {
     [object]$Runtime
     [object]$Platform
     [object]$Capabilities
+    [object]$Adapter
     [object]$Workflow
     [object]$QualityGate
     [datetime]$CheckedAt
