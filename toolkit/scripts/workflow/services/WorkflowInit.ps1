@@ -6,8 +6,8 @@ function Initialize-Workflow {
         throw "ACKIOS project verification failed."
     }
 
+    Start-WorkflowRuntime | Out-Null
+
     Write-Success "Workflow initialized."
 
 }
-
-
