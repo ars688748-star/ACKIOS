@@ -46,6 +46,8 @@ $GalaxyRoot = Join-Path $PSScriptRoot "galaxy"
 . (Join-Path $GalaxyRoot "visualization\GalaxyRendererState.ps1")
 . (Join-Path $GalaxyRoot "visualization\GalaxyRendererStateConverter.ps1")
 . (Join-Path $GalaxyRoot "visualization\GalaxyRendererFrame.ps1")
+. (Join-Path $GalaxyRoot "visualization\GalaxyVisualizationRuntimeState.ps1")
+. (Join-Path $GalaxyRoot "visualization\GalaxyVisualizationRuntimeFactory.ps1")
 . (Join-Path $GalaxyRoot "visualization\GalaxyRendererPipeline.ps1")
 . (Join-Path $GalaxyRoot "visualization\GalaxyStaticRendererConverter.ps1")
 . (Join-Path $GalaxyRoot "visualization\GalaxyCameraState.ps1")
