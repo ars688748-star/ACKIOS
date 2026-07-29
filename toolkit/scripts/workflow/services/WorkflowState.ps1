@@ -145,7 +145,26 @@ function Invoke-QualityGate {
         $result.StateConsistency = "FAIL"
 
         $result.Failures += $stateValidation.Failures
-        $result.Issues += $stateValidation.Issues
+
+        foreach($issue in $stateValidation.Issues){
+
+            $result.Issues += [PSCustomObject]@{
+
+                Type = $issue.Type
+
+                Component = "WorkflowState"
+
+                Expected = $issue.Expected
+
+                Actual = $issue.Actual
+
+                File = $issue.File
+
+                Message = $issue.Message
+
+            }
+
+        }
 
     }
 
@@ -176,6 +195,7 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
 
 
 
