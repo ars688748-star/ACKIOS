@@ -22,7 +22,7 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
 
 . "$PSScriptRoot\Workflow.Services.Loader.ps1"
-. "$PSScriptRoot\history\WorkflowHistory.ps1"
+. "$PSScriptRoot\Workflow.History.Loader.ps1"
 . "$PSScriptRoot\Workflow.Analytics.Loader.ps1"
 
 
