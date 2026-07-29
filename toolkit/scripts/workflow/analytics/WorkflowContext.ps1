@@ -9,21 +9,33 @@ function Get-WorkflowContext
     $health = Get-WorkflowHealth
     $decision = Get-WorkflowDecision
 
-    [PSCustomObject]@{
-        GeneratedAt = Get-Date
+    $workflowExecutionContext = New-WorkflowContext
 
-        History = $history
+    $intelligence = Get-WorkflowIntelligence
 
-        Analytics = $analytics
+    $context = [WorkflowUnifiedContext]::new()
 
-        Metrics = $metrics
+    $context.GeneratedAt = Get-Date
 
-        Trend = $trend
+    $context.History = $history
 
-        Insights = $insights
+    $context.Analytics = $analytics
 
-        Health = $health
+    $context.Metrics = $metrics
 
-        Decision = $decision
-    }
+    $context.Trend = $trend
+
+    $context.Insights = $insights
+
+    $context.Health = $health
+
+    $context.Decision = $decision
+
+    $context.ExecutionContext = $workflowExecutionContext
+
+    $context.Intelligence = $intelligence
+
+    return $context
 }
+
+

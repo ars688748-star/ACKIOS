@@ -35,6 +35,7 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowRuleResult.ps1")
 . (Join-Path $modelPath "WorkflowRuleRegistration.ps1")
 . (Join-Path $modelPath "WorkflowContextResult.ps1")
+. (Join-Path $modelPath "WorkflowUnifiedContext.ps1")
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
 
 . "$PSScriptRoot\services\WorkflowRecommendationEngine.ps1"
@@ -68,6 +69,7 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 . "$PSScriptRoot\analytics\WorkflowHealth.ps1"
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
+
 
 
 
