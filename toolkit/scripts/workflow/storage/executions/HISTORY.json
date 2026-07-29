@@ -1410,5 +1410,41 @@
     },
     "Status": "COMPLETED",
     "Duration": "00:00:26.7387056"
+  },
+  {
+    "Id": "72501d24-3e12-4506-8331-53a1fb7bc6c8",
+    "Timestamp": "2026-07-29 11:05:24",
+    "Branch": "story/200.39-workflow-improvement",
+    "Commit": "220ff82",
+    "Epic": "200",
+    "Story": "200.44",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": false,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "PASS",
+      "Diagnostics": "PASS",
+      "StateConsistency": "FAIL",
+      "Failures": [
+        "Roadmap state mismatch"
+      ],
+      "Issues": [
+        {
+          "Type": "RoadmapMismatch",
+          "Component": "WorkflowState",
+          "Expected": "CurrentStory: 200.45, NextStory: 200.46",
+          "Actual": "Roadmap state mismatch",
+          "File": ".private\\strategy\\ACKIOS_MASTER_ROADMAP.md",
+          "Message": "MASTER ROADMAP is not synchronized with workflow state."
+        }
+      ]
+    },
+    "Status": "COMPLETED",
+    "Duration": "00:00:25.7933775"
   }
 ]
