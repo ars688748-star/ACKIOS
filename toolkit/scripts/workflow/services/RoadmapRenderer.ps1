@@ -1,6 +1,5 @@
 Set-StrictMode -Version Latest
 
-. "$PSScriptRoot\..\models\RoadmapModel.ps1"
 
 function Render-Roadmap {
 

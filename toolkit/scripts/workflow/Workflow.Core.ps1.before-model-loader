@@ -14,11 +14,28 @@ $ErrorActionPreference = "Stop"
 
 # Workflow Engine Core
 
-# ========================================
-# Legacy model loading disabled
-# ========================================
+$modelPath = Join-Path $PSScriptRoot "models"
 
-. "$PSScriptRoot\generated\Workflow.Models.ps1"
+. (Join-Path $modelPath "WorkflowStatus.ps1")
+. (Join-Path $modelPath "StoryCatalogValidationResult.ps1")
+. (Join-Path $modelPath "StoryInfo.ps1")
+. (Join-Path $modelPath "WorkflowIssue.ps1")
+. (Join-Path $modelPath "WorkflowQualityGateResult.ps1")
+. (Join-Path $modelPath "WorkflowStateIssue.ps1")
+. (Join-Path $modelPath "WorkflowStateValidationResult.ps1")
+. (Join-Path $modelPath "WorkflowHealth.ps1")
+. (Join-Path $modelPath "WorkflowStepResult.ps1")
+. (Join-Path $modelPath "WorkflowPipelineResult.ps1")
+. (Join-Path $modelPath "WorkflowPipelineRecord.ps1")
+. (Join-Path $modelPath "WorkflowIntelligenceResult.ps1")
+. (Join-Path $modelPath "WorkflowRecoveryAnalyticsResult.ps1")
+. (Join-Path $modelPath "WorkflowTrendResult.ps1")
+. (Join-Path $modelPath "WorkflowDiagnosticsResult.ps1")
+. (Join-Path $modelPath "WorkflowDecisionResult.ps1")
+. (Join-Path $modelPath "WorkflowRuleResult.ps1")
+. (Join-Path $modelPath "WorkflowRuleRegistration.ps1")
+. (Join-Path $modelPath "WorkflowContextResult.ps1")
+. (Join-Path $modelPath "WorkflowUnifiedContext.ps1")
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
 
 . "$PSScriptRoot\services\WorkflowRecommendationEngine.ps1"
@@ -52,7 +69,6 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 . "$PSScriptRoot\analytics\WorkflowHealth.ps1"
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
-
 
 
 

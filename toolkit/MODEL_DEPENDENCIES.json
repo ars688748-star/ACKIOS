@@ -1,0 +1,102 @@
+[
+  {
+    "Model": "RepositoryBoundaryResult",
+    "DependsOn": ""
+  },
+  {
+    "Model": "RoadmapModel",
+    "DependsOn": "string"
+  },
+  {
+    "Model": "RoadmapState",
+    "DependsOn": ""
+  },
+  {
+    "Model": "StoryCatalogValidationResult",
+    "DependsOn": "array, int"
+  },
+  {
+    "Model": "StoryInfo",
+    "DependsOn": "string"
+  },
+  {
+    "Model": "WorkflowContextResult",
+    "DependsOn": "datetime, double, int"
+  },
+  {
+    "Model": "WorkflowDecisionResult",
+    "DependsOn": "double, string"
+  },
+  {
+    "Model": "WorkflowDiagnosticsResult",
+    "DependsOn": "bool, string"
+  },
+  {
+    "Model": "WorkflowExecutionRecord",
+    "DependsOn": "object, string"
+  },
+  {
+    "Model": "WorkflowExecutionReport",
+    "DependsOn": "int, timespan, WorkflowStatus"
+  },
+  {
+    "Model": "WorkflowHealth",
+    "DependsOn": "StoryCatalogValidationResult, WorkflowQualityGateResult, WorkflowStatus"
+  },
+  {
+    "Model": "WorkflowIntelligenceResult",
+    "DependsOn": "double, int, string, WorkflowDecisionResult, WorkflowRecoveryAnalyticsResult"
+  },
+  {
+    "Model": "WorkflowIssue",
+    "DependsOn": "string"
+  },
+  {
+    "Model": "WorkflowPipelineRecord",
+    "DependsOn": "double, int, string"
+  },
+  {
+    "Model": "WorkflowPipelineResult",
+    "DependsOn": "array, datetime, double, int, string, timespan"
+  },
+  {
+    "Model": "WorkflowQualityGateResult",
+    "DependsOn": "bool, string"
+  },
+  {
+    "Model": "WorkflowRecoveryAnalyticsResult",
+    "DependsOn": "double, int, string"
+  },
+  {
+    "Model": "WorkflowRuleRegistration",
+    "DependsOn": "bool, string"
+  },
+  {
+    "Model": "WorkflowRuleResult",
+    "DependsOn": "bool, datetime, double, string"
+  },
+  {
+    "Model": "WorkflowStateIssue",
+    "DependsOn": "string"
+  },
+  {
+    "Model": "WorkflowStateValidationResult",
+    "DependsOn": "bool, string"
+  },
+  {
+    "Model": "WorkflowStatus",
+    "DependsOn": ""
+  },
+  {
+    "Model": "WorkflowStepResult",
+    "DependsOn": "datetime, string, timespan, WorkflowStatus"
+  },
+  {
+    "Model": "WorkflowTrendResult",
+    "DependsOn": "string"
+  },
+  {
+    "Model": "WorkflowUnifiedContext",
+    "DependsOn": "datetime, object, WorkflowContextResult"
+  }
+]
