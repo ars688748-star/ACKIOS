@@ -156,3 +156,54 @@ function Repair-WorkflowStateConsistency {
 
 }
 
+
+
+function Invoke-WorkflowRecovery {
+
+    $result = [PSCustomObject]@{
+
+        Used = $false
+        Action = ""
+        Result = "PASS"
+
+    }
+
+
+    $state = Test-WorkflowStateConsistency
+
+
+    if($state.Passed){
+
+        return $result
+
+    }
+
+
+    $result.Used = $true
+
+
+    if($state.Failures -contains "Roadmap state mismatch"){
+
+        Update-RoadmapFromWorkflowState
+
+        $result.Action = "MASTER ROADMAP synchronized"
+
+    }
+
+
+    if((Test-WorkflowStateConsistency).Passed){
+
+        $result.Result = "PASS"
+
+    }
+    else{
+
+        $result.Result = "FAIL"
+
+    }
+
+
+    return $result
+
+}
+

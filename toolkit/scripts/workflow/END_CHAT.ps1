@@ -188,19 +188,11 @@ $steps += Invoke-Step "Create Workflow Execution History" {
 
     $health = New-WorkflowHealth
 
-    $recovery = Test-WorkflowStateConsistency
+    $recovery = Invoke-WorkflowRecovery
 
-    $recoveryUsed = $false
-    $recoveryAction = ""
-    $recoveryResult = ""
-
-    if($recovery.Issues.Count -gt 0){
-
-        $recoveryUsed = $true
-        $recoveryAction = "Workflow state consistency repair"
-        $recoveryResult = "PASS"
-
-    }
+    $recoveryUsed = $recovery.Used
+    $recoveryAction = $recovery.Action
+    $recoveryResult = $recovery.Result
 $record = New-WorkflowExecutionRecord `
         -Branch $state.Branch `
         -Commit $state.Commit `
@@ -272,6 +264,7 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
 
 
 
