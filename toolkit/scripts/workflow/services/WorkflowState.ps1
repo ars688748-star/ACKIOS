@@ -133,6 +133,8 @@ function Invoke-QualityGate {
 
     }
 
+    $null = Repair-WorkflowStateConsistency
+
     $stateValidation = Test-WorkflowStateConsistency
 
     if($stateValidation.Passed){
@@ -195,6 +197,7 @@ function Update-AckiWorkflowState {
     return $state
 
 }
+
 
 
 

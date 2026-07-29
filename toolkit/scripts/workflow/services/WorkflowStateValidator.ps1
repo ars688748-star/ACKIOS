@@ -1,3 +1,5 @@
+. "$PSScriptRoot\RoadmapSynchronizer.ps1"
+
 Set-StrictMode -Version Latest
 
 function Test-WorkflowStateConsistency {
@@ -126,4 +128,31 @@ $result.Issues += [WorkflowStateIssue]@{
 }
 
 
+
+
+
+
+function Repair-WorkflowStateConsistency {
+
+    $result = Test-WorkflowStateConsistency
+
+    if($result.Passed){
+
+        return $true
+
+    }
+
+
+    if($result.Failures -contains "Roadmap state mismatch"){
+
+        Update-RoadmapFromWorkflowState
+
+    }
+
+
+    $check = Test-WorkflowStateConsistency
+
+    return $check.Passed
+
+}
 
