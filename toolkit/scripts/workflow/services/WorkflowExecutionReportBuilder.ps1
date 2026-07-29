@@ -1,6 +1,5 @@
 Set-StrictMode -Version Latest
 
-. "$PSScriptRoot\..\models\WorkflowExecutionReport.ps1"
 
 function New-WorkflowExecutionReport {
 
