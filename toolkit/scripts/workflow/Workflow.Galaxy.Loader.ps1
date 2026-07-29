@@ -66,6 +66,25 @@ $GalaxyRoot = Join-Path $PSScriptRoot "galaxy"
 . (Join-Path $GalaxyRoot "GalaxyRuntimeSnapshot.ps1")
 . (Join-Path $GalaxyRoot "GalaxyRuntimeSnapshotFactory.ps1")
 . (Join-Path $GalaxyRoot "GalaxyLoaderGuard.ps1")
+
+
+$LoaderPath = $MyInvocation.MyCommand.Path
+
+
+$LoaderHealth =
+    Test-AckiosGalaxyLoader `
+    $LoaderPath
+
+
+if(
+    !$LoaderHealth.Healthy
+){
+
+    Repair-AckiosGalaxyLoader `
+    $LoaderPath
+
+}
+
 . (Join-Path $GalaxyRoot "GalaxyRuntimeSnapshotStorage.ps1")
 . (Join-Path $GalaxyRoot "GalaxyRuntimeRestore.ps1")
 . (Join-Path $GalaxyRoot "GalaxyRuntimeApplier.ps1")
