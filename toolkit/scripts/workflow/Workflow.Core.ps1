@@ -21,9 +21,9 @@ $ErrorActionPreference = "Stop"
 . "$PSScriptRoot\generated\Workflow.Models.ps1"
 . "$PSScriptRoot\analytics\WorkflowContextBuilder.ps1"
 
-. "$PSScriptRoot\Workflow.Services.Loader.ps1"
-. "$PSScriptRoot\Workflow.History.Loader.ps1"
-. "$PSScriptRoot\Workflow.Analytics.Loader.ps1"
+
+
+. "$PSScriptRoot\Workflow.Bootstrap.ps1"
 
 
 
