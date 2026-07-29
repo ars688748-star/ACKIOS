@@ -1,0 +1,86 @@
+{
+  "Edges": [
+    {
+      "Source": "brain",
+      "Target": "runtime",
+      "Relation": "controls",
+      "Weight": 1
+    },
+    {
+      "Source": "runtime",
+      "Target": "platform",
+      "Relation": "runs_on",
+      "Weight": 1
+    },
+    {
+      "Source": "workflow",
+      "Target": "runtime",
+      "Relation": "manages",
+      "Weight": 1
+    },
+    {
+      "Source": "brain",
+      "Target": "diagnostics",
+      "Relation": "monitors",
+      "Weight": 1
+    }
+  ],
+  "Nodes": [
+    {
+      "Id": "brain",
+      "Label": "Brain",
+      "Category": "CORE",
+      "Status": "ACTIVE",
+      "Size": 5,
+      "Metadata": {
+        "Timestamp": "2026-07-29T17:57:39.3910619+03:00",
+        "Discovered": true
+      }
+    },
+    {
+      "Id": "workflow",
+      "Label": "Workflow",
+      "Category": "ENGINE",
+      "Status": "ACTIVE",
+      "Size": 2,
+      "Metadata": {
+        "Timestamp": "2026-07-29T17:57:39.3911566+03:00",
+        "Discovered": true
+      }
+    },
+    {
+      "Id": "runtime",
+      "Label": "Runtime",
+      "Category": "RUNTIME",
+      "Status": "ACTIVE",
+      "Size": 4,
+      "Metadata": {
+        "Timestamp": "2026-07-29T17:57:39.3912159+03:00",
+        "Discovered": true
+      }
+    },
+    {
+      "Id": "platform",
+      "Label": "Platform",
+      "Category": "SYSTEM",
+      "Status": "ACTIVE",
+      "Size": 3,
+      "Metadata": {
+        "Timestamp": "2026-07-29T17:57:39.3912706+03:00",
+        "Discovered": true
+      }
+    },
+    {
+      "Id": "diagnostics",
+      "Label": "Diagnostics",
+      "Category": "MONITORING",
+      "Status": "ACTIVE",
+      "Size": 2,
+      "Metadata": {
+        "Timestamp": "2026-07-29T17:57:39.3913313+03:00",
+        "Discovered": true
+      }
+    }
+  ],
+  "GeneratedAt": "2026-07-29T17:57:44.9206213+03:00"
+}
