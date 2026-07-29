@@ -12,7 +12,10 @@ function New-WorkflowExecutionRecord {
         [string]$Build,
         [string]$Tests,
         [object]$QualityGate,
-        [string]$Status
+        [string]$Status,
+        [bool]$RecoveryUsed = $false,
+        [string]$RecoveryAction = "",
+        [string]$RecoveryResult = ""
     )
 
     return [PSCustomObject]@{
@@ -31,6 +34,10 @@ function New-WorkflowExecutionRecord {
         QualityGate = $QualityGate
 
         Status    = $Status
+
+        RecoveryUsed   = $RecoveryUsed
+        RecoveryAction = $RecoveryAction
+        RecoveryResult = $RecoveryResult
     }
 }
 
@@ -136,6 +143,7 @@ function Update-WorkflowExecutionRecord {
         ConvertTo-Json -Depth 5 |
         Set-Content $ExecutionHistoryPath
 }
+
 
 
 

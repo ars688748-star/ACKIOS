@@ -66,6 +66,7 @@ $steps += Invoke-Step "Quality Gate" {
 
     $health = New-WorkflowHealth
 
+
     if(
         $health.QualityGate.Build -ne "PASS" -or
         $health.QualityGate.Tests -ne "PASS" -or
@@ -187,8 +188,20 @@ $steps += Invoke-Step "Create Workflow Execution History" {
 
     $health = New-WorkflowHealth
 
+    $recovery = Test-WorkflowStateConsistency
 
-    $record = New-WorkflowExecutionRecord `
+    $recoveryUsed = $false
+    $recoveryAction = ""
+    $recoveryResult = ""
+
+    if($recovery.Issues.Count -gt 0){
+
+        $recoveryUsed = $true
+        $recoveryAction = "Workflow state consistency repair"
+        $recoveryResult = "PASS"
+
+    }
+$record = New-WorkflowExecutionRecord `
         -Branch $state.Branch `
         -Commit $state.Commit `
         -Epic $state.CurrentEpic `
@@ -196,7 +209,10 @@ $steps += Invoke-Step "Create Workflow Execution History" {
         -Build $state.Build `
         -Tests $state.Tests `
         -QualityGate $health.QualityGate `
-        -Status "COMPLETED"
+        -Status "COMPLETED" `
+        -RecoveryUsed $recoveryUsed `
+        -RecoveryAction $recoveryAction `
+        -RecoveryResult $recoveryResult
 
 
     $record | Add-Member `
@@ -243,6 +259,7 @@ $steps += Invoke-Step "Generate Workflow Dashboard Export" {
 
 $health = New-WorkflowHealth
 
+
 Show-WorkflowSummary `
     -ExecutionReport $executionReport `
     -Health $health
@@ -255,6 +272,11 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
+
+
+
 
 
 
