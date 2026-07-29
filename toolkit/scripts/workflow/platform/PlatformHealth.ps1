@@ -7,6 +7,8 @@ function Get-PlatformHealth {
     $result = [PlatformHealthResult]::new()
 
     $result.Runtime = Test-WorkflowRuntime
+    $result.Platform = Get-PlatformInfo
+    $result.Capabilities = Get-PlatformCapabilities
 
     $result.Workflow = @{
         Status = "PASS"
@@ -17,11 +19,7 @@ function Get-PlatformHealth {
         Tests = "PASS"
     }
 
-    $result.Healthy = 
-        $result.Runtime.Healthy -and 
-        $result.Workflow.Status -eq "PASS" -and 
-        $result.QualityGate.Build -eq "PASS" -and 
-        $result.QualityGate.Tests -eq "PASS"
+    $result.Healthy = $result.Runtime.Healthy
 
     return $result
 

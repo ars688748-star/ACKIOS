@@ -9,4 +9,5 @@ Set-StrictMode -Version Latest
 . "$PSScriptRoot\Workflow.Dependency.Loader.ps1"
 . "$PSScriptRoot\Workflow.Runtime.Loader.ps1"
 . "$PSScriptRoot\Workflow.Platform.Loader.ps1"
+. "$PSScriptRoot\Workflow.Platform.Runtime.Loader.ps1"
 . "$PSScriptRoot\Workflow.Diagnostics.Loader.ps1"
