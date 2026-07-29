@@ -8,6 +8,7 @@ import { Toolkit } from "../../Toolkit.js";
 import { BrainSystemBuilder } from "../../brain/integration/BrainSystemBuilder.js";
 import { ArchitectureAnalysisEngine } from "../../architecture/ArchitectureAnalysisEngine.js";
 import { PlatformManager } from "../../platform/PlatformManager.js";
+import { ProjectIntelligenceBuilder } from "../../intelligence/ProjectIntelligenceBuilder.js";
 
 import { IServiceModule } from "../../core/modules/IServiceModule.js";
 
@@ -44,6 +45,11 @@ export class ACKIOSServiceRegistryBuilder {
         );
 
         context.services.register(
+            "projectIntelligence",
+            new ProjectIntelligenceBuilder().build()
+        );
+
+        context.services.register(
             "architectureEngine",
             new ArchitectureAnalysisEngine()
         );
@@ -64,6 +70,3 @@ export class ACKIOSServiceRegistryBuilder {
     }
 
 }
-
-
-

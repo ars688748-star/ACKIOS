@@ -3,6 +3,7 @@ import { IRuntimeModule } from "../../IRuntimeModule.js";
 import { WorkspaceModule } from "../WorkspaceModule.js";
 import { ArchitectureModule } from "../ArchitectureModule.js";
 import { BrainModule } from "../BrainModule.js";
+import { IntelligenceModule } from "../IntelligenceModule.js";
 import { AdaptationModule } from "../AdaptationModule.js";
 import { FirstRunRuntimeModule } from "../FirstRunRuntimeModule.js";
 
@@ -14,6 +15,7 @@ export class ACKIOSModuleRegistryBuilder {
             new WorkspaceModule(),
             new ArchitectureModule(),
             new BrainModule(),
+            new IntelligenceModule(),
             new AdaptationModule(),
             new FirstRunRuntimeModule()
         ];
