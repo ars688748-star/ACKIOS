@@ -73,4 +73,3 @@ $GalaxyRoot = Join-Path $PSScriptRoot "galaxy"
 . (Join-Path $GalaxyRoot "GalaxyRuntimeRendererBuilder.ps1")
 . (Join-Path $GalaxyRoot "GalaxyRuntimeCameraRestore.ps1")
 . (Join-Path $GalaxyRoot "GalaxyRuntimeResumeService.ps1")
-. (Join-Path $GalaxyRoot "GalaxyTimelineSubscriber.ps1")
