@@ -157,6 +157,28 @@ function ConvertTo-WorkflowDashboardMarkdown {
     $lines += "Recommendation:"
     $lines += $Report.Intelligence.Recommendation
 
+$lines += ""
+
+$lines += "Recovery Analytics"
+
+$lines += "Total Recoveries:"
+$lines += $Report.Intelligence.RecoveryAnalytics.TotalRecoveries
+
+$lines += "Successful Recoveries:"
+$lines += $Report.Intelligence.RecoveryAnalytics.SuccessfulRecoveries
+
+$lines += "Failed Recoveries:"
+$lines += $Report.Intelligence.RecoveryAnalytics.FailedRecoveries
+
+$lines += "Recovery Rate:"
+$lines += $Report.Intelligence.RecoveryAnalytics.RecoveryRate
+
+$lines += "Last Recovery:"
+$lines += $Report.Intelligence.RecoveryAnalytics.LastRecovery
+
+$lines += "Last Action:"
+$lines += $Report.Intelligence.RecoveryAnalytics.LastAction
+
 
     $lines += ""
 
@@ -269,6 +291,7 @@ function Save-WorkflowDashboardReport {
     return $path
 
 }
+
 
 
 

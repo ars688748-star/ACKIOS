@@ -6,6 +6,8 @@ function Get-WorkflowIntelligence {
 
     $trend = Get-WorkflowTrendAnalysis
 
+    $recovery = Get-WorkflowRecoveryAnalytics
+
     $result = [WorkflowIntelligenceResult]::new()
 
 
@@ -48,6 +50,8 @@ function Get-WorkflowIntelligence {
 
     $result.ReliabilityTrend = $trend.ReliabilityTrend
 
+    $result.RecoveryAnalytics = $recovery
+
 
     $result.Recommendation = $trend.Recommendation
 
@@ -59,6 +63,7 @@ function Get-WorkflowIntelligence {
     return $result
 
 }
+
 
 
 

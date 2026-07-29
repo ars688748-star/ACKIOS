@@ -28,6 +28,7 @@ $modelPath = Join-Path $PSScriptRoot "models"
 . (Join-Path $modelPath "WorkflowPipelineResult.ps1")
 . (Join-Path $modelPath "WorkflowPipelineRecord.ps1")
 . (Join-Path $modelPath "WorkflowIntelligenceResult.ps1")
+. (Join-Path $modelPath "WorkflowRecoveryAnalyticsResult.ps1")
 . (Join-Path $modelPath "WorkflowTrendResult.ps1")
 . (Join-Path $modelPath "WorkflowDiagnosticsResult.ps1")
 . (Join-Path $modelPath "WorkflowDecisionResult.ps1")
@@ -55,6 +56,7 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 
 
 . "$PSScriptRoot\services\WorkflowExecutionTrace.ps1"
+. "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
 
 
 . "$PSScriptRoot\history\WorkflowHistory.ps1"
@@ -62,9 +64,14 @@ Get-ChildItem $servicePath -Filter *.ps1 |
 . "$PSScriptRoot\analytics\WorkflowTrend.ps1"
 . "$PSScriptRoot\analytics\WorkflowInsights.ps1"
 . "$PSScriptRoot\analytics\WorkflowMetrics.ps1"
+. "$PSScriptRoot\analytics\WorkflowRecoveryAnalytics.ps1"
 . "$PSScriptRoot\analytics\WorkflowHealth.ps1"
 . "$PSScriptRoot\analytics\WorkflowDashboardContext.ps1"
 . "$PSScriptRoot\analytics\WorkflowContext.ps1"
+
+
+
+
 
 
 

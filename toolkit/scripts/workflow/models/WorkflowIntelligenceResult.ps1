@@ -14,7 +14,10 @@ class WorkflowIntelligenceResult {
 
     [string]$Recommendation
 
+    [WorkflowRecoveryAnalyticsResult]$RecoveryAnalytics
+
     [string[]]$Recommendations
 
 }
+
 
