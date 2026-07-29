@@ -6,3 +6,4 @@ Set-StrictMode -Version Latest
 . "$PSScriptRoot\Workflow.Analytics.Loader.ps1"
 . "$PSScriptRoot\Workflow.History.Loader.ps1"
 . "$PSScriptRoot\Workflow.Storage.Loader.ps1"
+. "$PSScriptRoot\Workflow.Dependency.Loader.ps1"
