@@ -59,6 +59,7 @@ $steps += Invoke-Step "Update Checkpoint" {
 
 
 
+$executionReport = New-WorkflowExecutionReport -Steps $steps
 
 
 $steps += Invoke-Step "Quality Gate" {
@@ -206,16 +207,10 @@ $record = New-WorkflowExecutionRecord `
         -RecoveryResult $recoveryResult
 
 
-        $duration = [TimeSpan]::Zero
-
-    foreach($step in $steps){
-        $duration += $step.Duration
-    }
-
     $record | Add-Member `
         -MemberType NoteProperty `
         -Name Duration `
-        -Value ([string]$duration) `
+        -Value ([string]$executionReport.Duration) `
         -Force
 
 
@@ -264,8 +259,6 @@ Write-Host ($executionReport.GetType().AssemblyQualifiedName)
 Write-Host ([WorkflowExecutionReport].AssemblyQualifiedName)
 Write-Host "======================"
 Write-Host ""
-
-$executionReport = New-WorkflowExecutionReport -Steps $steps
 Show-WorkflowSummary `
     -ExecutionReport $executionReport `
     -Health $health
@@ -278,8 +271,6 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
-
-
 
 
 
