@@ -68,6 +68,15 @@ function Start-AckiosGalaxyResume {
         $ResumeTransition
 
 
+    $visualization =
+        Get-AckiosGalaxyVisualizationRuntime `
+        $applied.GalaxyState `
+        $objects.RendererStates `
+        $objects.Frames `
+        $camera `
+        $renderer.Camera `
+        (Test-AckiosGalaxyLoader ".\scripts\workflow\Workflow.Galaxy.Loader.ps1")
+
     return [pscustomobject]@{
 
         Runtime =
@@ -81,6 +90,9 @@ function Start-AckiosGalaxyResume {
 
         Camera =
             $camera
+ 
+        Visualization =
+            $visualization
 
         ResumedAt =
             Get-Date
@@ -88,4 +100,7 @@ function Start-AckiosGalaxyResume {
     }
 
 }
+
+
+
 
