@@ -6,6 +6,7 @@ class DiagnosticsResult {
     [object]$Runtime
     [object]$Dependency
     [object]$Repository
+    [object]$CrossPlatform
     [datetime]$CheckedAt
 
     DiagnosticsResult(){
