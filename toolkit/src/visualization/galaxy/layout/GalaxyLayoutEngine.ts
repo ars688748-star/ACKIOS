@@ -10,24 +10,74 @@ export class GalaxyLayoutEngine {
     ): GalaxyNode[] {
 
 
-        return scene.nodes.map(
-            (node, index) => ({
+        const directories =
+            scene.nodes.filter(
+                node =>
+                    node.type === "directory"
+            );
 
-                ...node,
 
-                position: {
+        const files =
+            scene.nodes.filter(
+                node =>
+                    node.type === "file"
+            );
 
-                    x: index * 100,
 
-                    y: index * 50,
 
-                    z: 0
+        const directoryNodes =
+            directories.map(
 
-                }
+                (node, index) => ({
 
-            })
-        );
+                    ...node,
 
+                    position: {
+
+                        x: index * 500,
+
+                        y: 0,
+
+                        z: 0
+
+                    }
+
+                })
+
+            );
+
+
+
+        const fileNodes =
+            files.map(
+
+                (node, index) => ({
+
+                    ...node,
+
+                    position: {
+
+                        x: (index + 1) * 120,
+
+                        y: 200,
+
+                        z: 0
+
+                    }
+
+                })
+
+            );
+
+
+
+        return [
+
+            ...directoryNodes,
+
+            ...fileNodes
+
+        ];
 
     }
 
