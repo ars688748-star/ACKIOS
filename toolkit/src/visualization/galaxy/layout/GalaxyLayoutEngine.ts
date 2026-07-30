@@ -25,8 +25,9 @@ export class GalaxyLayoutEngine {
 
 
 
-        const directoryNodes =
-            directories.map(
+        const nodes = [
+
+            ...directories.map(
 
                 (node, index) => ({
 
@@ -44,12 +45,11 @@ export class GalaxyLayoutEngine {
 
                 })
 
-            );
+            ),
 
 
 
-        const fileNodes =
-            files.map(
+            ...files.map(
 
                 (node, index) => ({
 
@@ -67,19 +67,114 @@ export class GalaxyLayoutEngine {
 
                 })
 
-            );
-
-
-
-        return [
-
-            ...directoryNodes,
-
-            ...fileNodes
+            )
 
         ];
+
+
+
+        return this.applyGravity(
+
+            nodes,
+
+            scene
+
+        );
+
+    }
+
+
+
+    private applyGravity(
+
+        nodes: GalaxyNode[],
+
+        scene: GalaxyScene
+
+    ): GalaxyNode[] {
+
+
+
+        let result =
+            [...nodes];
+
+
+
+        for (const edge of scene.edges) {
+
+
+            const from =
+                result.find(
+                    node =>
+                        node.id === edge.from
+                );
+
+
+            const to =
+                result.find(
+                    node =>
+                        node.id === edge.to
+                );
+
+
+
+            if (!from || !to) {
+
+                continue;
+
+            }
+
+
+
+            result = result.map(
+
+                    node =>
+
+                        node.id === to.id
+
+                            ? {
+
+                                ...node,
+
+                                position: {
+
+                                    x:
+                                        (
+                                            node.position.x +
+                                            from.position.x
+
+                                        ) / 2,
+
+
+                                    y:
+                                        (
+                                            node.position.y +
+                                            from.position.y
+
+                                        ) / 2,
+
+
+                                    z:
+                                        node.position.z ?? 0
+
+                                }
+
+                            }
+
+                            : node
+
+                );
+
+
+        }
+
+
+
+        return result;
 
     }
 
 
 }
+
+
