@@ -6,6 +6,8 @@ import type { GalaxyViewport } from "../camera/GalaxyViewport.js";
 
 import type { GalaxyRenderContext } from "./GalaxyRenderContext.js";
 
+import type { GalaxyVisualScene } from "../renderer/GalaxyVisualScene.js";
+
 import { GalaxyNodeRenderer } from "../renderer/GalaxyNodeRenderer.js";
 
 import { GalaxyEdgeRenderer } from "../renderer/GalaxyEdgeRenderer.js";
@@ -29,6 +31,8 @@ export class GalaxyFrameRenderer {
 
         scene: GalaxyScene,
 
+        visualScene: GalaxyVisualScene,
+
         camera: GalaxyCameraState,
 
         viewport: GalaxyViewport
@@ -39,6 +43,8 @@ export class GalaxyFrameRenderer {
         return {
 
             scene,
+
+            visualScene,
 
             camera,
 
@@ -53,3 +59,4 @@ export class GalaxyFrameRenderer {
 
 
 }
+

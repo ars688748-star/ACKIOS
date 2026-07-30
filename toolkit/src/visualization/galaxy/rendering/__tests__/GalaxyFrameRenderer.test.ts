@@ -59,6 +59,16 @@ describe(
 
 
 
+                const visualScene = {
+
+                    nodes: [],
+
+                    edges: []
+
+                };
+
+
+
                 const viewport = {
 
                     width: 1920,
@@ -77,9 +87,15 @@ describe(
 
                 const context =
                     renderer.render(
+
                         scene,
+
+                        visualScene,
+
                         camera,
+
                         viewport
+
                     );
 
 
@@ -107,3 +123,4 @@ describe(
 
     }
 );
+

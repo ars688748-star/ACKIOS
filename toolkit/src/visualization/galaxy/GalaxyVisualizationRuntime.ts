@@ -199,9 +199,35 @@ export class GalaxyVisualizationRuntime {
 
 
 
+        const visualScene =
+            this.sceneRuntime.render();
+
+
+        if (!visualScene) {
+
+            return this.frameRenderer.render(
+
+                scene,
+
+                {
+                    nodes: [],
+                    edges: []
+                },
+
+                this.camera.getState(),
+
+                this.viewport!
+
+            );
+
+        }
+
+
         return this.frameRenderer.render(
 
             scene,
+
+            visualScene,
 
             this.camera.getState(),
 
@@ -349,6 +375,8 @@ export class GalaxyVisualizationRuntime {
 
 
 }
+
+
 
 
 

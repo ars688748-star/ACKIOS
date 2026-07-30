@@ -1,5 +1,5 @@
 import type { GalaxyScene } from "../model/GalaxyScene.js";
-import type { GalaxyRenderFrame } from "../renderer/GalaxySceneRenderer.js";
+import type { GalaxyVisualScene } from "../renderer/GalaxyVisualScene.js";
 
 import { GalaxyLayoutEngine } from "../layout/GalaxyLayoutEngine.js";
 import { GalaxySceneRenderer } from "../renderer/GalaxySceneRenderer.js";
@@ -32,7 +32,7 @@ export class GalaxySceneRuntime {
 
 
     public render():
-        GalaxyRenderFrame | undefined {
+        GalaxyVisualScene | undefined {
 
 
         if (!this.scene) {
@@ -62,3 +62,5 @@ export class GalaxySceneRuntime {
 
 
 }
+
+
