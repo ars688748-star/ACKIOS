@@ -7,6 +7,8 @@ import { Toolkit } from "../../Toolkit.js";
 
 import { BrainSystemBuilder } from "../../brain/integration/BrainSystemBuilder.js";
 import { ArchitectureAnalysisEngine } from "../../architecture/ArchitectureAnalysisEngine.js";
+import { ArchitectureGraphProvider } from "../../architecture/ArchitectureGraphProvider.js";
+import { GalaxyArchitectureProviderBridge } from "../../visualization/GalaxyArchitectureProviderBridge.js";
 import { PlatformManager } from "../../platform/PlatformManager.js";
 import { ProjectIntelligenceBuilder } from "../../intelligence/ProjectIntelligenceBuilder.js";
 
@@ -55,6 +57,16 @@ export class ACKIOSServiceRegistryBuilder {
         );
 
         context.services.register(
+            "architectureGraphProvider",
+            new ArchitectureGraphProvider()
+        );
+
+        context.services.register(
+            "galaxyArchitectureBridge",
+            new GalaxyArchitectureProviderBridge()
+        );
+
+        context.services.register(
             "platformManager",
             new PlatformManager()
         );
@@ -70,3 +82,5 @@ export class ACKIOSServiceRegistryBuilder {
     }
 
 }
+
+

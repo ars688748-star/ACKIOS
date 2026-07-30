@@ -1,41 +1,121 @@
 Set-StrictMode -Version Latest
 
-. "$PSScriptRoot\GalaxyCameraState.ps1"
+. "$PSScriptRoot\GalaxyCameraAnimationEngine.ps1"
 
 
-function New-AckiosGalaxyCamera {
+function New-AckiosGalaxyCameraController {
 
     param(
-        [string]$FocusNode = ""
+
+        [object]$Camera
+
     )
 
 
-    $camera =
-        [GalaxyCameraState]::new()
+    return [pscustomobject]@{
 
+        Camera =
+            $Camera
 
-    $camera.FocusedNode =
-        $FocusNode
+        FocusNode =
+            $null
 
+        ActiveTransition =
+            $null
 
-    return $camera
+        State =
+            "READY"
+
+        UpdatedAt =
+            Get-Date
+
+    }
 
 }
 
 
 
-function Set-AckiosCameraFocus {
+function Start-AckiosGalaxyCameraFocus {
 
     param(
-        [object]$Camera,
-        [string]$NodeId
+
+        [object]$Controller,
+
+        [string]$NodeId,
+
+        [object]$TargetCamera
+
     )
 
 
-    $Camera.FocusedNode =
+    $Controller.FocusNode =
         $NodeId
 
 
-    return $Camera
+    $Controller.ActiveTransition =
+        New-AckiosGalaxyCameraTransition `
+        $Controller.Camera `
+        $TargetCamera
+
+
+    $Controller.State =
+        "MOVING"
+
+
+    $Controller.UpdatedAt =
+        Get-Date
+
+
+    return $Controller
 
 }
+
+
+
+function Update-AckiosGalaxyCameraController {
+
+    param(
+
+        [object]$Controller,
+
+        [int]$Progress
+
+    )
+
+
+    if(
+        $null -eq $Controller.ActiveTransition
+    ){
+
+        return $Controller
+
+    }
+
+
+    $Controller.ActiveTransition =
+        Update-AckiosGalaxyCameraTransition `
+        $Controller.ActiveTransition `
+        $Progress
+
+
+    if(
+        $Controller.ActiveTransition.State -eq "COMPLETED"
+    ){
+
+        $Controller.State =
+            "READY"
+
+        $Controller.Camera =
+            $Controller.ActiveTransition.TargetCamera
+
+    }
+
+
+    $Controller.UpdatedAt =
+        Get-Date
+
+
+    return $Controller
+
+}
+
