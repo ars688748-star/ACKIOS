@@ -5,6 +5,20 @@ import type { ArchitectureNode } from "../model/ArchitectureNode.js";
 
 export class ArchitectureScanner {
 
+    private readonly ignoredDirectories = new Set([
+
+        "node_modules",
+
+        ".git",
+
+        "dist",
+
+        "coverage",
+
+        ".work"
+
+    ]);
+
     public async scan(
         root: string
     ): Promise<ArchitectureNode[]> {
@@ -33,6 +47,23 @@ export class ArchitectureScanner {
         );
 
         for (const entry of entries) {
+
+
+            if (
+
+                entry.isDirectory() &&
+
+                this.ignoredDirectories.has(
+                    entry.name
+                )
+
+            ) {
+
+                continue;
+
+            }
+
+
 
             const path = join(
                 directory,
@@ -65,3 +96,4 @@ export class ArchitectureScanner {
     }
 
 }
+
