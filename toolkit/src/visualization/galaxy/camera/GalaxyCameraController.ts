@@ -111,4 +111,19 @@ export class GalaxyCameraController {
     }
 
 
+    public applyState(
+        state: GalaxyCameraState
+    ): void {
+
+
+        this.state = {
+
+            ...state
+
+        };
+
+
+    }
+
+
 }

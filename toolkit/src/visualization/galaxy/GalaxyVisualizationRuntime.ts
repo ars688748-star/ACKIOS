@@ -5,12 +5,19 @@ import { GalaxyAnimationEngine } from "./animation/GalaxyAnimationEngine.js";
 
 import { GalaxyCameraController } from "./camera/GalaxyCameraController.js";
 import { GalaxyCameraAnimationBridge } from "./camera/GalaxyCameraAnimationBridge.js";
+import { GalaxyCameraTransition } from "./camera/GalaxyCameraTransition.js";
+import { GalaxyCameraTransitionBridge } from "./camera/GalaxyCameraTransitionBridge.js";
+import { GalaxyCameraAnimationRuntime } from "./camera/GalaxyCameraAnimationRuntime.js";
 import type { GalaxyViewport } from "./camera/GalaxyViewport.js";
 
 import { GalaxySceneRuntime } from "./runtime/GalaxySceneRuntime.js";
 import { GalaxyRuntimeSync } from "./runtime/GalaxyRuntimeSync.js";
 import { GalaxyRenderLoop } from "./rendering/GalaxyRenderLoop.js";
 import { GalaxyFrameRenderer } from "./rendering/GalaxyFrameRenderer.js";
+
+import { GalaxyInteractionController } from "./interaction/GalaxyInteractionController.js";
+import { GalaxyInteractionViewportBridge } from "./interaction/GalaxyInteractionViewportBridge.js";
+
 import type { GalaxyScene } from "./model/GalaxyScene.js";
 import type { GalaxyRenderContext } from "./rendering/GalaxyRenderContext.js";
 
@@ -46,6 +53,32 @@ export class GalaxyVisualizationRuntime {
         );
 
 
+    public readonly cameraTransition =
+        new GalaxyCameraTransition();
+
+
+    public readonly cameraTransitionBridge =
+        new GalaxyCameraTransitionBridge(
+
+            this.camera,
+
+            this.cameraTransition
+
+        );
+
+
+    public readonly cameraAnimationRuntime =
+        new GalaxyCameraAnimationRuntime(
+
+            this.animation,
+
+            this.cameraTransition,
+
+            this.cameraTransitionBridge
+
+        );
+
+
 
     public readonly sceneRuntime =
         new GalaxySceneRuntime();
@@ -64,6 +97,16 @@ export class GalaxyVisualizationRuntime {
 
     public readonly frameRenderer =
         new GalaxyFrameRenderer();
+
+
+    public readonly interaction =
+        new GalaxyInteractionController(
+            this.camera
+        );
+
+
+    public readonly interactionViewportBridge =
+        new GalaxyInteractionViewportBridge();
 
 
     private viewport?: GalaxyViewport;
@@ -171,6 +214,87 @@ export class GalaxyVisualizationRuntime {
 
 
 
+    public selectNode(
+        node: import("./model/GalaxyNode.js").GalaxyNode
+    ): void {
+
+
+        this.interaction.selectNode(
+            node
+        );
+
+
+        this.cameraAnimationRuntime.startTransition(
+
+            this.camera.getState(),
+
+            {
+
+                ...this.camera.getState(),
+
+                target: {
+
+                    x: node.position.x,
+
+                    y: node.position.y,
+
+                    z: node.position.z ?? 0
+
+                }
+
+            },
+
+            1000
+
+        );
+
+
+        if (this.viewport) {
+
+            this.viewport =
+                this.interactionViewportBridge.sync(
+
+                    this.viewport,
+
+                    this.camera,
+
+                    this.interaction.getState()
+
+                );
+
+        }
+
+
+    }
+
+
+
+    public syncInteraction(): void {
+
+
+        if (!this.viewport) {
+
+            return;
+
+        }
+
+
+        this.viewport =
+            this.interactionViewportBridge.sync(
+
+                this.viewport,
+
+                this.camera,
+
+                this.interaction.getState()
+
+            );
+
+
+    }
+
+
+
     public initialize(): void {
 
 
@@ -225,6 +349,15 @@ export class GalaxyVisualizationRuntime {
 
 
 }
+
+
+
+
+
+
+
+
+
 
 
 
