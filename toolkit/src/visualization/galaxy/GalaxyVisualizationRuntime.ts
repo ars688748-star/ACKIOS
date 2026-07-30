@@ -11,6 +11,8 @@ import { GalaxyCameraAnimationRuntime } from "./camera/GalaxyCameraAnimationRunt
 import type { GalaxyViewport } from "./camera/GalaxyViewport.js";
 
 import { GalaxySceneRuntime } from "./runtime/GalaxySceneRuntime.js";
+import { GalaxySceneBuilder } from "./runtime/GalaxySceneBuilder.js";
+import { GalaxyArchitectureProviderBridge } from "../GalaxyArchitectureProviderBridge.js";
 import { GalaxyRuntimeSync } from "./runtime/GalaxyRuntimeSync.js";
 import { GalaxyRenderLoop } from "./rendering/GalaxyRenderLoop.js";
 import { GalaxyFrameRenderer } from "./rendering/GalaxyFrameRenderer.js";
@@ -83,6 +85,15 @@ export class GalaxyVisualizationRuntime {
     public readonly sceneRuntime =
         new GalaxySceneRuntime();
 
+
+
+    public readonly architectureBridge =
+        new GalaxyArchitectureProviderBridge();
+
+
+
+    public readonly sceneBuilder =
+        new GalaxySceneBuilder();
 
 
     public readonly runtimeSync =
@@ -374,26 +385,41 @@ export class GalaxyVisualizationRuntime {
     }
 
 
+    public async loadArchitecture(
+
+        root: string
+
+    ): Promise<void> {
+
+
+        const graph =
+
+            await this.architectureBridge.getGalaxyArchitectureGraph(
+
+                root
+
+            );
+
+
+
+        const scene =
+
+            this.sceneBuilder.build(
+
+                graph
+
+            );
+
+
+
+        this.runtimeSync.updateScene(
+
+            scene
+
+        );
+
+
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
