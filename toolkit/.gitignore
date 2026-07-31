@@ -65,3 +65,8 @@ dist/
 *.bak
 *.story*.bak
 *.before-*.bak
+
+# Generated content
+artifacts/
+reports/
+generated-docs/
