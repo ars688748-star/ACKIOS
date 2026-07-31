@@ -70,3 +70,13 @@ dist/
 artifacts/
 reports/
 generated-docs/
+
+# Internal documentation
+docs/context/
+docs/reports/
+
+# Workflow backup files
+*.bak*
+
+# Private chat context files
+ACKI_NEXT_CHAT_CONTEXT*
