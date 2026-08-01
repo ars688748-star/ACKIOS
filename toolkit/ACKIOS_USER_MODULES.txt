@@ -1,0 +1,145 @@
+
+    Directory: D:\ACKIOS\toolkit\src\architecture
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          15.07.2026    18:34                builders
+
+    Directory: D:\ACKIOS\toolkit\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          25.07.2026     9:48                bootstrap
+
+    Directory: D:\ACKIOS\toolkit\src\bootstrap
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          25.07.2026     9:48                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\brain
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          13.07.2026    19:11                builders
+
+    Directory: D:\ACKIOS\toolkit\src\brain\cognition
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          13.07.2026    19:11                boot
+d----          13.07.2026    19:11                bootstrap
+d----          13.07.2026    19:11                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\brain\context
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          13.07.2026    19:11                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\brain\events
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          13.07.2026    19:11                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\brain
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          13.07.2026    19:11                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\core
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                runtime
+
+    Directory: D:\ACKIOS\toolkit\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          16.07.2026    19:27                dashboard
+d----          31.07.2026    11:22                installer
+d----          31.07.2026    11:22                platform
+
+    Directory: D:\ACKIOS\toolkit\src\platform\adaptation
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\platform
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                bootstrap
+d----          31.07.2026    11:22                installer
+
+    Directory: D:\ACKIOS\toolkit\src\platform\installer\strategy
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                windows
+
+    Directory: D:\ACKIOS\toolkit\src\platform
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\platform\runtime
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                startup
+
+    Directory: D:\ACKIOS\toolkit\src\platform
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          25.07.2026     9:48                windows
+
+    Directory: D:\ACKIOS\toolkit\src\release
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    10:14                launch
+d----          30.07.2026    23:04                platform
+
+    Directory: D:\ACKIOS\toolkit\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\runtime\modules
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                builders
+
+    Directory: D:\ACKIOS\toolkit\src\visualization
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                galaxy
+
+    Directory: D:\ACKIOS\toolkit\src\visualization\galaxy
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                runtime
+
+    Directory: D:\ACKIOS\toolkit\src\visualization\universe
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                runtime
+
+    Directory: D:\ACKIOS\toolkit\src
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          13.07.2026    19:11                workspace
+

@@ -1,0 +1,427 @@
+Структура папок
+Серийный номер тома: 0000016B BCD7:D012
+D:\ACKIOS\TOOLKIT\SRC\PLATFORM
+|   index.ts
+|   NodePlatform.ts
+|   PlatformArchitecture.ts
+|   PlatformCapabilities.ts
+|   PlatformDetector.ts
+|   PlatformInfo.ts
+|   PlatformKind.ts
+|   PlatformManager.before-lifecycle.bak
+|   PlatformManager.ts
+|   PlatformManager.ts.bak
+|   PlatformRuntime.ts
+|   PlatformService.ts
+|   PlatformService.ts.bak
+|   
++---abstractions
++---adaptation
+|   |   AdaptationEngine.ts
+|   |   AdaptationService.ts
+|   |   DecisionAggregator.ts
+|   |   StrategyBuilder.ts
+|   |   
+|   +---configuration
+|   |       AdaptationConfiguration.ts
+|   |       AdaptationConfigurationManager.ts
+|   |       AdaptationConfigurationState.ts
+|   |       AdaptationConfigurationStorage.ts
+|   |       
+|   +---contracts
+|   |       IAdaptationRule.ts
+|   |       
+|   +---lifecycle
+|   |       StrategyLifecycleService.ts
+|   |       StrategyLifecycleState.ts
+|   |       
+|   +---models
+|   |       AdaptationDecision.ts
+|   |       StrategyProfile.ts
+|   |       
+|   +---recovery
+|   |       StrategyRecoveryService.ts
+|   |       
+|   +---rules
+|   |       CapabilityAdaptationRule.ts
+|   |       HardwareAdaptationRule.ts
+|   |       PlatformAdaptationRule.ts
+|   |       
+|   +---runtime
+|   |       AdaptationRuntime.ts
+|   |       
+|   +---storage
+|   |       FileStrategyStorage.ts
+|   |       IStrategyStorage.ts
+|   |       MemoryStrategyStorage.ts
+|   |       
+|   \---__tests__
+|           AdaptationRuntime.test.ts
+|           FileStrategyStorage.test.ts
+|           StrategyRuntime.test.ts
+|           
++---architecture
++---bootstrap
+|   +---contracts
+|   |       IBootstrapRuntime.ts
+|   |       
+|   +---models
+|   |       BootstrapContext.ts
+|   |       
+|   +---services
+|   |       BootstrapRuntime.ts
+|   |       
+|   \---__tests__
+|           BootstrapRuntime.test.ts
+|           
++---capabilities
+|   |   CapabilityDiscoveryService.ts
+|   |   
+|   +---contracts
+|   |       ICapabilityProvider.ts
+|   |       
+|   +---enums
+|   |       CapabilityKind.ts
+|   |       
+|   +---models
+|   |       Capability.ts
+|   |       
+|   \---providers
+|           HardwareCapabilityProvider.ts
+|           PlatformCapabilityProvider.ts
+|           RuntimeCapabilityProvider.ts
+|           ToolCapabilityProvider.ts
+|           
++---common
++---contracts
+|       IEnvironmentScanner.ts
+|       index.ts
+|       IPlatform.ts
+|       IPlatformDetector.ts
+|       IPlatformLifecycle.ts
+|       IPlatformManager.ts
+|       PlatformHealthStatus.ts
+|       
++---detection
+|       NodePlatformDetector.ts
+|       
++---enums
+|       OperatingSystem.ts
+|       
++---environment
+|   |   EnvironmentScanner.ts
+|   |   EnvironmentService.ts
+|   |   
+|   +---adaptation
+|   |   |   AdaptationDecision.ts
+|   |   |   EnvironmentAdapter.ts
+|   |   |   RuntimeCompatibilityChecker.ts
+|   |   |   
+|   |   \---__tests__
+|   |           EnvironmentAdapter.test.ts
+|   |           
+|   +---detection
+|   |   |   HardwareDetector.ts
+|   |   |   OperatingSystemDetector.ts
+|   |   |   RuntimeEnvironmentDetector.ts
+|   |   |   
+|   |   +---models
+|   |   |       HardwareInfo.ts
+|   |   |       OperatingSystemInfo.ts
+|   |   |       RuntimeEnvironment.ts
+|   |   |       
+|   |   \---__tests__
+|   |           HardwareDetector.test.ts
+|   |           OperatingSystemDetector.test.ts
+|   |           RuntimeEnvironmentDetector.test.ts
+|   |           
+|   \---intelligence
+|       |   EnvironmentAnalysis.ts
+|       |   EnvironmentAnalyzer.ts
+|       |   EnvironmentRecommendation.ts
+|       |   EnvironmentScore.ts
+|       |   EnvironmentStrategySelector.ts
+|       |   
+|       \---__tests__
+|               EnvironmentAnalyzer.test.ts
+|               
++---events
++---hardware
+|   +---contracts
+|   |       IHardwareDetector.ts
+|   |       
+|   +---detection
+|   |       NodeHardwareDetector.ts
+|   |       
+|   \---models
+|           HardwareInfo.ts
+|           
++---installer
+|   |   BootstrapService.ts
+|   |   InstallationContext.ts
+|   |   InstallationResult.ts
+|   |   InstallationValidator.ts
+|   |   InstallerEngine.ts
+|   |   
+|   +---orchestration
+|   |   |   PlatformInstallationOrchestrator.ts
+|   |   |   
+|   |   \---__tests__
+|   |           PlatformInstallationOrchestrator.test.ts
+|   |           
+|   +---strategy
+|   |   |   IInstallationStrategy.ts
+|   |   |   InstallationStrategyResult.ts
+|   |   |   InstallationStrategySelector.ts
+|   |   |   
+|   |   +---windows
+|   |   |   |   WindowsInstallationStrategy.ts
+|   |   |   |   
+|   |   |   \---__tests__
+|   |   |           WindowsInstallationStrategy.test.ts
+|   |   |           
+|   |   \---__tests__
+|   |           InstallationStrategySelector.test.ts
+|   |           
+|   \---__tests__
+|           InstallerEngine.test.ts
+|           
++---integration
+|       BrainIntegration.before-di.ts
+|       BrainIntegration.ts
+|       DashboardIntegration.ts
+|       index.ts
+|       WorkflowIntegration.ts
+|       
++---lifecycle
+|   |   PlatformComponent.ts
+|   |   PlatformHealth.ts
+|   |   PlatformLifecycle.ts
+|   |   PlatformRegistry.ts
+|   |   PlatformState.ts
+|   |   
+|   +---models
+|   |       index.ts
+|   |       PlatformComponentType.ts
+|   |       PlatformLifecycleState.ts
+|   |       PlatformNode.ts
+|   |       
+|   \---services
+|           index.ts
+|           PlatformHealthService.ts
+|           PlatformLifecycleService.ts
+|           PlatformRegistryService.ts
+|           
++---linux
++---macos
++---models
+|       EnvironmentProfile.ts
+|       PlatformInfo.ts
+|       
++---modules
++---onboarding
+|   |   OnboardingContext.ts
+|   |   OnboardingResult.ts
+|   |   UserOnboarding.ts
+|   |   
+|   \---__tests__
+|           UserOnboarding.test.ts
+|           
++---operating-system
++---providers
++---registration
+|       index.ts
+|       PlatformRegistrationService.ts
+|       
++---runtime
+|   |   FirstRunCoordinator.ts
+|   |   FirstRunState.ts
+|   |   IPlatformRuntime.ts
+|   |   PlatformRuntime.ts
+|   |   PlatformRuntimeContext.ts
+|   |   
+|   +---composition
+|   |   |   AckiosRuntimeComposition.ts
+|   |   |   BrainRuntimeModule.ts
+|   |   |   RuntimeCompositionFactory.ts
+|   |   |   UniverseRuntimeModule.ts
+|   |   |   WorkflowRuntimeModule.ts
+|   |   |   
+|   |   \---__tests__
+|   |           AckiosRuntimeComposition.test.ts
+|   |           
+|   +---config
+|   |   |   DefaultRuntimeConfig.ts
+|   |   |   RuntimeConfig.ts
+|   |   |   RuntimeConfigLoader.ts
+|   |   |   RuntimeConfigService.ts
+|   |   |   RuntimeEnvironment.ts
+|   |   |   
+|   |   \---__tests__
+|   |           DefaultRuntimeConfig.test.ts
+|   |           RuntimeConfigService.test.ts
+|   |           
+|   +---container
+|   |   |   RuntimeContainer.ts
+|   |   |   RuntimeContainerFactory.ts
+|   |   |   RuntimeServices.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeContainer.test.ts
+|   |           RuntimeContainerFactory.test.ts
+|   |           RuntimeContainerIntegration.test.ts
+|   |           
+|   +---core
+|   |   |   AckiosRuntimeOrchestrator.ts
+|   |   |   RuntimeHealthMonitor.ts
+|   |   |   RuntimeLifecycleManager.ts
+|   |   |   RuntimeModule.ts
+|   |   |   RuntimeOrchestratorFactory.ts
+|   |   |   
+|   |   \---__tests__
+|   |           AckiosRuntimeOrchestrator.test.ts
+|   |           
+|   +---diagnostics
+|   |   |   RuntimeDiagnostic.ts
+|   |   |   RuntimeDiagnosticsEngine.ts
+|   |   |   RuntimeDiagnosticsFactory.ts
+|   |   |   RuntimeDiagnosticsService.ts
+|   |   |   RuntimeHealthReport.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeDiagnosticsEngine.test.ts
+|   |           RuntimeDiagnosticsService.test.ts
+|   |           
+|   +---events
+|   |   |   RuntimeEvent.ts
+|   |   |   RuntimeEventBus.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeEventBus.test.ts
+|   |           
+|   +---lifecycle
+|   |   |   IRuntimeLifecycleCoordinator.ts
+|   |   |   RuntimeLifecycleCoordinator.ts
+|   |   |   RuntimeLifecycleResult.ts
+|   |   |   RuntimeLifecycleTransition.ts
+|   |   |   RuntimeLifecycleTransitionEngine.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeLifecycleCoordinator.test.ts
+|   |           RuntimeLifecycleTransitionEngine.test.ts
+|   |           
+|   +---recovery
+|   |   |   RuntimeRecoveryCoordinator.ts
+|   |   |   RuntimeRecoveryDecision.ts
+|   |   |   RuntimeRecoveryExecutor.ts
+|   |   |   RuntimeRecoveryManager.ts
+|   |   |   RuntimeRecoveryService.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeRecoveryCoordinator.test.ts
+|   |           RuntimeRecoveryExecutor.test.ts
+|   |           RuntimeRecoveryManager.test.ts
+|   |           RuntimeRecoveryService.test.ts
+|   |           
+|   +---registry
+|   |   |   DefaultRuntimeModules.ts
+|   |   |   RuntimeBootstrap.ts
+|   |   |   RuntimeDiscovery.ts
+|   |   |   RuntimeModuleRegistry.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeDiscovery.test.ts
+|   |           RuntimeModuleRegistry.test.ts
+|   |           
+|   +---startup
+|   |   |   RuntimeStartupFactory.ts
+|   |   |   RuntimeStartupPipeline.ts
+|   |   |   RuntimeStartupReport.ts
+|   |   |   RuntimeStartupService.ts
+|   |   |   RuntimeStartupStep.ts
+|   |   |   
+|   |   \---__tests__
+|   |           RuntimeStartupPipeline.test.ts
+|   |           RuntimeStartupService.test.ts
+|   |           
+|   +---state
+|   |   |   IRuntimeStateStorage.ts
+|   |   |   MemoryRuntimeStateStorage.ts
+|   |   |   RuntimeLifecycleStage.ts
+|   |   |   RuntimeState.ts
+|   |   |   RuntimeStateManager.ts
+|   |   |   
+|   |   \---__tests__
+|   |           FirstRunRuntimeState.test.ts
+|   |           RuntimeStateIntegration.test.ts
+|   |           RuntimeStateManager.test.ts
+|   |           
+|   +---universe
+|   |   |   UniversePlatformBridge.ts
+|   |   |   UniverseRuntimeAdapter.ts
+|   |   |   UniverseRuntimeRegistry.ts
+|   |   |   UniverseRuntimeService.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseRuntimeAdapter.test.ts
+|   |           UniverseRuntimeService.test.ts
+|   |           
+|   \---__tests__
+|           FirstRunCoordinator.test.ts
+|           PlatformRuntime.test.ts
+|           
++---services
++---setup
+|   |   PlatformSetupCoordinator.ts
+|   |   
+|   +---contracts
+|   |       IPlatformSetupCoordinator.ts
+|   |       
+|   +---execution
+|   |   |   SetupExecutor.ts
+|   |   |   
+|   |   +---contracts
+|   |   |       ISetupExecutor.ts
+|   |   |       
+|   |   +---models
+|   |   |       SetupExecutionResult.ts
+|   |   |       
+|   |   \---__tests__
+|   |           SetupExecutor.test.ts
+|   |           
+|   +---models
+|   |       PlatformSetupPlan.ts
+|   |       
+|   +---services
+|   |       PlatformSetupCoordinator.ts
+|   |       SetupInstallationMapper.ts
+|   |       
+|   \---__tests__
+|           PlatformSetupCoordinator.test.ts
+|           SetupInstallationMapper.test.ts
+|           
++---tools
+|   |   ToolDiscoveryService.ts
+|   |   ToolRegistry.ts
+|   |   
+|   +---contracts
+|   |       IToolProvider.ts
+|   |       
+|   +---models
+|   |       ToolInfo.ts
+|   |       
+|   \---providers
+|           GitToolProvider.ts
+|           NodeToolProvider.ts
+|           ProcessToolProvider.ts
+|           ProcessToolProvider.ts.bak
+|           
++---windows
+\---wizard
+    |   FirstRunWizard.ts
+    |   WizardContext.ts
+    |   WizardResult.ts
+    |   
+    \---__tests__
+            FirstRunWizard.test.ts
+            

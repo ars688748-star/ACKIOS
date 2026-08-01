@@ -1,0 +1,651 @@
+Структура папок
+Серийный номер тома: 000001C8 BCD7:D012
+D:\ACKIOS\TOOLKIT\SRC\BRAIN
+|   BrainFacade.ts
+|   index.ts
+|   ProjectBrain.ts
+|   
++---agents
+|       AgentManager.ts
+|       index.ts
+|       
++---analysis
+|   |   ArchitectureAnalysisResult.ts
+|   |   
+|   \---engine
+|           ArchitectureReasoningEngine.ts
+|           
++---api
+|       IBrainLifecycle.ts
+|       index.ts
+|       
++---builders
+|       BrainBuilder.ts
+|       index.ts
+|       
++---cognition
+|   |   index.ts
+|   |   
+|   +---adapters
+|   |       DecisionAdapter.ts
+|   |       ExecutionAdapter.ts
+|   |       index.ts
+|   |       KnowledgeAdapter.ts
+|   |       MemoryAdapter.ts
+|   |       PlanningAdapter.ts
+|   |       ReasoningAdapter.ts
+|   |       
+|   +---attention
+|   |       AttentionEngine.ts
+|   |       
+|   +---blackboard
+|   |       CognitiveBlackboard.ts
+|   |       index.ts
+|   |       
+|   +---boot
+|   |       CognitiveBootManager.ts
+|   |       index.ts
+|   |       
+|   +---bootstrap
+|   |       CognitiveBootstrap.ts
+|   |       index.ts
+|   |       
+|   +---cache
+|   |       CognitiveCache.ts
+|   |       index.ts
+|   |       
+|   +---capabilities
+|   |       CognitiveCapability.ts
+|   |       CognitiveCapabilityRegistry.ts
+|   |       index.ts
+|   |       
+|   +---cause-effect
+|   |       CauseEffectEngine.ts
+|   |       
+|   +---clock
+|   |       CognitiveClock.ts
+|   |       index.ts
+|   |       
+|   +---config
+|   |       CognitiveConfig.ts
+|   |       DefaultCognitiveConfig.ts
+|   |       index.ts
+|   |       
+|   +---container
+|   |       CognitiveContainer.ts
+|   |       index.ts
+|   |       
+|   +---context
+|   |       ICognitiveContext.ts
+|   |       index.ts
+|   |       
+|   +---decision
+|   |       DecisionEngine.ts
+|   |       
+|   +---diagnostics
+|   |       CognitiveDiagnostics.ts
+|   |       index.ts
+|   |       
+|   +---events
+|   |       CognitiveEvent.ts
+|   |       CognitiveEventBus.ts
+|   |       index.ts
+|   |       
+|   +---execution
+|   |       ExecutionEngine.ts
+|   |       
+|   +---execution-context
+|   |       CognitiveExecutionContext.ts
+|   |       index.ts
+|   |       
+|   +---extensions
+|   |       CognitiveExtension.ts
+|   |       CognitiveExtensionRegistry.ts
+|   |       index.ts
+|   |       
+|   +---factory
+|   |       CognitiveRuntimeBuilder.ts
+|   |       CognitiveRuntimeFactory.ts
+|   |       index.ts
+|   |       
+|   +---goal-system
+|   |       GoalEngine.ts
+|   |       
+|   +---health
+|   |       CognitiveHealth.ts
+|   |       index.ts
+|   |       
+|   +---identity
+|   |       CognitiveIdentity.ts
+|   |       index.ts
+|   |       
+|   +---impact
+|   |       ImpactAnalyzer.ts
+|   |       
+|   +---integration
+|   |       BrainCognitiveBridge.ts
+|   |       ICognitiveStage.ts
+|   |       index.ts
+|   |       
+|   +---interfaces
+|   |       ICognitiveContext.ts
+|   |       ICognitiveEngine.ts
+|   |       ICognitiveModule.ts
+|   |       ICognitiveRuntime.ts
+|   |       index.ts
+|   |       
+|   +---lifecycle
+|   |       CognitiveLifecycle.ts
+|   |       CognitiveState.ts
+|   |       index.ts
+|   |       
+|   +---loader
+|   |       CognitiveModuleLoader.ts
+|   |       index.ts
+|   |       
+|   +---logging
+|   |       CognitiveLogger.ts
+|   |       index.ts
+|   |       
+|   +---manager
+|   |       CognitiveRuntimeManager.ts
+|   |       index.ts
+|   |       
+|   +---messaging
+|   |       CognitiveMessage.ts
+|   |       CognitiveMessageBus.ts
+|   |       index.ts
+|   |       
+|   +---metrics
+|   |       CognitiveMetrics.ts
+|   |       index.ts
+|   |       
+|   +---models
+|   |       CognitiveState.ts
+|   |       
+|   +---modules
+|   |       CognitiveModuleDescriptor.ts
+|   |       CognitiveModuleRegistry.ts
+|   |       index.ts
+|   |       
+|   +---orchestrator
+|   |       CognitiveOrchestrator.ts
+|   |       index.ts
+|   |       
+|   +---perception
+|   |       PerceptionEngine.ts
+|   |       
+|   +---pipeline
+|   |   |   CognitivePipeline.ts
+|   |   |   index.ts
+|   |   |   PipelineRegistry.ts
+|   |   |   PipelineStage.ts
+|   |   |   
+|   |   \---__tests__
+|   |           PipelineRegistry.test.ts
+|   |           
+|   +---planning
+|   |       PlanningEngine.ts
+|   |       
+|   +---plugins
+|   |       CognitivePlugin.ts
+|   |       CognitivePluginHost.ts
+|   |       index.ts
+|   |       
+|   +---prediction
+|   |       PredictionEngine.ts
+|   |       
+|   +---profile
+|   |       CognitiveProfile.ts
+|   |       index.ts
+|   |       
+|   +---reflection
+|   |       ReflectionEngine.ts
+|   |       
+|   +---registry
+|   |       CognitiveRegistry.ts
+|   |       index.ts
+|   |       
+|   +---report
+|   |       CognitiveReport.ts
+|   |       CognitiveReportBuilder.ts
+|   |       index.ts
+|   |       
+|   +---resources
+|   |       CognitiveResourceManager.ts
+|   |       index.ts
+|   |       
+|   +---result
+|   |   |   CognitiveResult.ts
+|   |   |   CognitiveResultBuilder.ts
+|   |   |   index.ts
+|   |   |   
+|   |   \---__tests__
+|   |           CognitiveResultBuilder.test.ts
+|   |           
+|   +---runtime
+|   |       CognitiveRuntime.ts
+|   |       index.ts
+|   |       
+|   +---scheduler
+|   |       CognitiveJob.ts
+|   |       CognitiveScheduler.ts
+|   |       index.ts
+|   |       
+|   +---self-evaluation
+|   |       SelfEvaluationEngine.ts
+|   |       
+|   +---services
+|   |   |   CognitiveKernelService.ts
+|   |   |   CognitiveResultService.ts
+|   |   |   index.ts
+|   |   |   
+|   |   \---__tests__
+|   |           CognitiveResultService.test.ts
+|   |           
+|   +---session
+|   |       CognitiveSession.ts
+|   |       index.ts
+|   |       
+|   +---snapshots
+|   |       CognitiveSnapshotStore.ts
+|   |       index.ts
+|   |       
+|   +---stages
+|   |       DecisionCognitiveStage.ts
+|   |       ExecutionCognitiveStage.ts
+|   |       index.ts
+|   |       KnowledgeCognitiveStage.ts
+|   |       MemoryCognitiveStage.ts
+|   |       PlanningCognitiveStage.ts
+|   |       PredictionCognitiveStage.ts
+|   |       ReasoningCognitiveStage.ts
+|   |       ReflectionCognitiveStage.ts
+|   |       
+|   +---tasks
+|   |       CognitiveTask.ts
+|   |       CognitiveTaskQueue.ts
+|   |       index.ts
+|   |       
+|   +---telemetry
+|   |       CognitiveTelemetry.ts
+|   |       index.ts
+|   |       
+|   +---version
+|   |       CognitiveVersion.ts
+|   |       index.ts
+|   |       
+|   +---working-memory
+|   |       WorkingMemory.ts
+|   |       
+|   +---world-model
+|   |       WorldModel.ts
+|   |       
+|   \---__tests__
+|           CognitivePipeline.integration.test.ts
+|           
++---container
+|       BrainContainer.ts
+|       IBrainContainer.ts
+|       index.ts
+|       
++---context
+|   |   ContextManager.ts
+|   |   index.ts
+|   |   
+|   \---runtime
+|           BrainContext.ts
+|           IBrainContext.ts
+|           index.ts
+|           
++---contracts
+|       IAgentManager.ts
+|       IContextManager.ts
+|       IDecisionManager.ts
+|       IEventManager.ts
+|       IExecutionManager.ts
+|       IKnowledgeManager.ts
+|       ILearningManager.ts
+|       IMemoryManager.ts
+|       index.ts
+|       IPlanningManager.ts
+|       IPredictionManager.ts
+|       IReasoningManager.ts
+|       IReflectionManager.ts
+|       ITelemetryManager.ts
+|       IToolManager.ts
+|       
++---core
+|       BrainKernel.ts
+|       BrainKernelBuilder.ts
+|       BrainKernelConfig.ts
+|       IBrainKernel.ts
+|       index.ts
+|       
++---decision
+|       ArchitectureDecision.ts
+|       ArchitectureDecisionEngine.ts
+|       DecisionManager.ts
+|       index.ts
+|       
++---events
+|   |   AnalysisCompletedEvent.ts
+|   |   ArchitectureUpdatedEvent.ts
+|   |   BrainEvent.ts
+|   |   BrainEventType.ts
+|   |   EventManager.ts
+|   |   index.ts
+|   |   KnowledgeUpdatedEvent.ts
+|   |   ProjectLoadedEvent.ts
+|   |   RiskDetectedEvent.ts
+|   |   TechnologyDetectedEvent.ts
+|   |   
+|   \---runtime
+|           BrainEvent.ts
+|           BrainEventBus.ts
+|           IBrainEvent.ts
+|           index.ts
+|           
++---execution
+|       ArchitectureExecutionPlan.ts
+|       ArchitectureExecutionPlanner.ts
+|       ExecutionManager.ts
+|       index.ts
+|       
++---factory
+|       BrainId.ts
+|       index.ts
+|       
++---graph
+|   |   AdjacencyGraph.ts
+|   |   BrainGraph.ts
+|   |   GraphAnalyzer.ts
+|   |   GraphEngine.ts
+|   |   GraphQuery.ts
+|   |   GraphTraversal.ts
+|   |   ImpactAnalyzer.ts
+|   |   index.ts
+|   |   
+|   \---models
+|           GraphEdge.ts
+|           GraphNode.ts
+|           index.ts
+|           
++---integration
+|   |   BrainRuntimeBridge.ts
+|   |   BrainRuntimeBridgeBuilder.ts
+|   |   BrainRuntimeBridgeBuilder.ts.bak
+|   |   BrainSystem.ts
+|   |   BrainSystemBuilder.ts
+|   |   index.ts
+|   |   
+|   +---decision
+|   |       DecisionBridge.ts
+|   |       index.ts
+|   |       
+|   +---execution
+|   |       ExecutionBridge.ts
+|   |       index.ts
+|   |       
+|   +---knowledge
+|   |       index.ts
+|   |       KnowledgeBridge.ts
+|   |       
+|   +---memory
+|   |       index.ts
+|   |       MemoryBridge.ts
+|   |       
+|   +---planning
+|   |       index.ts
+|   |       PlanningBridge.ts
+|   |       
+|   +---reasoning
+|   |       index.ts
+|   |       ReasoningBridge.ts
+|   |       
+|   \---__tests__
+|           BrainSystem.integration.test.ts
+|           
++---knowledge
+|       ArchitectureKnowledgeSynchronizer.ts
+|       IKnowledgeMapper.ts
+|       index.ts
+|       KnowledgeCategory.ts
+|       KnowledgeGraph.ts
+|       KnowledgeImpactAnalyzer.ts
+|       KnowledgeIndex.ts
+|       KnowledgeManager.ts
+|       KnowledgeNode.ts
+|       KnowledgePathFinder.ts
+|       KnowledgeRelation.ts
+|       KnowledgeRelationEngine.ts
+|       KnowledgeRelationIndex.ts
+|       KnowledgeRelationType.ts
+|       KnowledgeSynchronizer.ts
+|       MemoryKnowledgeMapper.ts
+|       
++---learning
+|       index.ts
+|       LearningEngine.ts
+|       LearningManager.ts
+|       
++---memory
+|   |   ArchitectureChangeTracker.ts
+|   |   ArchitectureHistory.ts
+|   |   ArchitectureMemory.ts
+|   |   index.ts
+|   |   LongTermMemory.ts
+|   |   MemoryEngine.ts
+|   |   MemoryEntry.ts
+|   |   MemoryManager.ts
+|   |   MemoryQuery.ts
+|   |   MemoryStore.ts
+|   |   
+|   +---persistence
+|   |       JsonPersistenceProvider.ts
+|   |       PersistenceContext.ts
+|   |       PersistenceProvider.ts
+|   |       
+|   +---semantic
+|   |       SemanticMemoryStore.ts
+|   |       
+|   +---session
+|   |       SessionMemoryStore.ts
+|   |       
+|   \---stores
+|           AbstractMemoryStore.ts
+|           
++---models
+|       AnalysisSnapshot.ts
+|       ArchitectureMemoryRecord.ts
+|       ArchitectureSimulationResult.ts
+|       ArchitectureSnapshot.ts
+|       BrainEdge.ts
+|       BrainNode.ts
+|       BrainNodeType.ts
+|       BrainRelationType.ts
+|       CapabilityReference.ts
+|       index.ts
+|       ProjectContext.ts
+|       ProjectKnowledge.ts
+|       ReasoningResult.ts
+|       ReasoningStep.ts
+|       RiskProfile.ts
+|       TechnologyProfile.ts
+|       
++---orchestrator
+|       ArchitectureOrchestrator.ts
+|       
++---planning
+|       ArchitecturePlan.ts
+|       ArchitecturePlanningEngine.ts
+|       index.ts
+|       PlanningManager.ts
+|       
++---prediction
+|       index.ts
+|       PredictionManager.ts
+|       
++---providers
+|       AnalysisKnowledgeProvider.ts
+|       ArchitectureKnowledgeProvider.ts
+|       CapabilityKnowledgeProvider.ts
+|       DependencyKnowledgeProvider.ts
+|       FileKnowledgeProvider.ts
+|       index.ts
+|       ModuleKnowledgeProvider.ts
+|       PluginKnowledgeProvider.ts
+|       ProjectKnowledgeProvider.ts
+|       RecommendationKnowledgeProvider.ts
+|       RiskKnowledgeProvider.ts
+|       ServiceKnowledgeProvider.ts
+|       TechnologyKnowledgeProvider.ts
+|       
++---reasoning
+|       BrainReasoner.ts
+|       index.ts
+|       Inference.ts
+|       ReasoningEngine.ts
+|       ReasoningManager.ts
+|       Rule.ts
+|       
++---reflection
+|       index.ts
+|       ReflectionManager.ts
+|       
++---registry
+|       BrainRegistry.ts
+|       EdgeRegistry.ts
+|       index.ts
+|       NodeRegistry.ts
+|       RegistryStatistics.ts
+|       
++---relationships
+|       BrainRelationshipBuilder.ts
+|       index.ts
+|       
++---runtime
+|   |   index.ts
+|   |   
+|   +---context
+|   |       index.ts
+|   |       RuntimeContext.ts
+|   |       RuntimeServicesContext.ts
+|   |       
+|   +---dispatcher
+|   |       BrainDispatcher.ts
+|   |       IBrainDispatcher.ts
+|   |       index.ts
+|   |       
+|   +---executor
+|   |       BrainExecutor.ts
+|   |       IBrainExecutor.ts
+|   |       index.ts
+|   |       
+|   +---host
+|   |       BrainRuntime.ts
+|   |       BrainRuntimeBuilder.ts
+|   |       IBrainRuntime.ts
+|   |       index.ts
+|   |       
+|   +---pipeline
+|   |   |   BrainPipeline.ts
+|   |   |   BrainPipelineBuilder.ts
+|   |   |   IBrainPipeline.ts
+|   |   |   index.ts
+|   |   |   IRuntimeStage.ts
+|   |   |   
+|   |   \---__tests__
+|   |           BrainPipeline.test.ts
+|   |           BrainPipeline.test.ts.bak
+|   |           
+|   +---scheduler
+|   |       BrainScheduler.ts
+|   |       IBrainScheduler.ts
+|   |       index.ts
+|   |       
+|   +---session
+|   |       BrainSession.ts
+|   |       IBrainSession.ts
+|   |       index.ts
+|   |       
+|   +---stages
+|   |   |   ArchitectureOrchestratorStage.ts
+|   |   |   DecisionStage.ts
+|   |   |   ExecutionStage.ts
+|   |   |   index.ts
+|   |   |   KnowledgeStage.ts
+|   |   |   MemoryStage.ts
+|   |   |   PlanningStage.ts
+|   |   |   ReasoningStage.ts
+|   |   |   
+|   |   \---__tests__
+|   |           ArchitectureOrchestratorStage.test.ts
+|   |           MemoryStage.test.ts
+|   |           
+|   \---__tests__
+|           BrainRuntime.integration.test.ts
+|           BrainRuntime.services.integration.test.ts
+|           
++---services
+|       BrainKnowledgeService.ts
+|       BrainService.ts
+|       BrainServiceRegistry.ts
+|       IBrainService.ts
+|       index.ts
+|       
++---simulation
+|       ArchitectureSimulationEngine.ts
+|       ChangeImpactSimulation.ts
+|       
++---state
+|       BrainState.ts
+|       IBrainState.ts
+|       index.ts
+|       
++---storage
+|       BrainKnowledgeExporter.ts
+|       BrainKnowledgeImporter.ts
+|       BrainStorage.ts
+|       FileBrainStorage.ts
+|       index.ts
+|       KnowledgePersistenceService.ts
+|       MemoryBrainStorage.ts
+|       
++---telemetry
+|       index.ts
+|       TelemetryManager.ts
+|       
++---tools
+|       index.ts
+|       ToolManager.ts
+|       
++---workflow
+|       ArchitectureWorkflow.ts
+|       ArchitectureWorkflowEngine.ts
+|       
+\---__tests__
+        ArchitectureAnalysisResult.test.ts
+        ArchitectureChangeTracker.test.ts
+        ArchitectureDecisionEngine.test.ts
+        ArchitectureExecutionPlanner.test.ts
+        ArchitectureHistory.test.ts
+        ArchitectureKnowledgeSynchronizer.test.ts
+        ArchitectureMemory.test.ts
+        ArchitectureOrchestrator.test.ts
+        ArchitecturePlanningEngine.test.ts
+        ArchitectureReasoningEngine.test.ts
+        ArchitectureSimulationEngine.test.ts
+        ArchitectureWorkflowEngine.test.ts
+        BrainBuilder.test.ts
+        BrainGraph.test.ts
+        BrainKnowledgeService.test.ts
+        BrainRelationshipBuilder.test.ts
+        ChangeImpactSimulation.test.ts
+        KnowledgeGraph.test.ts
+        KnowledgeImpactAnalyzer.test.ts
+        KnowledgePathFinder.test.ts
+        KnowledgeRelationEngine.test.ts
+        KnowledgeSynchronizer.test.ts
+        ReasoningEngine.test.ts
+        

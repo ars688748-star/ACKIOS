@@ -1,0 +1,232 @@
+
+src\visualization\universe\action\AnimationAction.ts:1:import type { UniverseAction } from "./UniverseAction.js";
+src\visualization\universe\action\AnimationAction.ts:13:    ):UniverseAction {
+src\visualization\universe\action\CameraAction.ts:1:import type { UniverseAction } from "./UniverseAction.js";
+src\visualization\universe\action\CameraAction.ts:13:    ):UniverseAction {
+src\visualization\universe\action\ObjectStateAction.ts:1:import type { UniverseAction } from "./UniverseAction.js";
+src\visualization\universe\action\ObjectStateAction.ts:15:    ):UniverseAction {
+src\visualization\universe\action\UniverseAction.ts:1:export type UniverseActionType =
+src\visualization\universe\action\UniverseAction.ts:10:export interface UniverseAction {
+src\visualization\universe\action\UniverseAction.ts:15:        UniverseActionType;
+src\visualization\universe\action\UniverseActionExecutor.ts:1:import type { UniverseAction } from "./UniverseAction.js";
+src\visualization\universe\action\UniverseActionExecutor.ts:5:export class UniverseActionExecutor {
+src\visualization\universe\action\UniverseActionExecutor.ts:11:        action:UniverseAction
+src\visualization\universe\action\UniverseActionFactory.ts:1:import { UniverseActionRuntime } from "./UniverseActionRuntime.js";
+src\visualization\universe\action\UniverseActionFactory.ts:5:export class UniverseActionFactory {
+src\visualization\universe\action\UniverseActionFactory.ts:12:        return new UniverseActionRuntime();
+src\visualization\universe\action\UniverseActionRuntime.ts:1:import { UniverseActionExecutor } from "./UniverseActionExecutor.js";
+src\visualization\universe\action\UniverseActionRuntime.ts:5:export class UniverseActionRuntime {
+src\visualization\universe\action\UniverseActionRuntime.ts:11:        new UniverseActionExecutor();
+src\visualization\universe\action\__tests__\UniverseActionExecutor.test.ts:3:import { UniverseActionExecutor } from "../UniverseActionExecutor.js";
+src\visualization\universe\action\__tests__\UniverseActionExecutor.test.ts:7:    "UniverseActionExecutor",
+src\visualization\universe\action\__tests__\UniverseActionExecutor.test.ts:18:                    new UniverseActionExecutor();
+src\visualization\universe\bridge\BrainUniverseBridge.ts:1:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\bridge\BrainUniverseBridge.ts:3:import { UniverseEventAdapter } from "./UniverseEventAdapter.js";
+src\visualization\universe\bridge\BrainUniverseBridge.ts:7:export interface UniverseEventReceiver {
+src\visualization\universe\bridge\BrainUniverseBridge.ts:12:        event: UniverseEvent
+src\visualization\universe\bridge\BrainUniverseBridge.ts:23:export class BrainUniverseBridge {
+src\visualization\universe\bridge\BrainUniverseBridge.ts:29:        new UniverseEventAdapter();
+src\visualization\universe\bridge\BrainUniverseBridge.ts:39:            UniverseEventReceiver
+src\visualization\universe\bridge\BrainUniverseBridge.ts:68:        const universeEvent =
+src\visualization\universe\bridge\BrainUniverseBridge.ts:80:            universeEvent
+src\visualization\universe\bridge\UniverseBridgeFactory.ts:1:import { BrainUniverseBridge } from "./BrainUniverseBridge.js";
+src\visualization\universe\bridge\UniverseBridgeFactory.ts:5:export class UniverseBridgeFactory {
+src\visualization\universe\bridge\UniverseBridgeFactory.ts:16:        return new BrainUniverseBridge(
+src\visualization\universe\bridge\UniverseEventAdapter.ts:1:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\bridge\UniverseEventAdapter.ts:37:export class UniverseEventAdapter {
+src\visualization\universe\bridge\UniverseEventAdapter.ts:45:    ): UniverseEvent {
+src\visualization\universe\bridge\UniverseEventAdapter.ts:59:                event.type as UniverseEvent["type"],
+src\visualization\universe\bridge\UniverseStateSynchronizer.ts:22:export interface UniverseState {
+src\visualization\universe\bridge\UniverseStateSynchronizer.ts:36:export class UniverseStateSynchronizer {
+src\visualization\universe\bridge\UniverseStateSynchronizer.ts:42:        UniverseState = {
+src\visualization\universe\bridge\UniverseStateSynchronizer.ts:62:    ): UniverseState {
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:3:import { UniverseEventAdapter } from "../UniverseEventAdapter.js";
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:7:    "UniverseEventAdapter",
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:18:                    new UniverseEventAdapter();
+src\visualization\universe\bridge\__tests__\UniverseStateSynchronizer.test.ts:3:import { UniverseStateSynchronizer } from "../UniverseStateSynchronizer.js";
+src\visualization\universe\bridge\__tests__\UniverseStateSynchronizer.test.ts:7:    "UniverseStateSynchronizer",
+src\visualization\universe\bridge\__tests__\UniverseStateSynchronizer.test.ts:18:                    new UniverseStateSynchronizer();
+src\visualization\universe\camera\UniverseCameraController.ts:4:export class UniverseCameraController {
+src\visualization\universe\camera\UniverseGalaxyCameraBridge.ts:10:export class UniverseGalaxyCameraBridge {
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:1:import type { UniverseEvent } from "../../events/UniverseEvent.js";
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:36:        event: UniverseEvent
+src\visualization\universe\camera\focus\CameraFocusExecutor.ts:3:import type { UniverseCameraController } from "../UniverseCameraController.js";
+src\visualization\universe\camera\focus\CameraFocusExecutor.ts:25:            UniverseCameraController
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:1:import type { UniverseEvent } from "../../events/UniverseEvent.js";
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:13:        event: UniverseEvent
+src\visualization\universe\camera\intelligence\CameraIntelligenceRuntime.ts:1:import type { UniverseEvent } from "../../events/UniverseEvent.js";
+src\visualization\universe\camera\intelligence\CameraIntelligenceRuntime.ts:21:        event: UniverseEvent
+src\visualization\universe\camera\__tests__\UniverseCameraController.test.ts:3:import { UniverseCameraController } from "../UniverseCameraController.js";
+src\visualization\universe\camera\__tests__\UniverseCameraController.test.ts:7:    "UniverseCameraController",
+src\visualization\universe\camera\__tests__\UniverseCameraController.test.ts:17:                    new UniverseCameraController();
+src\visualization\universe\camera\__tests__\UniverseCameraController.test.ts:78:                    new UniverseCameraController();
+src\visualization\universe\camera\__tests__\UniverseGalaxyCameraBridge.test.ts:6:import { UniverseGalaxyCameraBridge } from "../UniverseGalaxyCameraBridge.js";
+src\visualization\universe\camera\__tests__\UniverseGalaxyCameraBridge.test.ts:10:    "UniverseGalaxyCameraBridge",
+src\visualization\universe\camera\__tests__\UniverseGalaxyCameraBridge.test.ts:15:            "starts camera transition from universe focus request",
+src\visualization\universe\camera\__tests__\UniverseGalaxyCameraBridge.test.ts:30:                    new UniverseGalaxyCameraBridge(
+src\visualization\universe\controller\UniverseController.ts:1:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\controller\UniverseController.ts:3:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\controller\UniverseController.ts:6:import { UniverseLiveRuntime } from "../tick/UniverseLiveRuntime.js";
+src\visualization\universe\controller\UniverseController.ts:10:export class UniverseController {
+src\visualization\universe\controller\UniverseController.ts:18:            UniverseLiveRuntime
+src\visualization\universe\controller\UniverseController.ts:29:        universe: Universe
+src\visualization\universe\controller\UniverseController.ts:37:            universe
+src\visualization\universe\controller\UniverseController.ts:50:        event: UniverseEvent
+src\visualization\universe\controller\UniverseController.ts:52:    ): UniverseEvent {
+src\visualization\universe\controller\UniverseControllerFactory.ts:1:import { UniverseController } from "./UniverseController.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:3:import { UniverseLiveRuntime } from "../tick/UniverseLiveRuntime.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:5:import { UniverseSimulationRuntime } from "../simulation/UniverseSimulationRuntime.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:7:import { UniverseRuntime } from "../runtime/UniverseRuntime.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:9:import { UniverseRenderer } from "../renderer/UniverseRenderer.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:15:import { UniverseCameraController } from "../camera/UniverseCameraController.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:19:export class UniverseControllerFactory {
+src\visualization\universe\controller\UniverseControllerFactory.ts:25:        UniverseController {
+src\visualization\universe\controller\UniverseControllerFactory.ts:43:            new UniverseCameraController();
+src\visualization\universe\controller\UniverseControllerFactory.ts:51:            new UniverseRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:67:            new UniverseRenderer();
+src\visualization\universe\controller\UniverseControllerFactory.ts:75:            new UniverseSimulationRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:89:            new UniverseLiveRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:99:        return new UniverseController(
+src\visualization\universe\controller\__tests__\UniverseController.test.ts:3:import { UniverseControllerFactory } from "../UniverseControllerFactory.js";
+src\visualization\universe\controller\__tests__\UniverseController.test.ts:7:    "UniverseController",
+src\visualization\universe\controller\__tests__\UniverseController.test.ts:12:            "creates universe controller",
+src\visualization\universe\controller\__tests__\UniverseController.test.ts:18:                    UniverseControllerFactory.create();
+src\visualization\universe\engine\UniverseEngineBridge.ts:1:import { UniverseVisualEngine } from "./UniverseVisualEngine.js";
+src\visualization\universe\engine\UniverseEngineBridge.ts:4:export class UniverseEngineBridge {
+src\visualization\universe\engine\UniverseEngineBridge.ts:12:            UniverseVisualEngine
+src\visualization\universe\engine\UniverseRenderContext.ts:1:export interface UniverseRenderContext {
+src\visualization\universe\engine\UniverseVisualEngine.ts:1:import type { UniverseRenderContext } from "./UniverseRenderContext.js";
+src\visualization\universe\engine\UniverseVisualEngine.ts:4:export class UniverseVisualEngine {
+src\visualization\universe\engine\UniverseVisualEngine.ts:10:        context: UniverseRenderContext
+src\visualization\universe\engine\UniverseVisualEngine.ts:12:    ): UniverseRenderContext {
+src\visualization\universe\events\CometEvent.ts:1:import type { UniverseEvent } from "./UniverseEvent.js";
+src\visualization\universe\events\CometEvent.ts:5:    extends UniverseEvent {
+src\visualization\universe\events\PlanetAlert.ts:1:import type { UniverseEvent } from "./UniverseEvent.js";
+src\visualization\universe\events\PlanetAlert.ts:7:    extends UniverseEvent {
+src\visualization\universe\events\UniverseEvent.ts:1:export type UniverseEventType =
+src\visualization\universe\events\UniverseEvent.ts:10:export interface UniverseEvent {
+src\visualization\universe\events\UniverseEvent.ts:17:        UniverseEventType;
+src\visualization\universe\events\UniverseEventDispatcher.ts:1:import type { UniverseEvent } from "./UniverseEvent.js";
+src\visualization\universe\events\UniverseEventDispatcher.ts:3:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\events\UniverseEventDispatcher.ts:7:export class UniverseEventDispatcher {
+src\visualization\universe\events\UniverseEventDispatcher.ts:13:        event: UniverseEvent,
+src\visualization\universe\events\UniverseEventDispatcher.ts:15:        universe: Universe
+src\visualization\universe\events\UniverseEventDispatcher.ts:17:    ): Universe {
+src\visualization\universe\events\UniverseEventDispatcher.ts:23:            universe.objects.map(
+src\visualization\universe\events\UniverseEventDispatcher.ts:65:            ...universe,
+src\visualization\universe\frame\UniverseFrameLoop.ts:4:export class UniverseFrameLoop {
+src\visualization\universe\interaction\UniversePicker.ts:1:export class UniversePicker {
+src\visualization\universe\kernel\AckiosUniverseRuntime.ts:1:import { UniverseKernelFactory } from "./UniverseKernelFactory.js";
+src\visualization\universe\kernel\AckiosUniverseRuntime.ts:5:export class AckiosUniverseRuntime {
+src\visualization\universe\kernel\AckiosUniverseRuntime.ts:11:        UniverseKernelFactory.create();
+src\visualization\universe\kernel\AckiosUniverseRuntime.ts:19:        universe: any
+src\visualization\universe\kernel\AckiosUniverseRuntime.ts:26:            universe
+src\visualization\universe\kernel\UniverseKernelFactory.ts:1:import { UniverseRuntimeKernel } from "./UniverseRuntimeKernel.js";
+src\visualization\universe\kernel\UniverseKernelFactory.ts:3:import { UniverseSceneFactory } from "../scene/UniverseSceneFactory.js";
+src\visualization\universe\kernel\UniverseKernelFactory.ts:7:export class UniverseKernelFactory {
+src\visualization\universe\kernel\UniverseKernelFactory.ts:13:        UniverseRuntimeKernel {
+src\visualization\universe\kernel\UniverseKernelFactory.ts:16:        return new UniverseRuntimeKernel(
+src\visualization\universe\kernel\UniverseKernelFactory.ts:18:            UniverseSceneFactory.create()
+src\visualization\universe\kernel\UniverseKernelState.ts:1:export interface UniverseKernelState {
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:1:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:3:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:6:import { UniverseSceneRuntime } from "../scene/UniverseSceneRuntime.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:8:import { UniverseFrameLoop } from "../frame/UniverseFrameLoop.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:10:import { UniverseEngineBridge } from "../engine/UniverseEngineBridge.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:12:import { UniverseVisualEngine } from "../engine/UniverseVisualEngine.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:16:export class UniverseRuntimeKernel {
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:22:        new UniverseFrameLoop();
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:28:        new UniverseEngineBridge(
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:30:            new UniverseVisualEngine()
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:46:            UniverseSceneRuntime
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:57:        universe: Universe
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:83:                universe
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:126:        event: UniverseEvent
+src\visualization\universe\kernel\__tests__\UniverseRuntimeKernel.test.ts:3:import { UniverseKernelFactory } from "../UniverseKernelFactory.js";
+src\visualization\universe\kernel\__tests__\UniverseRuntimeKernel.test.ts:7:    "UniverseRuntimeKernel",
+src\visualization\universe\kernel\__tests__\UniverseRuntimeKernel.test.ts:18:                    UniverseKernelFactory.create();
+src\visualization\universe\model\Universe.ts:4:export interface Universe {
+src\visualization\universe\orbit\UniverseOrbitRuntime.ts:9:export class UniverseOrbitRuntime {
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:3:import { UniverseOrbitRuntime } from "../UniverseOrbitRuntime.js";
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:7:    "UniverseOrbitRuntime",
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:17:                    new UniverseOrbitRuntime();
+src\visualization\universe\reaction\ReactionRule.ts:1:export type UniverseReactionType =
+src\visualization\universe\reaction\ReactionRule.ts:22:        UniverseReactionType;
+src\visualization\universe\reaction\UniverseReactionEngine.ts:5:export class UniverseReactionEngine {
+src\visualization\universe\reaction\UniverseReactionFactory.ts:1:import { UniverseReactionRuntime } from "./UniverseReactionRuntime.js";
+src\visualization\universe\reaction\UniverseReactionFactory.ts:5:export class UniverseReactionFactory {
+src\visualization\universe\reaction\UniverseReactionFactory.ts:12:        return new UniverseReactionRuntime();
+src\visualization\universe\reaction\UniverseReactionRuntime.ts:1:import { UniverseReactionEngine } from "./UniverseReactionEngine.js";
+src\visualization\universe\reaction\UniverseReactionRuntime.ts:5:export class UniverseReactionRuntime {
+src\visualization\universe\reaction\UniverseReactionRuntime.ts:11:        new UniverseReactionEngine();
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:3:import { UniverseReactionRuntime } from "../UniverseReactionRuntime.js";
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:7:    "UniverseReactionRuntime",
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:18:                    new UniverseReactionRuntime();
+src\visualization\universe\release\UniverseReleaseState.ts:1:export interface UniverseReleaseState {
+src\visualization\universe\release\UniverseReleaseValidator.ts:1:export class UniverseReleaseValidator {
+src\visualization\universe\renderer\UniverseRenderer.ts:1:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\renderer\UniverseRenderer.ts:16:export type UniverseRenderObject =
+src\visualization\universe\renderer\UniverseRenderer.ts:30:export class UniverseRenderer {
+src\visualization\universe\renderer\UniverseRenderer.ts:62:        universe: Universe
+src\visualization\universe\renderer\UniverseRenderer.ts:64:    ): UniverseRenderObject[] {
+src\visualization\universe\renderer\UniverseRenderer.ts:68:        return universe.objects.map(
+src\visualization\universe\renderer\UniverseRenderer.ts:87:    ): UniverseRenderObject {
+src\visualization\universe\runtime\UniverseRuntime.ts:1:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\runtime\UniverseRuntime.ts:9:import type { UniverseCameraController } from "../camera/UniverseCameraController.js";
+src\visualization\universe\runtime\UniverseRuntime.ts:13:export class UniverseRuntime {
+src\visualization\universe\runtime\UniverseRuntime.ts:28:            UniverseCameraController
+src\visualization\universe\runtime\UniverseRuntime.ts:37:        event: UniverseEvent
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:3:import { UniverseRuntime } from "../UniverseRuntime.js";
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:9:import { UniverseCameraController } from "../../camera/UniverseCameraController.js";
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:14:    "UniverseRuntime",
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:34:                    new UniverseCameraController();
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:39:                    new UniverseRuntime(
+src\visualization\universe\scene\UniverseSceneFactory.ts:1:import { UniverseSceneRuntime } from "./UniverseSceneRuntime.js";
+src\visualization\universe\scene\UniverseSceneFactory.ts:3:import { UniverseControllerFactory } from "../controller/UniverseControllerFactory.js";
+src\visualization\universe\scene\UniverseSceneFactory.ts:7:export class UniverseSceneFactory {
+src\visualization\universe\scene\UniverseSceneFactory.ts:13:        UniverseSceneRuntime {
+src\visualization\universe\scene\UniverseSceneFactory.ts:17:        return new UniverseSceneRuntime(
+src\visualization\universe\scene\UniverseSceneFactory.ts:19:            UniverseControllerFactory.create()
+src\visualization\universe\scene\UniverseSceneRuntime.ts:1:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:3:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:5:import type { UniverseSceneState } from "./UniverseSceneState.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:8:import { UniverseController } from "../controller/UniverseController.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:14:import { UniverseCameraController } from "../camera/UniverseCameraController.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:18:export class UniverseSceneRuntime {
+src\visualization\universe\scene\UniverseSceneRuntime.ts:24:        new UniverseCameraController();
+src\visualization\universe\scene\UniverseSceneRuntime.ts:48:            UniverseController
+src\visualization\universe\scene\UniverseSceneRuntime.ts:59:        universe: Universe
+src\visualization\universe\scene\UniverseSceneRuntime.ts:61:    ): UniverseSceneState {
+src\visualization\universe\scene\UniverseSceneRuntime.ts:69:                universe
+src\visualization\universe\scene\UniverseSceneRuntime.ts:99:        event: UniverseEvent
+src\visualization\universe\scene\UniverseSceneState.ts:1:export interface UniverseSceneState {
+src\visualization\universe\scene\__tests__\UniverseSceneRuntime.test.ts:3:import { UniverseSceneFactory } from "../UniverseSceneFactory.js";
+src\visualization\universe\scene\__tests__\UniverseSceneRuntime.test.ts:7:    "UniverseSceneRuntime",
+src\visualization\universe\scene\__tests__\UniverseSceneRuntime.test.ts:18:                    UniverseSceneFactory.create();
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:1:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:3:import { UniverseOrbitRuntime } from "../orbit/UniverseOrbitRuntime.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:5:import { UniverseRenderer } from "../renderer/UniverseRenderer.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:7:import { UniverseRuntime } from "../runtime/UniverseRuntime.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:11:export class UniverseSimulationRuntime {
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:17:        new UniverseOrbitRuntime();
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:25:            UniverseRuntime,
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:30:            UniverseRenderer
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:39:        universe: Universe,
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:47:        for (const object of universe.objects) {
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:65:            universe
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:76:        event: Parameters<UniverseRuntime["process"]>[0]
+src\visualization\universe\simulation\__tests__\UniverseSimulationRuntime.test.ts:5:    "UniverseSimulationRuntime",
+src\visualization\universe\tick\UniverseLiveRuntime.ts:1:import type { Universe } from "../model/Universe.js";
+src\visualization\universe\tick\UniverseLiveRuntime.ts:3:import { UniverseSimulationRuntime } from "../simulation/UniverseSimulationRuntime.js";
+src\visualization\universe\tick\UniverseLiveRuntime.ts:5:import { UniverseTickEngine } from "./UniverseTickEngine.js";
+src\visualization\universe\tick\UniverseLiveRuntime.ts:9:export class UniverseLiveRuntime {
+src\visualization\universe\tick\UniverseLiveRuntime.ts:15:        new UniverseTickEngine();
+src\visualization\universe\tick\UniverseLiveRuntime.ts:25:            UniverseSimulationRuntime
+src\visualization\universe\tick\UniverseLiveRuntime.ts:36:        universe: Universe
+src\visualization\universe\tick\UniverseLiveRuntime.ts:50:            universe,
+src\visualization\universe\tick\UniverseTickEngine.ts:19:export class UniverseTickEngine {
+src\visualization\universe\tick\__tests__\UniverseLiveRuntime.test.ts:5:    "UniverseLiveRuntime",
+src\visualization\universe\tick\__tests__\UniverseTickEngine.test.ts:3:import { UniverseTickEngine } from "../UniverseTickEngine.js";
+src\visualization\universe\tick\__tests__\UniverseTickEngine.test.ts:7:    "UniverseTickEngine",
+src\visualization\universe\tick\__tests__\UniverseTickEngine.test.ts:18:                    new UniverseTickEngine();
+

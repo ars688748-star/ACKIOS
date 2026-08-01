@@ -1,0 +1,6 @@
+Структура папок
+Серийный номер тома: 00000142 BCD7:D012
+D:\ACKIOS\TOOLKIT\DESKTOP\SRC
+Путь задан неправильно: \ACKIOS\TOOLKIT\DESKTOP\SRC
+Подпапки отсутствуют 
+

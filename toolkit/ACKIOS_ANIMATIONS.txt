@@ -1,0 +1,104 @@
+
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:4:import { GalaxyAnimationEngine } from "./animation/GalaxyAnimationEngine.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:7:import { GalaxyCameraAnimationBridge } from "./camera/GalaxyCameraAnimationBridge.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:10:import { GalaxyCameraAnimationRuntime } from "./camera/GalaxyCameraAnimationRuntime.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:41:    public readonly animation =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:42:        new GalaxyAnimationEngine();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:51:    public readonly cameraAnimation =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:52:        new GalaxyCameraAnimationBridge(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:54:            this.animation
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:72:    public readonly cameraAnimationRuntime =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:73:        new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:75:            this.animation,
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:264:        this.cameraAnimationRuntime.startTransition(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:357:    public updateAnimation(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:364:        this.animation.update(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:376:        this.animation.reset();
+src\visualization\galaxy\animation\GalaxyAnimationEngine.ts:2:    GalaxyAnimationState
+src\visualization\galaxy\animation\GalaxyAnimationEngine.ts:3:} from "./GalaxyAnimationState.js";
+src\visualization\galaxy\animation\GalaxyAnimationEngine.ts:6:export class GalaxyAnimationEngine {
+src\visualization\galaxy\animation\GalaxyAnimationEngine.ts:9:    private state?: GalaxyAnimationState;
+src\visualization\galaxy\animation\GalaxyAnimationEngine.ts:98:        GalaxyAnimationState | undefined {
+src\visualization\galaxy\animation\GalaxyAnimationState.ts:1:export type GalaxyAnimationStatus =
+src\visualization\galaxy\animation\GalaxyAnimationState.ts:11:export interface GalaxyAnimationState {
+src\visualization\galaxy\animation\GalaxyAnimationState.ts:42:    readonly status: GalaxyAnimationStatus;
+src\visualization\galaxy\animation\__tests__\GalaxyAnimationEngine.test.ts:3:import { GalaxyAnimationEngine } from "../GalaxyAnimationEngine.js";
+src\visualization\galaxy\animation\__tests__\GalaxyAnimationEngine.test.ts:7:    "GalaxyAnimationEngine",
+src\visualization\galaxy\animation\__tests__\GalaxyAnimationEngine.test.ts:12:            "runs animation lifecycle",
+src\visualization\galaxy\animation\__tests__\GalaxyAnimationEngine.test.ts:17:                    new GalaxyAnimationEngine();
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:5:import { GalaxyAnimationEngine } from "../animation/GalaxyAnimationEngine.js";
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:9:export class GalaxyCameraAnimationBridge {
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:19:        private readonly animation:
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:21:            GalaxyAnimationEngine
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:40:        this.animation.start(
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:76:        this.animation.update(
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:85:    public getAnimationState() {
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:87:        return this.animation.getState();
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:1:import { GalaxyAnimationEngine } from "../animation/GalaxyAnimationEngine.js";
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:11:export class GalaxyCameraAnimationRuntime {
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:17:        private readonly animation:
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:18:            GalaxyAnimationEngine,
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:54:        this.animation.start(
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:84:        this.animation.update(
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:90:            this.animation.getState();
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:5:import { GalaxyCameraAnimationBridge } from "../GalaxyCameraAnimationBridge.js";
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:7:import { GalaxyAnimationEngine } from "../../animation/GalaxyAnimationEngine.js";
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:11:    "GalaxyCameraAnimationBridge",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:16:            "starts camera animation when focusing node",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:25:                const animation =
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:26:                    new GalaxyAnimationEngine();
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:31:                    new GalaxyCameraAnimationBridge(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:33:                        animation
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:64:                const animationState =
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:65:                    bridge.getAnimationState();
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:70:                    animationState
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:76:                    animationState?.status
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:3:import { GalaxyAnimationEngine } from "../../animation/GalaxyAnimationEngine.js";
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:11:import { GalaxyCameraAnimationRuntime } from "../GalaxyCameraAnimationRuntime.js";
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:16:    "GalaxyCameraAnimationRuntime",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:21:            "updates camera through animation runtime",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:25:                const animation =
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:26:                    new GalaxyAnimationEngine();
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:52:                    new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:54:                        animation,
+src\visualization\galaxy\events\GalaxyEvent.ts:11:    | "ANIMATION_STARTED";
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:44:                    galaxy.animation
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:55:                galaxy.cameraAnimation.focus({
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:75:                galaxy.updateAnimation(
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:81:                const animationState =
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:82:                    galaxy.animation.getState();
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:87:                    animationState
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:93:                    animationState?.progress
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:101:                    animationState?.status
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:32:                    galaxy.animation
+src\visualization\universe\action\AnimationAction.ts:5:export class AnimationAction {
+src\visualization\universe\action\AnimationAction.ts:22:                "animation",
+src\visualization\universe\action\AnimationAction.ts:33:                    animation:
+src\visualization\universe\action\UniverseAction.ts:4:    | "animation"
+src\visualization\universe\action\__tests__\UniverseActionExecutor.test.ts:29:                            "animation",
+src\visualization\universe\animation\PlanetPulseAnimation.ts:1:export type PlanetAnimationMode =
+src\visualization\universe\animation\PlanetPulseAnimation.ts:14:        PlanetAnimationMode;
+src\visualization\universe\animation\PlanetPulseAnimation.ts:33:export class PlanetPulseAnimation {
+src\visualization\universe\animation\PlanetPulseAnimation.ts:39:        mode: PlanetAnimationMode
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:3:import { PlanetPulseAnimation } from "../PlanetPulseAnimation.js";
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:7:    "PlanetPulseAnimation",
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:11:        const animation =
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:12:            new PlanetPulseAnimation();
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:22:                    animation.resolve(
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:47:            "pulse mode creates warning animation",
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:52:                    animation.resolve(
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:77:            "danger mode creates critical animation",
+src\visualization\universe\animation\__tests__\PlanetPulseAnimation.test.ts:82:                    animation.resolve(
+src\visualization\universe\controller\UniverseControllerFactory.ts:13:import { PlanetPulseAnimation } from "../animation/PlanetPulseAnimation.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:35:        const animation =
+src\visualization\universe\controller\UniverseControllerFactory.ts:37:            new PlanetPulseAnimation();
+src\visualization\universe\controller\UniverseControllerFactory.ts:55:                animation,
+src\visualization\universe\runtime\UniverseRuntime.ts:7:import type { PlanetPulseAnimation } from "../animation/PlanetPulseAnimation.js";
+src\visualization\universe\runtime\UniverseRuntime.ts:23:        private readonly animation:
+src\visualization\universe\runtime\UniverseRuntime.ts:24:            PlanetPulseAnimation,
+src\visualization\universe\runtime\UniverseRuntime.ts:71:        this.animation.resolve(
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:7:import { PlanetPulseAnimation } from "../../animation/PlanetPulseAnimation.js";
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:28:                const animation =
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:29:                    new PlanetPulseAnimation();
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:41:                        animation,
+

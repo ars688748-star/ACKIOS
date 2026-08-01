@@ -1,0 +1,7 @@
+
+FullName
+--------
+D:\ACKIOS\toolkit\src\visualization\galaxy\renderer
+D:\ACKIOS\toolkit\src\visualization\galaxy\rendering
+D:\ACKIOS\toolkit\src\visualization\universe\renderer
+

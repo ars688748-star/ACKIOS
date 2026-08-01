@@ -1,0 +1,126 @@
+
+desktop\dist\win-unpacked\resources\dist\main\index.js:1:import { app, shell, BrowserWindow, ipcMain } from 'electron';
+desktop\dist\win-unpacked\resources\dist\main\index.js:47:    ipcMain.on('ping', () => console.log('pong'));
+desktop\dist\win-unpacked\resources\dist\preload\index.js:1:import { contextBridge } from 'electron';
+desktop\dist\win-unpacked\resources\dist\preload\index.js:5:// Use `contextBridge` APIs to expose Electron APIs to
+desktop\dist\win-unpacked\resources\dist\preload\index.js:10:        contextBridge.exposeInMainWorld('electron', electronAPI);
+desktop\dist\win-unpacked\resources\dist\preload\index.js:11:        contextBridge.exposeInMainWorld('api', api);
+desktop\node_modules\electron\electron.d.ts:6945:  interface ContextBridge {
+desktop\node_modules\electron\electron.d.ts:8635:  interface IpcMain extends NodeJS.EventEmitter {
+desktop\node_modules\electron\electron.d.ts:8640:     * Alias for `ipcMain.on`.
+desktop\node_modules\electron\electron.d.ts:8642:    addListener(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8645:     * renderer calls `ipcRenderer.invoke(channel, ...args)`.
+desktop\node_modules\electron\electron.d.ts:8659:    handle(channel: string, listener: (event: IpcMainInvokeEvent, ...args: any[]) => (Promise<any>) | (any)): void;
+desktop\node_modules\electron\electron.d.ts:8662:     * `ipcMain.handle(channel, listener)`.
+desktop\node_modules\electron\electron.d.ts:8664:    handleOnce(channel: string, listener: (event: IpcMainInvokeEvent, ...args: any[]) => (Promise<any>) | (any)): void;
+desktop\node_modules\electron\electron.d.ts:8669:    off(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8674:    on(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8679:    once(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8690:     * Alias for `ipcMain.off`.
+desktop\node_modules\electron\electron.d.ts:8695:  interface IpcMainEvent extends Event {
+desktop\node_modules\electron\electron.d.ts:8738:  interface IpcMainInvokeEvent extends Event {
+desktop\node_modules\electron\electron.d.ts:8766:  class IpcMainServiceWorker extends NodeEventEmitter {
+desktop\node_modules\electron\electron.d.ts:8770:    handle(channel: string, listener: (event: IpcMainServiceWorkerInvokeEvent, ...args: any[]) => (Promise<any>) | (any)): void;
+desktop\node_modules\electron\electron.d.ts:8773:     * `ipcMainServiceWorker.handle(channel, listener)`.
+desktop\node_modules\electron\electron.d.ts:8775:    handleOnce(channel: string, listener: (event: IpcMainServiceWorkerInvokeEvent, ...args: any[]) => (Promise<any>) | (any)): void;
+desktop\node_modules\electron\electron.d.ts:8780:    on(channel: string, listener: (event: IpcMainServiceWorkerEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8785:    once(channel: string, listener: (event: IpcMainServiceWorkerEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8801:  interface IpcMainServiceWorkerEvent extends Event {
+desktop\node_modules\electron\electron.d.ts:8839:  interface IpcMainServiceWorkerInvokeEvent extends Event {
+desktop\node_modules\electron\electron.d.ts:8862:  interface IpcRenderer extends NodeJS.EventEmitter {
+desktop\node_modules\electron\electron.d.ts:8867:     * Alias for `ipcRenderer.on`.
+desktop\node_modules\electron\electron.d.ts:8869:    addListener(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8879:     * The main process should listen for `channel` with `ipcMain.handle()`.
+desktop\node_modules\electron\electron.d.ts:8884:     * `ipcRenderer.postMessage`.
+desktop\node_modules\electron\electron.d.ts:8886:     * If you do not need a response to the message, consider using `ipcRenderer.send`.
+desktop\node_modules\electron\electron.d.ts:8905:    off(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8912:     * function like this: `ipcRenderer.on('my-channel', (event, ...args) =>
+desktop\node_modules\electron\electron.d.ts:8917:    on(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8922:    once(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8943:     * Alias for `ipcRenderer.off`.
+desktop\node_modules\electron\electron.d.ts:8945:    removeListener(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): this;
+desktop\node_modules\electron\electron.d.ts:8961:     * The main process handles it by listening for `channel` with the `ipcMain`
+desktop\node_modules\electron\electron.d.ts:8965:     * `ipcRenderer.postMessage`.
+desktop\node_modules\electron\electron.d.ts:8968:     * of a method call, consider using `ipcRenderer.invoke`.
+desktop\node_modules\electron\electron.d.ts:8972:     * The value sent back by the `ipcMain` handler.
+desktop\node_modules\electron\electron.d.ts:8988:     * The main process handles it by listening for `channel` with `ipcMain` module,
+desktop\node_modules\electron\electron.d.ts:8997:     * Like `ipcRenderer.send` but the event will be sent to the `<webview>` element in
+desktop\node_modules\electron\electron.d.ts:9003:  interface IpcRendererEvent extends Event {
+desktop\node_modules\electron\electron.d.ts:9012:     * The `IpcRenderer` instance that emitted the event originally
+desktop\node_modules\electron\electron.d.ts:9014:    sender: IpcRenderer;
+desktop\node_modules\electron\electron.d.ts:11640:     * the `ipcRenderer` module.
+desktop\node_modules\electron\electron.d.ts:11655:     * An `IpcMainServiceWorker` instance scoped to the service worker.
+desktop\node_modules\electron\electron.d.ts:11659:    readonly ipc: IpcMainServiceWorker;
+desktop\node_modules\electron\electron.d.ts:16238:     * `ipcRenderer.send()`.
+desktop\node_modules\electron\electron.d.ts:16240:     * See also `webContents.ipc`, which provides an `IpcMain`-like interface for
+desktop\node_modules\electron\electron.d.ts:16243:    on(event: 'ipc-message', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16246:    off(event: 'ipc-message', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16249:    once(event: 'ipc-message', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16252:    addListener(event: 'ipc-message', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16255:    removeListener(event: 'ipc-message', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16260:     * `ipcRenderer.sendSync()`.
+desktop\node_modules\electron\electron.d.ts:16262:     * See also `webContents.ipc`, which provides an `IpcMain`-like interface for
+desktop\node_modules\electron\electron.d.ts:16265:    on(event: 'ipc-message-sync', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16268:    off(event: 'ipc-message-sync', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16271:    once(event: 'ipc-message-sync', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16274:    addListener(event: 'ipc-message-sync', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:16277:    removeListener(event: 'ipc-message-sync', listener: (event: IpcMainEvent,
+desktop\node_modules\electron\electron.d.ts:17501:     * `ipcRenderer` module.
+desktop\node_modules\electron\electron.d.ts:17709:     * An `IpcMain` scoped to just IPC messages sent from this WebContents.
+desktop\node_modules\electron\electron.d.ts:17711:     * IPC messages sent with `ipcRenderer.send`, `ipcRenderer.sendSync` or
+desktop\node_modules\electron\electron.d.ts:17712:     * `ipcRenderer.postMessage` will be delivered in the following order:
+desktop\node_modules\electron\electron.d.ts:17717:     * * `ipcMain.on(channel)`
+desktop\node_modules\electron\electron.d.ts:17724:     * * `ipcMain.handle(channel)`
+desktop\node_modules\electron\electron.d.ts:17736:    readonly ipc: IpcMain;
+desktop\node_modules\electron\electron.d.ts:18065:     * `ipcRenderer` module.
+desktop\node_modules\electron\electron.d.ts:18096:     * An `IpcMain` instance scoped to the frame.
+desktop\node_modules\electron\electron.d.ts:18098:     * IPC messages sent with `ipcRenderer.send`, `ipcRenderer.sendSync` or
+desktop\node_modules\electron\electron.d.ts:18099:     * `ipcRenderer.postMessage` will be delivered in the following order:
+desktop\node_modules\electron\electron.d.ts:18104:     * * `ipcMain.on(channel)`
+desktop\node_modules\electron\electron.d.ts:18111:     * * `ipcMain.handle(channel)`
+desktop\node_modules\electron\electron.d.ts:18120:    readonly ipc: IpcMain;
+desktop\node_modules\electron\electron.d.ts:19069:     * listening to the `channel` event with the `ipcRenderer` module.
+desktop\node_modules\electron\electron.d.ts:19083:     * listening to the `channel` event with the `ipcRenderer` module.
+desktop\node_modules\electron\electron.d.ts:23752:    type IpcMainEvent = Electron.IpcMainEvent;
+desktop\node_modules\electron\electron.d.ts:23753:    type IpcMainInvokeEvent = Electron.IpcMainInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:23754:    type IpcMainServiceWorkerEvent = Electron.IpcMainServiceWorkerEvent;
+desktop\node_modules\electron\electron.d.ts:23755:    type IpcMainServiceWorkerInvokeEvent = Electron.IpcMainServiceWorkerInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:23756:    type IpcRendererEvent = Electron.IpcRendererEvent;
+desktop\node_modules\electron\electron.d.ts:23848:    const ipcMain: IpcMain;
+desktop\node_modules\electron\electron.d.ts:23849:    type IpcMain = Electron.IpcMain;
+desktop\node_modules\electron\electron.d.ts:23850:    class IpcMainServiceWorker extends Electron.IpcMainServiceWorker {}
+desktop\node_modules\electron\electron.d.ts:24129:    type IpcMainEvent = Electron.IpcMainEvent;
+desktop\node_modules\electron\electron.d.ts:24130:    type IpcMainInvokeEvent = Electron.IpcMainInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:24131:    type IpcMainServiceWorkerEvent = Electron.IpcMainServiceWorkerEvent;
+desktop\node_modules\electron\electron.d.ts:24132:    type IpcMainServiceWorkerInvokeEvent = Electron.IpcMainServiceWorkerInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:24133:    type IpcRendererEvent = Electron.IpcRendererEvent;
+desktop\node_modules\electron\electron.d.ts:24199:    const contextBridge: ContextBridge;
+desktop\node_modules\electron\electron.d.ts:24200:    type ContextBridge = Electron.ContextBridge;
+desktop\node_modules\electron\electron.d.ts:24201:    const ipcRenderer: IpcRenderer;
+desktop\node_modules\electron\electron.d.ts:24202:    type IpcRenderer = Electron.IpcRenderer;
+desktop\node_modules\electron\electron.d.ts:24434:    type IpcMainEvent = Electron.IpcMainEvent;
+desktop\node_modules\electron\electron.d.ts:24435:    type IpcMainInvokeEvent = Electron.IpcMainInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:24436:    type IpcMainServiceWorkerEvent = Electron.IpcMainServiceWorkerEvent;
+desktop\node_modules\electron\electron.d.ts:24437:    type IpcMainServiceWorkerInvokeEvent = Electron.IpcMainServiceWorkerInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:24438:    type IpcRendererEvent = Electron.IpcRendererEvent;
+desktop\node_modules\electron\electron.d.ts:24738:    type IpcMainEvent = Electron.IpcMainEvent;
+desktop\node_modules\electron\electron.d.ts:24739:    type IpcMainInvokeEvent = Electron.IpcMainInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:24740:    type IpcMainServiceWorkerEvent = Electron.IpcMainServiceWorkerEvent;
+desktop\node_modules\electron\electron.d.ts:24741:    type IpcMainServiceWorkerInvokeEvent = Electron.IpcMainServiceWorkerInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:24742:    type IpcRendererEvent = Electron.IpcRendererEvent;
+desktop\node_modules\electron\electron.d.ts:24821:    const contextBridge: ContextBridge;
+desktop\node_modules\electron\electron.d.ts:24822:    type ContextBridge = Electron.ContextBridge;
+desktop\node_modules\electron\electron.d.ts:24840:    const ipcMain: IpcMain;
+desktop\node_modules\electron\electron.d.ts:24841:    type IpcMain = Electron.IpcMain;
+desktop\node_modules\electron\electron.d.ts:24842:    class IpcMainServiceWorker extends Electron.IpcMainServiceWorker {}
+desktop\node_modules\electron\electron.d.ts:24843:    const ipcRenderer: IpcRenderer;
+desktop\node_modules\electron\electron.d.ts:24844:    type IpcRenderer = Electron.IpcRenderer;
+desktop\node_modules\electron\electron.d.ts:25134:    type IpcMainEvent = Electron.IpcMainEvent;
+desktop\node_modules\electron\electron.d.ts:25135:    type IpcMainInvokeEvent = Electron.IpcMainInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:25136:    type IpcMainServiceWorkerEvent = Electron.IpcMainServiceWorkerEvent;
+desktop\node_modules\electron\electron.d.ts:25137:    type IpcMainServiceWorkerInvokeEvent = Electron.IpcMainServiceWorkerInvokeEvent;
+desktop\node_modules\electron\electron.d.ts:25138:    type IpcRendererEvent = Electron.IpcRendererEvent;
+desktop\node_modules\electron\electron.d.ts:25206:  const contextBridge: ContextBridge;
+desktop\node_modules\electron\electron.d.ts:25212:  const ipcMain: IpcMain;
+desktop\node_modules\electron\electron.d.ts:25213:  const ipcRenderer: IpcRenderer;
+

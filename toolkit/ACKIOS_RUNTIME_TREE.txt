@@ -1,0 +1,75 @@
+
+    Directory: D:\ACKIOS\toolkit\src\runtime
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                __tests__
+d----          25.07.2026     9:48                environment
+d----          25.07.2026     9:48                hardware
+d----          31.07.2026    11:22                lifecycle
+d----          31.07.2026    11:22                modules
+d----          25.07.2026     9:48                profile
+d----          31.07.2026    11:22                services
+-a---          31.07.2026    11:22            675 ACKIOSApplication.ts
+-a---          13.07.2026    21:25            526 ACKIOSApplication.ts.bak
+-a---          13.07.2026    21:47            162 ACKIOSContext.ts
+-a---          31.07.2026    11:22           1049 ACKIOSRuntime.before-lifecycle-interface.ts
+-a---          31.07.2026    11:22           1148 ACKIOSRuntime.before-runtime-status.ts
+-a---          31.07.2026    11:22           1148 ACKIOSRuntime.before-status-integration.ts
+-a---          31.07.2026    11:22           3483 ACKIOSRuntime.ts
+-a---          25.07.2026     9:57           1114 ACKIOSRuntime.ts.bak
+-a---          31.07.2026    11:22           1089 ACKIOSRuntimeBuilder.before-lifecycle.ts
+-a---          31.07.2026    11:22           1680 ACKIOSRuntimeBuilder.before-module-builder.ts
+-a---          31.07.2026    11:22           2644 ACKIOSRuntimeBuilder.before-refactor.ts
+-a---          31.07.2026    11:22           2644 ACKIOSRuntimeBuilder.before-service-builder.ts
+-a---          31.07.2026    11:22           1326 ACKIOSRuntimeBuilder.before-service-module-builder.ts
+-a---          31.07.2026    11:22           1089 ACKIOSRuntimeBuilder.ts
+-a---          13.07.2026    21:56           1785 ACKIOSRuntimeBuilder.ts.bak
+-a---          13.07.2026    21:33            240 bootstrap.ts
+-a---          13.07.2026    21:33            226 index.ts
+-a---          13.07.2026    21:48            235 IRuntimeModule.ts
+-a---          28.07.2026    15:41              0 RuntimeBootstrap.backup.ts
+-a---          31.07.2026    11:22            640 RuntimeBootstrap.ts
+
+    Directory: D:\ACKIOS\toolkit\src\runtime\lifecycle
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          31.07.2026    11:22            152 IRuntimeLifecycle.ts
+-a---          31.07.2026    11:22            601 RuntimeLifecycleCoordinator.before-interface.ts
+-a---          31.07.2026    11:22            759 RuntimeLifecycleCoordinator.before-registry.ts
+-a---          31.07.2026    11:22           1152 RuntimeLifecycleCoordinator.ts
+-a---          31.07.2026    11:22            259 RuntimeState.ts
+-a---          31.07.2026    11:22            215 RuntimeStatus.ts
+
+    Directory: D:\ACKIOS\toolkit\src\runtime\modules
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----          31.07.2026    11:22                builders
+-a---          31.07.2026    11:22            881 AdaptationModule.ts
+-a---          13.07.2026    21:50            670 ArchitectureModule.ts
+-a---          13.07.2026    21:49            719 BrainModule.ts
+-a---          31.07.2026    11:22            781 FirstRunRuntimeModule.ts
+-a---          31.07.2026    11:22            695 IntelligenceModule.ts
+-a---          15.07.2026    14:57            375 WorkspaceModule.ts
+
+    Directory: D:\ACKIOS\toolkit\src\runtime\modules\builders
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          31.07.2026    11:22            760 ACKIOSModuleRegistryBuilder.ts
+
+    Directory: D:\ACKIOS\toolkit\src\runtime\services
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          31.07.2026    11:22            507 ACKIOSServiceModuleRegistryBuilder.ts
+-a---          31.07.2026    11:22           2349 ACKIOSServiceRegistryBuilder.ts
+
+    Directory: D:\ACKIOS\toolkit\src\runtime\__tests__
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          31.07.2026    11:22           1161 GalaxyArchitectureRuntime.integration.test.ts
+

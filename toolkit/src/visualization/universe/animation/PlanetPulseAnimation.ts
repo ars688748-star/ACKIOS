@@ -4,35 +4,20 @@ export type PlanetAnimationMode =
     | "pulse"
     | "danger";
 
-
-
 export interface PlanetPulseState {
 
-
     readonly mode:
-
         PlanetAnimationMode;
 
-
-
     readonly intensity:
-
         number;
-
-
 
     readonly speed:
-
         number;
-
 
 }
 
-
-
 export class PlanetPulseAnimation {
-
-
 
     public resolve(
 
@@ -40,11 +25,7 @@ export class PlanetPulseAnimation {
 
     ): PlanetPulseState {
 
-
-
-        switch(mode) {
-
-
+        switch (mode) {
 
             case "pulse":
 
@@ -58,8 +39,6 @@ export class PlanetPulseAnimation {
 
                 };
 
-
-
             case "danger":
 
                 return {
@@ -72,11 +51,7 @@ export class PlanetPulseAnimation {
 
                 };
 
-
-
             case "idle":
-
-            default:
 
                 return {
 
@@ -88,11 +63,8 @@ export class PlanetPulseAnimation {
 
                 };
 
-
         }
 
-
     }
-
 
 }

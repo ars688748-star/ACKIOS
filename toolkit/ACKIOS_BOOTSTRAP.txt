@@ -1,0 +1,505 @@
+
+src\architecture\parser\DependencyResolver.ts:10:        if (!importPath.startsWith(".")) {
+src\architecture\parser\ImportResolver.ts:11:            importedPath.startsWith("./") ||
+src\architecture\parser\ImportResolver.ts:12:            importedPath.startsWith("../")
+src\architecture\rules\ContractsBoundaryRule.ts:16:                !node.name.startsWith("I") &&
+src\bin\acki.ts:3:import { bootstrap } from "../runtime/bootstrap.js";
+src\bin\acki.ts:7:    await bootstrap();
+src\brain\cognition\index.ts:15:export * from "./bootstrap/index.js";
+src\brain\cognition\index.ts:26:export * from "./bootstrap/index.js";
+src\brain\cognition\attention\AttentionEngine.ts:8:    async initialize(): Promise<void> {}
+src\brain\cognition\boot\CognitiveBootManager.ts:15:        await this.kernel.initialize();
+src\brain\cognition\boot\CognitiveBootManager.ts:19:        await this.runtime.initialize();
+src\brain\cognition\bootstrap\index.ts:1:export * from "./CognitiveBootstrap.js";
+src\brain\cognition\cause-effect\CauseEffectEngine.ts:18:    async initialize(): Promise<void> {}
+src\brain\cognition\decision\DecisionEngine.ts:8:    async initialize(): Promise<void> {}
+src\brain\cognition\execution\ExecutionEngine.ts:8:    async initialize(): Promise<void> {}
+src\brain\cognition\extensions\CognitiveExtension.ts:5:    initialize():Promise<void>;
+src\brain\cognition\factory\CognitiveRuntimeBuilder.ts:10:        return new CognitiveRuntime(
+src\brain\cognition\factory\CognitiveRuntimeFactory.ts:22:        const runtime = new CognitiveRuntimeBuilder().build();
+src\brain\cognition\goal-system\GoalEngine.ts:24:    async initialize(): Promise<void> {}
+src\brain\cognition\impact\ImpactAnalyzer.ts:18:    async initialize(): Promise<void> {}
+src\brain\cognition\integration\BrainCognitiveBridge.ts:12:    async initialize(): Promise<void> {
+src\brain\cognition\integration\BrainCognitiveBridge.ts:14:        await this.runtime.initialize();
+src\brain\cognition\interfaces\ICognitiveEngine.ts:5:    initialize(): Promise<void>;
+src\brain\cognition\interfaces\ICognitiveModule.ts:7:    initialize?(): Promise<void>;
+src\brain\cognition\interfaces\ICognitiveRuntime.ts:12:    initialize(): Promise<void>;
+src\brain\cognition\lifecycle\CognitiveLifecycle.ts:13:    initialize(){
+src\brain\cognition\lifecycle\CognitiveLifecycle.ts:15:        this.state=CognitiveState.Initialized;
+src\brain\cognition\lifecycle\CognitiveLifecycle.ts:19:    start(){
+src\brain\cognition\lifecycle\CognitiveState.ts:3:    Initialized="Initialized",
+src\brain\cognition\manager\CognitiveRuntimeManager.ts:10:    async start(): Promise<void> {
+src\brain\cognition\manager\CognitiveRuntimeManager.ts:12:        await this.runtime.initialize();
+src\brain\cognition\orchestrator\CognitiveOrchestrator.ts:13:    async initialize(): Promise<void> {
+src\brain\cognition\orchestrator\CognitiveOrchestrator.ts:17:            await engine.initialize();
+src\brain\cognition\perception\PerceptionEngine.ts:8:    async initialize(): Promise<void> {}
+src\brain\cognition\pipeline\CognitivePipeline.ts:36:    async initialize(): Promise<void>{
+src\brain\cognition\pipeline\CognitivePipeline.ts:40:            if(module.initialize){
+src\brain\cognition\pipeline\CognitivePipeline.ts:42:                await module.initialize();
+src\brain\cognition\planning\PlanningEngine.ts:8:    async initialize(): Promise<void> {}
+src\brain\cognition\plugins\CognitivePlugin.ts:5:    initialize():Promise<void>;
+src\brain\cognition\plugins\CognitivePluginHost.ts:13:    async initialize(): Promise<void> {
+src\brain\cognition\plugins\CognitivePluginHost.ts:17:            await plugin.initialize();
+src\brain\cognition\prediction\PredictionEngine.ts:8:    async initialize(): Promise<void> {}
+src\brain\cognition\reflection\ReflectionEngine.ts:8:    async initialize():Promise<void>{}
+src\brain\cognition\runtime\CognitiveRuntime.ts:30:    async initialize(): Promise<void> {
+src\brain\cognition\runtime\CognitiveRuntime.ts:32:        await this.pipeline.initialize();
+src\brain\cognition\self-evaluation\SelfEvaluationEngine.ts:18:    async initialize(): Promise<void> {}
+src\brain\cognition\services\CognitiveKernelService.ts:3:    private initialized = false;
+src\brain\cognition\services\CognitiveKernelService.ts:5:    async initialize(): Promise<void> {
+src\brain\cognition\services\CognitiveKernelService.ts:7:        this.initialized = true;
+src\brain\cognition\services\CognitiveKernelService.ts:13:        this.initialized = false;
+src\brain\cognition\services\CognitiveKernelService.ts:17:    isInitialized(): boolean {
+src\brain\cognition\services\CognitiveKernelService.ts:19:        return this.initialized;
+src\brain\cognition\session\CognitiveSession.ts:5:    readonly startedAt=new Date();
+src\brain\cognition\working-memory\WorkingMemory.ts:10:    async initialize(): Promise<void> {}
+src\brain\cognition\world-model\WorldModel.ts:10:    async initialize(): Promise<void> {}
+src\brain\cognition\__tests__\CognitivePipeline.integration.test.ts:11:        await runtime.initialize();
+src\brain\core\BrainKernel.ts:132:    public async initialize(): Promise<void> {
+src\brain\core\BrainKernel.ts:134:        await this.services.initialize();
+src\brain\core\BrainKernel.ts:136:        this.state.initialized = true;
+src\brain\core\BrainKernel.ts:141:    public async start(): Promise<void> {
+src\brain\core\BrainKernelBuilder.ts:57:        return new BrainKernel(
+src\brain\graph\GraphTraversal.ts:9:    breadthFirst(start:string):string[]{
+src\brain\graph\GraphTraversal.ts:13:        const queue=[start];
+src\brain\graph\GraphTraversal.ts:35:    depthFirst(start:string):string[]{
+src\brain\graph\GraphTraversal.ts:39:        const stack=[start];
+src\brain\integration\BrainRuntimeBridge.ts:13:    async initialize(): Promise<void> {
+src\brain\integration\BrainRuntimeBridge.ts:15:        await this.brain.start();
+src\brain\integration\BrainRuntimeBridge.ts:16:        await this.cognition.initialize();
+src\brain\integration\BrainRuntimeBridgeBuilder.ts:15:            new BrainRuntimeBuilder()
+src\brain\integration\BrainRuntimeBridgeBuilder.ts:23:        return new BrainRuntimeBridge(
+src\brain\integration\BrainSystem.ts:11:    public async initialize(): Promise<void> {
+src\brain\integration\BrainSystem.ts:13:        await this.kernel.initialize();
+src\brain\integration\BrainSystem.ts:17:    public async start(): Promise<void> {
+src\brain\integration\BrainSystem.ts:19:        await this.kernel.start();
+src\brain\integration\BrainSystemBuilder.ts:14:            new BrainKernelBuilder()
+src\brain\integration\BrainSystemBuilder.ts:18:            new BrainRuntimeBridgeBuilder()
+src\brain\integration\__tests__\BrainSystem.integration.test.ts:45:        await system.bridge.initialize();
+src\brain\memory\persistence\JsonPersistenceProvider.ts:8:    public async initialize(): Promise<void> {
+src\brain\memory\persistence\PersistenceProvider.ts:6:    initialize(): Promise<void>;
+src\brain\runtime\host\BrainRuntime.ts:23:    public async start(): Promise<void> {
+src\brain\runtime\host\BrainRuntime.ts:46:            await this.start();
+src\brain\runtime\host\BrainRuntimeBuilder.ts:17:        return new BrainRuntime(
+src\brain\runtime\host\IBrainRuntime.ts:6:    start(): Promise<void>;
+src\brain\runtime\__tests__\BrainRuntime.integration.test.ts:13:            new BrainRuntimeBuilder()
+src\brain\runtime\__tests__\BrainRuntime.integration.test.ts:51:            new BrainRuntimeBuilder()
+src\brain\runtime\__tests__\BrainRuntime.services.integration.test.ts:14:            new BrainKernelBuilder()
+src\brain\runtime\__tests__\BrainRuntime.services.integration.test.ts:19:            new BrainRuntimeBuilder()
+src\brain\services\BrainService.ts:7:    public async initialize(): Promise<void> {
+src\brain\services\BrainServiceRegistry.ts:23:    public async initialize(): Promise<void> {
+src\brain\services\BrainServiceRegistry.ts:25:            await service.initialize();
+src\brain\services\IBrainService.ts:5:    initialize(): Promise<void>;
+src\brain\state\BrainState.ts:5:    public initialized = false;
+src\brain\state\IBrainState.ts:3:    readonly initialized: boolean;
+src\brain\storage\KnowledgePersistenceService.ts:30:    public override async initialize(): Promise<void>{
+src\cli\commands\AnalyzeCommand.ts:22:            context.args.find(a => !a.startsWith("--"))
+src\cli\commands\AnalyzeCommand.ts:31:            context.args.find(a => a.startsWith("--format="));
+src\cli\commands\AnalyzeCommand.ts:34:            context.args.find(a => a.startsWith("--output="));
+src\cli\commands\ArchitectureValidateCommand.ts:15:            context.args.find(a => !a.startsWith("--"))
+src\cli\commands\IntelligenceCommand.ts:15:            context.args.find(a => !a.startsWith("--"))
+src\cli\commands\ReportCommand.ts:18:            context.args.find(a => !a.startsWith("--"))
+src\contracts\api\IBrainLifecycle.ts:3:    initialize(): Promise<void>;
+src\contracts\api\IBrainLifecycle.ts:5:    start(): Promise<void>;
+src\core\modules\PlatformModule.ts:94:            new RuntimeCapabilityProvider()
+src\core\modules\PlatformModule.ts:202:            new AdaptationRuntime(
+src\core\runtime\KernelContext.ts:5:    public readonly startedAt: Date;
+src\core\runtime\KernelContext.ts:16:        this.startedAt = new Date();
+src\core\runtime\KernelRuntime.ts:28:            new KernelContext(
+src\core\runtime\KernelRuntime.ts:34:            new KernelState();
+src\core\runtime\KernelRuntime.ts:55:    public start(): KernelContext {
+src\core\runtime\KernelRuntime.ts:59:            "starting";
+src\core\runtime\KernelRuntime.ts:76:        this.state.start();
+src\core\runtime\KernelState.ts:3:    | "starting"
+src\core\runtime\KernelState.ts:13:    public startedAt?: Date;
+src\core\runtime\KernelState.ts:23:    public start(): void {
+src\core\runtime\KernelState.ts:27:        this.startedAt = new Date();
+src\core\__tests__\KernelRuntime.test.ts:11:            "starts kernel with modules",
+src\core\__tests__\KernelRuntime.test.ts:15:                    new KernelRuntime();
+src\core\__tests__\KernelRuntime.test.ts:24:                    kernel.start();
+src\engine\recommendations\DependenciesRecommendation.ts:13:        return issue.id.startsWith(
+src\engine\recommendations\ScriptsRecommendation.ts:13:        return issue.id.startsWith(
+src\engine\recommendations\TsConfigRecommendation.ts:13:        return issue.id.startsWith(
+src\kernel\ACKIOSKernel.ts:28:    public async initialize(): Promise<void> {
+src\kernel\ACKIOSKernel.ts:30:        await this.runtime.initialize();
+src\kernel\ACKIOSKernel.ts:34:    public async start(): Promise<void> {
+src\kernel\ACKIOSKernel.ts:36:        await this.runtime.start();
+src\kernel\ACKIOSKernelBuilder.ts:9:            new ACKIOSRuntimeBuilder().build();
+src\kernel\ACKIOSKernelBuilder.ts:11:        return new ACKIOSKernel(runtime);
+src\kernel\contracts\IKernel.ts:3:    initialize(): Promise<void>;
+src\kernel\contracts\IKernel.ts:5:    start(): Promise<void>;
+src\kernel\events\events\RuntimeStartedEvent.ts:3:export class RuntimeStartedEvent implements IEvent {
+src\kernel\events\events\RuntimeStartedEvent.ts:5:    public readonly type = "RuntimeStarted";
+src\platform\PlatformManager.ts:32:    public async initialize(): Promise<void> {
+src\platform\PlatformManager.ts:36:        await this.brain.initialize();
+src\platform\PlatformManager.ts:40:    public async start(): Promise<void> {
+src\platform\PlatformManager.ts:42:        await this.brain.start();
+src\platform\PlatformManager.ts:52:    public async restart(): Promise<void> {
+src\platform\PlatformManager.ts:56:        await this.start();
+src\platform\adaptation\__tests__\AdaptationRuntime.test.ts:60:                    new AdaptationRuntime(
+src\platform\bootstrap\contracts\IBootstrapRuntime.ts:1:import { BootstrapContext } from "../models/BootstrapContext.js";
+src\platform\bootstrap\contracts\IBootstrapRuntime.ts:3:export interface IBootstrapRuntime {
+src\platform\bootstrap\contracts\IBootstrapRuntime.ts:5:    start(
+src\platform\bootstrap\contracts\IBootstrapRuntime.ts:6:        context: BootstrapContext
+src\platform\bootstrap\models\BootstrapContext.ts:1:export interface BootstrapContext {
+src\platform\bootstrap\models\BootstrapContext.ts:9:    initialized: boolean;
+src\platform\bootstrap\services\BootstrapRuntime.ts:1:import { IBootstrapRuntime } from "../contracts/IBootstrapRuntime.js";
+src\platform\bootstrap\services\BootstrapRuntime.ts:2:import { BootstrapContext } from "../models/BootstrapContext.js";
+src\platform\bootstrap\services\BootstrapRuntime.ts:7:export class BootstrapRuntime implements IBootstrapRuntime {
+src\platform\bootstrap\services\BootstrapRuntime.ts:15:    public async start(
+src\platform\bootstrap\services\BootstrapRuntime.ts:16:        context: BootstrapContext
+src\platform\bootstrap\services\BootstrapRuntime.ts:27:        const initialized =
+src\platform\bootstrap\services\BootstrapRuntime.ts:34:        if (!initialized) {
+src\platform\bootstrap\services\BootstrapRuntime.ts:41:        context.initialized = true;
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:3:import { BootstrapRuntime } from "../services/BootstrapRuntime.js";
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:6:describe("BootstrapRuntime", () => {
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:9:    it("starts first run when installation is completed", async () => {
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:20:            new BootstrapRuntime(
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:33:            initialized: false
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:39:            await runtime.start(context);
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:46:        expect(context.initialized)
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:64:            new BootstrapRuntime(
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:70:            await runtime.start({
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:76:                initialized: false
+src\platform\contracts\IPlatformLifecycle.ts:4:    initialize(): Promise<void>;
+src\platform\contracts\IPlatformLifecycle.ts:5:    start(): Promise<void>;
+src\platform\contracts\IPlatformLifecycle.ts:7:    restart(): Promise<void>;
+src\platform\environment\adaptation\__tests__\EnvironmentAdapter.test.ts:17:                    new RuntimeCompatibilityChecker();
+src\platform\environment\detection\__tests__\RuntimeEnvironmentDetector.test.ts:18:                    new RuntimeEnvironmentDetector(
+src\platform\installer\BootstrapService.ts:4:export class BootstrapService {
+src\platform\installer\BootstrapService.ts:7:    public async bootstrap(
+src\platform\installer\orchestration\PlatformInstallationOrchestrator.ts:69:                initialized:
+src\platform\installer\orchestration\PlatformInstallationOrchestrator.ts:84:                lastStartTime:
+src\platform\integration\BrainIntegration.before-di.ts:7:    private readonly bridge = new BrainRuntimeBridge(
+src\platform\integration\BrainIntegration.before-di.ts:8:        new BrainRuntimeBuilder().build(),
+src\platform\integration\BrainIntegration.before-di.ts:12:    public async initialize(): Promise<void> {
+src\platform\integration\BrainIntegration.before-di.ts:16:    public async start(): Promise<void> {
+src\platform\integration\BrainIntegration.before-di.ts:18:        await this.bridge.initialize();
+src\platform\integration\BrainIntegration.ts:11:            new BrainRuntimeBridge(
+src\platform\integration\BrainIntegration.ts:13:                new BrainRuntimeBuilder().build(),
+src\platform\integration\BrainIntegration.ts:27:    public async initialize(): Promise<void> {
+src\platform\integration\BrainIntegration.ts:31:    public async start(): Promise<void> {
+src\platform\integration\BrainIntegration.ts:33:        await this.bridge.initialize();
+src\platform\integration\DashboardIntegration.ts:3:    initialize(): void {
+src\platform\integration\WorkflowIntegration.ts:3:    initialize(): void {
+src\platform\lifecycle\models\PlatformLifecycleState.ts:5:    Initialized = "Initialized",
+src\platform\lifecycle\models\PlatformLifecycleState.ts:6:    Starting = "Starting",
+src\platform\lifecycle\services\PlatformHealthService.ts:23:        return PlatformLifecycleState.Initialized;
+src\platform\runtime\FirstRunCoordinator.ts:114:                initialized:
+src\platform\runtime\FirstRunCoordinator.ts:129:                lastStartTime:
+src\platform\runtime\IPlatformRuntime.ts:6:    start(
+src\platform\runtime\PlatformRuntime.ts:3:import { BootstrapRuntime } from "../bootstrap/services/BootstrapRuntime.js";
+src\platform\runtime\PlatformRuntime.ts:11:        private readonly bootstrapRuntime: BootstrapRuntime,
+src\platform\runtime\PlatformRuntime.ts:16:    public async start(
+src\platform\runtime\PlatformRuntime.ts:36:            await this.bootstrapRuntime.start({
+src\platform\runtime\PlatformRuntime.ts:44:                initialized: false
+src\platform\runtime\composition\AckiosRuntimeComposition.ts:25:            new BrainRuntimeModule(),
+src\platform\runtime\composition\AckiosRuntimeComposition.ts:28:            new UniverseRuntimeModule(),
+src\platform\runtime\composition\AckiosRuntimeComposition.ts:31:            new WorkflowRuntimeModule()
+src\platform\runtime\composition\BrainRuntimeModule.ts:20:    public start():
+src\platform\runtime\composition\RuntimeCompositionFactory.ts:11:        return new AckiosRuntimeComposition();
+src\platform\runtime\composition\UniverseRuntimeModule.ts:20:    public start():
+src\platform\runtime\composition\WorkflowRuntimeModule.ts:20:    public start():
+src\platform\runtime\config\RuntimeConfigService.ts:13:        new RuntimeConfigLoader();
+src\platform\runtime\config\RuntimeConfigService.ts:26:    public initialize():
+src\platform\runtime\config\RuntimeConfigService.ts:50:            this.initialize();
+src\platform\runtime\config\__tests__\RuntimeConfigService.test.ts:23:                    new RuntimeConfigService();
+src\platform\runtime\container\RuntimeContainerFactory.ts:23:            return new RuntimeContainer(
+src\platform\runtime\container\RuntimeContainerFactory.ts:31:            new MemoryRuntimeStateStorage();
+src\platform\runtime\container\RuntimeContainerFactory.ts:35:            new RuntimeStateManager(
+src\platform\runtime\container\RuntimeContainerFactory.ts:41:            new RuntimeEventBus();
+src\platform\runtime\container\RuntimeContainerFactory.ts:45:            new RuntimeRecoveryManager();
+src\platform\runtime\container\RuntimeContainerFactory.ts:49:            new RuntimeRecoveryExecutor();
+src\platform\runtime\container\RuntimeContainerFactory.ts:53:            new RuntimeRecoveryService(
+src\platform\runtime\container\RuntimeContainerFactory.ts:61:            new RuntimeRecoveryCoordinator(
+src\platform\runtime\container\RuntimeContainerFactory.ts:68:            start:
+src\platform\runtime\container\RuntimeContainerFactory.ts:73:        return new RuntimeContainer({
+src\platform\runtime\container\__tests__\RuntimeContainer.test.ts:33:                    new RuntimeContainer(
+src\platform\runtime\core\AckiosRuntimeOrchestrator.ts:15:        new RuntimeLifecycleManager();
+src\platform\runtime\core\AckiosRuntimeOrchestrator.ts:21:        new RuntimeHealthMonitor();
+src\platform\runtime\core\AckiosRuntimeOrchestrator.ts:64:    public start():
+src\platform\runtime\core\AckiosRuntimeOrchestrator.ts:69:        this.lifecycle.startAll();
+src\platform\runtime\core\RuntimeLifecycleManager.ts:37:    public startAll():
+src\platform\runtime\core\RuntimeLifecycleManager.ts:45:            module.start();
+src\platform\runtime\core\RuntimeModule.ts:10:    start():
+src\platform\runtime\core\RuntimeOrchestratorFactory.ts:12:        return new AckiosRuntimeOrchestrator();
+src\platform\runtime\core\__tests__\AckiosRuntimeOrchestrator.test.ts:14:            "registers and starts modules",
+src\platform\runtime\core\__tests__\AckiosRuntimeOrchestrator.test.ts:24:                let started = false;
+src\platform\runtime\core\__tests__\AckiosRuntimeOrchestrator.test.ts:36:                    start(){
+src\platform\runtime\core\__tests__\AckiosRuntimeOrchestrator.test.ts:38:                        started = true;
+src\platform\runtime\core\__tests__\AckiosRuntimeOrchestrator.test.ts:57:                orchestrator.start();
+src\platform\runtime\core\__tests__\AckiosRuntimeOrchestrator.test.ts:63:                    started
+src\platform\runtime\diagnostics\RuntimeDiagnosticsFactory.ts:12:        return new RuntimeDiagnosticsService();
+src\platform\runtime\diagnostics\RuntimeDiagnosticsService.ts:13:        new RuntimeDiagnosticsEngine();
+src\platform\runtime\diagnostics\__tests__\RuntimeDiagnosticsEngine.test.ts:23:                    new RuntimeDiagnosticsEngine();
+src\platform\runtime\events\RuntimeEvent.ts:2:    | "runtime.started"
+src\platform\runtime\events\RuntimeEvent.ts:3:    | "runtime.initialized"
+src\platform\runtime\events\__tests__\RuntimeEventBus.test.ts:16:                    new RuntimeEventBus();
+src\platform\runtime\events\__tests__\RuntimeEventBus.test.ts:35:                        "runtime.started",
+src\platform\runtime\lifecycle\IRuntimeLifecycleCoordinator.ts:7:    start(
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:24:    public async start(
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:29:        const started =
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:30:            await this.platformRuntime.start(
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:35:        if (!started) {
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:51:                initialized: false,
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:53:                message: "Platform runtime failed to start"
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:69:            initialized:
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:84:            lastStartTime:
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:92:            type: "runtime.started",
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:102:            type: "runtime.initialized",
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:114:            initialized: true,
+src\platform\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:116:            message: "Runtime started successfully"
+src\platform\runtime\lifecycle\RuntimeLifecycleResult.ts:5:    initialized: boolean;
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:12:            "starts runtime successfully",
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:18:                    start:
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:45:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:49:                    new RuntimeLifecycleCoordinator(
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:58:                    await coordinator.start({
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:78:                    result.initialized
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:92:                .toBe("runtime.started");
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:106:                    start:
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:126:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:130:                    new RuntimeLifecycleCoordinator(
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:139:                    await coordinator.start({
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:157:                    result.initialized
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleTransitionEngine.test.ts:15:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleTransitionEngine.test.ts:36:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleTransitionEngine.test.ts:57:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\recovery\RuntimeRecoveryDecision.ts:4:    | "restart"
+src\platform\runtime\recovery\RuntimeRecoveryExecutor.ts:18:            case "restart":
+src\platform\runtime\recovery\RuntimeRecoveryExecutor.ts:20:                return "Restart runtime installation";
+src\platform\runtime\recovery\RuntimeRecoveryManager.ts:21:                return "restart";
+src\platform\runtime\recovery\RuntimeRecoveryManager.ts:51:                return "restart";
+src\platform\runtime\recovery\RuntimeRecoveryService.ts:34:                "restart"
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryCoordinator.test.ts:16:                    new RuntimeRecoveryCoordinator(
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryExecutor.test.ts:11:            new RuntimeRecoveryExecutor();
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryExecutor.test.ts:16:            "executes restart recovery",
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryExecutor.test.ts:21:                        "restart"
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryExecutor.test.ts:25:                    "Restart runtime installation"
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:11:            new RuntimeRecoveryManager();
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:16:            "returns restart for created state",
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:22:                        initialized: false,
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:35:                .toBe("restart");
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:49:                        initialized: false,
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:76:                        initialized: true,
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:103:                        initialized: true,
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:18:                    new RuntimeRecoveryService(
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:25:                                    initialized: false,
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:41:                        new RuntimeRecoveryManager(),
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:44:                        new RuntimeRecoveryExecutor()
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:69:            "restarts when state is missing",
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:74:                    new RuntimeRecoveryService(
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:84:                        new RuntimeRecoveryManager(),
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:87:                        new RuntimeRecoveryExecutor()
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:102:                    "Restart runtime installation"
+src\platform\runtime\registry\RuntimeBootstrap.ts:11:export class RuntimeBootstrap {
+src\platform\runtime\registry\RuntimeBootstrap.ts:17:        new RuntimeModuleRegistry();
+src\platform\runtime\registry\RuntimeBootstrap.ts:23:        new RuntimeDiscovery();
+src\platform\runtime\registry\RuntimeBootstrap.ts:29:    public initialize(
+src\platform\runtime\registry\__tests__\RuntimeDiscovery.test.ts:18:                    new RuntimeDiscovery();
+src\platform\runtime\registry\__tests__\RuntimeDiscovery.test.ts:33:                            start(){},
+src\platform\runtime\registry\__tests__\RuntimeModuleRegistry.test.ts:18:                    new RuntimeModuleRegistry();
+src\platform\runtime\registry\__tests__\RuntimeModuleRegistry.test.ts:30:                    start(){},
+src\platform\runtime\startup\RuntimeStartupFactory.ts:1:import { RuntimeStartupService } from "./RuntimeStartupService.js";
+src\platform\runtime\startup\RuntimeStartupFactory.ts:5:export class RuntimeStartupFactory {
+src\platform\runtime\startup\RuntimeStartupFactory.ts:11:        RuntimeStartupService {
+src\platform\runtime\startup\RuntimeStartupFactory.ts:14:        return new RuntimeStartupService();
+src\platform\runtime\startup\RuntimeStartupPipeline.ts:1:import type { RuntimeStartupStep } from "./RuntimeStartupStep.js";
+src\platform\runtime\startup\RuntimeStartupPipeline.ts:3:import type { RuntimeStartupReport } from "./RuntimeStartupReport.js";
+src\platform\runtime\startup\RuntimeStartupPipeline.ts:7:export class RuntimeStartupPipeline {
+src\platform\runtime\startup\RuntimeStartupPipeline.ts:13:        RuntimeStartupStep[] = [];
+src\platform\runtime\startup\RuntimeStartupPipeline.ts:21:        step: RuntimeStartupStep
+src\platform\runtime\startup\RuntimeStartupPipeline.ts:37:        RuntimeStartupReport {
+src\platform\runtime\startup\RuntimeStartupReport.ts:1:export interface RuntimeStartupReport {
+src\platform\runtime\startup\RuntimeStartupService.ts:1:import type { RuntimeStartupReport } from "./RuntimeStartupReport.js";
+src\platform\runtime\startup\RuntimeStartupService.ts:3:import { RuntimeStartupPipeline } from "./RuntimeStartupPipeline.js";
+src\platform\runtime\startup\RuntimeStartupService.ts:7:export class RuntimeStartupService {
+src\platform\runtime\startup\RuntimeStartupService.ts:13:        new RuntimeStartupPipeline();
+src\platform\runtime\startup\RuntimeStartupService.ts:19:    public start():
+src\platform\runtime\startup\RuntimeStartupService.ts:21:        RuntimeStartupReport {
+src\platform\runtime\startup\RuntimeStartupStep.ts:1:export interface RuntimeStartupStep {
+src\platform\runtime\startup\__tests__\RuntimeStartupPipeline.test.ts:3:import { RuntimeStartupPipeline } from "../RuntimeStartupPipeline.js";
+src\platform\runtime\startup\__tests__\RuntimeStartupPipeline.test.ts:9:    "RuntimeStartupPipeline",
+src\platform\runtime\startup\__tests__\RuntimeStartupPipeline.test.ts:16:            "executes startup steps",
+src\platform\runtime\startup\__tests__\RuntimeStartupPipeline.test.ts:23:                    new RuntimeStartupPipeline();
+src\platform\runtime\startup\__tests__\RuntimeStartupService.test.ts:3:import { RuntimeStartupFactory } from "../RuntimeStartupFactory.js";
+src\platform\runtime\startup\__tests__\RuntimeStartupService.test.ts:9:    "RuntimeStartupService",
+src\platform\runtime\startup\__tests__\RuntimeStartupService.test.ts:16:            "starts runtime",
+src\platform\runtime\startup\__tests__\RuntimeStartupService.test.ts:23:                    RuntimeStartupFactory.create();
+src\platform\runtime\startup\__tests__\RuntimeStartupService.test.ts:29:                    "initialize"
+src\platform\runtime\startup\__tests__\RuntimeStartupService.test.ts:37:                    service.start();
+src\platform\runtime\state\RuntimeState.ts:6:    initialized: boolean;
+src\platform\runtime\state\RuntimeState.ts:17:    lastStartTime?: string;
+src\platform\runtime\state\__tests__\FirstRunRuntimeState.test.ts:14:        initialized: true,
+src\platform\runtime\state\__tests__\FirstRunRuntimeState.test.ts:62:                    new RuntimeStateManager(
+src\platform\runtime\state\__tests__\RuntimeStateIntegration.test.ts:58:                    new RuntimeStateManager(
+src\platform\runtime\state\__tests__\RuntimeStateIntegration.test.ts:65:                    initialized: true,
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:53:                    new MemoryRuntimeStateStorage();
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:57:                    new RuntimeStateManager(storage);
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:63:                    initialized: true,
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:69:                    lastStartTime:
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:99:                    new MemoryRuntimeStateStorage();
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:103:                    new RuntimeStateManager(storage);
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:109:                    initialized: true,
+src\platform\runtime\universe\UniversePlatformBridge.ts:21:    public initialize():
+src\platform\runtime\universe\UniversePlatformBridge.ts:26:        this.universe.start();
+src\platform\runtime\universe\UniverseRuntimeAdapter.ts:4:    start():
+src\platform\runtime\universe\UniverseRuntimeAdapter.ts:38:    public start():
+src\platform\runtime\universe\UniverseRuntimeService.ts:21:    public start():
+src\platform\runtime\universe\UniverseRuntimeService.ts:26:        this.adapter.start();
+src\platform\runtime\universe\__tests__\UniverseRuntimeAdapter.test.ts:12:            "starts runtime",
+src\platform\runtime\universe\__tests__\UniverseRuntimeAdapter.test.ts:18:                    new DefaultUniverseRuntimeAdapter();
+src\platform\runtime\universe\__tests__\UniverseRuntimeAdapter.test.ts:22:                adapter.start();
+src\platform\runtime\universe\__tests__\UniverseRuntimeService.test.ts:20:                    new UniverseRuntimeService(
+src\platform\runtime\universe\__tests__\UniverseRuntimeService.test.ts:22:                        new DefaultUniverseRuntimeAdapter()
+src\platform\runtime\universe\__tests__\UniverseRuntimeService.test.ts:28:                service.start();
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:9:    it("starts runtime when installation exists", async () => {
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:12:        const bootstrapRuntime = {
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:14:            start: async () => true
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:20:            new PlatformRuntime(
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:21:                bootstrapRuntime as any
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:39:            await runtime.start(context);
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:57:        const bootstrapRuntime = {
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:59:            start: async () => true
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:65:            new PlatformRuntime(
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:66:                bootstrapRuntime as any
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:71:            await runtime.start({
+src\release\docs\DocumentationService.ts:40:                    "First Start",
+src\release\documentation\InstallationGuide.ts:16:            "Start Platform"
+src\release\execution\ReleaseExecutionState.ts:4:    | "initialized"
+src\release\platform\CrossPlatformValidator.ts:31:        new RuntimeCompatibility();
+src\release\validation\ReleaseValidationService.ts:36:            new RuntimeValidator().validate()
+src\runtime\ACKIOSApplication.ts:8:        new ACKIOSKernelBuilder().build();
+src\runtime\ACKIOSApplication.ts:16:    public initialize() {
+src\runtime\ACKIOSApplication.ts:18:        return this.kernel.initialize();
+src\runtime\ACKIOSApplication.ts:22:    public start() {
+src\runtime\ACKIOSApplication.ts:24:        return this.kernel.start();
+src\runtime\ACKIOSRuntime.before-lifecycle-interface.ts:23:    public async initialize(): Promise<void> {
+src\runtime\ACKIOSRuntime.before-lifecycle-interface.ts:26:            await module.initialize(this.context);
+src\runtime\ACKIOSRuntime.before-lifecycle-interface.ts:30:    public async start(): Promise<void> {
+src\runtime\ACKIOSRuntime.before-lifecycle-interface.ts:33:            await module.start();
+src\runtime\ACKIOSRuntime.before-runtime-status.ts:24:    public async initialize(): Promise<void> {
+src\runtime\ACKIOSRuntime.before-runtime-status.ts:27:            await module.initialize(this.context);
+src\runtime\ACKIOSRuntime.before-runtime-status.ts:31:    public async start(): Promise<void> {
+src\runtime\ACKIOSRuntime.before-runtime-status.ts:34:            await module.start();
+src\runtime\ACKIOSRuntime.before-status-integration.ts:24:    public async initialize(): Promise<void> {
+src\runtime\ACKIOSRuntime.before-status-integration.ts:27:            await module.initialize(this.context);
+src\runtime\ACKIOSRuntime.before-status-integration.ts:31:    public async start(): Promise<void> {
+src\runtime\ACKIOSRuntime.before-status-integration.ts:34:            await module.start();
+src\runtime\ACKIOSRuntime.ts:46:    public async initialize(): Promise<void> {
+src\runtime\ACKIOSRuntime.ts:55:            await this.getPlatformManager().initialize();
+src\runtime\ACKIOSRuntime.ts:58:                await module.initialize(this.context);
+src\runtime\ACKIOSRuntime.ts:62:                state: RuntimeState.Initialized
+src\runtime\ACKIOSRuntime.ts:80:    public async start(): Promise<void> {
+src\runtime\ACKIOSRuntime.ts:84:            state: RuntimeState.Starting
+src\runtime\ACKIOSRuntime.ts:89:            await this.getPlatformManager().start();
+src\runtime\ACKIOSRuntime.ts:92:                await module.start();
+src\runtime\ACKIOSRuntime.ts:97:                startedAt: new Date()
+src\runtime\ACKIOSRuntimeBuilder.before-lifecycle.ts:34:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-module-builder.ts:25:        new FirstRunRuntimeModule()
+src\runtime\ACKIOSRuntimeBuilder.before-module-builder.ts:51:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-refactor.ts:31:        new FirstRunRuntimeModule()
+src\runtime\ACKIOSRuntimeBuilder.before-refactor.ts:90:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-service-builder.ts:31:        new FirstRunRuntimeModule()
+src\runtime\ACKIOSRuntimeBuilder.before-service-builder.ts:90:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-service-module-builder.ts:41:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.ts:34:        return new ACKIOSRuntime(
+src\runtime\bootstrap.ts:3:export async function bootstrap(): Promise<ACKIOSApplication> {
+src\runtime\bootstrap.ts:7:    await app.initialize();
+src\runtime\bootstrap.ts:8:    await app.start();
+src\runtime\index.ts:6:export * from "./bootstrap.js";
+src\runtime\IRuntimeModule.ts:5:    initialize(context: ACKIOSContext): Promise<void>;
+src\runtime\IRuntimeModule.ts:7:    start(): Promise<void>;
+src\runtime\RuntimeBootstrap.ts:4:export class RuntimeBootstrap {
+src\runtime\RuntimeBootstrap.ts:17:        await this.lifecycle.initialize();
+src\runtime\RuntimeBootstrap.ts:19:        await this.lifecycle.start();
+src\runtime\lifecycle\IRuntimeLifecycle.ts:3:    initialize(): void | Promise<void>;
+src\runtime\lifecycle\IRuntimeLifecycle.ts:5:    start(): void | Promise<void>;
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-interface.ts:6:    public initialize(
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-interface.ts:17:    public start(
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-interface.ts:22:        // Runtime startup pipeline
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-registry.ts:15:    public async initialize(): Promise<void> {
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-registry.ts:18:            await component.initialize();
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-registry.ts:23:    public async start(): Promise<void> {
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.before-registry.ts:26:            await component.start();
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:39:    public async initialize(): Promise<void> {
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:42:            await component.initialize();
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:46:    public async start(): Promise<void> {
+src\runtime\lifecycle\RuntimeLifecycleCoordinator.ts:49:            await component.start();
+src\runtime\lifecycle\RuntimeState.ts:7:    Initialized = "Initialized",
+src\runtime\lifecycle\RuntimeState.ts:9:    Starting = "Starting",
+src\runtime\lifecycle\RuntimeStatus.ts:7:    readonly startedAt?: Date;
+src\runtime\modules\AdaptationModule.ts:11:    public async initialize(
+src\runtime\modules\AdaptationModule.ts:23:    public async start(): Promise<void> {
+src\runtime\modules\ArchitectureModule.ts:10:    public async initialize(context: ACKIOSContext): Promise<void> {
+src\runtime\modules\ArchitectureModule.ts:19:    public async start(): Promise<void> {}
+src\runtime\modules\BrainModule.ts:9:    public async initialize(context: ACKIOSContext): Promise<void> {
+src\runtime\modules\BrainModule.ts:12:        await this.brain.initialize();
+src\runtime\modules\BrainModule.ts:16:    public async start(): Promise<void> {
+src\runtime\modules\BrainModule.ts:18:        await this.brain.start();
+src\runtime\modules\FirstRunRuntimeModule.ts:12:    public async initialize(
+src\runtime\modules\FirstRunRuntimeModule.ts:25:    public async start(): Promise<void> {
+src\runtime\modules\IntelligenceModule.ts:9:    public async initialize(context: ACKIOSContext): Promise<void> {
+src\runtime\modules\IntelligenceModule.ts:18:    public async start(): Promise<void> {
+src\runtime\modules\WorkspaceModule.ts:6:    public async initialize(_context: ACKIOSContext): Promise<void> {}
+src\runtime\modules\WorkspaceModule.ts:8:    public async start(): Promise<void> {}
+src\runtime\modules\builders\ACKIOSModuleRegistryBuilder.ts:20:            new FirstRunRuntimeModule()
+src\scanner\RepositoryLocator.ts:6:    public find(startDirectory: string): string {
+src\scanner\RepositoryLocator.ts:8:        let current = path.resolve(startDirectory);
+src\scanner\RepositoryLocator.ts:19:                return startDirectory;
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:73:        new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:86:        new GalaxySceneRuntime();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:100:        new GalaxyRuntimeSync(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:127:    public startRendering(): void {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:130:        this.renderLoop.start();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:264:        this.cameraAnimationRuntime.startTransition(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:335:    public initialize(): void {
+src\visualization\galaxy\animation\GalaxyAnimationEngine.ts:13:    public start(
+src\visualization\galaxy\animation\__tests__\GalaxyAnimationEngine.test.ts:21:                engine.start(
+src\visualization\galaxy\camera\GalaxyCameraAnimationBridge.ts:40:        this.animation.start(
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:32:    public startTransition(
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:43:        this.transition.start(
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:54:        this.animation.start(
+src\visualization\galaxy\camera\GalaxyCameraTransition.ts:20:    public start(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:16:            "starts camera animation when focusing node",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:52:                    new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:64:                runtime.startTransition(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraTransition.test.ts:97:                transition.start(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraTransitionBridge.test.ts:30:                transition.start(
+src\visualization\galaxy\events\GalaxyEvent.ts:11:    | "ANIMATION_STARTED";
+src\visualization\galaxy\rendering\GalaxyRenderLoop.ts:14:    public start(): void {
+src\visualization\galaxy\rendering\__tests__\GalaxyRenderLoop.test.ts:35:                loop.start();
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:18:                    new GalaxySceneRuntime();
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:22:                    new GalaxyRuntimeSync(
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:17:                    new GalaxySceneRuntime();
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:12:            "initializes complete galaxy visualization core",
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:21:                galaxy.initialize();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.cameraTransition.test.ts:12:            "starts camera transition when selecting node",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.cameraTransition.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.interaction.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:12:            "starts and stops render loop",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:27:                galaxy.startRendering();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:12:            "initializes galaxy core facade",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:21:                galaxy.initialize();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.viewport.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\universe\action\UniverseActionFactory.ts:12:        return new UniverseActionRuntime();
+src\visualization\universe\camera\UniverseGalaxyCameraBridge.ts:81:        this.transition.start(
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:15:        new CameraIntelligenceRuntime();
+src\visualization\universe\camera\__tests__\UniverseGalaxyCameraBridge.test.ts:15:            "starts camera transition from universe focus request",
+src\visualization\universe\controller\UniverseControllerFactory.ts:51:            new UniverseRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:75:            new UniverseSimulationRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:89:            new UniverseLiveRuntime(
+src\visualization\universe\kernel\UniverseKernelFactory.ts:16:        return new UniverseRuntimeKernel(
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:17:                    new UniverseOrbitRuntime();
+src\visualization\universe\reaction\UniverseReactionFactory.ts:12:        return new UniverseReactionRuntime();
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:18:                    new UniverseReactionRuntime();
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:39:                    new UniverseRuntime(
+src\visualization\universe\scene\UniverseSceneFactory.ts:17:        return new UniverseSceneRuntime(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:30:        new CameraAutoFocusRuntime(
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:17:        new UniverseOrbitRuntime();
+

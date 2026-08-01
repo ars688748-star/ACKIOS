@@ -1,0 +1,40 @@
+
+src\visualization\galaxy\animation\GalaxyAnimationState.ts:11:export interface GalaxyAnimationState {
+src\visualization\galaxy\camera\GalaxyCameraState.ts:1:export interface GalaxyCameraState {
+src\visualization\galaxy\camera\GalaxyViewport.ts:4:export interface GalaxyViewport {
+src\visualization\galaxy\events\GalaxyEvent.ts:15:export interface GalaxyEvent {
+src\visualization\galaxy\interaction\GalaxyInteractionState.ts:1:export interface GalaxyInteractionState {
+src\visualization\galaxy\model\GalaxyEdge.ts:1:export interface GalaxyEdge {
+src\visualization\galaxy\model\GalaxyNode.ts:1:export interface GalaxyNode {
+src\visualization\galaxy\model\GalaxyScene.ts:5:export interface GalaxyScene {
+src\visualization\galaxy\renderer\GalaxyEdgeVisual.ts:4:export interface GalaxyEdgeVisual {
+src\visualization\galaxy\renderer\GalaxyNodeVisual.ts:4:export interface GalaxyNodeVisual {
+src\visualization\galaxy\renderer\GalaxyVisualScene.ts:7:export interface GalaxyVisualScene {
+src\visualization\galaxy\rendering\GalaxyRenderContext.ts:8:export interface GalaxyRenderContext {
+src\visualization\universe\action\UniverseAction.ts:10:export interface UniverseAction {
+src\visualization\universe\animation\PlanetPulseAnimation.ts:9:export interface PlanetPulseState {
+src\visualization\universe\bridge\BrainUniverseBridge.ts:7:export interface UniverseEventReceiver {
+src\visualization\universe\bridge\UniverseEventAdapter.ts:5:export interface BrainEvent {
+src\visualization\universe\bridge\UniverseStateSynchronizer.ts:1:export interface BrainState {
+src\visualization\universe\bridge\UniverseStateSynchronizer.ts:22:export interface UniverseState {
+src\visualization\universe\camera\CameraFocusRequest.ts:9:export interface CameraFocusRequest {
+src\visualization\universe\camera\intelligence\CameraFocusDecision.ts:9:export interface CameraFocusDecision {
+src\visualization\universe\engine\UniverseRenderContext.ts:1:export interface UniverseRenderContext {
+src\visualization\universe\events\CometEvent.ts:4:export interface CometEvent
+src\visualization\universe\events\PlanetAlert.ts:6:export interface PlanetAlert
+src\visualization\universe\events\UniverseEvent.ts:10:export interface UniverseEvent {
+src\visualization\universe\frame\FrameState.ts:1:export interface FrameState {
+src\visualization\universe\kernel\UniverseKernelState.ts:1:export interface UniverseKernelState {
+src\visualization\universe\model\CelestialObject.ts:13:export interface CelestialObject {
+src\visualization\universe\model\Universe.ts:4:export interface Universe {
+src\visualization\universe\orbit\OrbitCalculator.ts:1:export interface OrbitPosition {
+src\visualization\universe\reaction\ReactionRule.ts:11:export interface ReactionRule {
+src\visualization\universe\release\UniverseReleaseState.ts:1:export interface UniverseReleaseState {
+src\visualization\universe\renderer\CometRenderer.ts:4:export interface CometRenderObject {
+src\visualization\universe\renderer\MoonRenderer.ts:4:export interface MoonRenderObject {
+src\visualization\universe\renderer\PlanetRenderer.ts:4:export interface PlanetRenderObject {
+src\visualization\universe\renderer\SatelliteRenderer.ts:4:export interface SatelliteRenderObject {
+src\visualization\universe\renderer\StarRenderer.ts:4:export interface StarRenderObject {
+src\visualization\universe\scene\UniverseSceneState.ts:1:export interface UniverseSceneState {
+src\visualization\universe\tick\UniverseTickEngine.ts:1:export interface TickResult {
+

@@ -1,0 +1,149 @@
+
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:1:import { GalaxyEventBus } from "./events/GalaxyEventBus.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:2:import { GalaxyEventDispatcher } from "./events/GalaxyEventDispatcher.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:31:    public readonly events =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:32:        new GalaxyEventBus();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:37:        new GalaxyEventDispatcher();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:338:        this.events.subscribe(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:342:            event => {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:345:                    event
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:380:        this.events.clear();
+src\visualization\galaxy\events\GalaxyEvent.ts:1:export type GalaxyEventType =
+src\visualization\galaxy\events\GalaxyEvent.ts:15:export interface GalaxyEvent {
+src\visualization\galaxy\events\GalaxyEvent.ts:18:    readonly type: GalaxyEventType;
+src\visualization\galaxy\events\GalaxyEventBus.ts:1:import type { GalaxyEvent, GalaxyEventType } from "./GalaxyEvent.js";
+src\visualization\galaxy\events\GalaxyEventBus.ts:4:type GalaxyEventListener = (
+src\visualization\galaxy\events\GalaxyEventBus.ts:6:    event: GalaxyEvent
+src\visualization\galaxy\events\GalaxyEventBus.ts:12:export class GalaxyEventBus {
+src\visualization\galaxy\events\GalaxyEventBus.ts:18:            GalaxyEventType,
+src\visualization\galaxy\events\GalaxyEventBus.ts:19:            GalaxyEventListener[]
+src\visualization\galaxy\events\GalaxyEventBus.ts:26:        type: GalaxyEventType,
+src\visualization\galaxy\events\GalaxyEventBus.ts:28:        listener: GalaxyEventListener
+src\visualization\galaxy\events\GalaxyEventBus.ts:57:        event: GalaxyEvent
+src\visualization\galaxy\events\GalaxyEventBus.ts:65:                event.type
+src\visualization\galaxy\events\GalaxyEventBus.ts:73:                event
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:1:import type { GalaxyEvent, GalaxyEventType } from "./GalaxyEvent.js";
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:4:type GalaxyEventHandler = (
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:6:    event: GalaxyEvent
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:12:export class GalaxyEventDispatcher {
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:18:            GalaxyEventType,
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:19:            GalaxyEventHandler[]
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:26:        type: GalaxyEventType,
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:28:        handler: GalaxyEventHandler
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:57:        event: GalaxyEvent
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:65:                event.type
+src\visualization\galaxy\events\GalaxyEventDispatcher.ts:73:                event
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:3:import { GalaxyEventBus } from "../GalaxyEventBus.js";
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:7:    "GalaxyEventBus",
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:12:            "delivers published events to subscribers",
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:17:                    new GalaxyEventBus();
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:28:                    (event) => {
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:31:                            event;
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:38:                const event = {
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:55:                    event
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:69:                    event
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:3:import { GalaxyEventDispatcher } from "../GalaxyEventDispatcher.js";
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:7:    "GalaxyEventDispatcher",
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:12:            "dispatches events to registered handlers",
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:17:                    new GalaxyEventDispatcher();
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:30:                    (event) => {
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:33:                            event;
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:41:                const event = {
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:58:                    event
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:72:                    event
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:50:                    galaxy.events
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:38:                    galaxy.events
+src\visualization\universe\bridge\BrainUniverseBridge.ts:1:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\bridge\BrainUniverseBridge.ts:3:import { UniverseEventAdapter } from "./UniverseEventAdapter.js";
+src\visualization\universe\bridge\BrainUniverseBridge.ts:7:export interface UniverseEventReceiver {
+src\visualization\universe\bridge\BrainUniverseBridge.ts:10:    processEvent(
+src\visualization\universe\bridge\BrainUniverseBridge.ts:12:        event: UniverseEvent
+src\visualization\universe\bridge\BrainUniverseBridge.ts:29:        new UniverseEventAdapter();
+src\visualization\universe\bridge\BrainUniverseBridge.ts:39:            UniverseEventReceiver
+src\visualization\universe\bridge\BrainUniverseBridge.ts:50:        event:
+src\visualization\universe\bridge\BrainUniverseBridge.ts:68:        const universeEvent =
+src\visualization\universe\bridge\BrainUniverseBridge.ts:72:                event
+src\visualization\universe\bridge\BrainUniverseBridge.ts:78:        this.receiver.processEvent(
+src\visualization\universe\bridge\BrainUniverseBridge.ts:80:            universeEvent
+src\visualization\universe\bridge\UniverseEventAdapter.ts:1:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\bridge\UniverseEventAdapter.ts:5:export interface BrainEvent {
+src\visualization\universe\bridge\UniverseEventAdapter.ts:37:export class UniverseEventAdapter {
+src\visualization\universe\bridge\UniverseEventAdapter.ts:43:        event: BrainEvent
+src\visualization\universe\bridge\UniverseEventAdapter.ts:45:    ): UniverseEvent {
+src\visualization\universe\bridge\UniverseEventAdapter.ts:54:                event.id,
+src\visualization\universe\bridge\UniverseEventAdapter.ts:59:                event.type as UniverseEvent["type"],
+src\visualization\universe\bridge\UniverseEventAdapter.ts:64:                event.targetId,
+src\visualization\universe\bridge\UniverseEventAdapter.ts:69:                event.message,
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:3:import { UniverseEventAdapter } from "../UniverseEventAdapter.js";
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:7:    "UniverseEventAdapter",
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:12:            "converts brain event",
+src\visualization\universe\bridge\__tests__\UniverseEventAdapter.test.ts:18:                    new UniverseEventAdapter();
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:1:import type { UniverseEvent } from "../../events/UniverseEvent.js";
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:36:        event: UniverseEvent
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:46:                event
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:1:import type { UniverseEvent } from "../../events/UniverseEvent.js";
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:13:        event: UniverseEvent
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:21:            event.type === "planet-alert"
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:37:                    event.targetId,
+src\visualization\universe\camera\intelligence\CameraIntelligence.ts:42:                    event.message
+src\visualization\universe\camera\intelligence\CameraIntelligenceRuntime.ts:1:import type { UniverseEvent } from "../../events/UniverseEvent.js";
+src\visualization\universe\camera\intelligence\CameraIntelligenceRuntime.ts:21:        event: UniverseEvent
+src\visualization\universe\camera\intelligence\CameraIntelligenceRuntime.ts:28:            event
+src\visualization\universe\camera\intelligence\__tests__\CameraIntelligence.test.ts:29:                            "event-1",
+src\visualization\universe\controller\UniverseController.ts:3:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\controller\UniverseController.ts:48:    public dispatchEvent(
+src\visualization\universe\controller\UniverseController.ts:50:        event: UniverseEvent
+src\visualization\universe\controller\UniverseController.ts:52:    ): UniverseEvent {
+src\visualization\universe\controller\UniverseController.ts:56:        return event;
+src\visualization\universe\events\CometEvent.ts:1:import type { UniverseEvent } from "./UniverseEvent.js";
+src\visualization\universe\events\CometEvent.ts:4:export interface CometEvent
+src\visualization\universe\events\CometEvent.ts:5:    extends UniverseEvent {
+src\visualization\universe\events\PlanetAlert.ts:1:import type { UniverseEvent } from "./UniverseEvent.js";
+src\visualization\universe\events\PlanetAlert.ts:7:    extends UniverseEvent {
+src\visualization\universe\events\UniverseEvent.ts:1:export type UniverseEventType =
+src\visualization\universe\events\UniverseEvent.ts:10:export interface UniverseEvent {
+src\visualization\universe\events\UniverseEvent.ts:17:        UniverseEventType;
+src\visualization\universe\events\UniverseEventDispatcher.ts:1:import type { UniverseEvent } from "./UniverseEvent.js";
+src\visualization\universe\events\UniverseEventDispatcher.ts:7:export class UniverseEventDispatcher {
+src\visualization\universe\events\UniverseEventDispatcher.ts:13:        event: UniverseEvent,
+src\visualization\universe\events\UniverseEventDispatcher.ts:30:                        object.id !== event.targetId
+src\visualization\universe\events\UniverseEventDispatcher.ts:46:                            event.type === "planet-alert"
+src\visualization\universe\intelligence\BrainEventVisualizer.ts:1:export class BrainEventVisualizer {
+src\visualization\universe\intelligence\BrainEventVisualizer.ts:6:        event:string
+src\visualization\universe\intelligence\BrainEventVisualizer.ts:14:            event
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:3:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:124:    public processEvent(
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:126:        event: UniverseEvent
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:131:        this.scene.processEvent(
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:133:            event
+src\visualization\universe\reaction\BrainEventReactionMapper.ts:5:export class BrainEventReactionMapper {
+src\visualization\universe\reaction\BrainEventReactionMapper.ts:17:                eventType:
+src\visualization\universe\reaction\BrainEventReactionMapper.ts:33:                eventType:
+src\visualization\universe\reaction\BrainEventReactionMapper.ts:54:        eventType:string
+src\visualization\universe\reaction\BrainEventReactionMapper.ts:64:                rule.eventType === eventType
+src\visualization\universe\reaction\ReactionRule.ts:14:    readonly eventType:
+src\visualization\universe\reaction\UniverseReactionEngine.ts:1:import { BrainEventReactionMapper } from "./BrainEventReactionMapper.js";
+src\visualization\universe\reaction\UniverseReactionEngine.ts:11:        new BrainEventReactionMapper();
+src\visualization\universe\reaction\UniverseReactionEngine.ts:19:        eventType:string
+src\visualization\universe\reaction\UniverseReactionEngine.ts:29:                eventType
+src\visualization\universe\reaction\UniverseReactionRuntime.ts:19:        eventType:string
+src\visualization\universe\reaction\UniverseReactionRuntime.ts:32:                    eventType
+src\visualization\universe\reaction\__tests__\BrainEventReactionMapper.test.ts:3:import { BrainEventReactionMapper } from "../BrainEventReactionMapper.js";
+src\visualization\universe\reaction\__tests__\BrainEventReactionMapper.test.ts:7:    "BrainEventReactionMapper",
+src\visualization\universe\reaction\__tests__\BrainEventReactionMapper.test.ts:18:                    new BrainEventReactionMapper();
+src\visualization\universe\runtime\UniverseRuntime.ts:1:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\runtime\UniverseRuntime.ts:3:import type { PlanetAlert } from "../events/PlanetAlert.js";
+src\visualization\universe\runtime\UniverseRuntime.ts:37:        event: UniverseEvent
+src\visualization\universe\runtime\UniverseRuntime.ts:45:            event.type !== "planet-alert"
+src\visualization\universe\runtime\UniverseRuntime.ts:57:            event as PlanetAlert;
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:49:                    id: "event-1",
+src\visualization\universe\scene\UniverseSceneRuntime.ts:3:import type { UniverseEvent } from "../events/UniverseEvent.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:97:    public processEvent(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:99:        event: UniverseEvent
+src\visualization\universe\scene\UniverseSceneRuntime.ts:105:        this.controller.dispatchEvent(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:107:            event
+src\visualization\universe\scene\UniverseSceneRuntime.ts:115:            event
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:74:    public processEvent(
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:76:        event: Parameters<UniverseRuntime["process"]>[0]
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:84:            event
+

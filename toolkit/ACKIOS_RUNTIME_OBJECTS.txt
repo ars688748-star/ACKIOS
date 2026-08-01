@@ -1,0 +1,154 @@
+
+src\bin\acki.ts:10:    await new AckiCli(application).run(
+src\brain\cognition\factory\CognitiveRuntimeBuilder.ts:10:        return new CognitiveRuntime(
+src\brain\cognition\factory\CognitiveRuntimeFactory.ts:22:        const runtime = new CognitiveRuntimeBuilder().build();
+src\brain\core\BrainKernelBuilder.ts:57:        return new BrainKernel(
+src\brain\integration\BrainRuntimeBridgeBuilder.ts:15:            new BrainRuntimeBuilder()
+src\brain\integration\BrainRuntimeBridgeBuilder.ts:23:        return new BrainRuntimeBridge(
+src\brain\integration\BrainSystemBuilder.ts:14:            new BrainKernelBuilder()
+src\brain\integration\BrainSystemBuilder.ts:18:            new BrainRuntimeBridgeBuilder()
+src\brain\runtime\host\BrainRuntimeBuilder.ts:17:        return new BrainRuntime(
+src\brain\runtime\__tests__\BrainRuntime.integration.test.ts:13:            new BrainRuntimeBuilder()
+src\brain\runtime\__tests__\BrainRuntime.integration.test.ts:51:            new BrainRuntimeBuilder()
+src\brain\runtime\__tests__\BrainRuntime.services.integration.test.ts:14:            new BrainKernelBuilder()
+src\brain\runtime\__tests__\BrainRuntime.services.integration.test.ts:19:            new BrainRuntimeBuilder()
+src\core\modules\PlatformModule.ts:42:            new PlatformService()
+src\core\modules\PlatformModule.ts:69:            new NodePlatformDetector();
+src\core\modules\PlatformModule.ts:89:            new PlatformCapabilityProvider()
+src\core\modules\PlatformModule.ts:94:            new RuntimeCapabilityProvider()
+src\core\modules\PlatformModule.ts:136:            new PlatformAdaptationRule()
+src\core\modules\PlatformModule.ts:202:            new AdaptationRuntime(
+src\core\runtime\KernelRuntime.ts:28:            new KernelContext(
+src\core\runtime\KernelRuntime.ts:34:            new KernelState();
+src\core\__tests__\KernelRuntime.test.ts:15:                    new KernelRuntime();
+src\core\__tests__\KernelRuntime.test.ts:19:                    new PlatformModule()
+src\kernel\ACKIOSKernelBuilder.ts:9:            new ACKIOSRuntimeBuilder().build();
+src\kernel\ACKIOSKernelBuilder.ts:11:        return new ACKIOSKernel(runtime);
+src\platform\PlatformManager.ts:16:    private readonly platform = new PlatformService();
+src\platform\PlatformManager.ts:19:        new PlatformRegistryService();
+src\platform\PlatformManager.ts:22:        new PlatformLifecycleService();
+src\platform\PlatformManager.ts:25:        new PlatformRegistrationService(
+src\platform\PlatformService.ts:6:    private readonly detector = new NodePlatformDetector();
+src\platform\adaptation\__tests__\AdaptationRuntime.test.ts:45:                    new PlatformAdaptationRule()
+src\platform\adaptation\__tests__\AdaptationRuntime.test.ts:60:                    new AdaptationRuntime(
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:20:            new BootstrapRuntime(
+src\platform\bootstrap\__tests__\BootstrapRuntime.test.ts:64:            new BootstrapRuntime(
+src\platform\environment\adaptation\__tests__\EnvironmentAdapter.test.ts:17:                    new RuntimeCompatibilityChecker();
+src\platform\environment\detection\__tests__\RuntimeEnvironmentDetector.test.ts:18:                    new RuntimeEnvironmentDetector(
+src\platform\installer\orchestration\__tests__\PlatformInstallationOrchestrator.test.ts:50:                    new PlatformInstallationOrchestrator(
+src\platform\integration\BrainIntegration.before-di.ts:7:    private readonly bridge = new BrainRuntimeBridge(
+src\platform\integration\BrainIntegration.before-di.ts:8:        new BrainRuntimeBuilder().build(),
+src\platform\integration\BrainIntegration.ts:11:            new BrainRuntimeBridge(
+src\platform\integration\BrainIntegration.ts:13:                new BrainRuntimeBuilder().build(),
+src\platform\lifecycle\services\PlatformRegistryService.ts:5:    private readonly components = new Map<string, PlatformNode>();
+src\platform\runtime\composition\AckiosRuntimeComposition.ts:25:            new BrainRuntimeModule(),
+src\platform\runtime\composition\AckiosRuntimeComposition.ts:28:            new UniverseRuntimeModule(),
+src\platform\runtime\composition\AckiosRuntimeComposition.ts:31:            new WorkflowRuntimeModule()
+src\platform\runtime\composition\RuntimeCompositionFactory.ts:11:        return new AckiosRuntimeComposition();
+src\platform\runtime\config\RuntimeConfigService.ts:13:        new RuntimeConfigLoader();
+src\platform\runtime\config\__tests__\RuntimeConfigService.test.ts:23:                    new RuntimeConfigService();
+src\platform\runtime\container\RuntimeContainerFactory.ts:23:            return new RuntimeContainer(
+src\platform\runtime\container\RuntimeContainerFactory.ts:31:            new MemoryRuntimeStateStorage();
+src\platform\runtime\container\RuntimeContainerFactory.ts:35:            new RuntimeStateManager(
+src\platform\runtime\container\RuntimeContainerFactory.ts:41:            new RuntimeEventBus();
+src\platform\runtime\container\RuntimeContainerFactory.ts:45:            new RuntimeRecoveryManager();
+src\platform\runtime\container\RuntimeContainerFactory.ts:49:            new RuntimeRecoveryExecutor();
+src\platform\runtime\container\RuntimeContainerFactory.ts:53:            new RuntimeRecoveryService(
+src\platform\runtime\container\RuntimeContainerFactory.ts:61:            new RuntimeRecoveryCoordinator(
+src\platform\runtime\container\RuntimeContainerFactory.ts:73:        return new RuntimeContainer({
+src\platform\runtime\container\__tests__\RuntimeContainer.test.ts:33:                    new RuntimeContainer(
+src\platform\runtime\core\AckiosRuntimeOrchestrator.ts:15:        new RuntimeLifecycleManager();
+src\platform\runtime\core\AckiosRuntimeOrchestrator.ts:21:        new RuntimeHealthMonitor();
+src\platform\runtime\core\RuntimeOrchestratorFactory.ts:12:        return new AckiosRuntimeOrchestrator();
+src\platform\runtime\diagnostics\RuntimeDiagnosticsFactory.ts:12:        return new RuntimeDiagnosticsService();
+src\platform\runtime\diagnostics\RuntimeDiagnosticsService.ts:13:        new RuntimeDiagnosticsEngine();
+src\platform\runtime\diagnostics\__tests__\RuntimeDiagnosticsEngine.test.ts:23:                    new RuntimeDiagnosticsEngine();
+src\platform\runtime\events\__tests__\RuntimeEventBus.test.ts:16:                    new RuntimeEventBus();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:45:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:49:                    new RuntimeLifecycleCoordinator(
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:126:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleCoordinator.test.ts:130:                    new RuntimeLifecycleCoordinator(
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleTransitionEngine.test.ts:15:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleTransitionEngine.test.ts:36:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\lifecycle\__tests__\RuntimeLifecycleTransitionEngine.test.ts:57:                    new RuntimeLifecycleTransitionEngine();
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryCoordinator.test.ts:16:                    new RuntimeRecoveryCoordinator(
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryExecutor.test.ts:11:            new RuntimeRecoveryExecutor();
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryManager.test.ts:11:            new RuntimeRecoveryManager();
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:18:                    new RuntimeRecoveryService(
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:41:                        new RuntimeRecoveryManager(),
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:44:                        new RuntimeRecoveryExecutor()
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:74:                    new RuntimeRecoveryService(
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:84:                        new RuntimeRecoveryManager(),
+src\platform\runtime\recovery\__tests__\RuntimeRecoveryService.test.ts:87:                        new RuntimeRecoveryExecutor()
+src\platform\runtime\registry\RuntimeBootstrap.ts:17:        new RuntimeModuleRegistry();
+src\platform\runtime\registry\RuntimeBootstrap.ts:23:        new RuntimeDiscovery();
+src\platform\runtime\registry\__tests__\RuntimeDiscovery.test.ts:18:                    new RuntimeDiscovery();
+src\platform\runtime\registry\__tests__\RuntimeModuleRegistry.test.ts:18:                    new RuntimeModuleRegistry();
+src\platform\runtime\startup\RuntimeStartupFactory.ts:14:        return new RuntimeStartupService();
+src\platform\runtime\startup\RuntimeStartupService.ts:13:        new RuntimeStartupPipeline();
+src\platform\runtime\startup\__tests__\RuntimeStartupPipeline.test.ts:23:                    new RuntimeStartupPipeline();
+src\platform\runtime\state\__tests__\FirstRunRuntimeState.test.ts:62:                    new RuntimeStateManager(
+src\platform\runtime\state\__tests__\RuntimeStateIntegration.test.ts:58:                    new RuntimeStateManager(
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:53:                    new MemoryRuntimeStateStorage();
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:57:                    new RuntimeStateManager(storage);
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:99:                    new MemoryRuntimeStateStorage();
+src\platform\runtime\state\__tests__\RuntimeStateManager.test.ts:103:                    new RuntimeStateManager(storage);
+src\platform\runtime\universe\__tests__\UniverseRuntimeAdapter.test.ts:18:                    new DefaultUniverseRuntimeAdapter();
+src\platform\runtime\universe\__tests__\UniverseRuntimeService.test.ts:20:                    new UniverseRuntimeService(
+src\platform\runtime\universe\__tests__\UniverseRuntimeService.test.ts:22:                        new DefaultUniverseRuntimeAdapter()
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:20:            new PlatformRuntime(
+src\platform\runtime\__tests__\PlatformRuntime.test.ts:65:            new PlatformRuntime(
+src\platform\setup\__tests__\PlatformSetupCoordinator.test.ts:31:            new PlatformSetupCoordinator(
+src\release\platform\CrossPlatformValidator.ts:17:        new PlatformDetector();
+src\release\platform\CrossPlatformValidator.ts:31:        new RuntimeCompatibility();
+src\release\platform\PlatformValidationFactory.ts:12:        return new PlatformValidationService();
+src\release\platform\PlatformValidationService.ts:11:        new CrossPlatformValidator();
+src\release\platform\__tests__\PlatformDetector.test.ts:23:                    new PlatformDetector();
+src\release\validation\ReleaseValidationService.ts:36:            new RuntimeValidator().validate()
+src\runtime\ACKIOSApplication.ts:8:        new ACKIOSKernelBuilder().build();
+src\runtime\ACKIOSRuntimeBuilder.before-lifecycle.ts:34:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-module-builder.ts:25:        new FirstRunRuntimeModule()
+src\runtime\ACKIOSRuntimeBuilder.before-module-builder.ts:30:        new PlatformModule(),
+src\runtime\ACKIOSRuntimeBuilder.before-module-builder.ts:51:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-refactor.ts:31:        new FirstRunRuntimeModule()
+src\runtime\ACKIOSRuntimeBuilder.before-refactor.ts:36:        new PlatformModule(),
+src\runtime\ACKIOSRuntimeBuilder.before-refactor.ts:90:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-service-builder.ts:31:        new FirstRunRuntimeModule()
+src\runtime\ACKIOSRuntimeBuilder.before-service-builder.ts:36:        new PlatformModule(),
+src\runtime\ACKIOSRuntimeBuilder.before-service-builder.ts:90:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.before-service-module-builder.ts:20:        new PlatformModule(),
+src\runtime\ACKIOSRuntimeBuilder.before-service-module-builder.ts:41:        return new ACKIOSRuntime(
+src\runtime\ACKIOSRuntimeBuilder.ts:34:        return new ACKIOSRuntime(
+src\runtime\bootstrap.ts:5:    const app = new ACKIOSApplication();
+src\runtime\modules\builders\ACKIOSModuleRegistryBuilder.ts:20:            new FirstRunRuntimeModule()
+src\runtime\services\ACKIOSServiceModuleRegistryBuilder.ts:13:            new PlatformModule(),
+src\runtime\services\ACKIOSServiceRegistryBuilder.ts:71:            new PlatformManager()
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:73:        new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:86:        new GalaxySceneRuntime();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:100:        new GalaxyRuntimeSync(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:52:                    new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:18:                    new GalaxySceneRuntime();
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:22:                    new GalaxyRuntimeSync(
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:17:                    new GalaxySceneRuntime();
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.cameraTransition.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.interaction.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.viewport.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\universe\action\UniverseActionFactory.ts:12:        return new UniverseActionRuntime();
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:15:        new CameraIntelligenceRuntime();
+src\visualization\universe\controller\UniverseControllerFactory.ts:51:            new UniverseRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:75:            new UniverseSimulationRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:89:            new UniverseLiveRuntime(
+src\visualization\universe\kernel\UniverseKernelFactory.ts:16:        return new UniverseRuntimeKernel(
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:17:                    new UniverseOrbitRuntime();
+src\visualization\universe\reaction\UniverseReactionFactory.ts:12:        return new UniverseReactionRuntime();
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:18:                    new UniverseReactionRuntime();
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:39:                    new UniverseRuntime(
+src\visualization\universe\scene\UniverseSceneFactory.ts:17:        return new UniverseSceneRuntime(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:30:        new CameraAutoFocusRuntime(
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:17:        new UniverseOrbitRuntime();
+

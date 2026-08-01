@@ -1,0 +1,53 @@
+Структура папок
+Серийный номер тома: 000001E7 BCD7:D012
+D:\ACKIOS\TOOLKIT\SRC\RUNTIME
+|   ACKIOSApplication.ts
+|   ACKIOSApplication.ts.bak
+|   ACKIOSContext.ts
+|   ACKIOSRuntime.before-lifecycle-interface.ts
+|   ACKIOSRuntime.before-runtime-status.ts
+|   ACKIOSRuntime.before-status-integration.ts
+|   ACKIOSRuntime.ts
+|   ACKIOSRuntime.ts.bak
+|   ACKIOSRuntimeBuilder.before-lifecycle.ts
+|   ACKIOSRuntimeBuilder.before-module-builder.ts
+|   ACKIOSRuntimeBuilder.before-refactor.ts
+|   ACKIOSRuntimeBuilder.before-service-builder.ts
+|   ACKIOSRuntimeBuilder.before-service-module-builder.ts
+|   ACKIOSRuntimeBuilder.ts
+|   ACKIOSRuntimeBuilder.ts.bak
+|   bootstrap.ts
+|   index.ts
+|   IRuntimeModule.ts
+|   RuntimeBootstrap.backup.ts
+|   RuntimeBootstrap.ts
+|   
++---environment
++---hardware
++---lifecycle
+|       IRuntimeLifecycle.ts
+|       RuntimeLifecycleCoordinator.before-interface.ts
+|       RuntimeLifecycleCoordinator.before-registry.ts
+|       RuntimeLifecycleCoordinator.ts
+|       RuntimeState.ts
+|       RuntimeStatus.ts
+|       
++---modules
+|   |   AdaptationModule.ts
+|   |   ArchitectureModule.ts
+|   |   BrainModule.ts
+|   |   FirstRunRuntimeModule.ts
+|   |   IntelligenceModule.ts
+|   |   WorkspaceModule.ts
+|   |   
+|   \---builders
+|           ACKIOSModuleRegistryBuilder.ts
+|           
++---profile
++---services
+|       ACKIOSServiceModuleRegistryBuilder.ts
+|       ACKIOSServiceRegistryBuilder.ts
+|       
+\---__tests__
+        GalaxyArchitectureRuntime.integration.test.ts
+        

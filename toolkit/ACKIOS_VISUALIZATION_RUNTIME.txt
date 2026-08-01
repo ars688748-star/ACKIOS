@@ -1,0 +1,161 @@
+
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:10:import { GalaxyCameraAnimationRuntime } from "./camera/GalaxyCameraAnimationRuntime.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:13:import { GalaxySceneRuntime } from "./runtime/GalaxySceneRuntime.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:14:import { GalaxySceneBuilder } from "./runtime/GalaxySceneBuilder.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:16:import { GalaxyRuntimeSync } from "./runtime/GalaxyRuntimeSync.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:28:export class GalaxyVisualizationRuntime {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:72:    public readonly cameraAnimationRuntime =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:73:        new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:85:    public readonly sceneRuntime =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:86:        new GalaxySceneRuntime();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:99:    public readonly runtimeSync =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:100:        new GalaxyRuntimeSync(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:101:            this.sceneRuntime
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:214:            this.sceneRuntime.render();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:264:        this.cameraAnimationRuntime.startTransition(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:415:        this.runtimeSync.updateScene(
+src\visualization\galaxy\camera\GalaxyCameraAnimationRuntime.ts:11:export class GalaxyCameraAnimationRuntime {
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationBridge.test.ts:42:                    name: "Runtime",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:11:import { GalaxyCameraAnimationRuntime } from "../GalaxyCameraAnimationRuntime.js";
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:16:    "GalaxyCameraAnimationRuntime",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:21:            "updates camera through animation runtime",
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:51:                const runtime =
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:52:                    new GalaxyCameraAnimationRuntime(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:64:                runtime.startTransition(
+src\visualization\galaxy\camera\__tests__\GalaxyCameraAnimationRuntime.test.ts:90:                runtime.update(
+src\visualization\galaxy\controller\__tests__\GalaxyInteractionCameraBridge.test.ts:35:                    id: "runtime",
+src\visualization\galaxy\controller\__tests__\GalaxyInteractionCameraBridge.test.ts:37:                    name: "Runtime",
+src\visualization\galaxy\controller\__tests__\GalaxyInteractionCameraBridge.test.ts:41:                    path: "src/runtime",
+src\visualization\galaxy\events\GalaxyEvent.ts:9:    | "RUNTIME_SYNCED"
+src\visualization\galaxy\events\__tests__\GalaxyEventBus.test.ts:46:                        nodeId: "runtime"
+src\visualization\galaxy\events\__tests__\GalaxyEventDispatcher.test.ts:49:                        nodeId: "runtime"
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:3:import { GalaxySceneRuntime } from "./GalaxySceneRuntime.js";
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:6:export class GalaxyRuntimeSync {
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:11:        private readonly runtime:
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:12:            GalaxySceneRuntime
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:23:        this.runtime.load(
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:34:        return this.runtime.render();
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:8:export class GalaxySceneRuntime {
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:3:import { GalaxySceneRuntime } from "../GalaxySceneRuntime.js";
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:4:import { GalaxyRuntimeSync } from "../GalaxyRuntimeSync.js";
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:8:    "GalaxyRuntimeSync",
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:13:            "updates scene runtime and renders frame",
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:17:                const sceneRuntime =
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:18:                    new GalaxySceneRuntime();
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:22:                    new GalaxyRuntimeSync(
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:23:                        sceneRuntime
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:3:import { GalaxySceneRuntime } from "../GalaxySceneRuntime.js";
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:7:    "GalaxySceneRuntime",
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:16:                const runtime =
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:17:                    new GalaxySceneRuntime();
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:27:                            id: "runtime",
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:29:                            name: "Runtime",
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:33:                            path: "src/runtime",
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:59:                runtime.load(
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:66:                    runtime.render();
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:26:                    galaxy.sceneRuntime
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:32:                    galaxy.runtimeSync
+src\visualization\galaxy\__tests__\GalaxyCore.integration.test.ts:59:                    name: "Runtime",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:7:    "GalaxyVisualizationRuntime architecture",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:51:                    galaxy.sceneRuntime.render();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.cameraTransition.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.cameraTransition.test.ts:7:    "GalaxyVisualizationRuntime Camera Transition",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.cameraTransition.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.interaction.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.interaction.test.ts:7:    "GalaxyVisualizationRuntime Interaction",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.interaction.test.ts:12:            "selects node through runtime facade",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.interaction.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:7:    "GalaxyVisualizationRuntime Render Frame",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:7:    "GalaxyVisualizationRuntime Rendering",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:7:    "GalaxyVisualizationRuntime",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:44:                    galaxy.sceneRuntime
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.test.ts:50:                    galaxy.runtimeSync
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.viewport.test.ts:3:import { GalaxyVisualizationRuntime } from "../GalaxyVisualizationRuntime.js";
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.viewport.test.ts:7:    "GalaxyVisualizationRuntime Viewport",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.viewport.test.ts:17:                    new GalaxyVisualizationRuntime();
+src\visualization\universe\action\UniverseActionFactory.ts:1:import { UniverseActionRuntime } from "./UniverseActionRuntime.js";
+src\visualization\universe\action\UniverseActionFactory.ts:12:        return new UniverseActionRuntime();
+src\visualization\universe\action\UniverseActionRuntime.ts:5:export class UniverseActionRuntime {
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:3:import { CameraIntelligenceRuntime } from "../intelligence/CameraIntelligenceRuntime.js";
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:9:export class CameraAutoFocusRuntime {
+src\visualization\universe\camera\focus\CameraAutoFocusRuntime.ts:15:        new CameraIntelligenceRuntime();
+src\visualization\universe\camera\focus\__tests__\CameraAutoFocusRuntime.test.ts:5:    "CameraAutoFocusRuntime",
+src\visualization\universe\camera\intelligence\CameraIntelligenceRuntime.ts:7:export class CameraIntelligenceRuntime {
+src\visualization\universe\controller\UniverseController.ts:6:import { UniverseLiveRuntime } from "../tick/UniverseLiveRuntime.js";
+src\visualization\universe\controller\UniverseController.ts:16:        private readonly liveRuntime:
+src\visualization\universe\controller\UniverseController.ts:18:            UniverseLiveRuntime
+src\visualization\universe\controller\UniverseController.ts:35:        return this.liveRuntime.update(
+src\visualization\universe\controller\UniverseControllerFactory.ts:3:import { UniverseLiveRuntime } from "../tick/UniverseLiveRuntime.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:5:import { UniverseSimulationRuntime } from "../simulation/UniverseSimulationRuntime.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:7:import { UniverseRuntime } from "../runtime/UniverseRuntime.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:49:        const runtime =
+src\visualization\universe\controller\UniverseControllerFactory.ts:51:            new UniverseRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:75:            new UniverseSimulationRuntime(
+src\visualization\universe\controller\UniverseControllerFactory.ts:77:                runtime,
+src\visualization\universe\controller\UniverseControllerFactory.ts:89:            new UniverseLiveRuntime(
+src\visualization\universe\kernel\AckiosUniverseRuntime.ts:5:export class AckiosUniverseRuntime {
+src\visualization\universe\kernel\UniverseKernelFactory.ts:1:import { UniverseRuntimeKernel } from "./UniverseRuntimeKernel.js";
+src\visualization\universe\kernel\UniverseKernelFactory.ts:13:        UniverseRuntimeKernel {
+src\visualization\universe\kernel\UniverseKernelFactory.ts:16:        return new UniverseRuntimeKernel(
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:6:import { UniverseSceneRuntime } from "../scene/UniverseSceneRuntime.js";
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:16:export class UniverseRuntimeKernel {
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:46:            UniverseSceneRuntime
+src\visualization\universe\kernel\__tests__\UniverseRuntimeKernel.test.ts:7:    "UniverseRuntimeKernel",
+src\visualization\universe\kernel\__tests__\UniverseRuntimeKernel.test.ts:12:            "creates runtime kernel",
+src\visualization\universe\orbit\UniverseOrbitRuntime.ts:9:export class UniverseOrbitRuntime {
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:3:import { UniverseOrbitRuntime } from "../UniverseOrbitRuntime.js";
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:7:    "UniverseOrbitRuntime",
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:16:                const runtime =
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:17:                    new UniverseOrbitRuntime();
+src\visualization\universe\orbit\__tests__\UniverseOrbitRuntime.test.ts:80:                    runtime.update(
+src\visualization\universe\reaction\UniverseReactionFactory.ts:1:import { UniverseReactionRuntime } from "./UniverseReactionRuntime.js";
+src\visualization\universe\reaction\UniverseReactionFactory.ts:12:        return new UniverseReactionRuntime();
+src\visualization\universe\reaction\UniverseReactionRuntime.ts:5:export class UniverseReactionRuntime {
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:3:import { UniverseReactionRuntime } from "../UniverseReactionRuntime.js";
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:7:    "UniverseReactionRuntime",
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:16:                const runtime =
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:18:                    new UniverseReactionRuntime();
+src\visualization\universe\reaction\__tests__\UniverseReactionRuntime.test.ts:24:                    runtime.process(
+src\visualization\universe\runtime\UniverseRuntime.ts:13:export class UniverseRuntime {
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:3:import { UniverseRuntime } from "../UniverseRuntime.js";
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:14:    "UniverseRuntime",
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:38:                const runtime =
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:39:                    new UniverseRuntime(
+src\visualization\universe\runtime\__tests__\UniverseRuntime.test.ts:47:                runtime.process({
+src\visualization\universe\scene\UniverseSceneFactory.ts:1:import { UniverseSceneRuntime } from "./UniverseSceneRuntime.js";
+src\visualization\universe\scene\UniverseSceneFactory.ts:13:        UniverseSceneRuntime {
+src\visualization\universe\scene\UniverseSceneFactory.ts:17:        return new UniverseSceneRuntime(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:10:import { CameraAutoFocusRuntime } from "../camera/focus/CameraAutoFocusRuntime.js";
+src\visualization\universe\scene\UniverseSceneRuntime.ts:18:export class UniverseSceneRuntime {
+src\visualization\universe\scene\UniverseSceneRuntime.ts:28:    private readonly focusRuntime =
+src\visualization\universe\scene\UniverseSceneRuntime.ts:30:        new CameraAutoFocusRuntime(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:113:        this.focusRuntime.process(
+src\visualization\universe\scene\__tests__\UniverseSceneRuntime.test.ts:7:    "UniverseSceneRuntime",
+src\visualization\universe\scene\__tests__\UniverseSceneRuntime.test.ts:12:            "creates scene runtime",
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:3:import { UniverseOrbitRuntime } from "../orbit/UniverseOrbitRuntime.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:7:import { UniverseRuntime } from "../runtime/UniverseRuntime.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:11:export class UniverseSimulationRuntime {
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:15:    private readonly orbitRuntime =
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:17:        new UniverseOrbitRuntime();
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:23:        private readonly runtime:
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:25:            UniverseRuntime,
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:50:            this.orbitRuntime.update(
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:76:        event: Parameters<UniverseRuntime["process"]>[0]
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:82:        this.runtime.process(
+src\visualization\universe\simulation\__tests__\UniverseSimulationRuntime.test.ts:5:    "UniverseSimulationRuntime",
+src\visualization\universe\tick\UniverseLiveRuntime.ts:3:import { UniverseSimulationRuntime } from "../simulation/UniverseSimulationRuntime.js";
+src\visualization\universe\tick\UniverseLiveRuntime.ts:9:export class UniverseLiveRuntime {
+src\visualization\universe\tick\UniverseLiveRuntime.ts:25:            UniverseSimulationRuntime
+src\visualization\universe\tick\__tests__\UniverseLiveRuntime.test.ts:5:    "UniverseLiveRuntime",
+src\visualization\universe\tick\__tests__\UniverseLiveRuntime.test.ts:10:            "live runtime test exists",
+

@@ -1,0 +1,165 @@
+
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:17:import { GalaxyRenderLoop } from "./rendering/GalaxyRenderLoop.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:18:import { GalaxyFrameRenderer } from "./rendering/GalaxyFrameRenderer.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:24:import type { GalaxyRenderContext } from "./rendering/GalaxyRenderContext.js";
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:105:    public readonly renderLoop =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:106:        new GalaxyRenderLoop();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:109:    public readonly frameRenderer =
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:110:        new GalaxyFrameRenderer();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:127:    public startRendering(): void {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:130:        this.renderLoop.start();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:137:    public stopRendering(): void {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:140:        this.renderLoop.stop();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:147:    public isRendering(): boolean {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:150:        return this.renderLoop.isRunning();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:197:    public renderFrame(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:199:    ): GalaxyRenderContext {
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:214:            this.sceneRuntime.render();
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:219:            return this.frameRenderer.render(
+src\visualization\galaxy\GalaxyVisualizationRuntime.ts:237:        return this.frameRenderer.render(
+src\visualization\galaxy\renderer\GalaxyEdgeRenderer.ts:6:export class GalaxyEdgeRenderer {
+src\visualization\galaxy\renderer\GalaxyNodeRenderer.ts:6:export class GalaxyNodeRenderer {
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:7:import { GalaxyNodeRenderer } from "./GalaxyNodeRenderer.js";
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:9:import { GalaxyEdgeRenderer } from "./GalaxyEdgeRenderer.js";
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:13:export class GalaxySceneRenderer {
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:17:    private readonly nodeRenderer =
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:18:        new GalaxyNodeRenderer();
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:22:    private readonly edgeRenderer =
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:23:        new GalaxyEdgeRenderer();
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:27:    public render(
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:46:                        this.nodeRenderer.create(
+src\visualization\galaxy\renderer\GalaxySceneRenderer.ts:60:                        this.edgeRenderer.create(
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:3:import { GalaxyEdgeRenderer } from "../GalaxyEdgeRenderer.js";
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:7:    "GalaxyEdgeRenderer",
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:16:                const renderer =
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:17:                    new GalaxyEdgeRenderer();
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:34:                    renderer.create(
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:71:                const renderer =
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:72:                    new GalaxyEdgeRenderer();
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:77:                    renderer.create({
+src\visualization\galaxy\renderer\__tests__\GalaxyEdgeRenderer.test.ts:90:                    renderer.disable(
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:3:import { GalaxyNodeRenderer } from "../GalaxyNodeRenderer.js";
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:7:    "GalaxyNodeRenderer",
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:16:                const renderer =
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:17:                    new GalaxyNodeRenderer();
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:40:                    renderer.create(
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:77:                const renderer =
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:78:                    new GalaxyNodeRenderer();
+src\visualization\galaxy\renderer\__tests__\GalaxyNodeRenderer.test.ts:107:                    renderer.select(
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:7:import type { GalaxyRenderContext } from "./GalaxyRenderContext.js";
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:9:import type { GalaxyVisualScene } from "../renderer/GalaxyVisualScene.js";
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:11:import { GalaxyNodeRenderer } from "../renderer/GalaxyNodeRenderer.js";
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:13:import { GalaxyEdgeRenderer } from "../renderer/GalaxyEdgeRenderer.js";
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:17:export class GalaxyFrameRenderer {
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:20:    private readonly nodeRenderer =
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:21:        new GalaxyNodeRenderer();
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:25:    private readonly edgeRenderer =
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:26:        new GalaxyEdgeRenderer();
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:30:    public render(
+src\visualization\galaxy\rendering\GalaxyFrameRenderer.ts:40:    ): GalaxyRenderContext {
+src\visualization\galaxy\rendering\GalaxyRenderContext.ts:5:import type { GalaxyVisualScene } from "../renderer/GalaxyVisualScene.js";
+src\visualization\galaxy\rendering\GalaxyRenderContext.ts:8:export interface GalaxyRenderContext {
+src\visualization\galaxy\rendering\GalaxyRenderLoop.ts:1:import type { GalaxyRenderContext } from "./GalaxyRenderContext.js";
+src\visualization\galaxy\rendering\GalaxyRenderLoop.ts:4:export class GalaxyRenderLoop {
+src\visualization\galaxy\rendering\GalaxyRenderLoop.ts:46:        context: GalaxyRenderContext
+src\visualization\galaxy\rendering\GalaxyRenderLoop.ts:48:    ): GalaxyRenderContext {
+src\visualization\galaxy\rendering\__tests__\GalaxyFrameRenderer.test.ts:3:import { GalaxyFrameRenderer } from "../GalaxyFrameRenderer.js";
+src\visualization\galaxy\rendering\__tests__\GalaxyFrameRenderer.test.ts:7:    "GalaxyFrameRenderer",
+src\visualization\galaxy\rendering\__tests__\GalaxyFrameRenderer.test.ts:12:            "creates render context",
+src\visualization\galaxy\rendering\__tests__\GalaxyFrameRenderer.test.ts:16:                const renderer =
+src\visualization\galaxy\rendering\__tests__\GalaxyFrameRenderer.test.ts:17:                    new GalaxyFrameRenderer();
+src\visualization\galaxy\rendering\__tests__\GalaxyFrameRenderer.test.ts:89:                    renderer.render(
+src\visualization\galaxy\rendering\__tests__\GalaxyRenderLoop.test.ts:3:import { GalaxyRenderLoop } from "../GalaxyRenderLoop.js";
+src\visualization\galaxy\rendering\__tests__\GalaxyRenderLoop.test.ts:7:    "GalaxyRenderLoop",
+src\visualization\galaxy\rendering\__tests__\GalaxyRenderLoop.test.ts:17:                    new GalaxyRenderLoop();
+src\visualization\galaxy\rendering\__tests__\GalaxyRenderLoop.test.ts:74:                    new GalaxyRenderLoop();
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:31:    public render() {
+src\visualization\galaxy\runtime\GalaxyRuntimeSync.ts:34:        return this.runtime.render();
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:2:import type { GalaxyVisualScene } from "../renderer/GalaxyVisualScene.js";
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:5:import { GalaxySceneRenderer } from "../renderer/GalaxySceneRenderer.js";
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:19:    private readonly renderer =
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:20:        new GalaxySceneRenderer();
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:34:    public render():
+src\visualization\galaxy\runtime\GalaxySceneRuntime.ts:53:        return this.renderer.render(
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:13:            "updates scene runtime and renders frame",
+src\visualization\galaxy\runtime\__tests__\GalaxyRuntimeSync.test.ts:68:                    sync.render();
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:12:            "loads scene and produces render frame",
+src\visualization\galaxy\runtime\__tests__\GalaxySceneRuntime.test.ts:66:                    runtime.render();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.architecture.test.ts:51:                    galaxy.sceneRuntime.render();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:7:    "GalaxyVisualizationRuntime Render Frame",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:12:            "creates render context from scene",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.renderFrame.test.ts:27:                    galaxy.renderFrame(
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:7:    "GalaxyVisualizationRuntime Rendering",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:12:            "starts and stops render loop",
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:22:                    galaxy.isRendering()
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:27:                galaxy.startRendering();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:32:                    galaxy.isRendering()
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:37:                galaxy.stopRendering();
+src\visualization\galaxy\__tests__\GalaxyVisualizationRuntime.rendering.test.ts:42:                    galaxy.isRendering()
+src\visualization\universe\controller\UniverseControllerFactory.ts:9:import { UniverseRenderer } from "../renderer/UniverseRenderer.js";
+src\visualization\universe\controller\UniverseControllerFactory.ts:65:        const renderer =
+src\visualization\universe\controller\UniverseControllerFactory.ts:67:            new UniverseRenderer();
+src\visualization\universe\controller\UniverseControllerFactory.ts:79:                renderer
+src\visualization\universe\engine\UniverseEngineBridge.ts:26:        return this.engine.render({
+src\visualization\universe\engine\UniverseRenderContext.ts:1:export interface UniverseRenderContext {
+src\visualization\universe\engine\UniverseVisualEngine.ts:1:import type { UniverseRenderContext } from "./UniverseRenderContext.js";
+src\visualization\universe\engine\UniverseVisualEngine.ts:8:    public render(
+src\visualization\universe\engine\UniverseVisualEngine.ts:10:        context: UniverseRenderContext
+src\visualization\universe\engine\UniverseVisualEngine.ts:12:    ): UniverseRenderContext {
+src\visualization\universe\kernel\UniverseRuntimeKernel.ts:91:            scene.renderedObjects
+src\visualization\universe\renderer\CometRenderer.ts:4:export interface CometRenderObject {
+src\visualization\universe\renderer\CometRenderer.ts:43:export class CometRenderer {
+src\visualization\universe\renderer\CometRenderer.ts:47:    public render(
+src\visualization\universe\renderer\CometRenderer.ts:51:    ): CometRenderObject {
+src\visualization\universe\renderer\MoonRenderer.ts:4:export interface MoonRenderObject {
+src\visualization\universe\renderer\MoonRenderer.ts:60:export class MoonRenderer {
+src\visualization\universe\renderer\MoonRenderer.ts:64:    public render(
+src\visualization\universe\renderer\MoonRenderer.ts:68:    ): MoonRenderObject {
+src\visualization\universe\renderer\PlanetRenderer.ts:4:export interface PlanetRenderObject {
+src\visualization\universe\renderer\PlanetRenderer.ts:61:export class PlanetRenderer {
+src\visualization\universe\renderer\PlanetRenderer.ts:65:    public render(
+src\visualization\universe\renderer\PlanetRenderer.ts:69:    ): PlanetRenderObject {
+src\visualization\universe\renderer\SatelliteRenderer.ts:4:export interface SatelliteRenderObject {
+src\visualization\universe\renderer\SatelliteRenderer.ts:43:export class SatelliteRenderer {
+src\visualization\universe\renderer\SatelliteRenderer.ts:47:    public render(
+src\visualization\universe\renderer\SatelliteRenderer.ts:51:    ): SatelliteRenderObject {
+src\visualization\universe\renderer\StarRenderer.ts:4:export interface StarRenderObject {
+src\visualization\universe\renderer\StarRenderer.ts:49:export class StarRenderer {
+src\visualization\universe\renderer\StarRenderer.ts:53:    public render(
+src\visualization\universe\renderer\StarRenderer.ts:57:    ): StarRenderObject {
+src\visualization\universe\renderer\UniverseRenderer.ts:6:import { StarRenderer } from "./StarRenderer.js";
+src\visualization\universe\renderer\UniverseRenderer.ts:8:import { PlanetRenderer } from "./PlanetRenderer.js";
+src\visualization\universe\renderer\UniverseRenderer.ts:10:import { MoonRenderer } from "./MoonRenderer.js";
+src\visualization\universe\renderer\UniverseRenderer.ts:12:import { SatelliteRenderer } from "./SatelliteRenderer.js";
+src\visualization\universe\renderer\UniverseRenderer.ts:16:export type UniverseRenderObject =
+src\visualization\universe\renderer\UniverseRenderer.ts:19:    | ReturnType<StarRenderer["render"]>
+src\visualization\universe\renderer\UniverseRenderer.ts:21:    | ReturnType<PlanetRenderer["render"]>
+src\visualization\universe\renderer\UniverseRenderer.ts:23:    | ReturnType<MoonRenderer["render"]>
+src\visualization\universe\renderer\UniverseRenderer.ts:25:    | ReturnType<SatelliteRenderer["render"]>;
+src\visualization\universe\renderer\UniverseRenderer.ts:30:export class UniverseRenderer {
+src\visualization\universe\renderer\UniverseRenderer.ts:34:    private readonly starRenderer =
+src\visualization\universe\renderer\UniverseRenderer.ts:36:        new StarRenderer();
+src\visualization\universe\renderer\UniverseRenderer.ts:40:    private readonly planetRenderer =
+src\visualization\universe\renderer\UniverseRenderer.ts:42:        new PlanetRenderer();
+src\visualization\universe\renderer\UniverseRenderer.ts:46:    private readonly moonRenderer =
+src\visualization\universe\renderer\UniverseRenderer.ts:48:        new MoonRenderer();
+src\visualization\universe\renderer\UniverseRenderer.ts:52:    private readonly satelliteRenderer =
+src\visualization\universe\renderer\UniverseRenderer.ts:54:        new SatelliteRenderer();
+src\visualization\universe\renderer\UniverseRenderer.ts:60:    public render(
+src\visualization\universe\renderer\UniverseRenderer.ts:64:    ): UniverseRenderObject[] {
+src\visualization\universe\renderer\UniverseRenderer.ts:72:                this.renderObject(object)
+src\visualization\universe\renderer\UniverseRenderer.ts:83:    private renderObject(
+src\visualization\universe\renderer\UniverseRenderer.ts:87:    ): UniverseRenderObject {
+src\visualization\universe\renderer\UniverseRenderer.ts:100:                return this.starRenderer.render(
+src\visualization\universe\renderer\UniverseRenderer.ts:110:                return this.planetRenderer.render(
+src\visualization\universe\renderer\UniverseRenderer.ts:120:                return this.moonRenderer.render(
+src\visualization\universe\renderer\UniverseRenderer.ts:130:                return this.satelliteRenderer.render(
+src\visualization\universe\scene\UniverseSceneRuntime.ts:65:        const rendered =
+src\visualization\universe\scene\UniverseSceneRuntime.ts:78:            renderedObjects:
+src\visualization\universe\scene\UniverseSceneRuntime.ts:80:                rendered.length,
+src\visualization\universe\scene\UniverseSceneState.ts:4:    readonly renderedObjects:
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:5:import { UniverseRenderer } from "../renderer/UniverseRenderer.js";
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:28:        private readonly renderer:
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:30:            UniverseRenderer
+src\visualization\universe\simulation\UniverseSimulationRuntime.ts:63:        return this.renderer.render(
+

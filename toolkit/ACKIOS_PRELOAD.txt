@@ -1,0 +1,83 @@
+
+desktop\dist\win-unpacked\resources\dist\main\index.js:14:            preload: join(__dirname, '../preload/index.js'),
+desktop\dist\win-unpacked\resources\dist\preload\index.js:2:import { electronAPI } from '@electron-toolkit/preload';
+desktop\node_modules\@noble\hashes\src\sha3-addons.ts:192:    // Preload T = bytepad(encode_string("KMAC") || encode_string(S), rate); later updates append
+desktop\node_modules\@noble\hashes\sha3-addons.js:118:        // Preload T = bytepad(encode_string("KMAC") || encode_string(S), rate); later updates append
+desktop\node_modules\@peculiar\utils\build\types\converters\defaults.d.ts:21:/** The default registry preloaded with the built-in converters. */
+desktop\node_modules\@types\node\http.d.ts:845:         * indicating that the user agent can preload/preconnect the linked resources.
+desktop\node_modules\@types\node\http.d.ts:853:         * const earlyHintsLink = '</styles.css>; rel=preload; as=style';
+desktop\node_modules\@types\node\http.d.ts:859:         *   '</styles.css>; rel=preload; as=style',
+desktop\node_modules\@types\node\http.d.ts:860:         *   '</scripts.js>; rel=preload; as=script',
+desktop\node_modules\@types\node\http2.d.ts:2340:         * indicating that the user agent can preload/preconnect the linked resources.
+desktop\node_modules\@types\node\http2.d.ts:2347:         * const earlyHintsLink = '</styles.css>; rel=preload; as=style';
+desktop\node_modules\@types\node\http2.d.ts:2353:         *   '</styles.css>; rel=preload; as=style',
+desktop\node_modules\@types\node\http2.d.ts:2354:         *   '</scripts.js>; rel=preload; as=script',
+desktop\node_modules\@types\node\module.d.ts:738:                 * `true` if the module is running during the Node.js preload
+desktop\node_modules\@types\node\module.d.ts:742:                isPreloading: boolean;
+desktop\node_modules\@types\node\test.d.ts:2141:         * preloaded with `--require` or `--import`.
+desktop\node_modules\debug\src\browser.js:116:	// NB: In an Electron preload script, document will be defined but not fully
+desktop\node_modules\electron\electron.d.ts:10665:  interface PreloadScript {
+desktop\node_modules\electron\electron.d.ts:10667:    // Docs: https://electronjs.org/docs/api/structures/preload-script
+desktop\node_modules\electron\electron.d.ts:10674:     * Unique ID of preload script.
+desktop\node_modules\electron\electron.d.ts:10678:     * Context type where the preload script will be executed. Possible values include
+desktop\node_modules\electron\electron.d.ts:10684:  interface PreloadScriptRegistration {
+desktop\node_modules\electron\electron.d.ts:10686:    // Docs: https://electronjs.org/docs/api/structures/preload-script-registration
+desktop\node_modules\electron\electron.d.ts:10693:     * Unique ID of preload script. Defaults to a random UUID.
+desktop\node_modules\electron\electron.d.ts:10697:     * Context type where the preload script will be executed. Possible values include
+desktop\node_modules\electron\electron.d.ts:12502:     * an array of paths to preload scripts that have been registered.
+desktop\node_modules\electron\electron.d.ts:12504:     * **Deprecated:** Use the new `ses.getPreloadScripts` API. This will only return
+desktop\node_modules\electron\electron.d.ts:12505:     * preload script paths for `frame` context types.
+desktop\node_modules\electron\electron.d.ts:12509:    getPreloads(): string[];
+desktop\node_modules\electron\electron.d.ts:12511:     * An array of paths to preload scripts that have been registered.
+desktop\node_modules\electron\electron.d.ts:12513:    getPreloadScripts(): PreloadScript[];
+desktop\node_modules\electron\electron.d.ts:12605:     * Registers preload script that will be executed in its associated context type in
+desktop\node_modules\electron\electron.d.ts:12606:     * this session. For `frame` contexts, this will run prior to any preload defined
+desktop\node_modules\electron\electron.d.ts:12609:     * The ID of the registered preload script.
+desktop\node_modules\electron\electron.d.ts:12611:    registerPreloadScript(script: PreloadScriptRegistration): string;
+desktop\node_modules\electron\electron.d.ts:12736:     * this session just before normal `preload` scripts run.
+desktop\node_modules\electron\electron.d.ts:12738:     * **Deprecated:** Use the new `ses.registerPreloadScript` API.
+desktop\node_modules\electron\electron.d.ts:12742:    setPreloads(preloads: string[]): void;
+desktop\node_modules\electron\electron.d.ts:12829:    unregisterPreloadScript(id: string): void;
+desktop\node_modules\electron\electron.d.ts:16480:     * Emitted when the preload script `preloadPath` throws an unhandled exception
+desktop\node_modules\electron\electron.d.ts:16483:    on(event: 'preload-error', listener: (event: Event,
+desktop\node_modules\electron\electron.d.ts:16484:                                          preloadPath: string,
+desktop\node_modules\electron\electron.d.ts:16486:    off(event: 'preload-error', listener: (event: Event,
+desktop\node_modules\electron\electron.d.ts:16487:                                          preloadPath: string,
+desktop\node_modules\electron\electron.d.ts:16489:    once(event: 'preload-error', listener: (event: Event,
+desktop\node_modules\electron\electron.d.ts:16490:                                          preloadPath: string,
+desktop\node_modules\electron\electron.d.ts:16492:    addListener(event: 'preload-error', listener: (event: Event,
+desktop\node_modules\electron\electron.d.ts:16493:                                          preloadPath: string,
+desktop\node_modules\electron\electron.d.ts:16495:    removeListener(event: 'preload-error', listener: (event: Event,
+desktop\node_modules\electron\electron.d.ts:16496:                                          preloadPath: string,
+desktop\node_modules\electron\electron.d.ts:18194:     * process preload scripts.
+desktop\node_modules\electron\electron.d.ts:18217:     * Whether to run Electron APIs and the specified `preload` script in a separate
+desktop\node_modules\electron\electron.d.ts:18218:     * JavaScript context. Defaults to `true`. The context that the `preload` script
+desktop\node_modules\electron\electron.d.ts:18222:     * will only be available in the `preload` script and not the loaded page. This
+desktop\node_modules\electron\electron.d.ts:18224:     * ensure the loaded content cannot tamper with the `preload` script and any
+desktop\node_modules\electron\electron.d.ts:18323:     * and child windows. All your preloads will load for every iframe, you can use
+desktop\node_modules\electron\electron.d.ts:18354:     * the script. When node integration is turned off, the preload script can
+desktop\node_modules\electron\electron.d.ts:18357:    preload?: string;
+desktop\node_modules\electron\electron.d.ts:18373:     * the preload script are more limited. Default is `true` since Electron 20. The
+desktop\node_modules\electron\electron.d.ts:18422:     * `preload` script configured for the `<webview>` will have node integration
+desktop\node_modules\electron\electron.d.ts:18424:     * able to create a `<webview>` tag with a possibly malicious `preload` script. You
+desktop\node_modules\electron\electron.d.ts:18426:     * `preload` script and to validate or alter the `<webview>`'s initial settings.
+desktop\node_modules\electron\electron.d.ts:19175:     * sub-frames such as iframes inside the `webview`. All your preloads will load for
+desktop\node_modules\electron\electron.d.ts:19208:    preload: string;
+desktop\node_modules\electron\electron.d.ts:23776:    type PreloadScript = Electron.PreloadScript;
+desktop\node_modules\electron\electron.d.ts:23777:    type PreloadScriptRegistration = Electron.PreloadScriptRegistration;
+desktop\node_modules\electron\electron.d.ts:24153:    type PreloadScript = Electron.PreloadScript;
+desktop\node_modules\electron\electron.d.ts:24154:    type PreloadScriptRegistration = Electron.PreloadScriptRegistration;
+desktop\node_modules\electron\electron.d.ts:24458:    type PreloadScript = Electron.PreloadScript;
+desktop\node_modules\electron\electron.d.ts:24459:    type PreloadScriptRegistration = Electron.PreloadScriptRegistration;
+desktop\node_modules\electron\electron.d.ts:24762:    type PreloadScript = Electron.PreloadScript;
+desktop\node_modules\electron\electron.d.ts:24763:    type PreloadScriptRegistration = Electron.PreloadScriptRegistration;
+desktop\node_modules\electron\electron.d.ts:25158:    type PreloadScript = Electron.PreloadScript;
+desktop\node_modules\electron\electron.d.ts:25159:    type PreloadScriptRegistration = Electron.PreloadScriptRegistration;
+desktop\node_modules\jiti\lib\types.d.ts:342:   * `true` if the module is running during the Node.js preload.
+desktop\node_modules\jiti\lib\types.d.ts:344:  isPreloading: boolean;
+desktop\node_modules\postject\dist\api.js:2332:            throw new Error("Lazy loading should have been performed (contents set) in createLazyFile, but it was not. Lazy loading only works in web workers. Use --embed-file or --preload-file in emcc on the main thread.");
+desktop\node_modules\postject\dist\api.js:2417:              throw "Cannot do synchronous binary XHRs outside webworkers in modern browsers. Use --embed-file or --preload-file in emcc";
+desktop\node_modules\postject\dist\api.js:2484:        }, createPreloadedFile: (parent, name, url, canRead, canWrite, onload, onerror, dontCreateFile, canOwn, preFinish) => {
+desktop\node_modules\postject\dist\api.js:2498:            if (Browser.handledByPreloadPlugin(byteArray, fullname, finish, () => {
+desktop\node_modules\undici\lib\core\constants.js:81:  'Service-Worker-Navigation-Preload',
+

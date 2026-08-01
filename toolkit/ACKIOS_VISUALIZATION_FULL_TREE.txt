@@ -1,0 +1,295 @@
+Структура папок
+Серийный номер тома: 00000181 BCD7:D012
+D:\ACKIOS\TOOLKIT\SRC\VISUALIZATION
+|   GalaxyArchitectureProviderBridge.ts
+|   
++---galaxy
+|   |   GalaxyVisualizationRuntime.ts
+|   |   
+|   +---animation
+|   |   |   GalaxyAnimationEngine.ts
+|   |   |   GalaxyAnimationState.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyAnimationEngine.test.ts
+|   |           
+|   +---camera
+|   |   |   GalaxyCameraAnimationBridge.ts
+|   |   |   GalaxyCameraAnimationRuntime.ts
+|   |   |   GalaxyCameraController.ts
+|   |   |   GalaxyCameraState.ts
+|   |   |   GalaxyCameraTransition.ts
+|   |   |   GalaxyCameraTransitionBridge.ts
+|   |   |   GalaxyViewport.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyCameraAnimationBridge.test.ts
+|   |           GalaxyCameraAnimationRuntime.test.ts
+|   |           GalaxyCameraTransition.test.ts
+|   |           GalaxyCameraTransitionBridge.test.ts
+|   |           GalaxyViewport.test.ts
+|   |           
+|   +---controller
+|   |   |   GalaxyInteractionCameraBridge.ts
+|   |   |   GalaxyInteractionController.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyInteractionCameraBridge.test.ts
+|   |           
+|   +---events
+|   |   |   GalaxyEvent.ts
+|   |   |   GalaxyEventBus.ts
+|   |   |   GalaxyEventDispatcher.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyEventBus.test.ts
+|   |           GalaxyEventDispatcher.test.ts
+|   |           
+|   +---interaction
+|   |   |   GalaxyInteractionController.ts
+|   |   |   GalaxyInteractionState.ts
+|   |   |   GalaxyInteractionViewportBridge.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyInteractionController.test.ts
+|   |           GalaxyInteractionViewportBridge.test.ts
+|   |           
+|   +---layout
+|   |   |   GalaxyImportanceCalculator.ts
+|   |   |   GalaxyLayoutEngine.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyLayoutEngine.cluster.test.ts
+|   |           GalaxyLayoutEngine.gravity.test.ts
+|   |           GalaxyLayoutEngine.importance.test.ts
+|   |           
+|   +---model
+|   |       GalaxyEdge.ts
+|   |       GalaxyNode.ts
+|   |       GalaxyScene.ts
+|   |       
+|   +---renderer
+|   |   |   GalaxyEdgeRenderer.ts
+|   |   |   GalaxyEdgeVisual.ts
+|   |   |   GalaxyNodeRenderer.ts
+|   |   |   GalaxyNodeVisual.ts
+|   |   |   GalaxySceneRenderer.ts
+|   |   |   GalaxyVisualScene.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyEdgeRenderer.test.ts
+|   |           GalaxyNodeRenderer.test.ts
+|   |           
+|   +---rendering
+|   |   |   GalaxyFrameRenderer.ts
+|   |   |   GalaxyRenderContext.ts
+|   |   |   GalaxyRenderLoop.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyFrameRenderer.test.ts
+|   |           GalaxyRenderLoop.test.ts
+|   |           
+|   +---runtime
+|   |   |   GalaxyRuntimeSync.ts
+|   |   |   GalaxySceneBuilder.ts
+|   |   |   GalaxySceneRuntime.ts
+|   |   |   
+|   |   \---__tests__
+|   |           GalaxyRuntimeSync.test.ts
+|   |           GalaxySceneRuntime.test.ts
+|   |           
+|   \---__tests__
+|           GalaxyCore.integration.test.ts
+|           GalaxyVisualizationRuntime.architecture.test.ts
+|           GalaxyVisualizationRuntime.cameraTransition.test.ts
+|           GalaxyVisualizationRuntime.interaction.test.ts
+|           GalaxyVisualizationRuntime.renderFrame.test.ts
+|           GalaxyVisualizationRuntime.rendering.test.ts
+|           GalaxyVisualizationRuntime.test.ts
+|           GalaxyVisualizationRuntime.viewport.test.ts
+|           
++---universe
+|   +---action
+|   |   |   AnimationAction.ts
+|   |   |   CameraAction.ts
+|   |   |   ObjectStateAction.ts
+|   |   |   UniverseAction.ts
+|   |   |   UniverseActionExecutor.ts
+|   |   |   UniverseActionFactory.ts
+|   |   |   UniverseActionRuntime.ts
+|   |   |   
+|   |   \---__tests__
+|   |           CameraAction.test.ts
+|   |           UniverseActionExecutor.test.ts
+|   |           
+|   +---animation
+|   |   |   PlanetPulseAnimation.ts
+|   |   |   
+|   |   \---__tests__
+|   |           PlanetPulseAnimation.test.ts
+|   |           
+|   +---bridge
+|   |   |   BrainUniverseBridge.ts
+|   |   |   UniverseBridgeFactory.ts
+|   |   |   UniverseEventAdapter.ts
+|   |   |   UniverseStateSynchronizer.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseEventAdapter.test.ts
+|   |           UniverseStateSynchronizer.test.ts
+|   |           
+|   +---camera
+|   |   |   CameraFocusRequest.ts
+|   |   |   UniverseCameraController.ts
+|   |   |   UniverseGalaxyCameraBridge.ts
+|   |   |   
+|   |   +---focus
+|   |   |   |   CameraAutoFocusRuntime.ts
+|   |   |   |   CameraFocusExecutor.ts
+|   |   |   |   CameraFocusPolicy.ts
+|   |   |   |   
+|   |   |   \---__tests__
+|   |   |           CameraAutoFocusRuntime.test.ts
+|   |   |           CameraFocusPolicy.test.ts
+|   |   |           
+|   |   +---intelligence
+|   |   |   |   CameraFocusDecision.ts
+|   |   |   |   CameraIntelligence.ts
+|   |   |   |   CameraIntelligenceRuntime.ts
+|   |   |   |   
+|   |   |   \---__tests__
+|   |   |           CameraIntelligence.test.ts
+|   |   |           
+|   |   \---__tests__
+|   |           UniverseCameraController.test.ts
+|   |           UniverseGalaxyCameraBridge.test.ts
+|   |           
+|   +---controller
+|   |   |   UniverseController.ts
+|   |   |   UniverseControllerFactory.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseController.test.ts
+|   |           
+|   +---engine
+|   |   |   UniverseEngineBridge.ts
+|   |   |   UniverseRenderContext.ts
+|   |   |   UniverseVisualEngine.ts
+|   |   |   
+|   |   \---__tests__
+|   +---events
+|   |       CometEvent.ts
+|   |       PlanetAlert.ts
+|   |       UniverseEvent.ts
+|   |       UniverseEventDispatcher.ts
+|   |       
+|   +---frame
+|   |   |   FrameScheduler.ts
+|   |   |   FrameState.ts
+|   |   |   UniverseFrameLoop.ts
+|   |   |   
+|   |   \---__tests__
+|   +---intelligence
+|   |   |   ArchitectureGalaxyMapper.ts
+|   |   |   BrainEventVisualizer.ts
+|   |   |   KnowledgeNodeMapper.ts
+|   |   |   
+|   |   \---__tests__
+|   +---interaction
+|   |   |   InteractionManager.ts
+|   |   |   ObjectSelector.ts
+|   |   |   UniversePicker.ts
+|   |   |   
+|   |   \---__tests__
+|   +---kernel
+|   |   |   AckiosUniverseRuntime.ts
+|   |   |   UniverseKernelFactory.ts
+|   |   |   UniverseKernelState.ts
+|   |   |   UniverseRuntimeKernel.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseRuntimeKernel.test.ts
+|   |           
+|   +---lifecycle
+|   |   |   ObjectLifecycleManager.ts
+|   |   |   ObjectRegistry.ts
+|   |   |   ObjectRemover.ts
+|   |   |   ObjectSpawner.ts
+|   |   |   
+|   |   \---__tests__
+|   +---model
+|   |       CelestialObject.ts
+|   |       HealthState.ts
+|   |       Universe.ts
+|   |       
+|   +---orbit
+|   |   |   OrbitAnimator.ts
+|   |   |   OrbitCalculator.ts
+|   |   |   UniverseOrbitRuntime.ts
+|   |   |   
+|   |   \---__tests__
+|   |           OrbitCalculator.test.ts
+|   |           UniverseOrbitRuntime.test.ts
+|   |           
+|   +---reaction
+|   |   |   BrainEventReactionMapper.ts
+|   |   |   ReactionRule.ts
+|   |   |   UniverseReactionEngine.ts
+|   |   |   UniverseReactionFactory.ts
+|   |   |   UniverseReactionRuntime.ts
+|   |   |   
+|   |   \---__tests__
+|   |           BrainEventReactionMapper.test.ts
+|   |           UniverseReactionRuntime.test.ts
+|   |           
+|   +---release
+|   |   |   UniverseReleaseState.ts
+|   |   |   UniverseReleaseValidator.ts
+|   |   |   
+|   |   \---__tests__
+|   +---renderer
+|   |       CometRenderer.ts
+|   |       MoonRenderer.ts
+|   |       PlanetRenderer.ts
+|   |       SatelliteRenderer.ts
+|   |       StarRenderer.ts
+|   |       UniverseRenderer.ts
+|   |       
+|   +---runtime
+|   |   |   UniverseRuntime.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseRuntime.test.ts
+|   |           
+|   +---scene
+|   |   |   UniverseSceneFactory.ts
+|   |   |   UniverseSceneRuntime.ts
+|   |   |   UniverseSceneState.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseSceneRuntime.test.ts
+|   |           
+|   +---simulation
+|   |   |   UniverseSimulationRuntime.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseSimulationRuntime.test.ts
+|   |           
+|   +---tick
+|   |   |   UniverseLiveRuntime.ts
+|   |   |   UniverseTickEngine.ts
+|   |   |   
+|   |   \---__tests__
+|   |           UniverseLiveRuntime.test.ts
+|   |           UniverseTickEngine.test.ts
+|   |           
+|   \---visual
+|       |   PlanetHealthState.ts
+|       |   PlanetHealthVisualizer.ts
+|       |   
+|       \---__tests__
+|               PlanetHealthVisualizer.test.ts
+|               
+\---__tests__
+        GalaxyArchitectureProviderBridge.test.ts
+        

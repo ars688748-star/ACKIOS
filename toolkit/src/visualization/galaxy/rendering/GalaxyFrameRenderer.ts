@@ -12,20 +12,13 @@ import { GalaxyNodeRenderer } from "../renderer/GalaxyNodeRenderer.js";
 
 import { GalaxyEdgeRenderer } from "../renderer/GalaxyEdgeRenderer.js";
 
-
-
 export class GalaxyFrameRenderer {
-
 
     private readonly nodeRenderer =
         new GalaxyNodeRenderer();
 
-
-
     private readonly edgeRenderer =
         new GalaxyEdgeRenderer();
-
-
 
     public render(
 
@@ -35,10 +28,9 @@ export class GalaxyFrameRenderer {
 
         camera: GalaxyCameraState,
 
-        viewport: GalaxyViewport
+        _viewport: GalaxyViewport
 
     ): GalaxyRenderContext {
-
 
         return {
 
@@ -54,9 +46,6 @@ export class GalaxyFrameRenderer {
 
         };
 
-
     }
 
-
 }
-
