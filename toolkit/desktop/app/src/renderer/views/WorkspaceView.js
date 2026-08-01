@@ -27,6 +27,13 @@ Open Project
 
 </button>
 
+<button
+id="create-project">
+
+Create Project
+
+</button>
+
 <div class="project-path">
 
 ${WorkspaceView.project}

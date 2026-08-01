@@ -2,16 +2,26 @@ import { ipcMain } from "electron";
 
 import { ProjectDialog } from "../../dialog/ProjectDialog.js";
 import { FileSystemService } from "../../filesystem/FileSystemService.js";
+import { ProjectTemplateService } from "../../workspace/ProjectTemplateService.js";
+
 
 const dialogService =
     new ProjectDialog();
 
+
 const filesystem =
     new FileSystemService();
+
+
+const templateService =
+    new ProjectTemplateService();
+
+
 
 export class WorkspaceIPC {
 
     register(){
+
 
         ipcMain.handle(
 
@@ -25,6 +35,53 @@ export class WorkspaceIPC {
 
         );
 
+
+
+        ipcMain.handle(
+
+            "workspace:create",
+
+            async()=>{
+
+
+                const path =
+                    await dialogService.create();
+
+
+
+                if(!path){
+
+                    return null;
+
+                }
+
+
+
+                await filesystem.createDirectory(
+
+                    path
+
+                );
+
+
+
+                await templateService.create(
+
+                    path
+
+                );
+
+
+
+                return path;
+
+
+            }
+
+        );
+
+
+
         ipcMain.handle(
 
             "workspace:list",
@@ -36,6 +93,8 @@ export class WorkspaceIPC {
             }
 
         );
+
+
 
         ipcMain.handle(
 
@@ -50,6 +109,8 @@ export class WorkspaceIPC {
             }
 
         );
+
+
 
         ipcMain.handle(
 
@@ -67,6 +128,7 @@ export class WorkspaceIPC {
             }
 
         );
+
 
     }
 

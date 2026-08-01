@@ -11,6 +11,21 @@ export async function openWorkspace(){
 
 }
 
+
+export async function createWorkspace(){
+
+    console.log("Renderer -> createWorkspace()");
+
+    const path =
+        await window.ackios.createWorkspace();
+
+    console.log("Renderer CREATE PATH =",path);
+
+    return path;
+
+}
+
+
 export async function listWorkspace(path){
 
     console.log("Renderer listWorkspace =",path);
@@ -23,6 +38,7 @@ export async function listWorkspace(path){
     return files;
 
 }
+
 
 export async function readFile(path){
 

@@ -14,6 +14,7 @@ contextBridge.exposeInMainWorld(
 
         },
 
+
         openWorkspace(){
 
             return ipcRenderer.invoke(
@@ -21,6 +22,16 @@ contextBridge.exposeInMainWorld(
             );
 
         },
+
+
+        createWorkspace(){
+
+            return ipcRenderer.invoke(
+                "workspace:create"
+            );
+
+        },
+
 
         listWorkspace(path:string){
 
@@ -30,6 +41,7 @@ contextBridge.exposeInMainWorld(
             );
 
         },
+
 
         readFile(path:string){
 
@@ -41,6 +53,7 @@ contextBridge.exposeInMainWorld(
             );
 
         },
+
 
         writeFile(path:string,content:string){
 

@@ -1,4 +1,10 @@
-import { readdir, readFile, writeFile } from "node:fs/promises";
+import { 
+    readdir,
+    readFile,
+    writeFile,
+    mkdir
+} from "node:fs/promises";
+
 import { join } from "node:path";
 
 const ignored = new Set([
@@ -20,6 +26,7 @@ export class FileSystemService {
         return await this.#walk(path);
 
     }
+
 
     async #walk(path:string): Promise<any[]> {
 
@@ -65,6 +72,7 @@ export class FileSystemService {
 
     }
 
+
     async readFile(path:string){
 
         return await readFile(
@@ -77,6 +85,7 @@ export class FileSystemService {
 
     }
 
+
     async writeFile(path:string, content:string){
 
         await writeFile(
@@ -86,6 +95,23 @@ export class FileSystemService {
             content ?? "",
 
             "utf8"
+
+        );
+
+        return true;
+
+    }
+
+
+    async createDirectory(path:string){
+
+        await mkdir(
+
+            path,
+
+            {
+                recursive:true
+            }
 
         );
 

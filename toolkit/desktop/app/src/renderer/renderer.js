@@ -10,6 +10,7 @@ import { TreeBuilder } from "./workspace/TreeBuilder.js";
 
 import {
     openWorkspace,
+    createWorkspace,
     listWorkspace
 } from "./workspace/WorkspaceApi.js";
 
@@ -70,13 +71,24 @@ function wireTree(){
 
 function wireWorkspace(){
 
-    const button =
+    const openButton =
         document.getElementById("open-project");
 
-    if(button){
+    if(openButton){
 
-        button.onclick =
+        openButton.onclick =
             openProject;
+
+    }
+
+
+    const createButton =
+        document.getElementById("create-project");
+
+    if(createButton){
+
+        createButton.onclick =
+            createProject;
 
     }
 
@@ -102,6 +114,27 @@ async function openProject(){
     if(!path){
         return;
     }
+
+    await loadWorkspace(path);
+
+}
+
+async function createProject(){
+
+    const path =
+        await createWorkspace();
+
+    if(!path){
+
+        return;
+
+    }
+
+    await loadWorkspace(path);
+
+}
+
+async function loadWorkspace(path){
 
     WorkspaceView.setProject(path);
 

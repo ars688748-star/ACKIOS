@@ -30,4 +30,32 @@ export class ProjectDialog {
 
     }
 
+
+    async create() {
+
+        const result = await dialog.showSaveDialog({
+
+            title: "Create ACKIOS Project",
+
+            buttonLabel: "Create"
+
+        });
+
+
+        console.log("Create dialog result =", result);
+
+
+        if (result.canceled) {
+
+            console.log("User canceled");
+
+            return null;
+
+        }
+
+
+        return result.filePath ?? null;
+
+    }
+
 }
