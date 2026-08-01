@@ -1,4 +1,7 @@
-import { readFile } from "./WorkspaceApi.js";
+import {
+    readFile,
+    writeFile
+} from "./FileApi.js";
 
 export async function openFile(path){
 
@@ -6,3 +9,11 @@ export async function openFile(path){
 
 }
 
+export async function saveFile(path,content){
+
+    return await writeFile(
+        path,
+        content
+    );
+
+}
