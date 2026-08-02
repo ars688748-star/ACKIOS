@@ -93,6 +93,38 @@ else {
 
 Write-Host ""
 Show-WorkflowSummary
+$decision = Get-WorkflowDecision
+
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Magenta
+Write-Host " WORKFLOW DECISION" -ForegroundColor Magenta
+Write-Host "========================================" -ForegroundColor Magenta
+Write-Host ""
+
+Write-Host ("Status            : {0}" -f $decision.Status)
+Write-Host ("Decision          : {0}" -f $decision.Decision)
+Write-Host ("Priority          : {0}" -f $decision.Priority)
+
+if($decision.WinningRule){
+
+    Write-Host ("Winning Rule      : {0}" -f $decision.WinningRule)
+
+}
+
+if($decision.Recommendations.Count -gt 0){
+
+    Write-Host ""
+    Write-Host "Recommendations:"
+
+    $decision.Recommendations |
+    ForEach-Object {
+
+        Write-Host (" - {0}" -f $_)
+
+    }
+
+}
+
 
 $dashboard = Get-WorkflowExecutionDashboard
 
@@ -117,6 +149,7 @@ Write-Host ""
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
 . "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
 
 
 
