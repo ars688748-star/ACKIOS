@@ -1,8 +1,10 @@
 import { app } from "electron";
-import { join } from "node:path";
+import { join, basename } from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
 
 interface RecentProject {
+
+    name:string;
 
     path:string;
 
@@ -48,7 +50,9 @@ export class RecentProjectsStore {
         catch{
 
             return {
+
                 projects:[]
+
             };
 
         }
@@ -71,12 +75,22 @@ export class RecentProjectsStore {
 
         data.projects.unshift({
 
+            name:
+                basename(path),
+
             path,
 
             openedAt:
                 new Date().toISOString()
 
         });
+
+
+        data.projects =
+            data.projects.slice(
+                0,
+                10
+            );
 
 
         await writeFile(

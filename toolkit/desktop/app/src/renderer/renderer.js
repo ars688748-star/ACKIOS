@@ -38,22 +38,12 @@ function wireTree(){
     const buttons =
         document.querySelectorAll(".tree-file");
 
-    console.log(
-        "TREE BUTTONS =",
-        buttons.length
-    );
-
     buttons.forEach(button=>{
 
         button.onclick = async()=>{
 
             const path =
                 button.dataset.file;
-
-            console.log(
-                "CLICK FILE =",
-                path
-            );
 
             const text =
                 await openFile(path);
@@ -159,11 +149,24 @@ async function loadRecentProjects(){
     container.innerHTML =
         data.projects.map(project => `
 
-            <button
-                class="recent-project"
-                data-path="${project.path}">
-                ${project.path}
-            </button>
+            <div class="recent-project-card">
+
+                <h3>
+                    📁 ${project.name ?? project.path.split("\\").pop()}
+                </h3>
+
+                <p>
+                    Last opened:
+                    ${new Date(project.openedAt).toLocaleString()}
+                </p>
+
+                <button
+                    class="recent-project"
+                    data-path="${project.path}">
+                    Open Project
+                </button>
+
+            </div>
 
         `).join("");
 
@@ -262,6 +265,11 @@ document
     };
 
 });
+
+
+
+
+
 
 
 
