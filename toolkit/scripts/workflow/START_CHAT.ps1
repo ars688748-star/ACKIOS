@@ -95,69 +95,17 @@ Write-Host ""
 Show-WorkflowSummary
 $decision = Get-WorkflowDecision
 
-Write-Host ""
-Write-Host "========================================" -ForegroundColor Magenta
-Write-Host " WORKFLOW DECISION" -ForegroundColor Magenta
-Write-Host "========================================" -ForegroundColor Magenta
-Write-Host ""
-
-Write-Host ("Status            : {0}" -f $decision.Status)
-Write-Host ("Decision          : {0}" -f $decision.Decision)
-Write-Host ("Priority          : {0}" -f $decision.Priority)
-
-if($decision.WinningRule){
-
-    Write-Host ("Winning Rule      : {0}" -f $decision.WinningRule)
-
-}
-
-if($decision.Recommendations.Count -gt 0){
-
-    Write-Host ""
-    Write-Host "Recommendations:"
-
-    $decision.Recommendations |
-    ForEach-Object {
-
-        Write-Host (" - {0}" -f $_)
-
-    }
-
-}
-
-
-
 $intelligence = Get-WorkflowIntelligence
 
-Write-Host ""
-Write-Host "========================================" -ForegroundColor Blue
-Write-Host " WORKFLOW INTELLIGENCE" -ForegroundColor Blue
-Write-Host "========================================" -ForegroundColor Blue
-Write-Host ""
+$diagnostics = Invoke-WorkflowDiagnostics
 
-Write-Host ("Status            : {0}" -f $intelligence.Status)
-Write-Host ("Performance Score : {0}" -f $intelligence.PerformanceScore)
-Write-Host ("Success Rate      : {0}" -f $intelligence.SuccessRate)
-Write-Host ("Trend             : {0}" -f $intelligence.Trend)
-Write-Host ("Reliability Trend : {0}" -f $intelligence.ReliabilityTrend)
+$trace = Get-WorkflowExecutionTrace -Decision $decision
 
-Write-Host ""
-
-Write-Host ("Recommendation    : {0}" -f $intelligence.Recommendation)
-
-if($intelligence.Recommendations.Count -gt 0){
-
-    Write-Host ""
-    Write-Host "Recommendations:"
-
-    $intelligence.Recommendations |
-    ForEach-Object {
-
-        Write-Host (" - {0}" -f $_)
-
-    }
-
-}
+Show-WorkflowInsights `
+    -Decision $decision `
+    -Intelligence $intelligence `
+    -Diagnostics $diagnostics `
+    -Trace $trace
 
 $dashboard = Get-WorkflowExecutionDashboard
 
@@ -182,6 +130,7 @@ Write-Host ""
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
 . "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
 
 
 

@@ -61,3 +61,6 @@ $ServiceRoot = Join-Path $PSScriptRoot "services"
 . (Join-Path $ServiceRoot "WorkflowStep.ps1")
 . (Join-Path $ServiceRoot "WorkflowSummary.ps1")
 . (Join-Path $ServiceRoot "WorkflowTrendAnalyzer.ps1")
+
+. (Join-Path $ServiceRoot "WorkflowInsightsRenderer.ps1")
+
