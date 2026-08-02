@@ -3,6 +3,7 @@ import { ipcMain } from "electron";
 import { ProjectDialog } from "../../dialog/ProjectDialog.js";
 import { FileSystemService } from "../../filesystem/FileSystemService.js";
 import { ProjectTemplateService } from "../../workspace/ProjectTemplateService.js";
+import { RecentProjectsStore } from "../../storage/RecentProjectsStore.js";
 
 
 const dialogService =
@@ -17,6 +18,10 @@ const templateService =
     new ProjectTemplateService();
 
 
+const recentProjects =
+    new RecentProjectsStore();
+
+
 
 export class WorkspaceIPC {
 
@@ -29,7 +34,20 @@ export class WorkspaceIPC {
 
             async()=>{
 
-                return await dialogService.open();
+                const path =
+                    await dialogService.open();
+
+
+                if(path){
+
+                    await recentProjects.add(
+                        path
+                    );
+
+                }
+
+
+                return path;
 
             }
 
@@ -73,6 +91,14 @@ export class WorkspaceIPC {
 
 
 
+                await recentProjects.add(
+
+                    path
+
+                );
+
+
+
                 return path;
 
 
@@ -80,6 +106,19 @@ export class WorkspaceIPC {
 
         );
 
+
+
+        ipcMain.handle(
+
+            "workspace:recent",
+
+            async()=>{
+
+                return await recentProjects.load();
+
+            }
+
+        );
 
 
         ipcMain.handle(
@@ -133,3 +172,5 @@ export class WorkspaceIPC {
     }
 
 }
+
+

@@ -29,6 +29,22 @@ export class WelcomeView {
         </div>
 
 
+        <div class="recent-projects">
+
+            <h2>
+                Recent Projects
+            </h2>
+
+
+            <div id="recent-project-list">
+
+                No recent projects
+
+            </div>
+
+        </div>
+
+
     </div>
 
 </section>

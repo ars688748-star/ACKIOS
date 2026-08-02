@@ -40,6 +40,15 @@ export async function listWorkspace(path){
 }
 
 
+export async function getRecentProjects(){
+
+    console.log("Renderer getRecentProjects");
+
+    return await window.ackios.getRecentProjects();
+
+}
+
+
 export async function readFile(path){
 
     console.log("Renderer readFile =",path);
@@ -47,3 +56,4 @@ export async function readFile(path){
     return await window.ackios.readFile(path);
 
 }
+

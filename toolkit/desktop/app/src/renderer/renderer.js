@@ -11,7 +11,8 @@ import { TreeBuilder } from "./workspace/TreeBuilder.js";
 import {
     openWorkspace,
     createWorkspace,
-    listWorkspace
+    listWorkspace,
+    getRecentProjects
 } from "./workspace/WorkspaceApi.js";
 
 import { openFile } from "./workspace/EditorApi.js";
@@ -123,6 +124,66 @@ function wireWorkspace(){
 
 }
 
+
+async function loadRecentProjects(){
+
+    const data =
+        await getRecentProjects();
+
+
+
+
+    const container =
+        document.getElementById(
+            "recent-project-list"
+        );
+
+
+    if(!container){
+
+        return;
+
+    }
+
+
+    if(!data.projects.length){
+
+        container.innerHTML =
+            "No recent projects";
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        data.projects.map(project => `
+
+            <button
+                class="recent-project"
+                data-path="${project.path}">
+                ${project.path}
+            </button>
+
+        `).join("");
+
+
+    document
+    .querySelectorAll(".recent-project")
+    .forEach(button=>{
+
+        button.onclick = async()=>{
+
+            await loadWorkspace(
+                button.dataset.path
+            );
+
+        };
+
+    });
+
+}
+
 function renderCurrent(){
 
     workspace.innerHTML =
@@ -132,6 +193,7 @@ function renderCurrent(){
 
     wireWorkspace();
     wireTree();
+    loadRecentProjects();
 
 }
 
@@ -200,4 +262,9 @@ document
     };
 
 });
+
+
+
+
+
 

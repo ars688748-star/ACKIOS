@@ -33,6 +33,15 @@ contextBridge.exposeInMainWorld(
         },
 
 
+        getRecentProjects(){
+
+            return ipcRenderer.invoke(
+                "workspace:recent"
+            );
+
+        },
+
+
         listWorkspace(path:string){
 
             return ipcRenderer.invoke(
@@ -70,3 +79,4 @@ contextBridge.exposeInMainWorld(
     }
 
 );
+
