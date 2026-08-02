@@ -1,3 +1,4 @@
+import { WelcomeView } from "./views/WelcomeView.js";
 import { WorkspaceView } from "./views/WorkspaceView.js";
 import { BrainView } from "./views/BrainView.js";
 import { KnowledgeView } from "./views/KnowledgeView.js";
@@ -11,6 +12,7 @@ export class ViewHost {
 
         this.views = {
 
+            welcome: new WelcomeView(),
             workspace: new WorkspaceView(),
             brain: new BrainView(),
             knowledge: new KnowledgeView(),
@@ -24,7 +26,7 @@ export class ViewHost {
 
     render(name) {
 
-        return (this.views[name] ?? this.views.workspace).render();
+        return (this.views[name] ?? this.views.welcome).render();
 
     }
 

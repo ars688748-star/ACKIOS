@@ -74,6 +74,7 @@ function wireWorkspace(){
     const openButton =
         document.getElementById("open-project");
 
+
     if(openButton){
 
         openButton.onclick =
@@ -82,12 +83,40 @@ function wireWorkspace(){
     }
 
 
+
     const createButton =
         document.getElementById("create-project");
+
 
     if(createButton){
 
         createButton.onclick =
+            createProject;
+
+    }
+
+
+
+    const welcomeOpen =
+        document.getElementById("welcome-open-project");
+
+
+    if(welcomeOpen){
+
+        welcomeOpen.onclick =
+            openProject;
+
+    }
+
+
+
+    const welcomeCreate =
+        document.getElementById("welcome-create-project");
+
+
+    if(welcomeCreate){
+
+        welcomeCreate.onclick =
             createProject;
 
     }
@@ -171,3 +200,4 @@ document
     };
 
 });
+

@@ -1,6 +1,6 @@
 export class Router {
 
-    #current = "workspace";
+    #current = "welcome";
 
     current() {
 
