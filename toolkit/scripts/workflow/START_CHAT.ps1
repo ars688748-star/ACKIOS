@@ -126,6 +126,39 @@ if($decision.Recommendations.Count -gt 0){
 }
 
 
+
+$intelligence = Get-WorkflowIntelligence
+
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Blue
+Write-Host " WORKFLOW INTELLIGENCE" -ForegroundColor Blue
+Write-Host "========================================" -ForegroundColor Blue
+Write-Host ""
+
+Write-Host ("Status            : {0}" -f $intelligence.Status)
+Write-Host ("Performance Score : {0}" -f $intelligence.PerformanceScore)
+Write-Host ("Success Rate      : {0}" -f $intelligence.SuccessRate)
+Write-Host ("Trend             : {0}" -f $intelligence.Trend)
+Write-Host ("Reliability Trend : {0}" -f $intelligence.ReliabilityTrend)
+
+Write-Host ""
+
+Write-Host ("Recommendation    : {0}" -f $intelligence.Recommendation)
+
+if($intelligence.Recommendations.Count -gt 0){
+
+    Write-Host ""
+    Write-Host "Recommendations:"
+
+    $intelligence.Recommendations |
+    ForEach-Object {
+
+        Write-Host (" - {0}" -f $_)
+
+    }
+
+}
+
 $dashboard = Get-WorkflowExecutionDashboard
 
 $dashboardReport = New-WorkflowDashboardReport $dashboard
@@ -149,6 +182,7 @@ Write-Host ""
 . "$PSScriptRoot\services\WorkflowReportBuilder.ps1"
 . "$PSScriptRoot\services\WorkflowRenderer.ps1"
 . "$PSScriptRoot\services\WorkflowDashboardReport.ps1"
+
 
 
 
