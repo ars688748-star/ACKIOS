@@ -156,6 +156,18 @@ async function loadRecentProjects(){
                 </h3>
 
                 <p>
+                    Type:
+                    ${project.type ?? "unknown"}
+                </p>
+
+
+                <p>
+                    Files:
+                    ${project.fileCount ?? 0}
+                </p>
+
+
+                <p>
                     Last opened:
                     ${new Date(project.openedAt).toLocaleString()}
                 </p>
@@ -265,6 +277,8 @@ document
     };
 
 });
+
+
 
 
 

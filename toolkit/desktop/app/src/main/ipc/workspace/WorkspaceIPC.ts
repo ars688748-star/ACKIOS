@@ -3,8 +3,8 @@ import { ipcMain } from "electron";
 import { ProjectDialog } from "../../dialog/ProjectDialog.js";
 import { FileSystemService } from "../../filesystem/FileSystemService.js";
 import { ProjectTemplateService } from "../../workspace/ProjectTemplateService.js";
+import { WorkspaceService } from "../../workspace/WorkspaceService.js";
 import { RecentProjectsStore } from "../../storage/RecentProjectsStore.js";
-
 
 const dialogService =
     new ProjectDialog();
@@ -16,6 +16,10 @@ const filesystem =
 
 const templateService =
     new ProjectTemplateService();
+
+
+const workspaceService =
+    new WorkspaceService();
 
 
 const recentProjects =
@@ -40,8 +44,12 @@ export class WorkspaceIPC {
 
                 if(path){
 
+                    const info =
+                        await workspaceService.getWorkspaceInfo(path);
+
+
                     await recentProjects.add(
-                        path
+                        info
                     );
 
                 }
@@ -91,9 +99,13 @@ export class WorkspaceIPC {
 
 
 
+                const info =
+                    await workspaceService.getWorkspaceInfo(path);
+
+
                 await recentProjects.add(
 
-                    path
+                    info
 
                 );
 
@@ -172,5 +184,12 @@ export class WorkspaceIPC {
     }
 
 }
+
+
+
+
+
+
+
 
 
