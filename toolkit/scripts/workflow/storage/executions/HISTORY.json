@@ -2092,5 +2092,35 @@
     "RecoveryAction": "",
     "RecoveryResult": "PASS",
     "Duration": "00:01:12.2724368"
+  },
+  {
+    "Id": "23613b74-ffc8-4d79-acf7-2fc5c0ea6c48",
+    "Timestamp": "2026-08-03 20:33:41",
+    "Branch": "main",
+    "Commit": "b869502",
+    "Epic": "200",
+    "Story": "200.71",
+    "Build": "PASS",
+    "Tests": "PASS",
+    "QualityGate": {
+      "Passed": false,
+      "Repository": "PASS",
+      "Build": "PASS",
+      "Tests": "PASS",
+      "StoryCatalog": "PASS",
+      "Roadmap": "PASS",
+      "BackupFiles": "FAIL",
+      "Diagnostics": "PASS",
+      "StateConsistency": "PASS",
+      "Failures": [
+        "Backup files detected"
+      ],
+      "Issues": []
+    },
+    "Status": "COMPLETED",
+    "RecoveryUsed": false,
+    "RecoveryAction": "",
+    "RecoveryResult": "PASS",
+    "Duration": "00:01:22.0880215"
   }
 ]
