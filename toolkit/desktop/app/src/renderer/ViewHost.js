@@ -1,3 +1,4 @@
+import { DashboardView } from "./views/DashboardView.js";
 import { WelcomeView } from "./views/WelcomeView.js";
 import { WorkspaceView } from "./views/WorkspaceView.js";
 import { BrainView } from "./views/BrainView.js";
@@ -12,6 +13,7 @@ export class ViewHost {
 
         this.views = {
 
+            dashboard: new DashboardView(),
             welcome: new WelcomeView(),
             workspace: new WorkspaceView(),
             brain: new BrainView(),
@@ -24,10 +26,29 @@ export class ViewHost {
 
     }
 
-    render(name) {
+    get(name) {
 
-        return (this.views[name] ?? this.views.welcome).render();
+        return this.views[name] ?? this.views.welcome;
+
+    }
+
+    async render(name) {
+
+        return await this.get(name).render();
+
+    }
+
+    async mount(name) {
+
+        const view = this.get(name);
+
+        if (typeof view.mount === "function") {
+
+            await view.mount();
+
+        }
 
     }
 
 }
+

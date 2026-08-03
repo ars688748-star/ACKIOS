@@ -57,3 +57,14 @@ export async function readFile(path){
 
 }
 
+
+export async function writeFile(path,content){
+
+    console.log("Renderer writeFile =",path);
+
+    return await window.ackios.writeFile(
+        path,
+        content
+    );
+
+}

@@ -1,32 +1,39 @@
-import { BrainProcessHost } from "./process/BrainProcessHost.js";
+import { BrainRuntimeHost } from "./brain/BrainRuntimeHost.js";
 
 export class BrainHost {
 
-    private readonly process =
-        new BrainProcessHost();
+    private readonly runtime =
+        new BrainRuntimeHost();
 
     public async initialize(): Promise<void> {
 
-        await this.process.initialize();
+        await this.runtime.initialize();
 
     }
 
     public async start(): Promise<void> {
 
-        await this.process.start();
+        await this.runtime.start();
 
     }
 
     public async stop(): Promise<void> {
 
-        await this.process.stop();
+        await this.runtime.stop();
 
     }
 
-    public getState() {
+    public getState(){
 
-        return this.process.getState();
+        return this.runtime.getState();
+
+    }
+
+    public getRuntime(){
+
+        return this.runtime.getRuntime();
 
     }
 
 }
+

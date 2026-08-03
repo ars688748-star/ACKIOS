@@ -1,4 +1,4 @@
-﻿import fs from "node:fs";
+import fs from "node:fs";
 import path from "node:path";
 
 export class RepositoryLocator {
@@ -9,7 +9,11 @@ export class RepositoryLocator {
 
         while (true) {
 
-            if (fs.existsSync(path.join(current, ".git"))) {
+            if (fs.existsSync(path.join(current, "package.json"))) {
+                return current;
+            }
+
+            if (fs.existsSync(path.join(current, "ackios-galaxy.json"))) {
                 return current;
             }
 

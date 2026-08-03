@@ -43,6 +43,12 @@ export class ApplicationHost {
 
     }
 
+    public getBrain(): BrainHost {
+
+        return this.brain;
+
+    }
+
     public getState() {
 
         return {
@@ -56,3 +62,4 @@ export class ApplicationHost {
     }
 
 }
+

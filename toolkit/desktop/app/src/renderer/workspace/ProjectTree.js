@@ -1,3 +1,5 @@
+import { WorkspaceState } from "./WorkspaceState.js";
+
 export class ProjectTree{
 
     static tree=[];
@@ -5,6 +7,8 @@ export class ProjectTree{
     static setTree(tree){
 
         this.tree=tree??[];
+
+        WorkspaceState.setTree(this.tree);
 
     }
 
@@ -74,3 +78,4 @@ ${ProjectTree.tree
     }
 
 }
+

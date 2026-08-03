@@ -1,3 +1,4 @@
+import "./workspace/MonacoEnvironment.js";
 import { AppShell } from "./shell/AppShell.js";
 import { Sidebar } from "./components/Sidebar.js";
 import { StatusBar } from "./components/StatusBar.js";
@@ -7,6 +8,8 @@ import { Router } from "./router/Router.js";
 import { WorkspaceView } from "./views/WorkspaceView.js";
 import { ProjectTree } from "./workspace/ProjectTree.js";
 import { TreeBuilder } from "./workspace/TreeBuilder.js";
+import { WorkspaceState } from "./workspace/WorkspaceState.js";
+import { EditorSession } from "./workspace/EditorSession.js";
 
 import {
     openWorkspace,
@@ -15,8 +18,9 @@ import {
     getRecentProjects
 } from "./workspace/WorkspaceApi.js";
 
-import { openFile } from "./workspace/EditorApi.js";
-import { EditorHost } from "./workspace/EditorHost.js";
+import { WorkspaceController } from "./workspace/WorkspaceController.js";
+import { wireProjectTree } from "./workspace/TreeEvents.js";
+import { wireEditorTabs } from "./workspace/EditorTabsEvents.js";
 
 const router = new Router();
 const views = new ViewHost();
@@ -35,31 +39,9 @@ const workspace =
 
 function wireTree(){
 
-    const buttons =
-        document.querySelectorAll(".tree-file");
-
-    buttons.forEach(button=>{
-
-        button.onclick = async()=>{
-
-            const path =
-                button.dataset.file;
-
-            const text =
-                await openFile(path);
-
-            EditorHost.setFile(path);
-
-            EditorHost.setContent(text);
-
-            renderCurrent();
-
-        };
-
-    });
+    wireProjectTree();
 
 }
-
 function wireWorkspace(){
 
     const openButton =
@@ -199,15 +181,33 @@ async function loadRecentProjects(){
 
 }
 
-function renderCurrent(){
+async function renderCurrent(){
+
+    if(router.current() === "workspace"){
+
+        EditorSession.restore();
+
+        await WorkspaceController.initialize();
+
+        ProjectTree.setTree(
+            WorkspaceState.getTree()
+        );
+
+    }
 
     workspace.innerHTML =
-        views.render(
+        await views.render(
             router.current()
         );
 
+    await views.mount(
+        router.current()
+    );
+
     wireWorkspace();
     wireTree();
+    wireEditorTabs();
+
     loadRecentProjects();
 
 }
@@ -242,6 +242,8 @@ async function createProject(){
 
 async function loadWorkspace(path){
 
+    WorkspaceState.setProject(path);
+
     WorkspaceView.setProject(path);
 
     const files =
@@ -260,7 +262,12 @@ async function loadWorkspace(path){
 
 }
 
-renderCurrent();
+document.addEventListener(
+    "workspace-refresh",
+    ()=>{
+        renderCurrent();
+    }
+);
 
 document
 .querySelectorAll("[data-view]")
@@ -277,6 +284,67 @@ document
     };
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("keydown", async event=>{
+
+    if(event.ctrlKey && event.key === "s"){
+
+        event.preventDefault();
+
+        await WorkspaceController.save();
+
+    }
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

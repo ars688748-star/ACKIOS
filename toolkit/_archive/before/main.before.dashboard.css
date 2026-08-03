@@ -1,0 +1,180 @@
+html,
+body{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    background:#111;
+    color:#fff;
+    font-family:"Segoe UI",sans-serif;
+}
+
+#app{
+    width:100vw;
+    height:100vh;
+}
+
+.ackios-shell{
+    display:grid;
+    grid-template-columns:260px 1fr 320px;
+    grid-template-rows:1fr 36px;
+    width:100%;
+    height:100%;
+}
+
+#sidebar{
+    background:#181818;
+    padding:20px;
+    overflow:auto;
+}
+
+#workspace{
+    overflow:hidden;
+    background:#151515;
+}
+
+#galaxy{
+    background:#161616;
+}
+
+#statusbar{
+    grid-column:1 / span 3;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+    background:#202020;
+    border-top:1px solid #333;
+    font-size:13px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.sidebar li{
+    padding:10px;
+    margin-bottom:6px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.sidebar li:hover{
+    background:#2b2b2b;
+}
+
+.workspace-view{
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+
+.workspace-toolbar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    background:#1b1b1b;
+    border-bottom:1px solid #333;
+}
+
+.workspace-toolbar button{
+    padding:6px 14px;
+    cursor:pointer;
+}
+
+.project-path{
+    color:#9a9a9a;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.workspace-layout{
+    flex:1;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    overflow:hidden;
+}
+
+.project-sidebar{
+    overflow:auto;
+    border-right:1px solid #333;
+    background:#181818;
+}
+
+.project-tree{
+    padding:12px;
+}
+
+.project-tree ul{
+    list-style:none;
+    margin:0;
+    padding-left:18px;
+}
+
+.project-tree details{
+    margin:2px 0;
+}
+
+.project-tree summary{
+    cursor:pointer;
+    user-select:none;
+}
+
+.tree-file{
+    width:100%;
+    text-align:left;
+    border:none;
+    background:transparent;
+    color:#ddd;
+    cursor:pointer;
+    padding:4px 6px;
+    border-radius:4px;
+}
+
+.tree-file:hover{
+    background:#2c2c2c;
+}
+
+.editor-column{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.editor-host{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    overflow:hidden;
+}
+
+.editor-header{
+    height:36px;
+    display:flex;
+    align-items:center;
+    padding:0 12px;
+    background:#202020;
+    border-bottom:1px solid #333;
+    color:#bfbfbf;
+    font-size:13px;
+}
+
+.editor-content{
+    flex:1;
+    margin:0;
+    padding:16px;
+    overflow:auto;
+    font-family:Consolas,monospace;
+    font-size:13px;
+    line-height:1.45;
+    white-space:pre;
+    border:none;
+    outline:none;
+    resize:none;
+    background:#151515;
+    color:#ffffff;
+    box-sizing:border-box;
+}

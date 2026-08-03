@@ -1,5 +1,5 @@
 import { readFile } from "./FileApi.js";
-import { EditorService } from "../editor/EditorService.js";
+import { WorkspaceController } from "./WorkspaceController.js";
 
 export async function wireProjectTree(){
 
@@ -9,14 +9,16 @@ export async function wireProjectTree(){
 
         item.onclick=async()=>{
 
-            const path=item.dataset.file;
+            const path =
+                item.dataset.file;
 
-            const text=
+            const text =
                 await readFile(path);
 
-            EditorService.open(path,text);
-
-            location.reload();
+            await WorkspaceController.open(
+                path,
+                text
+            );
 
         };
 

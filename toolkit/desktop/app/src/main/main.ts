@@ -3,12 +3,19 @@ import { join } from "node:path";
 import { DesktopApplication } from "./DesktopApplication.js";
 import { RuntimeIPC } from "./ipc/RuntimeIPC.js";
 import { WorkspaceIPC } from "./ipc/workspace/WorkspaceIPC.js";
+import { BrainIPC } from "./ipc/brain/BrainIPC.js";
 
 let mainWindow: BrowserWindow | null = null;
 
 const runtime = new DesktopApplication();
 const runtimeIPC = new RuntimeIPC();
 const workspaceIPC = new WorkspaceIPC();
+const brainIPC =
+    new BrainIPC(
+        runtime
+            .getApplicationHost()
+            .getBrain()
+    );
 
 async function createMainWindow(): Promise<void> {
 
@@ -23,7 +30,7 @@ async function createMainWindow(): Promise<void> {
 
         autoHideMenuBar: true,
 
-        show: false,
+        show: true,
 
         webPreferences: {
 
@@ -55,11 +62,7 @@ async function createMainWindow(): Promise<void> {
 
     }
 
-    mainWindow.once("ready-to-show", () => {
-
-        mainWindow?.show();
-
-    });
+// ready-to-show disabled for diagnostics
 
     mainWindow.on("closed", () => {
 
@@ -77,6 +80,7 @@ app.whenReady().then(async () => {
 
     runtimeIPC.register();
     workspaceIPC.register();
+    brainIPC.register();
 
     await createMainWindow();
 
@@ -101,3 +105,7 @@ app.on("window-all-closed", () => {
     }
 
 });
+
+
+
+

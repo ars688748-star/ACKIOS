@@ -47,10 +47,14 @@ export default defineConfig({
 
         alias: {
 
-            "@ackios/core": resolve(__dirname, "../../packages/core/src")
+                   "@ackios/core": resolve(__dirname, "../../packages/core/src"),
+
+        "monaco-editor": resolve(__dirname, "../../node_modules/monaco-editor")
 
         }
 
     }
 
 });
+
+

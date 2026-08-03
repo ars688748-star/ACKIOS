@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main":"out/main/main.js",
+  "main": "out/main/main.js",
   "scripts": {
     "dev": "electron-vite dev",
     "build": "electron-vite build",
     "preview": "electron-vite preview"
   },
-  "dependencies":{
-"@ackios/core":"workspace:*",
-    "electron": "^43.2.0"
+  "dependencies": {
+    "@ackios/core": "file:../../packages/core",
+    "electron": "^43.2.0",
+    "monaco-editor": "^0.56.0"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
@@ -20,4 +21,3 @@
     "vite": "^7.3.6"
   }
 }
-

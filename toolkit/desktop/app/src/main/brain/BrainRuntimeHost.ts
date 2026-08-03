@@ -23,9 +23,52 @@ export class BrainRuntimeHost {
 
     }
 
-    public getState() {
+    public getState(){
 
-        return this.process.getState();
+        const state =
+            this.process.getState();
+
+        return {
+
+            initialized:
+                state !== 0,
+
+            running:
+                state === 2,
+
+            process:
+                state
+
+        };
+
+    }
+
+    public getRuntime(){
+
+        return {
+
+            state: this.getState(),
+
+            modules: [
+
+                "Brain Runtime",
+                "Workspace",
+                "Knowledge",
+                "Memory"
+
+            ],
+
+            events: [],
+
+            tasks: [],
+
+            health: {
+
+                healthy: true
+
+            }
+
+        };
 
     }
 

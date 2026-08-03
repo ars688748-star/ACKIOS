@@ -1,6 +1,6 @@
 export class Router {
 
-    #current = "welcome";
+    #current = "dashboard";
 
     current() {
 
@@ -15,3 +15,4 @@ export class Router {
     }
 
 }
+

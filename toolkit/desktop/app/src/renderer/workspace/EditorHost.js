@@ -1,14 +1,35 @@
 export class EditorHost{
 
+    static filePath = "";
+
     static fileName = "No file selected";
 
     static content = "";
 
+    static dirty = false;
+
+    static setDirty(value){
+
+        this.dirty = value;
+
+    }
+
+    static isDirty(){
+
+        return this.dirty;
+
+    }
+
     static setFile(path){
+
+        this.filePath = path ?? "";
+
+        this.dirty = false;
 
         if(!path){
 
             this.fileName = "No file selected";
+
             return;
 
         }
@@ -19,9 +40,29 @@ export class EditorHost{
 
     }
 
+    static getPath(){
+
+        return this.filePath;
+
+    }
+
+    static getFile(){
+
+        return this.fileName;
+
+    }
+
+    static getContent(){
+
+        return this.content;
+
+    }
+
     static setContent(content){
 
         this.content = content ?? "";
+
+        this.dirty = false;
 
     }
 
@@ -31,22 +72,23 @@ export class EditorHost{
 
 <div class="editor-host">
 
-    <div class="editor-header">
+<div class="editor-header">
 
-        <span class="editor-file">
+<span class="editor-file">
 
-            ${EditorHost.fileName}
+${EditorHost.fileName}${EditorHost.dirty ? " ●" : ""}
 
-        </span>
+</span>
 
-    </div>
+</div>
 
-    <textarea
-        class="editor-content"
-        spellcheck="false"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off">${EditorHost.content}</textarea>
+<div
+id="editor"
+class="editor-content">
+
+
+
+</div>
 
 </div>
 
@@ -55,3 +97,5 @@ export class EditorHost{
     }
 
 }
+
+

@@ -23,6 +23,12 @@ export class DesktopApplication {
 
     }
 
+    public getApplicationHost(): ApplicationHost {
+
+        return this.application;
+
+    }
+
     public getStatus() {
 
         return this.application.getState();
@@ -30,3 +36,4 @@ export class DesktopApplication {
     }
 
 }
+

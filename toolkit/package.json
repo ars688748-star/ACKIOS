@@ -3,6 +3,11 @@
     "version":  "0.1.0",
     "description":  "ACKI Development Toolkit",
     "private":  true,
+
+    "workspaces": [
+        "packages/*",
+        "desktop/app"
+    ],
     "type":  "module",
     "main":  "dist/index.js",
     "bin":  {
@@ -32,3 +37,4 @@
                             "vitest":  "^4.1.10"
                         }
 }
+

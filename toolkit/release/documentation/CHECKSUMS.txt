@@ -1,0 +1,5 @@
+ACKIOS 1.0.0 SHA256 CHECKSUMS
+
+ACKIOS-source.zip
+
+ACKIOS-installer

@@ -14,7 +14,6 @@ contextBridge.exposeInMainWorld(
 
         },
 
-
         openWorkspace(){
 
             return ipcRenderer.invoke(
@@ -22,7 +21,6 @@ contextBridge.exposeInMainWorld(
             );
 
         },
-
 
         createWorkspace(){
 
@@ -32,7 +30,6 @@ contextBridge.exposeInMainWorld(
 
         },
 
-
         getRecentProjects(){
 
             return ipcRenderer.invoke(
@@ -40,7 +37,6 @@ contextBridge.exposeInMainWorld(
             );
 
         },
-
 
         listWorkspace(path:string){
 
@@ -51,10 +47,9 @@ contextBridge.exposeInMainWorld(
 
         },
 
-
         readFile(path:string){
 
-            console.log("PRELOAD READ =",path);
+            console.log("PRELOAD READ =", path);
 
             return ipcRenderer.invoke(
                 "workspace:read",
@@ -63,16 +58,35 @@ contextBridge.exposeInMainWorld(
 
         },
 
+        writeFile(path:string, content:string){
 
-        writeFile(path:string,content:string){
-
-            console.log("PRELOAD WRITE =",path);
+            console.log("PRELOAD WRITE =", path);
 
             return ipcRenderer.invoke(
                 "workspace:write",
                 path,
                 content
             );
+
+        },
+
+        brain: {
+
+            getState(){
+
+                return ipcRenderer.invoke(
+                    "brain:state"
+                );
+
+            },
+
+            getRuntime(){
+
+                return ipcRenderer.invoke(
+                    "brain:runtime"
+                );
+
+            }
 
         }
 

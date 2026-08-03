@@ -1,13 +1,37 @@
 export class StatusBar {
 
-    render() {
+    render(){
 
         return `
+
 <footer class="statusbar">
 
-ACKIOS Desktop • Runtime Connected
+<div>
+
+🟢 Runtime
+
+</div>
+
+<div>
+
+🧠 Brain
+
+</div>
+
+<div>
+
+📁 Workspace
+
+</div>
+
+<div>
+
+ACKIOS Desktop
+
+</div>
 
 </footer>
+
 `;
 
     }
