@@ -1,12 +1,29 @@
 import { LaunchApproval } from "./LaunchApproval.js";
-
 import { ReleaseAuthorization } from "./ReleaseAuthorization.js";
-
 import { PublicationReady } from "./PublicationReady.js";
 
 
-
 export class LaunchConfirmationService {
+
+
+    public constructor(
+
+        private readonly approval:
+
+            LaunchApproval,
+
+
+        private readonly authorization:
+
+            ReleaseAuthorization,
+
+
+        private readonly publication:
+
+            PublicationReady
+
+    ){}
+
 
 
 
@@ -16,25 +33,19 @@ export class LaunchConfirmationService {
 
         const approval =
 
-            new LaunchApproval()
-
-                .approve();
+            this.approval.approve();
 
 
 
         const authorization =
 
-            new ReleaseAuthorization()
-
-                .authorize();
+            this.authorization.authorize();
 
 
 
         const publication =
 
-            new PublicationReady()
-
-                .check();
+            this.publication.check();
 
 
 
@@ -43,17 +54,13 @@ export class LaunchConfirmationService {
         return {
 
 
-
             approval,
-
 
 
             authorization,
 
 
-
             publication,
-
 
 
             ready:
@@ -64,7 +71,6 @@ export class LaunchConfirmationService {
                 authorization.authorized &&
 
                 publication.ready
-
 
 
         };

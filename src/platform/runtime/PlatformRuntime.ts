@@ -1,65 +1,63 @@
 import { IPlatformRuntime } from "./IPlatformRuntime.js";
 import { PlatformRuntimeContext } from "./PlatformRuntimeContext.js";
-import { BootstrapRuntime } from "../bootstrap/services/BootstrapRuntime.js";
-import { RuntimeRecoveryCoordinator } from "./recovery/RuntimeRecoveryCoordinator.js";
 
+import { IBootstrapRuntime } from "../bootstrap/contracts/IBootstrapRuntime.js";
 
-export class PlatformRuntime implements IPlatformRuntime {
+import { PlatformStateBuilder } from "../state/PlatformStateBuilder.js";
+import { ACKIOSPlatformState } from "../state/ACKIOSPlatformState.js";
 
+export class PlatformRuntime
+implements IPlatformRuntime{
 
     public constructor(
-        private readonly bootstrapRuntime: BootstrapRuntime,
-        private readonly recoveryCoordinator?: RuntimeRecoveryCoordinator
-    ) {}
 
+        private readonly bootstrap:IBootstrapRuntime,
+
+        private readonly builder =
+            new PlatformStateBuilder()
+
+    ){}
 
     public async start(
-        context: PlatformRuntimeContext
-    ): Promise<boolean> {
+        context:PlatformRuntimeContext
+    ):Promise<boolean>{
 
-
-        if (!context.installed) {
+        if(!context.installed){
 
             return false;
 
         }
 
+        const started =
+            await this.bootstrap.start({
 
-        if (this.recoveryCoordinator) {
+                workspacePath:
+                    context.workspacePath,
 
-            await this.recoveryCoordinator.recover();
+                username:
+                    context.username,
 
-        }
+                installed:
+                    context.installed,
 
-
-        const result =
-            await this.bootstrapRuntime.start({
-
-                workspacePath: context.workspacePath,
-
-                username: context.username,
-
-                installed: context.installed,
-
-                initialized: false
+                initialized:false
 
             });
 
+        if(started){
 
-        if (!result) {
-
-            return false;
+            context.ready=true;
 
         }
 
+        return started;
 
-        context.ready = true;
+    }
 
+    public async state():Promise<ACKIOSPlatformState>{
 
-        return true;
+        return await this.builder.build();
 
     }
 
 }
-
-

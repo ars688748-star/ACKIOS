@@ -1,14 +1,36 @@
 import { VersionLock } from "./VersionLock.js";
-
 import { ApiFreeze } from "./ApiFreeze.js";
-
 import { ReleaseBranchCheck } from "./ReleaseBranchCheck.js";
-
 import { FinalTagPreparation } from "./FinalTagPreparation.js";
 
 
-
 export class ReleaseFreezeService {
+
+
+
+    public constructor(
+
+        private readonly version:
+
+            VersionLock,
+
+
+        private readonly api:
+
+            ApiFreeze,
+
+
+        private readonly branch:
+
+            ReleaseBranchCheck,
+
+
+        private readonly tag:
+
+            FinalTagPreparation
+
+    ){}
+
 
 
 
@@ -18,25 +40,25 @@ export class ReleaseFreezeService {
 
         const version =
 
-            new VersionLock().lock();
+            this.version.lock();
 
 
 
         const api =
 
-            new ApiFreeze().freeze();
+            this.api.freeze();
 
 
 
         const branch =
 
-            new ReleaseBranchCheck().check();
+            this.branch.check();
 
 
 
         const tag =
 
-            new FinalTagPreparation().prepare();
+            this.tag.prepare();
 
 
 

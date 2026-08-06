@@ -66,9 +66,9 @@ export class ACKIOSServiceRegistryBuilder {
             new GalaxyArchitectureProviderBridge()
         );
 
-        context.services.register(
+        context.services.registerFactory(
             "platformManager",
-            new PlatformManager()
+            () => new PlatformManager()
         );
 
         for (const module of modules) {
@@ -82,5 +82,6 @@ export class ACKIOSServiceRegistryBuilder {
     }
 
 }
+
 
 

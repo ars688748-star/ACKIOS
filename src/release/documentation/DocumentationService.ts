@@ -10,9 +10,25 @@ export class DocumentationService {
 
 
 
-    private readonly generator =
+    public constructor(
 
-        new DocumentationGenerator();
+
+        private readonly generator:
+
+            DocumentationGenerator,
+
+
+        private readonly architecture:
+
+            ArchitectureSummary,
+
+
+        private readonly installation:
+
+            InstallationGuide
+
+
+    ){}
 
 
 
@@ -34,7 +50,7 @@ export class DocumentationService {
 
                 content:
 
-                    new ArchitectureSummary().generate()
+                    this.architecture.generate()
 
 
             },
@@ -50,7 +66,7 @@ export class DocumentationService {
 
                 content:
 
-                    new InstallationGuide().generate()
+                    this.installation.generate()
 
 
             }

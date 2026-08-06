@@ -1,15 +1,17 @@
 import { ReleaseGateEngine } from "./ReleaseGateEngine.js";
 
 
-
 export class ReleaseGateService {
 
 
 
-    private readonly engine =
+    public constructor(
 
-        new ReleaseGateEngine();
+        private readonly engine:
 
+            ReleaseGateEngine
+
+    ){}
 
 
 

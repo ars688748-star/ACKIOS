@@ -20,6 +20,24 @@ export class ServiceContainer {
 
     }
 
+
+    public registerFactory<T>(
+        name:string,
+        factory:(container:ServiceContainer)=>T
+    ):void{
+
+        if(this.services.has(name)){
+            throw new Error(`Service '${name}' is already registered.`);
+        }
+
+        this.services.set(name,{
+            name,
+            lifetime:ServiceLifetime.Singleton,
+            factory:()=>factory(this)
+        });
+
+    }
+
     public resolve<T>(name: string): T {
 
         const descriptor = this.services.get(name);
@@ -28,7 +46,25 @@ export class ServiceContainer {
             throw new Error(`Service '${name}' not found.`);
         }
 
-        return descriptor.instance as T;
+        if(descriptor.instance){
+            return descriptor.instance as T;
+        }
+
+        if(descriptor.factory){
+
+            const instance =
+                descriptor.factory();
+
+            descriptor.instance =
+                instance;
+
+            return instance as T;
+
+        }
+
+        throw new Error(
+            `Service '${name}' cannot be resolved.`
+        );
 
     }
 
@@ -45,3 +81,5 @@ export class ServiceContainer {
     }
 
 }
+
+

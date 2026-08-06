@@ -1,24 +1,17 @@
 import { ReleasePackageBuilder } from "./ReleasePackageBuilder.js";
-
 import { ChecksumGenerator } from "./ChecksumGenerator.js";
-
 
 
 export class ReleasePackageService {
 
 
+    public constructor(
 
-    private readonly builder =
+        private readonly builder: ReleasePackageBuilder,
 
-        new ReleasePackageBuilder();
+        private readonly checksum: ChecksumGenerator
 
-
-
-    private readonly checksum =
-
-        new ChecksumGenerator();
-
-
+    ){}
 
 
 

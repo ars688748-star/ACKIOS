@@ -1,10 +1,9 @@
 import type { PackageArtifact } from "./PackageArtifact.js";
+import type { IPackager } from "./IPackager.js";
 
+export class MacOSPackager implements IPackager {
 
-
-export class MacOSPackager {
-
-
+    public readonly target = "macos";
 
     public package():
 
@@ -13,21 +12,17 @@ export class MacOSPackager {
 
         return {
 
-
             target:
 
                 "macos",
-
 
             name:
 
                 "ACKIOS-macOS",
 
-
             createdAt:
 
                 new Date()
-
 
         };
 

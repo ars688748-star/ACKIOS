@@ -1,32 +1,20 @@
 import { GitTagExecution } from "./GitTagExecution.js";
-
 import { GitHubReleaseExecution } from "./GitHubReleaseExecution.js";
-
 import { ReleaseAssetCheck } from "./ReleaseAssetCheck.js";
-
 
 
 export class ReleaseExecutionService {
 
 
+    public constructor(
 
-    private readonly tag =
+        private readonly tag: GitTagExecution,
 
-        new GitTagExecution();
+        private readonly github: GitHubReleaseExecution,
 
+        private readonly assets: ReleaseAssetCheck
 
-
-    private readonly github =
-
-        new GitHubReleaseExecution();
-
-
-
-    private readonly assets =
-
-        new ReleaseAssetCheck();
-
-
+    ){}
 
 
 
@@ -49,7 +37,6 @@ export class ReleaseExecutionService {
         const assets =
 
             this.assets.verify();
-
 
 
 
@@ -77,7 +64,6 @@ export class ReleaseExecutionService {
 
 
             ready:
-
 
                 tag.created &&
 

@@ -1,57 +1,33 @@
 import { GitTagManager } from "./GitTagManager.js";
-
 import { GitHubReleasePublisher } from "./GitHubReleasePublisher.js";
-
 import { ReleaseNotesGenerator } from "./ReleaseNotesGenerator.js";
-
 import { AssetUploader } from "./AssetUploader.js";
-
 import { PublicationWorkflow } from "./PublicationWorkflow.js";
-
 
 
 export class PublicationService {
 
 
+    public constructor(
 
-    private readonly tag =
+        private readonly tag: GitTagManager,
 
-        new GitTagManager();
+        private readonly publisher: GitHubReleasePublisher,
 
+        private readonly notes: ReleaseNotesGenerator,
 
+        private readonly assets: AssetUploader,
 
-    private readonly publisher =
+        private readonly workflow: PublicationWorkflow
 
-        new GitHubReleasePublisher();
-
-
-
-    private readonly notes =
-
-        new ReleaseNotesGenerator();
-
-
-
-    private readonly assets =
-
-        new AssetUploader();
-
-
-
-    private readonly workflow =
-
-        new PublicationWorkflow();
-
-
+    ){}
 
 
 
     public prepare(){
 
 
-
         return {
-
 
 
             tag:
@@ -81,7 +57,6 @@ export class PublicationService {
             publish:
 
                 this.publisher.publish()
-
 
 
         };

@@ -1,10 +1,9 @@
 import type { PackageArtifact } from "./PackageArtifact.js";
+import type { IPackager } from "./IPackager.js";
 
+export class LinuxPackager implements IPackager {
 
-
-export class LinuxPackager {
-
-
+    public readonly target = "linux";
 
     public package():
 
@@ -13,21 +12,17 @@ export class LinuxPackager {
 
         return {
 
-
             target:
 
                 "linux",
-
 
             name:
 
                 "ACKIOS-Linux",
 
-
             createdAt:
 
                 new Date()
-
 
         };
 

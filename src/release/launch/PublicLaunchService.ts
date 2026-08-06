@@ -10,9 +10,13 @@ export class PublicLaunchService {
 
 
 
-    private readonly validator =
+    public constructor(
 
-        new LaunchValidator();
+        private readonly validator:
+
+            LaunchValidator
+
+    ){}
 
 
 

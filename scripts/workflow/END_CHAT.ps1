@@ -149,6 +149,12 @@ $steps += Invoke-Step "Repository Boundary" {
 
 } -ContinueOnError
 
+$steps += Invoke-Step "Guardian Publish Analysis" {
+
+    Invoke-GuardianEndChat
+
+} -ContinueOnError
+
 $steps += Invoke-Step "Git Add" {
 
     Invoke-GitAdd
@@ -286,6 +292,8 @@ Write-Host ""
 Write-Host "Workflow state saved."
 Write-Host "Ready to open a new ChatGPT chat."
 Write-Host ""
+
+
 
 
 

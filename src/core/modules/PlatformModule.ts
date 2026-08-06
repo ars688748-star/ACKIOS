@@ -37,9 +37,19 @@ export class PlatformModule implements IServiceModule {
     public register(container: ServiceContainer): void {
 
 
+        const detector =
+            new NodePlatformDetector();
+
+        container.register(
+            "platformDetector",
+            detector
+        );
+
         container.register(
             "platform",
-            new PlatformService()
+            new PlatformService(
+                detector
+            )
         );
 
 
@@ -62,16 +72,6 @@ export class PlatformModule implements IServiceModule {
         container.register(
             "capabilityDiscovery",
             capabilityDiscovery
-        );
-
-
-        const detector =
-            new NodePlatformDetector();
-
-
-        container.register(
-            "platformDetector",
-            detector
         );
 
 
@@ -220,6 +220,7 @@ container.register(
     }
 
 }
+
 
 
 

@@ -1,8 +1,11 @@
 import type { ReleaseAsset } from "./ReleaseAsset.js";
+import type { IAssetBuilder } from "./IAssetBuilder.js";
 
 
+export class InstallerPackageBuilder implements IAssetBuilder {
 
-export class InstallerPackageBuilder {
+
+    public readonly name = "installer";
 
 
 

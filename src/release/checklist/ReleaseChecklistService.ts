@@ -14,6 +14,32 @@ export class ReleaseChecklistService {
 
 
 
+    public constructor(
+
+        private readonly repository:
+
+            RepositoryValidator,
+
+
+        private readonly build:
+
+            BuildValidator,
+
+
+        private readonly documentation:
+
+            DocumentationValidator,
+
+
+        private readonly installer:
+
+            InstallerValidator
+
+    ){}
+
+
+
+
     public validate():
 
         ReleaseChecklist {
@@ -24,23 +50,24 @@ export class ReleaseChecklistService {
 
 
 
-            new RepositoryValidator().validate(),
+            this.repository.validate(),
 
 
 
-            new BuildValidator().validate(),
+            this.build.validate(),
 
 
 
-            new DocumentationValidator().validate(),
+            this.documentation.validate(),
 
 
 
-            new InstallerValidator().validate()
+            this.installer.validate()
 
 
 
         ];
+
 
 
 

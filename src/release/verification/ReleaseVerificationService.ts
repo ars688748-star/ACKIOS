@@ -14,6 +14,40 @@ export class ReleaseVerificationService {
 
 
 
+    public constructor(
+
+
+        private readonly build:
+
+            BuildVerification,
+
+
+        private readonly pack:
+
+            PackageVerification,
+
+
+        private readonly installer:
+
+            InstallerVerification,
+
+
+        private readonly documentation:
+
+            DocumentationVerification,
+
+
+        private readonly version:
+
+            VersionVerification
+
+
+    ){}
+
+
+
+
+
     public verify(){
 
 
@@ -22,27 +56,28 @@ export class ReleaseVerificationService {
 
 
 
-            new BuildVerification().verify(),
+            this.build.verify(),
 
 
 
-            new PackageVerification().verify(),
+            this.pack.verify(),
 
 
 
-            new InstallerVerification().verify(),
+            this.installer.verify(),
 
 
 
-            new DocumentationVerification().verify(),
+            this.documentation.verify(),
 
 
 
-            new VersionVerification().verify()
+            this.version.verify()
 
 
 
         ];
+
 
 
 

@@ -8,13 +8,32 @@ export class ReleaseSealService {
 
 
 
+    public constructor(
+
+
+        private readonly candidateService:
+
+            ReleaseCandidate,
+
+
+        private readonly verification:
+
+            SealVerification
+
+
+    ){}
+
+
+
+
+
     public seal(){
 
 
 
         const candidate =
 
-            new ReleaseCandidate()
+            this.candidateService
 
                 .create();
 
@@ -22,7 +41,7 @@ export class ReleaseSealService {
 
         const verification =
 
-            new SealVerification()
+            this.verification
 
                 .verify();
 

@@ -8,9 +8,15 @@ export class ReleaseTagService {
 
 
 
-    private readonly roadmap =
+    public constructor(
 
-        new RoadmapReleaseUpdater();
+
+        private readonly roadmap:
+
+            RoadmapReleaseUpdater
+
+
+    ){}
 
 
 

@@ -2,6 +2,9 @@ import { describe, expect, test } from "vitest";
 
 import { PackagingEngine } from "../PackagingEngine.js";
 
+import { WindowsPackager } from "../WindowsPackager.js";
+import { LinuxPackager } from "../LinuxPackager.js";
+import { MacOSPackager } from "../MacOSPackager.js";
 
 
 describe(
@@ -20,7 +23,15 @@ describe(
 
                 const engine =
 
-                    new PackagingEngine();
+                    new PackagingEngine([
+
+                        new WindowsPackager(),
+
+                        new LinuxPackager(),
+
+                        new MacOSPackager()
+
+                    ]);
 
 
 

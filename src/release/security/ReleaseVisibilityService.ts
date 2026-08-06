@@ -1,16 +1,14 @@
 import { ReleaseVisibilityScanner } from "./ReleaseVisibilityScanner.js";
 
 
-
 export class ReleaseVisibilityService {
 
 
+    public constructor(
 
-    private readonly scanner =
+        private readonly scanner: ReleaseVisibilityScanner
 
-        new ReleaseVisibilityScanner();
-
-
+    ) {}
 
 
 

@@ -1,10 +1,9 @@
 import type { PackageArtifact } from "./PackageArtifact.js";
+import type { IPackager } from "./IPackager.js";
 
+export class WindowsPackager implements IPackager {
 
-
-export class WindowsPackager {
-
-
+    public readonly target = "windows";
 
     public package():
 
@@ -13,21 +12,17 @@ export class WindowsPackager {
 
         return {
 
-
             target:
 
                 "windows",
-
 
             name:
 
                 "ACKIOS-Windows",
 
-
             createdAt:
 
                 new Date()
-
 
         };
 

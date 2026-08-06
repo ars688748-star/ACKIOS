@@ -1,32 +1,31 @@
 import type { FinalReleaseReport } from "./FinalReleaseReport.js";
 
-import { TagPreparation } from "./TagPreparation.js";
-
-import { AssetPreparation } from "./AssetPreparation.js";
-
-import { ReleaseConfirmation } from "./ReleaseConfirmation.js";
-
+import type { TagPreparation } from "./TagPreparation.js";
+import type { AssetPreparation } from "./AssetPreparation.js";
+import type { ReleaseConfirmation } from "./ReleaseConfirmation.js";
 
 
 export class FinalReleaseService {
 
 
 
-    private readonly tag =
+    public constructor(
 
-        new TagPreparation();
+        private readonly tag:
 
-
-
-    private readonly assets =
-
-        new AssetPreparation();
+            TagPreparation,
 
 
+        private readonly assets:
 
-    private readonly confirmation =
+            AssetPreparation,
 
-        new ReleaseConfirmation();
+
+        private readonly confirmation:
+
+            ReleaseConfirmation
+
+    ){}
 
 
 
@@ -93,6 +92,7 @@ export class FinalReleaseService {
 
 
             };
+
 
 
 

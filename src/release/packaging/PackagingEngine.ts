@@ -1,14 +1,47 @@
-import { WindowsPackager } from "./WindowsPackager.js";
-
-import { LinuxPackager } from "./LinuxPackager.js";
-
-import { MacOSPackager } from "./MacOSPackager.js";
-
 import type { PackageTarget } from "./PackageTarget.js";
-
+import type { IPackager } from "./IPackager.js";
 
 
 export class PackagingEngine {
+
+
+    private readonly packagers:
+
+        Map<string, IPackager>;
+
+
+
+    public constructor(
+
+        packagers:
+
+            IPackager[]
+
+    ){
+
+
+        this.packagers =
+
+            new Map(
+
+                packagers.map(
+
+                    packager => [
+
+                        packager.target,
+
+                        packager
+
+                    ]
+
+                )
+
+            );
+
+
+    }
+
+
 
 
 
@@ -21,27 +54,31 @@ export class PackagingEngine {
     ){
 
 
-        switch(target){
+        const packager =
 
+            this.packagers.get(
 
-            case "windows":
+                target
 
-                return new WindowsPackager().package();
-
-
-
-            case "linux":
-
-                return new LinuxPackager().package();
+            );
 
 
 
-            case "macos":
+        if(!packager){
 
-                return new MacOSPackager().package();
+
+            throw new Error(
+
+                `Unsupported package target: ${target}`
+
+            );
 
 
         }
+
+
+
+        return packager.package();
 
 
     }

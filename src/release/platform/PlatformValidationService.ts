@@ -6,9 +6,15 @@ export class PlatformValidationService {
 
 
 
-    private readonly validator =
+    public constructor(
 
-        new CrossPlatformValidator();
+
+        private readonly validator:
+
+            CrossPlatformValidator
+
+
+    ){}
 
 
 

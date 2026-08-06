@@ -3,16 +3,14 @@ import type { ReleaseVisibilityReport } from "./ReleaseVisibilityReport.js";
 import { PrivateFileRule } from "./PrivateFileRule.js";
 
 
-
 export class ReleaseVisibilityScanner {
 
 
+    public constructor(
 
-    private readonly rule =
+        private readonly rule: PrivateFileRule
 
-        new PrivateFileRule();
-
-
+    ) {}
 
 
 

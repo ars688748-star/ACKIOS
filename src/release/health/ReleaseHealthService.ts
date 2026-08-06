@@ -1,39 +1,42 @@
 import { RepositoryHealthCheck } from "./RepositoryHealthCheck.js";
-
 import { VersionHealthCheck } from "./VersionHealthCheck.js";
-
 import { BuildHealthCheck } from "./BuildHealthCheck.js";
-
 import { TestHealthCheck } from "./TestHealthCheck.js";
 
 
-
 export class ReleaseHealthService {
+
+
+    public constructor(
+
+        private readonly repository: RepositoryHealthCheck,
+
+        private readonly version: VersionHealthCheck,
+
+        private readonly build: BuildHealthCheck,
+
+        private readonly tests: TestHealthCheck
+
+    ){}
 
 
 
     public check(){
 
 
-
         const checks = [
 
 
-
-            new RepositoryHealthCheck().check(),
-
+            this.repository.check(),
 
 
-            new VersionHealthCheck().check(),
+            this.version.check(),
 
 
-
-            new BuildHealthCheck().check(),
-
+            this.build.check(),
 
 
-            new TestHealthCheck().check()
-
+            this.tests.check()
 
 
         ];
@@ -41,15 +44,12 @@ export class ReleaseHealthService {
 
 
 
-
         return {
-
 
 
             version:
 
                 "1.0.0",
-
 
 
             healthy:
@@ -61,7 +61,6 @@ export class ReleaseHealthService {
                 ),
 
 
-
             checks:
 
                 checks.map(
@@ -69,7 +68,6 @@ export class ReleaseHealthService {
                     item => item.name
 
                 )
-
 
 
         };

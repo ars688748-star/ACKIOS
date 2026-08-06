@@ -1,42 +1,101 @@
-import {UploadQueue} from "./UploadQueue.js";
-import {GitHubReleaseTarget} from "./GitHubReleaseTarget.js";
-import {UploadExecutor} from "./UploadExecutor.js";
+import { UploadQueue } from "./UploadQueue.js";
+
+import { GitHubReleaseTarget } from "./GitHubReleaseTarget.js";
+
+import { UploadExecutor } from "./UploadExecutor.js";
+
 
 
 export class ReleaseUploadService {
 
 
- public upload(){
 
-  const assets =
-   new UploadQueue()
-   .getAssets();
+    public constructor(
 
 
-  const target =
-   new GitHubReleaseTarget()
-   .getTarget();
+        private readonly queue:
+
+            UploadQueue,
 
 
-  const execution =
-   new UploadExecutor()
-   .execute();
+        private readonly targetService:
+
+            GitHubReleaseTarget,
 
 
-  return {
+        private readonly executor:
 
-   assets,
+            UploadExecutor
 
-   target,
 
-   execution,
+    ){}
 
-   ready:
-    target.ready &&
-    execution.uploaded
 
-  };
 
- }
+
+
+    public upload(){
+
+
+
+        const assets =
+
+            this.queue
+
+                .getAssets();
+
+
+
+
+
+        const target =
+
+            this.targetService
+
+                .getTarget();
+
+
+
+
+
+        const execution =
+
+            this.executor
+
+                .execute();
+
+
+
+
+
+        return {
+
+
+
+            assets,
+
+
+
+            target,
+
+
+
+            execution,
+
+
+
+            ready:
+
+                target.ready &&
+
+                execution.uploaded
+
+
+
+        };
+
+
+    }
+
 
 }

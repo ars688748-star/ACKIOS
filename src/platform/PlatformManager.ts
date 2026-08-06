@@ -11,9 +11,14 @@ import { PlatformRegistrationService } from "./registration/PlatformRegistration
 
 import { BrainIntegration } from "./integration/BrainIntegration.js";
 
+import { NodePlatformDetector } from "./detection/NodePlatformDetector.js";
+
 export class PlatformManager implements IPlatformManager {
 
-    private readonly platform = new PlatformService();
+    private readonly platform =
+        new PlatformService(
+            new NodePlatformDetector()
+        );
 
     public readonly registry =
         new PlatformRegistryService();

@@ -3,7 +3,11 @@ import { PlatformInfo } from "./models/PlatformInfo.js";
 
 export class PlatformService {
 
-    private readonly detector = new NodePlatformDetector();
+    public constructor(
+
+        private readonly detector: NodePlatformDetector
+
+    ) {}
 
     public getInfo(): PlatformInfo {
 

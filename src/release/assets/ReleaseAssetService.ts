@@ -1,12 +1,29 @@
-import { SourcePackageBuilder } from "./SourcePackageBuilder.js";
-
-import { InstallerPackageBuilder } from "./InstallerPackageBuilder.js";
-
-import { ChecksumGenerator } from "./ChecksumGenerator.js";
-
+import type { SourcePackageBuilder } from "./SourcePackageBuilder.js";
+import type { InstallerPackageBuilder } from "./InstallerPackageBuilder.js";
+import type { ChecksumGenerator } from "./ChecksumGenerator.js";
 
 
 export class ReleaseAssetService {
+
+
+    public constructor(
+
+        private readonly source:
+
+            SourcePackageBuilder,
+
+
+        private readonly installer:
+
+            InstallerPackageBuilder,
+
+
+        private readonly checksum:
+
+            ChecksumGenerator
+
+    ){}
+
 
 
 
@@ -16,25 +33,19 @@ export class ReleaseAssetService {
 
         const source =
 
-            new SourcePackageBuilder()
-
-                .build();
+            this.source.build();
 
 
 
         const installer =
 
-            new InstallerPackageBuilder()
-
-                .build();
+            this.installer.build();
 
 
 
         const checksum =
 
-            new ChecksumGenerator()
-
-                .generate();
+            this.checksum.generate();
 
 
 
@@ -47,13 +58,10 @@ export class ReleaseAssetService {
             source,
 
 
-
             installer,
 
 
-
             checksum,
-
 
 
             ready:

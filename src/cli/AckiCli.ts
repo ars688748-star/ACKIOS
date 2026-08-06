@@ -9,6 +9,9 @@ import { BuildCommand } from "./commands/BuildCommand.js";
 import { TestCommand } from "./commands/TestCommand.js";
 import { DocsCommand } from "./commands/DocsCommand.js";
 import { ArchitectureValidateCommand } from "./commands/ArchitectureValidateCommand.js";
+import { PublishCommand } from "./commands/PublishCommand.js";
+import { InspectCommand } from "./commands/InspectCommand.js";
+import { HealthCommand } from "./commands/HealthCommand.js";
 
 import { Command } from "./core/Command.js";
 import { ACKIOSApplication } from "../runtime/ACKIOSApplication.js";
@@ -32,28 +35,23 @@ export class AckiCli {
         this.register(new TestCommand());
         this.register(new DocsCommand());
         this.register(new ArchitectureValidateCommand());
+        this.register(new PublishCommand());
+        this.register(new InspectCommand());
+        this.register(new HealthCommand());
 
     }
 
-    private register(
-        command: Command
-    ): void {
+    private register(command: Command): void {
 
-        this.commands.set(
-            command.name,
-            command
-        );
+        this.commands.set(command.name, command);
 
     }
 
-    public async run(
-        args: string[]
-    ): Promise<number> {
+    public async run(args: string[]): Promise<number> {
 
         const name = args[0] ?? "help";
 
-        const command =
-            this.commands.get(name);
+        const command = this.commands.get(name);
 
         if (!command) {
 
@@ -76,3 +74,5 @@ export class AckiCli {
     }
 
 }
+
+

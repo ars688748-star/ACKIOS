@@ -1,14 +1,17 @@
 import { GitReleaseManager } from "./GitReleaseManager.js";
 
 
-
 export class GitReleaseService {
 
 
 
-    private readonly manager =
+    public constructor(
 
-        new GitReleaseManager();
+        private readonly manager:
+
+            GitReleaseManager
+
+    ){}
 
 
 

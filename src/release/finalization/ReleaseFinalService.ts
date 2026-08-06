@@ -1,25 +1,25 @@
 import type { ReleaseFinalReport } from "./ReleaseFinalReport.js";
 
-import { ReleaseFinalChecker } from "./ReleaseFinalChecker.js";
-
-import { ReleaseSummaryGenerator } from "./ReleaseSummaryGenerator.js";
-
+import type { ReleaseFinalChecker } from "./ReleaseFinalChecker.js";
+import type { ReleaseSummaryGenerator } from "./ReleaseSummaryGenerator.js";
 
 
 export class ReleaseFinalService {
 
 
 
-    private readonly checker =
+    public constructor(
 
-        new ReleaseFinalChecker();
+        private readonly checker:
+
+            ReleaseFinalChecker,
 
 
+        private readonly summary:
 
+            ReleaseSummaryGenerator
 
-    private readonly summary =
-
-        new ReleaseSummaryGenerator();
+    ){}
 
 
 
@@ -38,7 +38,9 @@ export class ReleaseFinalService {
 
 
 
+
         return {
+
 
 
             version:

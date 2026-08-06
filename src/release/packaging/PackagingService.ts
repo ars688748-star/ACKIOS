@@ -1,16 +1,17 @@
+import type { PackageTarget } from "./PackageTarget.js";
 import { PackagingEngine } from "./PackagingEngine.js";
-
 
 
 export class PackagingService {
 
 
+    public constructor(
 
-    private readonly engine =
+        private readonly engine:
 
-        new PackagingEngine();
+            PackagingEngine
 
-
+    ){}
 
 
 
@@ -18,11 +19,7 @@ export class PackagingService {
 
         target:
 
-            "windows"
-
-            | "linux"
-
-            | "macos"
+            PackageTarget
 
     ){
 

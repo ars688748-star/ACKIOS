@@ -12,23 +12,25 @@ export class CrossPlatformValidator {
 
 
 
-    private readonly detector =
-
-        new PlatformDetector();
+    public constructor(
 
 
+        private readonly detector:
+
+            PlatformDetector,
 
 
-    private readonly osValidator =
+        private readonly osValidator:
 
-        new OSValidator();
-
-
+            OSValidator,
 
 
-    private readonly runtime =
+        private readonly runtime:
 
-        new RuntimeCompatibility();
+            RuntimeCompatibility
+
+
+    ){}
 
 
 
@@ -59,6 +61,7 @@ export class CrossPlatformValidator {
         const runtime =
 
             this.runtime.check();
+
 
 
 

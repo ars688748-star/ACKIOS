@@ -1,25 +1,17 @@
 import { ReleasePreparationEngine } from "./ReleasePreparationEngine.js";
-
 import { PublicPackageChecker } from "./PublicPackageChecker.js";
-
 
 
 export class ReleasePreparationService {
 
 
+    public constructor(
 
-    private readonly engine =
+        private readonly engine: ReleasePreparationEngine,
 
-        new ReleasePreparationEngine();
+        private readonly checker: PublicPackageChecker
 
-
-
-
-    private readonly checker =
-
-        new PublicPackageChecker();
-
-
+    ){}
 
 
 

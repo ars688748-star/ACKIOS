@@ -12,21 +12,25 @@ export class GitHubReleaseService {
 
 
 
-    private readonly assets =
-
-        new ReleaseAssetManager();
+    public constructor(
 
 
+        private readonly assets:
 
-    private readonly publisher =
-
-        new ReleasePublisher();
-
+            ReleaseAssetManager,
 
 
-    private readonly workflow =
+        private readonly publisher:
 
-        new ReleaseWorkflow();
+            ReleasePublisher,
+
+
+        private readonly workflow:
+
+            ReleaseWorkflow
+
+
+    ){}
 
 
 

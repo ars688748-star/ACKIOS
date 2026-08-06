@@ -1,25 +1,17 @@
 import { VersionManager } from "./VersionManager.js";
-
 import { ReleaseCandidateBuilder } from "./ReleaseCandidateBuilder.js";
-
 
 
 export class ReleaseCandidateService {
 
 
+    public constructor(
 
-    private readonly version =
+        private readonly version: VersionManager,
 
-        new VersionManager();
+        private readonly builder: ReleaseCandidateBuilder
 
-
-
-
-    private readonly builder =
-
-        new ReleaseCandidateBuilder();
-
-
+    ){}
 
 
 

@@ -1,5 +1,6 @@
 import { ReleaseGateService } from "./ReleaseGateService.js";
 
+import { ReleaseGateEngine } from "./ReleaseGateEngine.js";
 
 
 export class ReleaseGateFactory {
@@ -9,7 +10,13 @@ export class ReleaseGateFactory {
     public static create(){
 
 
-        return new ReleaseGateService();
+        return new ReleaseGateService(
+
+
+            new ReleaseGateEngine()
+
+
+        );
 
 
     }
