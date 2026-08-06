@@ -33,9 +33,16 @@ export class ACKIOSRuntimeBuilder {
 
         return new ACKIOSRuntime(
             context,
-            this.modules
+            this.modules,
+            this.serviceModules
         );
 
     }
 
 }
+
+
+
+
+
+

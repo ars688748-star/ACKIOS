@@ -2,6 +2,7 @@ import { ServiceContainer } from "../ServiceContainer.js";
 import { KernelContext } from "./KernelContext.js";
 import { KernelState } from "./KernelState.js";
 import { IServiceModule } from "../modules/IServiceModule.js";
+import { IInitializableModule } from "../modules/IInitializableModule.js";
 
 
 export class KernelRuntime {
@@ -52,7 +53,7 @@ export class KernelRuntime {
 
 
 
-    public start(): KernelContext {
+    public async start(): Promise<KernelContext> {
 
 
         this.state.status =
@@ -69,6 +70,27 @@ export class KernelRuntime {
             this.context.addModule(
                 module.constructor.name
             );
+
+        }
+
+
+        for (const module of this.modules) {
+
+
+            if(
+
+                "initialize" in module
+
+            ){
+
+                await (
+
+                    module as IInitializableModule
+
+                ).initialize();
+
+            }
+
 
         }
 
@@ -90,3 +112,6 @@ export class KernelRuntime {
 
 
 }
+
+
+

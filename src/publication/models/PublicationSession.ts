@@ -1,11 +1,25 @@
-import { GuardianResult } from "../../guardian/models/GuardianResult.js";
+import type { GuardianResult } from "../../guardian/models/GuardianResult.js";
+
 
 export interface PublicationSession {
 
-    guardian: GuardianResult;
 
-    provider: string;
+    provider:
 
-    createdAt: Date;
+        string;
+
+
+
+    guardian:
+
+        GuardianResult;
+
+
+
+    createdAt:
+
+        Date;
+
+
 
 }

@@ -1,0 +1,7 @@
+{
+    "id": "demo-gitlab",
+    "name": "Demo GitLab Plugin",
+    "version": "1.0.0",
+    "type": "publication",
+    "entry": "./plugin.js"
+}

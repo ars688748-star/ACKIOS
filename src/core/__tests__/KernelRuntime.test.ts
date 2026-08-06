@@ -9,7 +9,7 @@ describe(
 
         test(
             "starts kernel with modules",
-            () => {
+            async () => {
 
                 const kernel =
                     new KernelRuntime();
@@ -21,7 +21,7 @@ describe(
 
 
                 const context =
-                    kernel.start();
+                    await kernel.start();
 
 
                 expect(
@@ -38,3 +38,5 @@ describe(
 
     }
 );
+
+

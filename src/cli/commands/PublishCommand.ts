@@ -1,38 +1,184 @@
 import { Command } from "../core/Command.js";
 import { CommandContext } from "../models/CommandContext.js";
 
-import { PublicationCenter } from "../../publication/services/PublicationCenter.js";
+import { PublishWorkflow } from "../../publication/workflow/PublishWorkflow.js";
+import { PublicationWizard } from "../../publication/session/PublicationWizard.js";
+
 
 export class PublishCommand implements Command {
 
+
     public readonly name = "publish";
 
+
+
     public async execute(
-        context: CommandContext
+
+        context:
+
+            CommandContext
+
     ): Promise<number> {
 
+
+
         console.log("");
+
         console.log("ACKIOS Publish");
+
         console.log("================");
 
-        const publicationCenter =
-            context.application.kernel.getService<PublicationCenter>(
-                "publicationCenter"
+
+
+
+
+        const wizard =
+
+            context.application.kernel.getService<PublicationWizard>(
+                "publicationWizard"
             );
 
-        const session =
-            await publicationCenter.createSession();
+        const platforms =
+            wizard.platforms();
 
-        await publicationCenter.publish(
-            session
+        console.log("");
+        console.log("Available platforms:");
+
+        platforms.forEach(
+            platform =>
+                console.log("- " + platform.id)
         );
 
-        console.log("");
-        console.log("[ OK ] Publish completed.");
+        const workflow =
+
+            context.application.kernel.getService<PublishWorkflow>(
+
+                "publishWorkflow"
+
+            );
+
+
+
+
+
+        const result =
+
+            await workflow.execute({
+
+
+
+                platform:
+
+                    platforms[0].id,
+
+
+
+                artifact:
+
+                    "ACKIOS-release",
+
+
+
+                credentials:
+
+                    [
+
+
+
+                        {
+
+                            type:
+
+                                "token",
+
+
+
+                            value:
+
+                                true
+
+
+
+                        }
+
+
+
+                    ]
+
+
+
+            });
+
+
+
+
+
+
         console.log("");
 
-        return 0;
+        console.log(
+
+            JSON.stringify(
+
+                result,
+
+                null,
+
+                2
+
+            )
+
+        );
+
+
+
+
+
+        if(
+
+            result.success
+
+        ){
+
+
+
+            console.log("");
+
+            console.log(
+
+                "[ OK ] Publication completed."
+
+            );
+
+
+
+            return 0;
+
+
+
+        }
+
+
+
+
+
+        console.log("");
+
+        console.log(
+
+            "[ FAILED ] Publication failed."
+
+        );
+
+
+
+        return 1;
+
+
 
     }
 
+
 }
+
+

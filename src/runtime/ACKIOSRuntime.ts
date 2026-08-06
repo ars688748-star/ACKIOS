@@ -5,6 +5,8 @@ import { IRuntimeLifecycle } from "./lifecycle/IRuntimeLifecycle.js";
 import { RuntimeState } from "./lifecycle/RuntimeState.js";
 import { RuntimeStatus } from "./lifecycle/RuntimeStatus.js";
 import { IPlatformManager } from "../platform/contracts/IPlatformManager.js";
+import { IServiceModule } from "../core/modules/IServiceModule.js";
+import { IInitializableModule } from "../core/modules/IInitializableModule.js";
 
 export class ACKIOSRuntime implements IRuntimeLifecycle {
 
@@ -14,7 +16,8 @@ export class ACKIOSRuntime implements IRuntimeLifecycle {
 
     public constructor(
         public readonly context: ACKIOSContext,
-        public readonly modules: IRuntimeModule[]
+        public readonly modules: IRuntimeModule[],
+        public readonly serviceModules: IServiceModule[]
     ) {}
 
     public getStatus(): RuntimeStatus {
@@ -56,6 +59,19 @@ export class ACKIOSRuntime implements IRuntimeLifecycle {
 
             for (const module of this.modules)
                 await module.initialize(this.context);
+
+
+            for (const module of this.serviceModules) {
+
+                if(
+                    "initialize" in module
+                ){
+
+                    await (module as IInitializableModule).initialize();
+
+                }
+
+            }
 
             this.status = {
                 ...this.status,
@@ -155,3 +171,8 @@ export class ACKIOSRuntime implements IRuntimeLifecycle {
     }
 
 }
+
+
+
+
+

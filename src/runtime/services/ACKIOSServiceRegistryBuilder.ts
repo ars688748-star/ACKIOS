@@ -13,6 +13,7 @@ import { PlatformManager } from "../../platform/PlatformManager.js";
 import { ProjectIntelligenceBuilder } from "../../intelligence/ProjectIntelligenceBuilder.js";
 
 import { IServiceModule } from "../../core/modules/IServiceModule.js";
+import { IInitializableModule } from "../../core/modules/IInitializableModule.js";
 
 export class ACKIOSServiceRegistryBuilder {
 
@@ -82,6 +83,7 @@ export class ACKIOSServiceRegistryBuilder {
     }
 
 }
+
 
 
 
