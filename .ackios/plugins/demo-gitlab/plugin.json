@@ -3,5 +3,10 @@
     "name": "Demo GitLab Plugin",
     "version": "1.0.0",
     "type": "publication",
-    "entry": "./plugin.js"
+    "entry": "./plugin.js",
+    "description": "Example external publication plugin for ACKIOS",
+    "author": "ACKIOS",
+    "capabilities": [
+        "publish"
+    ]
 }

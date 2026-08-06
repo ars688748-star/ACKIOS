@@ -1,14 +1,14 @@
 export default {
 
-    id: "demo-external",
+    id: "demo-gitlab",
 
-    name: "Demo External Plugin",
+    name: "Demo GitLab Plugin",
 
     platform: {
 
-        id: "demo-external",
+        id: "demo-gitlab",
 
-        name: "Demo External Platform",
+        name: "Demo GitLab Platform",
 
 
         async connect(){
@@ -22,7 +22,7 @@ export default {
 
             return {
 
-                platform: "demo-external",
+                platform: "demo-gitlab",
 
                 status: "published",
 
@@ -39,9 +39,11 @@ export default {
     async activate(){
 
         console.log(
-            "Demo External Plugin activated"
+            "Demo GitLab Plugin activated"
         );
 
     }
 
 };
+
+
