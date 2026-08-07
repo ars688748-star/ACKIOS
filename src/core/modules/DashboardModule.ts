@@ -1,6 +1,7 @@
 import type { IServiceModule } from "./IServiceModule.js";
 
 import type { ServiceContainer } from "../ServiceContainer.js";
+import { Logger } from "../Logger.js";
 import type { ArchitectureGraphProvider } from "../../architecture/ArchitectureGraphProvider.js";
 import type { HealthEngine } from "../../health/HealthEngine.js";
 import type { BrainSystem } from "../../brain/integration/BrainSystem.js";
@@ -27,6 +28,15 @@ export class DashboardModule implements IServiceModule {
 
     ): void {
 
+    const logger =
+
+        container.resolve<Logger>(
+
+            "logger"
+
+        );
+
+
 
 
 
@@ -42,7 +52,7 @@ export class DashboardModule implements IServiceModule {
 
 
 
-        console.log("DashboardModule pluginProvider OK");
+        logger.info("Dashboard plugin provider initialized");
 
 
         const architectureProvider =
@@ -54,7 +64,7 @@ export class DashboardModule implements IServiceModule {
             );
 
 
-        console.log("DashboardModule architectureProvider OK");
+        logger.info("Dashboard architecture provider initialized");
 
 
         const healthEngine =
@@ -66,7 +76,7 @@ export class DashboardModule implements IServiceModule {
             );
 
 
-        console.log("DashboardModule healthEngine OK");
+        logger.info("Dashboard health engine initialized");
 
 
         const brainSystem =
@@ -78,7 +88,7 @@ export class DashboardModule implements IServiceModule {
             );
 
 
-        console.log("DashboardModule brainSystem OK");
+        logger.info("Dashboard brain system initialized");
 
 
         const projectIntelligence =
@@ -90,7 +100,7 @@ export class DashboardModule implements IServiceModule {
             );
 
 
-        console.log("DashboardModule intelligence OK");
+        logger.info("Dashboard intelligence initialized");
 
 
         const cognitiveRuntime =
@@ -124,11 +134,7 @@ export class DashboardModule implements IServiceModule {
 
 
 
-        console.log(
-
-            "DashboardModule: registering dashboard service"
-
-        );
+        logger.info("Dashboard service registered");
 
 
         container.register(
@@ -148,6 +154,13 @@ export class DashboardModule implements IServiceModule {
 
 
 }
+
+
+
+
+
+
+
 
 
 

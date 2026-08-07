@@ -9,6 +9,7 @@ import { DashboardModule } from "../../core/modules/DashboardModule.js";
 import { ScannerModule } from "../../core/modules/ScannerModule.js";
 import { InspectorModule } from "../../core/modules/InspectorModule.js";
 import { HealthModule } from "../../core/modules/HealthModule.js";
+import { UniverseModule } from "../../core/modules/UniverseModule.js";
 import { GuardianModule } from "../../core/modules/GuardianModule.js";
 import { ReleaseModule } from "../../core/modules/ReleaseModule.js";
 import { PluginManagerModule } from "../../core/modules/PluginManagerModule.js";
@@ -29,6 +30,7 @@ export class ACKIOSServiceModuleRegistryBuilder {
             new InspectorModule(),
 
             new HealthModule(),
+        new UniverseModule(),
 
             new GuardianModule(),
 
@@ -47,6 +49,9 @@ export class ACKIOSServiceModuleRegistryBuilder {
     }
 
 }
+
+
+
 
 
 

@@ -102,10 +102,6 @@ export class ACKIOSServiceRegistryBuilder {
         context.services.registerFactory(
             "platformManager",
             () => new PlatformManager()
-        );console.log(
-            modules.map(
-                m => m.constructor.name
-            )
         );
 
 
@@ -115,11 +111,7 @@ export class ACKIOSServiceRegistryBuilder {
 
                 ? modules
 
-                : new ACKIOSServiceModuleRegistryBuilder().build();console.log(
-            activeModules.map(
-                m => m.constructor.name
-            )
-        );
+                : new ACKIOSServiceModuleRegistryBuilder().build();
 
 
         for (const module of activeModules) {
@@ -143,6 +135,7 @@ export class ACKIOSServiceRegistryBuilder {
     }
 
 }
+
 
 
 
