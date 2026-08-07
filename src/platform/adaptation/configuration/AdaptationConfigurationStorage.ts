@@ -1,9 +1,8 @@
 import { promises as fs } from "fs";
+import path from "path";
 import { AdaptationConfiguration } from "./AdaptationConfiguration.js";
 
-
 export class AdaptationConfigurationStorage {
-
 
     public constructor(
         private readonly filePath: string
@@ -13,6 +12,14 @@ export class AdaptationConfigurationStorage {
     public async save(
         configuration: AdaptationConfiguration
     ): Promise<void> {
+
+
+        await fs.mkdir(
+            path.dirname(this.filePath),
+            {
+                recursive: true
+            }
+        );
 
 
         await fs.writeFile(
@@ -82,6 +89,5 @@ export class AdaptationConfigurationStorage {
 
 
     }
-
 
 }

@@ -21,10 +21,20 @@ export class PluginScanner {
         const plugins:
 
             PluginInfo[] = [];
+    try {
+
+        await fs.access(root);
+
+    }
+
+    catch {
+
+        return plugins;
+
+    }
 
 
-
-        const entries =
+    const entries =
 
             await fs.readdir(
 
@@ -147,3 +157,4 @@ export class PluginScanner {
 
 
 }
+

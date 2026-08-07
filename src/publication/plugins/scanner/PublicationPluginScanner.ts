@@ -25,10 +25,20 @@ export class PublicationPluginScanner {
         const manifests:
 
             PublicationPluginManifest[] = [];
+    try {
+
+        await fs.access(root);
+
+    }
+
+    catch {
+
+        return manifests;
+
+    }
 
 
-
-        const entries =
+    const entries =
 
             await fs.readdir(
 
@@ -159,6 +169,13 @@ export class PublicationPluginScanner {
 
 
 }
+
+
+
+
+
+
+
 
 
 

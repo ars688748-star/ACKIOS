@@ -1,4 +1,5 @@
 import { promises as fs } from "fs";
+import path from "path";
 import { IStrategyStorage } from "./IStrategyStorage.js";
 import { StrategyProfile } from "../models/StrategyProfile.js";
 
@@ -16,7 +17,14 @@ export class FileStrategyStorage implements IStrategyStorage {
     ): Promise<void> {
 
 
-        await fs.writeFile(
+        await fs.mkdir(
+        path.dirname(this.filePath),
+        {
+            recursive: true
+        }
+    );
+
+    await fs.writeFile(
             this.filePath,
             JSON.stringify(
                 strategy,
@@ -81,4 +89,5 @@ export class FileStrategyStorage implements IStrategyStorage {
 
 
 }
+
 
