@@ -1,9 +1,12 @@
 import { bootstrap } from "../runtime/bootstrap.js";
+import { StartupReport } from "./StartupReport.js";
 
 
 async function main() {
 
-    await bootstrap();
+    const app = await bootstrap();
+
+    StartupReport.print(app);
 
     console.log(
         "ACKIOS Application started"
@@ -25,3 +28,4 @@ main().catch(
     }
 
 );
+
