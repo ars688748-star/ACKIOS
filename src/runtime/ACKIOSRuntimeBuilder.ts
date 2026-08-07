@@ -24,6 +24,14 @@ export class ACKIOSRuntimeBuilder {
 
     public build(): ACKIOSRuntime {
 
+        console.log(
+            "SERVICE MODULES:",
+            this.serviceModules.length,
+            this.serviceModules.map(
+                m => m.constructor.name
+            )
+        );
+
         const context = new ACKIOSContext();
 
         new ACKIOSServiceRegistryBuilder().register(
@@ -40,6 +48,7 @@ export class ACKIOSRuntimeBuilder {
     }
 
 }
+
 
 
 

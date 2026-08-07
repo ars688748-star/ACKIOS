@@ -13,13 +13,19 @@ import { PlatformManager } from "../../platform/PlatformManager.js";
 import { ProjectIntelligenceBuilder } from "../../intelligence/ProjectIntelligenceBuilder.js";
 
 import { IServiceModule } from "../../core/modules/IServiceModule.js";
+import { ACKIOSServiceModuleRegistryBuilder } from "./ACKIOSServiceModuleRegistryBuilder.js";
 import { IInitializableModule } from "../../core/modules/IInitializableModule.js";
+import { PluginManager } from "../../plugins/manager/PluginManager.js";
+import { PluginExplorerService } from "../../plugins/explorer/PluginExplorerService.js";
+import { DashboardController } from "../../dashboard/api/DashboardController.js";
+import { DashboardService } from "../../dashboard/core/DashboardService.js";
+import { PluginExplorerProvider } from "../../plugins/explorer/provider/PluginExplorerProvider.js";
 
 export class ACKIOSServiceRegistryBuilder {
 
     public register(
         context: ACKIOSContext,
-        modules: readonly IServiceModule[]
+        modules: readonly IServiceModule[] = new ACKIOSServiceModuleRegistryBuilder().build()
     ): void {
 
         context.services.register(
@@ -40,6 +46,32 @@ export class ACKIOSServiceRegistryBuilder {
         context.services.register(
             "toolkit",
             new Toolkit()
+        );
+
+
+        context.services.register(
+            "pluginManager",
+            new PluginManager()
+        );
+
+
+        context.services.register(
+            "pluginExplorer",
+            new PluginExplorerService(
+                context.services.resolve<PluginManager>(
+                    "pluginManager"
+                )
+            )
+        );
+
+
+        context.services.register(
+            "pluginExplorerProvider",
+            new PluginExplorerProvider(
+                context.services.resolve<PluginExplorerService>(
+                    "pluginExplorer"
+                )
+            )
         );
 
         context.services.register(
@@ -70,9 +102,27 @@ export class ACKIOSServiceRegistryBuilder {
         context.services.registerFactory(
             "platformManager",
             () => new PlatformManager()
+        );console.log(
+            modules.map(
+                m => m.constructor.name
+            )
         );
 
-        for (const module of modules) {
+
+        const activeModules =
+
+            modules.length > 0
+
+                ? modules
+
+                : new ACKIOSServiceModuleRegistryBuilder().build();console.log(
+            activeModules.map(
+                m => m.constructor.name
+            )
+        );
+
+
+        for (const module of activeModules) {
 
             module.register(
                 context.services
@@ -80,9 +130,38 @@ export class ACKIOSServiceRegistryBuilder {
 
         }
 
+
+        context.services.register(
+            "dashboardController",
+            new DashboardController(
+                context.services.resolve<DashboardService>(
+                    "dashboard"
+                )
+            )
+        );
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

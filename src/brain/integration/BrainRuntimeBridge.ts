@@ -7,7 +7,7 @@ export class BrainRuntimeBridge {
 
     constructor(
         private readonly brain: BrainRuntime,
-        private readonly cognition: CognitiveRuntime
+        public readonly cognition: CognitiveRuntime
     ) {}
 
     async initialize(): Promise<void> {
@@ -36,3 +36,4 @@ export class BrainRuntimeBridge {
     }
 
 }
+
